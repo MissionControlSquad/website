@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = "https://missioncontrol.jagodana.com";
+  const siteUrl = "https://agentcenter.cloud";
 
   return {
     rules: [
