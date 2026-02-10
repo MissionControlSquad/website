@@ -102,15 +102,14 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            {/* Dashboard placeholder */}
-            <div className="aspect-[16/9] bg-neutral-900 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-neutral-500 text-lg">Dashboard Preview</p>
-                <p className="text-neutral-600 text-sm mt-2">
-                  Screenshot of Mission Control dashboard goes here
-                </p>
-              </div>
-            </div>
+            {/* Dashboard screenshot */}
+            <img
+              src="/dashboard-preview.png"
+              alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
+              width={1920}
+              height={1080}
+              className="w-full h-auto"
+            />
           </div>
         </motion.div>
       </Container>
