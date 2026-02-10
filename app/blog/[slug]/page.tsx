@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 interface Props {
@@ -44,8 +45,42 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  // Article JSON-LD for Google rich results
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Jagodana LLC",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_CONFIG.url}/android-icon-192x192.png`,
+      },
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_CONFIG.url}/blog/${slug}`,
+    },
+    image: `${SITE_CONFIG.url}/og-image.png`,
+    keywords: post.tags.join(", "),
+  };
+
   return (
     <div className="min-h-screen bg-neutral-950">
+      {/* Article schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
       {/* Header */}
       <div className="pt-32 pb-12 border-b border-neutral-800">
         <Container>
