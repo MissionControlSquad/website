@@ -274,8 +274,12 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* DNS prefetch for analytics (when added) */}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Ahrefs analytics */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="+Xe4CTe4ZFguIA3mzh3qvA"
+          async
+        />
         {/* JSON-LD structured data */}
         <script
           type="application/ld+json"
