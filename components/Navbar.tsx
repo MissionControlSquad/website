@@ -86,7 +86,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
-              <Button size="sm">Subscribe</Button>
+              <Button size="sm">Get Early Access</Button>
             </a>
           </div>
 
@@ -133,7 +133,7 @@ export default function Navbar() {
                 <div className="pt-4 border-t border-neutral-800">
                   <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     <Button className="w-full" size="md">
-                      Subscribe
+                      Get Early Access
                     </Button>
                   </a>
                 </div>
