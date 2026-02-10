@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, CheckCircle } from "@/components/icons";
+import { Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, TRUST_INDICATORS } from "@/lib/constants";
 
@@ -27,20 +26,6 @@ const itemVariants = {
 };
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
-    // Replace with actual API call
-    setTimeout(() => {
-      setStatus("success");
-      setEmail("");
-    }, 1000);
-  };
-
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
       {/* Background gradient */}
@@ -60,7 +45,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium">
               <Sparkles size={16} aria-hidden="true" />
-              <span>Built for OpenClaw — early bird access</span>
+              <span>Built for OpenClaw agents</span>
             </span>
           </motion.div>
 
@@ -79,44 +64,6 @@ export default function Hero() {
           >
             {SITE_CONFIG.description}
           </motion.p>
-
-          {/* Early bird email form */}
-          <motion.div variants={itemVariants} className="max-w-md mx-auto mb-10">
-            {status === "success" ? (
-              <div className="flex items-center justify-center gap-2 text-success-500 py-3">
-                <CheckCircle size={20} />
-                <span className="font-medium">You&apos;re on the early bird list!</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 px-4 py-3 rounded-xl bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors whitespace-nowrap"
-                >
-                  {status === "loading" ? (
-                    <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      Get Early Access
-                      <ArrowRight size={18} aria-hidden="true" />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-            <p className="text-neutral-500 text-sm mt-3">
-              Join the early bird list. No spam, just launch updates.
-            </p>
-          </motion.div>
 
           {/* Trust indicators */}
           <motion.div
