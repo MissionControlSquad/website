@@ -274,6 +274,16 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0');`,
+          }}
+        />
         {/* Ahrefs analytics */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
