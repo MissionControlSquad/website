@@ -1,10 +1,24 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap } from '@/components/icons';
-import { STRIPE_LINK } from '@/lib/constants';
+import { ArrowRight, Zap, CheckCircle } from '@/components/icons';
 
 export default function FinalCTA() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('loading');
+    // Replace with actual API call
+    setTimeout(() => {
+      setStatus('success');
+      setEmail('');
+    }, 1000);
+  };
+
   return (
     <section id="cta" className="py-24 px-4 relative overflow-hidden">
       {/* Gradient background */}
@@ -43,7 +57,7 @@ export default function FinalCTA() {
             className="inline-flex items-center gap-2 bg-primary-500/20 text-primary-300 text-sm font-medium px-4 py-2 rounded-full mb-8"
           >
             <Zap className="w-4 h-4" aria-hidden="true" />
-            <span>$79/month — cancel anytime</span>
+            <span>Early bird access</span>
           </motion.div>
 
           {/* Headline */}
@@ -53,19 +67,43 @@ export default function FinalCTA() {
           </h2>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-2xl mx-auto">
-            Start managing your OpenClaw agents with full visibility and orchestrator-led verification.
+            Be the first to get Mission Control for your OpenClaw agents. Join the early bird list.
           </p>
 
-          {/* CTA */}
-          <a
-            href={STRIPE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
-          >
-            Subscribe Now
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </a>
+          {/* Early bird email form */}
+          <div className="max-w-md mx-auto mb-6">
+            {status === 'success' ? (
+              <div className="flex items-center justify-center gap-2 text-success-500 py-3">
+                <CheckCircle size={20} />
+                <span className="font-medium">You&apos;re on the early bird list!</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  className="flex-1 px-4 py-3 rounded-xl bg-neutral-800/80 border border-neutral-700 text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
+                />
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors whitespace-nowrap"
+                >
+                  {status === 'loading' ? (
+                    <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      Get Early Access
+                      <ArrowRight size={18} aria-hidden="true" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
 
           {/* Trust */}
           <motion.p
@@ -73,9 +111,9 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-neutral-500 text-sm mt-6"
+            className="text-neutral-500 text-sm"
           >
-            Secure payment via Stripe. Cancel anytime.
+            No spam. Just launch updates. $79/month when we launch.
           </motion.p>
         </motion.div>
       </div>
