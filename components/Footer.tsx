@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="py-16 border-t border-neutral-800 bg-neutral-950">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link
@@ -48,23 +48,6 @@ export default function Footer() {
             <h3 className="font-semibold text-neutral-100 mb-4">Product</h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.product.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-400 hover:text-neutral-100 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company links */}
-          <div>
-            <h3 className="font-semibold text-neutral-100 mb-4">Company</h3>
-            <ul className="space-y-3">
-              {FOOTER_LINKS.company.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

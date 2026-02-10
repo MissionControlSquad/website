@@ -22,16 +22,12 @@ export const FOOTER_LINKS = {
   product: [
     { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Docs", href: "#" },
-  ],
-  company: [
-    { label: "About", href: "#" },
     { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "#" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms-of-service" },
+    { label: "Contact", href: "mailto:hey@dharmikjagodana.com" },
   ],
 } as const;
 

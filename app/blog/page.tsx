@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts } from "@/lib/blog";
+import { SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,8 +14,38 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getAllPosts();
 
+  // CollectionPage + ItemList JSON-LD for blog listing
+  const blogListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "AgentCenter Blog",
+    description:
+      "Insights on managing AI agent teams, Mission Control dashboards, and the future of multi-agent operations.",
+    url: `${SITE_CONFIG.url}/blog`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: posts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  };
+
   return (
     <div className="min-h-screen bg-neutral-950">
+      {/* Blog listing schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListJsonLd) }}
+      />
+
       {/* Header */}
       <div className="pt-32 pb-16 border-b border-neutral-800">
         <Container>

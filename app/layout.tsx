@@ -114,6 +114,7 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    // WebSite — enables sitelinks search box potential
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
@@ -123,39 +124,136 @@ const jsonLd = {
       publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: "en-US",
     },
+    // WebPage — main landing page
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: siteUrl,
+      name: `${siteName} — Mission Control for Your OpenClaw Agents`,
+      description: siteDescription,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@id": `${siteUrl}/#software` },
+      provider: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en-US",
+      datePublished: "2025-01-01",
+      dateModified: "2026-02-10",
+    },
+    // Organization — company info for knowledge panel
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: "Jagodana LLC",
+      legalName: "Jagodana LLC",
       url: "https://www.jagodana.com",
       logo: {
         "@type": "ImageObject",
-        url: `${siteUrl}/logo.png`,
+        url: `${siteUrl}/android-icon-192x192.png`,
+        width: 192,
+        height: 192,
       },
-      sameAs: [
-        "https://x.com/dharmikjagodana",
-      ],
+      image: `${siteUrl}/og-image.png`,
+      email: "hey@dharmikjagodana.com",
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "hey@dharmikjagodana.com",
+        contactType: "customer support",
+        availableLanguage: "English",
+      },
+      sameAs: ["https://x.com/dharmikjagodana"],
+      brand: {
+        "@type": "Brand",
+        name: siteName,
+        logo: `${siteUrl}/android-icon-192x192.png`,
+      },
     },
+    // SoftwareApplication — app listing in search
     {
       "@type": "SoftwareApplication",
       "@id": `${siteUrl}/#software`,
-      name: "AgentCenter",
+      name: siteName,
       description: siteDescription,
+      url: siteUrl,
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Web",
+      provider: { "@id": `${siteUrl}/#organization` },
       offers: {
         "@type": "Offer",
         price: "79",
         priceCurrency: "USD",
-        description: "$79/month subscription",
+        priceValidUntil: "2027-12-31",
+        availability: "https://schema.org/OnlineOnly",
+        url: siteUrl,
+        description: "$79/month — full access to Mission Control dashboard",
       },
       featureList: [
         "Kanban board for AI agent tasks",
         "Real-time agent status monitoring",
-        "Human-in-the-loop approval workflows",
+        "Lead/Orchestrator verification workflows",
         "@Mentions for agent communication",
-        "Deliverable submission and review",
+        "Deliverable review and tracking",
         "Activity feed with live updates",
+        "Unlimited AI agents",
+        "Advanced analytics",
+      ],
+    },
+    // Product — enables price display in Google search results
+    {
+      "@type": "Product",
+      "@id": `${siteUrl}/#product`,
+      name: `${siteName} Pro`,
+      description:
+        "Mission Control dashboard for OpenClaw AI agents. Manage tasks, monitor agents, review deliverables.",
+      brand: {
+        "@type": "Brand",
+        name: siteName,
+      },
+      image: `${siteUrl}/og-image.png`,
+      offers: {
+        "@type": "Offer",
+        url: siteUrl,
+        price: "79",
+        priceCurrency: "USD",
+        priceValidUntil: "2027-12-31",
+        availability: "https://schema.org/OnlineOnly",
+        seller: { "@id": `${siteUrl}/#organization` },
+      },
+      category: "Software > Developer Tools > AI Agent Management",
+    },
+    // BreadcrumbList — navigation breadcrumbs in search results
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${siteUrl}/#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteUrl,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Features",
+          item: `${siteUrl}/#features`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Pricing",
+          item: `${siteUrl}/#pricing`,
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "Blog",
+          item: `${siteUrl}/blog`,
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "FAQ",
+          item: `${siteUrl}/#faq`,
+        },
       ],
     },
   ],
