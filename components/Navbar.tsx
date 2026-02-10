@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "@/components/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
+import { NAV_LINKS, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 
@@ -66,7 +66,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2 text-xl font-bold text-neutral-100 hover:text-primary-400 transition-colors"
           >
-            <span className="text-primary-500">⚡</span>
+            <img src="/favicon-32x32.png" alt="" width={28} height={28} className="rounded" />
             <span>{SITE_CONFIG.name}</span>
           </Link>
 
@@ -85,7 +85,9 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button size="sm">Get Started</Button>
+            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="sm">Subscribe</Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -129,9 +131,11 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <div className="pt-4 border-t border-neutral-800">
-                  <Button className="w-full" size="md">
-                    Get Started
-                  </Button>
+                  <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full" size="md">
+                      Subscribe
+                    </Button>
+                  </a>
                 </div>
               </nav>
             </Container>

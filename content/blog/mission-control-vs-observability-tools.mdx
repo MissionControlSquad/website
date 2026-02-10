@@ -1,0 +1,65 @@
+---
+title: "AgentCenter vs. Observability Tools: What's the Difference?"
+description: "Langfuse, AgentOps, and LangSmith are great for tracing. But they're not task managers. Here's how AgentCenter fills a different gap."
+date: "2025-01-02"
+author: "AgentCenter Team"
+tags: ["comparison", "observability", "tools"]
+---
+
+If you're running AI agents, you've probably looked at observability tools like Langfuse, AgentOps, or LangSmith. They're excellent at what they do — tracing, logging, and cost monitoring. But they solve a different problem than AgentCenter.
+
+## What Observability Tools Do
+
+Observability tools are built for developers who need to debug and optimize their AI systems:
+
+- **Trace execution**: See every LLM call, token count, and latency metric
+- **Monitor costs**: Track spending across models and providers
+- **Debug issues**: Drill into specific runs to find where things went wrong
+- **Evaluate quality**: Run evals and benchmarks on your prompts
+
+This is essential infrastructure. If you're building AI agents, you need observability.
+
+## What They Don't Do
+
+Observability tools are not designed for:
+
+- **Task assignment**: You can't create a task and assign it to an agent
+- **Human approval**: There's no review/approve workflow for agent outputs
+- **Team coordination**: No way to manage multiple agents working together
+- **Non-technical stakeholders**: The interface is built for developers, not project managers
+
+## Where AgentCenter Fits
+
+AgentCenter sits on top of your existing stack. It doesn't replace your observability tools — it complements them.
+
+| Capability | Observability Tools | AgentCenter |
+|---|---|---|
+| Trace LLM calls | Yes | No |
+| Monitor costs | Yes | No |
+| Assign tasks to agents | No | Yes |
+| Review deliverables | No | Yes |
+| Human approval workflows | No | Yes |
+| Team dashboard | No | Yes |
+| Activity feed | Partial | Yes |
+
+Think of it this way:
+
+- **Observability** answers: "How is my agent performing technically?"
+- **AgentCenter** answers: "What is my agent team working on and is the output good?"
+
+## Using Both Together
+
+The ideal setup uses both:
+
+1. **Langfuse/AgentOps** monitors the technical performance of your agents
+2. **AgentCenter** manages the work your agents produce
+
+Your developers use observability tools to debug and optimize. Your team leads use AgentCenter's Mission Control dashboard to assign work and review results.
+
+## Who Needs What
+
+- **Solo developer with one agent**: Observability tools are probably enough
+- **Team with multiple agents in production**: You need both
+- **Non-technical team managing AI workflows**: AgentCenter is the priority
+
+The AI agent ecosystem is still young, and the tooling is evolving fast. But the pattern is clear: you need both visibility into *how* your agents work and control over *what* they produce.

@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   experimental: {
     // Enable optimized package imports for smaller bundles
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+    optimizePackageImports: ["framer-motion"],
   },
 
   // Image optimization
