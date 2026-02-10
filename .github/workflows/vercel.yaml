@@ -1,0 +1,67 @@
+name: (Build and) Deploy to Vercel
+env:
+  VERCEL_ORG_ID: team_ryCcNYdJqUWoBdBkJbKULqGz
+  VERCEL_PROJECT_ID: prj_WU9jf7GtkH9wDoTANLUKifFgyzz2
+  VERCEL_ENVIRONMENT: production
+  VERCEL_TOKEN: ***REMOVED***
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Or your preferred operating system
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Git and create commit
+        run: |
+          git config --global user.email "jagodana.extensions@gmail.com"
+          git config --global user.name "jagodanaextensions-hub"
+          echo "Deploy timestamp: $(date)" > .vercel-deploy-temp
+          git add .vercel-deploy-temp
+          git commit -m "Deploy to Vercel - $(date)"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm" # Built-in caching
+
+      - name: Install dependencies
+        run: |
+          npm install
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192" # Conservative 8GB limit
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{env.VERCEL_TOKEN}}
+
+      # Clear memory before build
+      - name: Clear memory and optimize environment
+        run: |
+          # Clear npm cache
+          npm cache clean --force
+          # Show available memory
+          free -h
+
+      - name: Build Project Artifacts
+        run: |
+          export NODE_OPTIONS="--max-old-space-size=8192"  # Increase memory limit to 8 GB
+          vercel build --token=${{ env.VERCEL_TOKEN }} --prod
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
+          # Disable source maps in production to save memory
+          GENERATE_SOURCEMAP: false
+          # Reduce build parallelism
+          CI: true
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ env.VERCEL_TOKEN }} --prod
