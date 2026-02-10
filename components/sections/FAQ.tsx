@@ -2,58 +2,58 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from '@/components/icons';
 
 const faqs = [
   {
-    question: 'What is Mission Control?',
+    question: 'What is AgentCenter?',
     answer:
-      'Mission Control is a task management dashboard designed specifically for AI agent teams. Think of it as a project management tool where your team members are AI agents — you can assign tasks, track progress, review deliverables, and maintain human oversight over your AI workflows.',
+      'AgentCenter gives you a Mission Control dashboard for your AI agent team. Think of it as a project management tool where your team members are AI agents — you can assign tasks, track progress, review deliverables, and maintain human oversight over your AI workflows.',
   },
   {
     question: 'How is this different from CrewAI or LangGraph?',
     answer:
-      'CrewAI, LangGraph, and similar tools are agent frameworks — they help you build and orchestrate AI agents. Mission Control is not a framework. Instead, it\'s a dashboard layer that sits on top of your existing agents (built with any framework) to help you manage, monitor, and coordinate them as a team.',
+      'CrewAI, LangGraph, and similar tools are agent frameworks — they help you build and orchestrate AI agents. AgentCenter is different. It\'s a Mission Control dashboard built specifically for OpenClaw agents to help you manage, monitor, and coordinate them as a team.',
   },
   {
     question: 'How is this different from Langfuse or AgentOps?',
     answer:
-      'Langfuse and AgentOps are observability tools — they help you trace and debug agent execution. Mission Control is a task management tool. While observability shows you what happened inside an agent, Mission Control helps you organize what agents should work on and coordinate their outputs.',
+      'Langfuse and AgentOps are observability tools — they help you trace and debug agent execution. AgentCenter\'s Mission Control is a task management dashboard. While observability shows you what happened inside an agent, Mission Control helps you organize what agents should work on and coordinate their outputs.',
   },
   {
     question: 'What agent frameworks does it work with?',
     answer:
-      'Mission Control is framework-agnostic. It works with agents built using CrewAI, LangGraph, AutoGen, custom Python/TypeScript agents, or any other framework. Agents connect via a simple API to report status and receive tasks.',
+      'AgentCenter is built and tested for OpenClaw agents. Your OpenClaw agents connect to the Mission Control dashboard via our REST API or custom skills to report status and receive tasks.',
   },
   {
-    question: 'Is it free?',
+    question: 'How much does it cost?',
     answer:
-      'Yes! Mission Control offers a generous free tier that includes up to 3 agents, full task management features, and community support. Paid plans are available for teams that need unlimited agents and advanced features.',
+      'AgentCenter is $79/month. You get full access to the Mission Control dashboard with unlimited agents, task management, human oversight, and priority support. Cancel anytime.',
   },
   {
-    question: 'Can I self-host it?',
+    question: 'How does it work?',
     answer:
-      'Yes, Mission Control is open-source. You can self-host on your own infrastructure. Enterprise customers can also get on-premise deployment support.',
+      'AgentCenter is a cloud platform. Your OpenClaw agents connect via API keys, work in their own preferred environments, and report task updates and upload deliverables to the Mission Control dashboard.',
   },
   {
     question: 'How do I connect my AI agents?',
     answer:
-      'Agents connect to Mission Control via a REST API or SDK. Each agent gets a session key to identify itself, then can receive tasks, post status updates, and submit deliverables. Integration typically takes 10-15 minutes per agent.',
+      'Your OpenClaw agents connect to the Mission Control dashboard via our REST API or custom skills. Each agent gets a session key to identify itself, then can receive tasks, post status updates, and submit deliverables. Integration typically takes 10-15 minutes per agent.',
   },
   {
     question: 'Is my data secure?',
     answer:
-      'Absolutely. Mission Control uses encryption at rest and in transit. For self-hosted deployments, your data never leaves your infrastructure. Cloud plans follow SOC 2 security practices.',
+      'Absolutely. AgentCenter uses encryption at rest and in transit. Agents connect securely via API keys. We follow SOC 2 security practices.',
   },
   {
-    question: 'Do I need to rebuild my agents to use Mission Control?',
+    question: 'Do I need to rebuild my OpenClaw agents to use AgentCenter?',
     answer:
-      'No. Mission Control works with your existing agents. You just need to add a few API calls to report status and receive tasks. Your agent\'s core logic stays exactly the same.',
+      'No. AgentCenter works with your existing OpenClaw agents. You just need to add a few API calls or install our skill to connect them to the Mission Control dashboard. Your agent\'s core logic stays exactly the same.',
   },
   {
-    question: 'What is human-in-the-loop AI?',
+    question: 'How does the lead/orchestrator work?',
     answer:
-      'Human-in-the-loop means keeping humans in control of AI decisions. Mission Control enables this by letting you review agent work before it\'s finalized, approve or reject deliverables, and redirect agents when needed.',
+      'AgentCenter uses a lead agent (orchestrator) that handles task assignment, verifies deliverables, and checks quality before tasks move forward. You see everything happening on the Mission Control dashboard.',
   },
 ];
 
@@ -140,7 +140,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-neutral-400">
-            Everything you need to know about Mission Control.
+            Everything you need to know about AgentCenter.
           </p>
         </motion.div>
 
@@ -171,7 +171,7 @@ export default function FAQ() {
         >
           Still have questions?{' '}
           <a
-            href="mailto:hello@missioncontrol.dev"
+            href="mailto:hey@dharmikjagodana.com"
             className="text-primary-400 hover:text-primary-300"
           >
             Contact us

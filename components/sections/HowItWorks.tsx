@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PlusCircle, Bot, CheckCircle, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { HOW_IT_WORKS_STEPS } from "@/lib/constants";
+import { PlusCircle, Bot, CheckCircle } from "@/components/icons";
+import { ComponentType, SVGProps } from "react";
 
-const iconMap: Record<string, LucideIcon> = {
+type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
+
+const iconMap: Record<string, IconComponent> = {
   PlusCircle,
   Bot,
   CheckCircle,

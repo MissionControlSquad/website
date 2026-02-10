@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { FEATURES } from "@/lib/constants";
 import {
   LayoutGrid,
   Activity,
@@ -8,13 +11,12 @@ import {
   FileCheck,
   History,
   ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
-import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import { FEATURES } from "@/lib/constants";
+} from "@/components/icons";
+import { ComponentType, SVGProps } from "react";
 
-const iconMap: Record<string, LucideIcon> = {
+type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
+
+const iconMap: Record<string, IconComponent> = {
   LayoutGrid,
   Activity,
   AtSign,

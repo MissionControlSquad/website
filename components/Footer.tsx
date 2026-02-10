@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, MessageCircle } from "lucide-react";
+import { Github, Twitter, MessageCircle } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 
@@ -20,7 +20,7 @@ export default function Footer() {
               href="/"
               className="inline-flex items-center gap-2 text-xl font-bold text-neutral-100 mb-4"
             >
-              <span className="text-primary-500">⚡</span>
+              <img src="/favicon-32x32.png" alt="" width={28} height={28} className="rounded" />
               <span>{SITE_CONFIG.name}</span>
             </Link>
             <p className="text-neutral-400 mb-6 max-w-xs">

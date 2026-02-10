@@ -43,7 +43,7 @@ export default function DashboardPreview() {
               </div>
               <div className="flex-1 flex justify-center">
                 <div className="px-4 py-1 bg-neutral-800 rounded-md text-neutral-400 text-sm">
-                  dashboard.missioncontrol.dev
+                  agentcenter.cloud/dashboard
                 </div>
               </div>
             </div>

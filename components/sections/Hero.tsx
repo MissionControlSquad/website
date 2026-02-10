@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { SITE_CONFIG, TRUST_INDICATORS } from "@/lib/constants";
+import { SITE_CONFIG, TRUST_INDICATORS, STRIPE_LINK } from "@/lib/constants";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,7 +45,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium">
               <Sparkles size={16} aria-hidden="true" />
-              <span>Now in beta — free forever plan available</span>
+              <span>Built for OpenClaw — $79/month</span>
             </span>
           </motion.div>
 
@@ -66,18 +65,26 @@ export default function Hero() {
             {SITE_CONFIG.description}
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTA */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
           >
-            <Button size="lg">
-              Get Started Free
-              <ArrowRight size={18} className="ml-2" aria-hidden="true" />
-            </Button>
-            <Button variant="ghost" size="lg">
+            <a
+              href={STRIPE_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
+            >
+              Subscribe Now
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+            </a>
+            <a
+              href="#how-it-works"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-semibold rounded-xl border border-neutral-700 transition-colors"
+            >
               See How It Works
-            </Button>
+            </a>
           </motion.div>
 
           {/* Trust indicators */}
@@ -113,7 +120,7 @@ export default function Hero() {
               </div>
               <div className="flex-1 flex justify-center">
                 <div className="px-4 py-1 rounded-md bg-neutral-800 text-xs text-neutral-500">
-                  missioncontrol.ai
+                  agentcenter.cloud
                 </div>
               </div>
             </div>

@@ -1,17 +1,20 @@
 // Site-wide constants
 
+export const STRIPE_LINK = "https://buy.stripe.com/dRm7sN0KKdnfbs4afl53O00";
+
 export const SITE_CONFIG = {
-  name: "Mission Control",
-  tagline: "The Dashboard for Your AI Agent Team",
+  name: "AgentCenter",
+  tagline: "Mission Control for Your OpenClaw Agents",
   description:
-    "Assign tasks, monitor progress, review deliverables, and keep humans in the loop.",
-  url: "https://missioncontrol.ai", // placeholder
+    "Assign tasks, monitor progress, review deliverables, and keep humans in the loop — built for OpenClaw.",
+  url: "https://agentcenter.cloud",
 } as const;
 
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
@@ -23,7 +26,7 @@ export const FOOTER_LINKS = {
   ],
   company: [
     { label: "About", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "#" },
   ],
   legal: [
@@ -33,15 +36,13 @@ export const FOOTER_LINKS = {
 } as const;
 
 export const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com", icon: "Github" },
-  { label: "Twitter", href: "https://twitter.com", icon: "Twitter" },
-  { label: "Discord", href: "https://discord.com", icon: "MessageCircle" },
+  { label: "Twitter", href: "https://x.com/dharmikjagodana", icon: "Twitter" },
 ] as const;
 
 export const TRUST_INDICATORS = [
-  "Free forever",
-  "No credit card required",
-  "Open source",
+  "$79/month",
+  "Cancel anytime",
+  "Powered by Stripe",
 ] as const;
 
 export const FEATURES = [
@@ -64,9 +65,9 @@ export const FEATURES = [
     icon: "AtSign",
   },
   {
-    title: "Deliverables",
+    title: "Deliverable Review",
     description:
-      "Agents submit work for review — code, docs, files. Everything tracked in one place.",
+      "The lead agent verifies deliverables — code, docs, files. Everything tracked and checked in one place.",
     icon: "FileCheck",
   },
   {
@@ -76,9 +77,9 @@ export const FEATURES = [
     icon: "History",
   },
   {
-    title: "Human Oversight",
+    title: "Lead Orchestrator",
     description:
-      "Approve, reject, or redirect agent work. You stay in control of what ships.",
+      "A lead agent handles task verification and checks deliverables before they move forward.",
     icon: "ShieldCheck",
   },
 ] as const;
@@ -88,21 +89,21 @@ export const HOW_IT_WORKS_STEPS = [
     number: 1,
     title: "Create a Task",
     description:
-      "Describe what needs to be done. Assign it to one or more AI agents.",
+      "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
     icon: "PlusCircle",
   },
   {
     number: 2,
-    title: "Agent Works",
+    title: "Agents Work",
     description:
-      "Your agents pick up the task, work autonomously, and submit deliverables.",
+      "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
     icon: "Bot",
   },
   {
     number: 3,
-    title: "You Review",
+    title: "Lead Verifies",
     description:
-      "Approve the work, request changes, or redirect. Humans stay in the loop.",
+      "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
     icon: "CheckCircle",
   },
 ] as const;
@@ -199,86 +200,74 @@ export const USE_CASES = [
 
 export const PRICING_TIERS = [
   {
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    description: "For individuals and small projects",
-    features: [
-      "Up to 3 agents",
-      "Unlimited tasks",
-      "Basic activity feed",
-      "Community support",
-    ],
-    cta: "Get Started Free",
-    highlighted: false,
-  },
-  {
     name: "Pro",
-    price: "$29",
-    period: "per month",
-    description: "For teams and growing projects",
+    price: "$79",
+    period: "/month",
+    description: "Everything you need to manage your AI agent team",
     features: [
-      "Unlimited agents",
+      "Unlimited AI agents",
+      "Kanban task management",
+      "Real-time agent status",
+      "Lead/Orchestrator verification",
+      "@Mentions & notifications",
+      "Deliverable review & tracking",
       "Advanced analytics",
       "Priority support",
-      "Custom integrations",
-      "Team collaboration",
-      "API access",
     ],
-    cta: "Start Pro Trial",
+    cta: "Join Early Access",
     highlighted: true,
   },
 ] as const;
 
 export const FAQ_ITEMS = [
   {
-    question: "What is Mission Control?",
+    question: "What is AgentCenter?",
     answer:
-      "Mission Control is a task management dashboard designed for AI agent teams. It helps you assign work, monitor progress, review deliverables, and keep humans in the loop — all from one interface.",
+      "AgentCenter gives you a Mission Control dashboard for your AI agent team. Assign work, monitor progress, review deliverables, and keep humans in the loop — all from one interface.",
   },
   {
     question: "How is this different from CrewAI or LangGraph?",
     answer:
-      "Those are agent frameworks — they help you build and chain AI agents. Mission Control is the layer on top: once you have agents, we help you manage them. Think of it as the project management tool for your AI team.",
+      "Those are agent frameworks for building and chaining AI agents. AgentCenter is different — it's a Mission Control dashboard built specifically for OpenClaw agents. Once your agents are running, we help you manage, review, and coordinate their work.",
   },
   {
     question: "How is this different from Langfuse or AgentOps?",
     answer:
-      "Observability tools focus on logging, tracing, and monitoring costs. Mission Control focuses on task management and human oversight. They're complementary — you can use both.",
+      "Observability tools focus on logging, tracing, and monitoring costs. AgentCenter's Mission Control focuses on task management and human oversight. They're complementary — you can use both.",
   },
   {
     question: "What agent frameworks does it work with?",
     answer:
-      "Mission Control is framework-agnostic. If your agent can make HTTP calls, it can integrate with Mission Control. We have SDKs for Python and TypeScript.",
+      "AgentCenter is built and tested for OpenClaw agents. Your agents connect to our cloud via API keys, work in their preferred environments, and report back to the Mission Control dashboard.",
   },
   {
-    question: "Is it free?",
+    question: "How much does it cost?",
     answer:
-      "Yes! The free tier includes up to 3 agents and unlimited tasks. No credit card required. Pro plans are available for teams that need more agents and advanced features.",
+      "AgentCenter is $79/month. Subscribe and get instant access to your Mission Control dashboard — cancel anytime.",
   },
   {
-    question: "Can I self-host it?",
+    question: "How does it work?",
     answer:
-      "Yes. Mission Control is open source. You can run it on your own infrastructure. We also offer a managed cloud version if you prefer not to manage servers.",
+      "AgentCenter is a cloud platform. Your OpenClaw agents connect via API keys, work in their own preferred environments, and report task updates and upload deliverables to the Mission Control dashboard.",
   },
   {
-    question: "How do I connect my AI agents?",
+    question: "How do I connect my OpenClaw agents?",
     answer:
-      "Agents connect via our REST API or SDK. Each agent gets a unique session key and can report status, submit deliverables, and receive tasks programmatically.",
+      "Your OpenClaw agents connect to AgentCenter's cloud via API keys. They work in their own environments, update task progress, and upload deliverables — all visible on the Mission Control dashboard.",
   },
   {
     question: "Is my data secure?",
     answer:
-      "Your data is encrypted in transit and at rest. For self-hosted deployments, data never leaves your infrastructure. We're SOC 2 compliant on the cloud version.",
+      "Your data is encrypted in transit and at rest. Agents connect securely via API keys. We follow SOC 2 security practices.",
   },
   {
-    question: "Do I need to rebuild my agents to use Mission Control?",
+    question: "Do I need to rebuild my OpenClaw agents to use AgentCenter?",
     answer:
-      "No. You can integrate Mission Control with existing agents by adding a few API calls. Most teams integrate in under an hour.",
+      "No. Just add your API keys and your existing OpenClaw agents can connect to the cloud, update tasks, and upload deliverables. Most teams integrate in under an hour.",
   },
   {
-    question: "What is human-in-the-loop AI?",
+    question: "How does the lead/orchestrator work?",
     answer:
-      "Human-in-the-loop means humans review and approve AI work before it goes live. Mission Control makes this easy with approval workflows, comments, and notifications.",
+      "AgentCenter uses a lead agent (orchestrator) that handles task assignment, verifies deliverables, and checks quality before tasks move forward. You see everything on the Mission Control dashboard.",
   },
 ] as const;

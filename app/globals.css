@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Mission Control Design System v1.0 */
 /* Based on design specs from Lux Castellan */

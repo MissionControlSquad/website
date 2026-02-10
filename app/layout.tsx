@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -14,29 +14,29 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://missioncontrol.jagodana.com";
-const siteName = "Mission Control";
+const siteUrl = "https://agentcenter.cloud";
+const siteName = "AgentCenter";
 const siteDescription =
-  "The human oversight dashboard for AI agent teams. Assign tasks, track progress, and review work from your AI agents. Works with OpenClaw. Built by Jagodana.";
+  "Mission Control for your OpenClaw agents. Assign tasks, track progress, review deliverables, and keep humans in the loop — from one dashboard.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mission Control — AI Agent Dashboard for Multi-Agent Teams",
-    template: "%s | Mission Control",
+    default: "AgentCenter — Mission Control for Your OpenClaw Agents",
+    template: "%s | AgentCenter",
   },
   description: siteDescription,
   keywords: [
+    "AgentCenter",
+    "OpenClaw dashboard",
+    "OpenClaw agent management",
+    "mission control AI agents",
     "AI agent dashboard",
     "multi-agent task management",
-    "AI team management software",
-    "AI agent oversight tool",
     "human-in-the-loop AI",
-    "AI agent orchestration",
-    "monitor AI agents",
-    "AI workflow visibility",
+    "AI agent oversight tool",
+    "monitor OpenClaw agents",
     "Kanban for AI teams",
-    "autonomous AI oversight",
   ],
   authors: [{ name: "Jagodana LLC", url: "https://www.jagodana.com" }],
   creator: "Jagodana LLC",
@@ -57,24 +57,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: siteName,
-    title: "Mission Control — AI Agent Dashboard for Multi-Agent Teams",
+    title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: siteDescription,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mission Control — AI Agent Dashboard",
+        alt: "AgentCenter — Mission Control for OpenClaw Agents",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mission Control — AI Agent Dashboard for Multi-Agent Teams",
+    title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: siteDescription,
     images: ["/og-image.png"],
-    creator: "@jagodana",
-    site: "@jagodana",
+    creator: "@dharmikjagodana",
+    site: "@dharmikjagodana",
   },
   alternates: {
     canonical: siteUrl,
@@ -82,11 +82,32 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/android-icon-192x192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [
+      { url: "/apple-icon-57x57.png", sizes: "57x57" },
+      { url: "/apple-icon-60x60.png", sizes: "60x60" },
+      { url: "/apple-icon-72x72.png", sizes: "72x72" },
+      { url: "/apple-icon-76x76.png", sizes: "76x76" },
+      { url: "/apple-icon-114x114.png", sizes: "114x114" },
+      { url: "/apple-icon-120x120.png", sizes: "120x120" },
+      { url: "/apple-icon-144x144.png", sizes: "144x144" },
+      { url: "/apple-icon-152x152.png", sizes: "152x152" },
+      { url: "/apple-icon-180x180.png", sizes: "180x180" },
+    ],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
+  other: {
+    "msapplication-TileColor": "#ffffff",
+    "msapplication-TileImage": "/ms-icon-144x144.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 // JSON-LD structured data
@@ -112,30 +133,21 @@ const jsonLd = {
         url: `${siteUrl}/logo.png`,
       },
       sameAs: [
-        "https://github.com/jagodana",
-        "https://twitter.com/jagodana",
-        "https://discord.gg/jagodana",
+        "https://x.com/dharmikjagodana",
       ],
     },
     {
       "@type": "SoftwareApplication",
       "@id": `${siteUrl}/#software`,
-      name: "Mission Control",
+      name: "AgentCenter",
       description: siteDescription,
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Web",
       offers: {
         "@type": "Offer",
-        price: "0",
+        price: "79",
         priceCurrency: "USD",
-        description: "Free tier available",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "50",
-        bestRating: "5",
-        worstRating: "1",
+        description: "$79/month subscription",
       },
       featureList: [
         "Kanban board for AI agent tasks",

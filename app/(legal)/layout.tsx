@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 
 export default function LegalLayout({
@@ -26,8 +26,8 @@ export default function LegalLayout({
               href="/"
               className="flex items-center gap-2 text-xl font-bold text-neutral-100"
             >
-              <span className="text-primary-500">⚡</span>
-              <span>Mission Control</span>
+              <img src="/favicon-32x32.png" alt="" width={28} height={28} className="rounded" />
+              <span>AgentCenter</span>
             </Link>
           </div>
         </Container>
