@@ -8,15 +8,22 @@ export default function FinalCTA() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setStatus('loading');
-    // Replace with actual API call
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/early-access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
       setStatus('success');
       setEmail('');
-    }, 1000);
+    } catch {
+      setStatus('idle');
+    }
   };
 
   return (
@@ -57,7 +64,7 @@ export default function FinalCTA() {
             className="inline-flex items-center gap-2 bg-primary-500/20 text-primary-300 text-sm font-medium px-4 py-2 rounded-full mb-8"
           >
             <Zap className="w-4 h-4" aria-hidden="true" />
-            <span>Early bird access</span>
+            <span>Stay in the loop</span>
           </motion.div>
 
           {/* Headline */}
@@ -67,15 +74,15 @@ export default function FinalCTA() {
           </h2>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-2xl mx-auto">
-            Be the first to get Mission Control for your OpenClaw agents. Join the early bird list.
+            Subscribe to get product updates, new features, and tips on managing your OpenClaw agents.
           </p>
 
-          {/* Early bird email form */}
+          {/* Subscribe to updates form */}
           <div className="max-w-md mx-auto mb-6">
             {status === 'success' ? (
               <div className="flex items-center justify-center gap-2 text-success-500 py-3">
                 <CheckCircle size={20} />
-                <span className="font-medium">You&apos;re on the early bird list!</span>
+                <span className="font-medium">You&apos;re subscribed!</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex gap-2">
@@ -96,7 +103,7 @@ export default function FinalCTA() {
                     <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   ) : (
                     <>
-                      Get Early Access
+                      Subscribe
                       <ArrowRight size={18} aria-hidden="true" />
                     </>
                   )}
@@ -113,7 +120,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-neutral-500 text-sm"
           >
-            No spam. Just launch updates. $79/month when we launch.
+            No spam. Just product updates and tips.
           </motion.p>
         </motion.div>
       </div>
