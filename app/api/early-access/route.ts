@@ -20,17 +20,21 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
-  const { error } = await resend.contacts.segments.add({
+  // Create contact
+  const { error: contactError } = await resend.contacts.create({
     email,
-    segmentId,
+    unsubscribed: false,
   });
 
-  if (error) {
+  if (contactError) {
     return NextResponse.json(
       { error: "Failed to process signup" },
       { status: 500 }
     );
   }
+
+  // Add contact to segment
+  await resend.contacts.segments.add({ email, segmentId });
 
   return NextResponse.json({ success: true });
 }
