@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Mission Control",
+  title: "Privacy Policy",
   description:
-    "Learn how Mission Control collects, uses, and protects your personal information.",
+    "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
   robots: {
     index: true,
     follow: true,
