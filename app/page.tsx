@@ -1,7 +1,15 @@
 import dynamic from "next/dynamic";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import Footer from "@/components/Footer";
+import { SITE_CONFIG } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
+};
 
 // Dynamic imports for below-fold sections to reduce initial bundle
 const HowItWorks = dynamic(() => import("@/components/sections/HowItWorks"), {

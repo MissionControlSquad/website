@@ -24,18 +24,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.description,
+    keywords: post.tags,
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
+      url: `${SITE_CONFIG.url}/blog/${slug}`,
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -69,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "WebPage",
       "@id": `${SITE_CONFIG.url}/blog/${slug}`,
     },
-    image: `${SITE_CONFIG.url}/og-image.png`,
+    image: `${SITE_CONFIG.url}/opengraph-image`,
     keywords: post.tags.join(", "),
   };
 

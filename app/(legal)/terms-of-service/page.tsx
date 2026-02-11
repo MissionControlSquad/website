@@ -1,9 +1,20 @@
 import { Metadata } from "next";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/terms-of-service`,
+  },
+  openGraph: {
+    title: "Terms of Service | AgentCenter",
+    description:
+      "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
+    type: "website",
+    url: `${SITE_CONFIG.url}/terms-of-service`,
+  },
   robots: {
     index: true,
     follow: true,
@@ -73,7 +84,7 @@ export default function TermsOfServicePage() {
           <p className="text-neutral-300 leading-relaxed mb-4">
             These Terms of Service (&quot;Terms&quot;) constitute a legally
             binding agreement between you (&quot;User,&quot; &quot;you,&quot; or
-            &quot;your&quot;) and jagodana LLC (&quot;Company,&quot;
+            &quot;your&quot;) and Jagodana LLC (&quot;Company,&quot;
             &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) governing your
             access to and use of Mission Control (the &quot;Service&quot;),
             including any associated websites, applications, and services.
@@ -256,7 +267,7 @@ export default function TermsOfServicePage() {
           </h3>
           <p className="text-neutral-300 leading-relaxed mb-4">
             The Service, including its design, features, content, and underlying
-            technology, is owned by jagodana LLC and protected by copyright,
+            technology, is owned by Jagodana LLC and protected by copyright,
             trademark, and other intellectual property laws. Nothing in these
             Terms grants you any right, title, or interest in the Service except
             for the limited license to use the Service as set forth herein.
@@ -401,7 +412,7 @@ export default function TermsOfServicePage() {
             11. Indemnification
           </h2>
           <p className="text-neutral-300 leading-relaxed mb-4">
-            You agree to indemnify, defend, and hold harmless jagodana LLC and
+            You agree to indemnify, defend, and hold harmless Jagodana LLC and
             its affiliates, officers, directors, employees, and agents from any
             claims, damages, losses, liabilities, costs, and expenses (including
             reasonable attorneys&apos;s fees) arising out of or related to:
@@ -497,7 +508,7 @@ export default function TermsOfServicePage() {
           <p className="text-neutral-300 leading-relaxed mb-4">
             <strong className="text-neutral-100">Entire Agreement:</strong>{" "}
             These Terms, together with the Privacy Policy, constitute the entire
-            agreement between you and jagodana LLC regarding the Service.
+            agreement between you and Jagodana LLC regarding the Service.
           </p>
 
           <p className="text-neutral-300 leading-relaxed mb-4">
@@ -535,8 +546,9 @@ export default function TermsOfServicePage() {
             If you have questions about these Terms, please contact us at:
           </p>
           <div className="text-neutral-300">
-            <p className="font-semibold text-neutral-100">jagodana LLC</p>
-            <p>Website: https://www.jagodana.com</p>
+            <p className="font-semibold text-neutral-100">Jagodana LLC</p>
+            <p>Email: hey@dharmikjagodana.com</p>
+            <p>Website: https://agentcenter.cloud</p>
           </div>
         </section>
 
