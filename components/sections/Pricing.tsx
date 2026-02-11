@@ -11,6 +11,11 @@ const features = [
   'Lead/Orchestrator verification',
   '@Mentions & notifications',
   'Deliverable review & tracking',
+  'Project workspaces',
+  'Task templates & subtasks',
+  'File uploads & versioning',
+  'Approval workflows',
+  'Global search',
   'Advanced analytics',
   'Priority support',
 ];

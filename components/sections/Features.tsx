@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { FEATURES } from "@/lib/constants";
+import { FEATURES, FEATURE_CATEGORIES } from "@/lib/constants";
 import {
   LayoutGrid,
   Activity,
@@ -11,6 +12,25 @@ import {
   FileCheck,
   History,
   ShieldCheck,
+  FolderKanban,
+  BookOpen,
+  Copy,
+  GitBranch,
+  Ban,
+  Wand,
+  Users,
+  HeartPulse,
+  ListTodo,
+  Smile,
+  Search,
+  Upload,
+  GitCommit,
+  CheckSquare,
+  Bot,
+  MessageCircle,
+  Tag,
+  Calendar,
+  Clock,
 } from "@/components/icons";
 import { ComponentType, SVGProps } from "react";
 
@@ -23,6 +43,25 @@ const iconMap: Record<string, IconComponent> = {
   FileCheck,
   History,
   ShieldCheck,
+  FolderKanban,
+  BookOpen,
+  Copy,
+  GitBranch,
+  Ban,
+  Wand,
+  Users,
+  HeartPulse,
+  ListTodo,
+  Smile,
+  Search,
+  Upload,
+  GitCommit,
+  CheckSquare,
+  Bot,
+  MessageCircle,
+  Tag,
+  Calendar,
+  Clock,
 };
 
 const containerVariants = {
@@ -45,6 +84,9 @@ const itemVariants = {
 };
 
 export default function Features() {
+  const [activeTab, setActiveTab] = useState<string>(FEATURE_CATEGORIES[0].id);
+  const activeCategory = FEATURE_CATEGORIES.find((c) => c.id === activeTab)!;
+
   return (
     <section id="features" className="py-24 md:py-32">
       <Container>
@@ -65,7 +107,7 @@ export default function Features() {
           </p>
         </motion.div>
 
-        {/* Features grid */}
+        {/* Zone 1: Core features grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
@@ -92,6 +134,84 @@ export default function Features() {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* Zone 2: Tabbed "More Features" section */}
+        <motion.div
+          className="mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Sub-header */}
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-neutral-100 mb-3">
+              Explore all capabilities
+            </h3>
+            <p className="text-neutral-400 max-w-xl mx-auto">
+              From project management to audit trails — everything&apos;s built in.
+            </p>
+          </div>
+
+          {/* Tab bar */}
+          <div className="flex overflow-x-auto scrollbar-hide gap-2 mb-10 pb-2 justify-start md:justify-center">
+            {FEATURE_CATEGORIES.map((category) => {
+              const TabIcon = iconMap[category.icon];
+              const isActive = activeTab === category.id;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveTab(category.id)}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
+                    isActive
+                      ? "bg-primary-500/15 text-primary-400 border border-primary-500/30"
+                      : "bg-neutral-800/50 text-neutral-400 border border-neutral-700/50 hover:text-neutral-200 hover:border-neutral-600"
+                  }`}
+                >
+                  <TabIcon className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                  {category.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Tab content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              {activeCategory.features.map((feature) => {
+                const FeatureIcon = iconMap[feature.icon];
+                return (
+                  <div
+                    key={feature.title}
+                    className="flex items-start gap-4 p-4 rounded-xl bg-neutral-800/40 border border-neutral-700/40"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                      <FeatureIcon
+                        className="w-5 h-5 text-primary-500"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold text-neutral-100 mb-1">
+                        {feature.title}
+                      </h4>
+                      <p className="text-sm text-neutral-400 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
       </Container>
     </section>
