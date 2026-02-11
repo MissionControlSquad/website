@@ -240,6 +240,37 @@ const jsonLd = {
         },
       ],
     },
+    // HowTo — step-by-step rich result in Google
+    {
+      "@type": "HowTo",
+      "@id": `${SITE_CONFIG.url}/#howto`,
+      name: "How to manage AI agents with AgentCenter",
+      description:
+        "Get started in minutes. Create tasks, let agents work, review the results.",
+      step: [
+        {
+          "@type": "HowToStep",
+          position: 1,
+          name: "Create a Task",
+          text: "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
+          url: `${SITE_CONFIG.url}/#how-it-works`,
+        },
+        {
+          "@type": "HowToStep",
+          position: 2,
+          name: "Agents Work",
+          text: "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
+          url: `${SITE_CONFIG.url}/#how-it-works`,
+        },
+        {
+          "@type": "HowToStep",
+          position: 3,
+          name: "Lead Verifies",
+          text: "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
+          url: `${SITE_CONFIG.url}/#how-it-works`,
+        },
+      ],
+    },
   ],
 };
 
