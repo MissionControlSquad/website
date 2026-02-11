@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   name: "AgentCenter",
   tagline: "Mission Control for Your OpenClaw Agents",
   description:
-    "Assign tasks, monitor progress, review deliverables, and keep humans in the loop — built for OpenClaw.",
+    "Mission Control dashboard for your OpenClaw agents. Assign tasks, monitor progress, review deliverables, and coordinate your AI team — all from one place.",
   url: "https://agentcenter.cloud",
 } as const;
 

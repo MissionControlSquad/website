@@ -1,9 +1,20 @@
 import { Metadata } from "next";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/privacy-policy`,
+  },
+  openGraph: {
+    title: "Privacy Policy | AgentCenter",
+    description:
+      "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
+    type: "website",
+    url: `${SITE_CONFIG.url}/privacy-policy`,
+  },
   robots: {
     index: true,
     follow: true,
@@ -69,7 +80,7 @@ export default function PrivacyPolicyPage() {
             Introduction
           </h2>
           <p className="text-neutral-300 leading-relaxed mb-4">
-            This Privacy Policy describes how jagodana LLC (&quot;Company,&quot;
+            This Privacy Policy describes how Jagodana LLC (&quot;Company,&quot;
             &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses,
             and shares information in connection with your use of Mission
             Control (the &quot;Service&quot;), our websites, and any related
@@ -222,7 +233,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-neutral-300 leading-relaxed mb-4">
             <strong className="text-neutral-100">Protection of Rights:</strong>{" "}
             We may disclose information when we believe it is necessary to
-            protect the rights, property, or safety of jagodana LLC, our users,
+            protect the rights, property, or safety of Jagodana LLC, our users,
             or the public.
           </p>
 
@@ -479,9 +490,10 @@ export default function PrivacyPolicyPage() {
             practices, please contact us at:
           </p>
           <div className="text-neutral-300">
-            <p className="font-semibold text-neutral-100">jagodana LLC</p>
+            <p className="font-semibold text-neutral-100">Jagodana LLC</p>
+            <p>Email: hey@dharmikjagodana.com</p>
             <p>Website: https://www.jagodana.com</p>
-          </div>
+         </div>
         </section>
 
         <hr className="border-neutral-800 my-10" />

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,18 +15,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://agentcenter.cloud";
-const siteName = "AgentCenter";
-const siteDescription =
-  "Mission Control for your OpenClaw agents. Assign tasks, track progress, review deliverables, and keep humans in the loop — from one dashboard.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: "AgentCenter — Mission Control for Your OpenClaw Agents",
     template: "%s | AgentCenter",
   },
-  description: siteDescription,
+  description: SITE_CONFIG.description,
   keywords: [
     "AgentCenter",
     "OpenClaw dashboard",
@@ -55,29 +51,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
-    siteName: siteName,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
-    description: siteDescription,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "AgentCenter — Mission Control for OpenClaw Agents",
-      },
-    ],
+    description: SITE_CONFIG.description,
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
-    description: siteDescription,
-    images: ["/og-image.png"],
+    description: SITE_CONFIG.description,
     creator: "@dharmikjagodana",
     site: "@dharmikjagodana",
-  },
-  alternates: {
-    canonical: siteUrl,
   },
   icons: {
     icon: [
@@ -117,23 +101,23 @@ const jsonLd = {
     // WebSite — enables sitelinks search box potential
     {
       "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: siteUrl,
-      name: siteName,
-      description: siteDescription,
-      publisher: { "@id": `${siteUrl}/#organization` },
+      "@id": `${SITE_CONFIG.url}/#website`,
+      url: SITE_CONFIG.url,
+      name: SITE_CONFIG.name,
+      description: SITE_CONFIG.description,
+      publisher: { "@id": `${SITE_CONFIG.url}/#organization` },
       inLanguage: "en-US",
     },
     // WebPage — main landing page
     {
       "@type": "WebPage",
-      "@id": `${siteUrl}/#webpage`,
-      url: siteUrl,
-      name: `${siteName} — Mission Control for Your OpenClaw Agents`,
-      description: siteDescription,
-      isPartOf: { "@id": `${siteUrl}/#website` },
-      about: { "@id": `${siteUrl}/#software` },
-      provider: { "@id": `${siteUrl}/#organization` },
+      "@id": `${SITE_CONFIG.url}/#webpage`,
+      url: SITE_CONFIG.url,
+      name: `${SITE_CONFIG.name} — Mission Control for Your OpenClaw Agents`,
+      description: SITE_CONFIG.description,
+      isPartOf: { "@id": `${SITE_CONFIG.url}/#website` },
+      about: { "@id": `${SITE_CONFIG.url}/#software` },
+      provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       inLanguage: "en-US",
       datePublished: "2025-01-01",
       dateModified: "2026-02-10",
@@ -141,17 +125,17 @@ const jsonLd = {
     // Organization — company info for knowledge panel
     {
       "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
+      "@id": `${SITE_CONFIG.url}/#organization`,
       name: "Jagodana LLC",
       legalName: "Jagodana LLC",
       url: "https://www.jagodana.com",
       logo: {
         "@type": "ImageObject",
-        url: `${siteUrl}/android-icon-192x192.png`,
+        url: `${SITE_CONFIG.url}/android-icon-192x192.png`,
         width: 192,
         height: 192,
       },
-      image: `${siteUrl}/og-image.png`,
+      image: `${SITE_CONFIG.url}/opengraph-image`,
       email: "hey@dharmikjagodana.com",
       contactPoint: {
         "@type": "ContactPoint",
@@ -162,27 +146,27 @@ const jsonLd = {
       sameAs: ["https://x.com/dharmikjagodana"],
       brand: {
         "@type": "Brand",
-        name: siteName,
-        logo: `${siteUrl}/android-icon-192x192.png`,
+        name: SITE_CONFIG.name,
+        logo: `${SITE_CONFIG.url}/android-icon-192x192.png`,
       },
     },
     // SoftwareApplication — app listing in search
     {
       "@type": "SoftwareApplication",
-      "@id": `${siteUrl}/#software`,
-      name: siteName,
-      description: siteDescription,
-      url: siteUrl,
+      "@id": `${SITE_CONFIG.url}/#software`,
+      name: SITE_CONFIG.name,
+      description: SITE_CONFIG.description,
+      url: SITE_CONFIG.url,
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Web",
-      provider: { "@id": `${siteUrl}/#organization` },
+      provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       offers: {
         "@type": "Offer",
         price: "79",
         priceCurrency: "USD",
         priceValidUntil: "2027-12-31",
         availability: "https://schema.org/OnlineOnly",
-        url: siteUrl,
+        url: SITE_CONFIG.url,
         description: "$79/month — full access to Mission Control dashboard",
       },
       featureList: [
@@ -199,60 +183,60 @@ const jsonLd = {
     // Product — enables price display in Google search results
     {
       "@type": "Product",
-      "@id": `${siteUrl}/#product`,
-      name: `${siteName} Pro`,
+      "@id": `${SITE_CONFIG.url}/#product`,
+      name: `${SITE_CONFIG.name} Pro`,
       description:
         "Mission Control dashboard for OpenClaw AI agents. Manage tasks, monitor agents, review deliverables.",
       brand: {
         "@type": "Brand",
-        name: siteName,
+        name: SITE_CONFIG.name,
       },
-      image: `${siteUrl}/og-image.png`,
+      image: `${SITE_CONFIG.url}/opengraph-image`,
       offers: {
         "@type": "Offer",
-        url: siteUrl,
+        url: SITE_CONFIG.url,
         price: "79",
         priceCurrency: "USD",
         priceValidUntil: "2027-12-31",
         availability: "https://schema.org/OnlineOnly",
-        seller: { "@id": `${siteUrl}/#organization` },
+        seller: { "@id": `${SITE_CONFIG.url}/#organization` },
       },
       category: "Software > Developer Tools > AI Agent Management",
     },
     // BreadcrumbList — navigation breadcrumbs in search results
     {
       "@type": "BreadcrumbList",
-      "@id": `${siteUrl}/#breadcrumb`,
+      "@id": `${SITE_CONFIG.url}/#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: siteUrl,
+          item: SITE_CONFIG.url,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Features",
-          item: `${siteUrl}/#features`,
+          item: `${SITE_CONFIG.url}/#features`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Pricing",
-          item: `${siteUrl}/#pricing`,
+          item: `${SITE_CONFIG.url}/#pricing`,
         },
         {
           "@type": "ListItem",
           position: 4,
           name: "Blog",
-          item: `${siteUrl}/blog`,
+          item: `${SITE_CONFIG.url}/blog`,
         },
         {
           "@type": "ListItem",
           position: 5,
           name: "FAQ",
-          item: `${siteUrl}/#faq`,
+          item: `${SITE_CONFIG.url}/#faq`,
         },
       ],
     },

@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://agentcenter.cloud";
+  const siteUrl = SITE_CONFIG.url;
   const currentDate = new Date().toISOString();
 
   const blogPosts = getAllPosts().map((post) => ({

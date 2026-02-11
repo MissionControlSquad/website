@@ -6,9 +6,27 @@ import { SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog — AI Agent Management Insights",
   description:
-    "Insights on managing AI agent teams, Mission Control dashboards, and the future of multi-agent operations.",
+    "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/blog`,
+  },
+  openGraph: {
+    title: "AgentCenter Blog — AI Agent Management Insights",
+    description:
+      "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
+    type: "website",
+    url: `${SITE_CONFIG.url}/blog`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AgentCenter Blog — AI Agent Management Insights",
+    description:
+      "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function BlogPage() {
