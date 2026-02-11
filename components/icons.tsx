@@ -186,6 +186,24 @@ export function Clock(props: IconProps) {
   );
 }
 
+export function Mail(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </Icon>
+  );
+}
+
+export function CircleCheck(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="m9 12 2 2 4-4" />
+    </Icon>
+  );
+}
+
 export function Tag(props: IconProps) {
   return (
     <Icon {...props}>
