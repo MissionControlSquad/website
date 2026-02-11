@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Mission Control",
+  title: "Terms of Service",
   description:
-    "Read the Terms of Service for using Mission Control, the AI agent task management platform.",
+    "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
   robots: {
     index: true,
     follow: true,
