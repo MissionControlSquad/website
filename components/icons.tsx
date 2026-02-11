@@ -212,3 +212,140 @@ export function Tag(props: IconProps) {
     </Icon>
   );
 }
+
+export function FolderKanban(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+      <path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" />
+    </Icon>
+  );
+}
+
+export function BookOpen(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M12 7v14" />
+      <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+    </Icon>
+  );
+}
+
+export function Copy(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+    </Icon>
+  );
+}
+
+export function GitBranch(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <line x1="6" x2="6" y1="3" y2="15" />
+      <circle cx="18" cy="6" r="3" />
+      <circle cx="6" cy="18" r="3" />
+      <path d="M18 9a9 9 0 0 1-9 9" />
+    </Icon>
+  );
+}
+
+export function Ban(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="m4.9 4.9 14.2 14.2" />
+    </Icon>
+  );
+}
+
+export function Wand(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M15 4V2" /><path d="M15 16v-2" /><path d="M8 9h2" /><path d="M20 9h2" />
+      <path d="M17.8 11.8 20 14" /><path d="M15 9h.01" />
+      <path d="M17.8 6.2 20 4" /><path d="m3 21 9-9" />
+      <path d="M12.2 6.2 10 4" />
+    </Icon>
+  );
+}
+
+export function Users(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </Icon>
+  );
+}
+
+export function HeartPulse(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+      <path d="M12 6l-1 4h2l-1 4" />
+    </Icon>
+  );
+}
+
+export function ListTodo(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect x="3" y="5" width="6" height="6" rx="1" />
+      <path d="m3 17 2 2 4-4" />
+      <path d="M13 6h8" /><path d="M13 12h8" /><path d="M13 18h8" />
+    </Icon>
+  );
+}
+
+export function Smile(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+      <line x1="9" x2="9.01" y1="9" y2="9" />
+      <line x1="15" x2="15.01" y1="9" y2="9" />
+    </Icon>
+  );
+}
+
+export function Search(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </Icon>
+  );
+}
+
+export function Upload(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="17 8 12 3 7 8" />
+      <line x1="12" x2="12" y1="3" y2="15" />
+    </Icon>
+  );
+}
+
+export function GitCommit(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="12" cy="12" r="3" />
+      <line x1="3" x2="9" y1="12" y2="12" />
+      <line x1="15" x2="21" y1="12" y2="12" />
+    </Icon>
+  );
+}
+
+export function CheckSquare(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect width="18" height="18" x="3" y="3" rx="2" />
+      <path d="m9 12 2 2 4-4" />
+    </Icon>
+  );
+}
