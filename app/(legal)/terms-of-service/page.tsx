@@ -14,6 +14,16 @@ export const metadata: Metadata = {
       "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
     type: "website",
     url: `${SITE_CONFIG.url}/terms-of-service`,
+    siteName: SITE_CONFIG.name,
+    locale: "en_US",
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "AgentCenter",
+      },
+    ],
   },
   robots: {
     index: true,

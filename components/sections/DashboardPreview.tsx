@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function DashboardPreview() {
   return (
-    <section className="py-24 px-4 bg-neutral-950 overflow-hidden">
+    <section className="hidden sm:block py-24 px-4 bg-neutral-950 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ export default function DashboardPreview() {
         >
           {/* Glow effect behind dashboard */}
           <div className="absolute inset-0 bg-gradient-to-t from-primary-500/20 via-primary-500/10 to-transparent rounded-2xl blur-3xl" />
-          
+
           {/* Dashboard container */}
           <div className="relative bg-neutral-800 border border-neutral-700 rounded-2xl overflow-hidden shadow-2xl">
             {/* Browser chrome */}
@@ -93,10 +93,11 @@ export default function DashboardPreview() {
                             <div className="h-4 bg-neutral-500/50 rounded w-3/4" />
                             <div className="h-3 bg-neutral-600/50 rounded w-1/2" />
                             <div className="flex items-center gap-2 pt-1">
-                              <div className={`w-2 h-2 rounded-full ${
-                                idx === 1 ? 'bg-agent-working' : 
-                                idx === 3 ? 'bg-agent-online' : 'bg-agent-idle'
-                              }`} />
+                              <div
+                                className={`w-2 h-2 rounded-full ${
+                                  idx === 1 ? 'bg-agent-working' : idx === 3 ? 'bg-agent-online' : 'bg-agent-idle'
+                                }`}
+                              />
                               <div className="h-3 bg-neutral-600/50 rounded w-16" />
                             </div>
                           </motion.div>

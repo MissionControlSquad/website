@@ -20,7 +20,7 @@ export default function Footer() {
               href="/"
               className="inline-flex items-center gap-2 text-xl font-bold text-neutral-100 mb-4"
             >
-              <img src="/favicon-32x32.png" alt="" width={28} height={28} className="rounded" />
+              <img src="/favicon-32x32.png" alt="AgentCenter.cloud" width={28} height={28} className="rounded" />
               <span>{SITE_CONFIG.name}</span>
             </Link>
             <p className="text-neutral-400 mb-6 max-w-xs">
@@ -78,12 +78,39 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-neutral-800">
+        {/* Copyright + payment badge */}
+        <div className="pt-8 border-t border-neutral-800 flex flex-col items-center gap-4">
           <p className="text-neutral-500 text-sm text-center">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
             reserved.
           </p>
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-neutral-400 text-sm dark:text-neutral-400">Secure, PCI compliant payments</span>
+            <a
+              href="https://stripe.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-400 transition-colors"
+              aria-label="Powered by Stripe"
+            >
+              {/* Light mode: white-background badge (Themeisle) */}
+              <img
+                src="/stripe-badge-light.png"
+                alt="Powered by Stripe"
+                width={400}
+                height={130}
+                className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity dark:hidden"
+              />
+              {/* Dark mode: transparent-background badge (Themeisle) */}
+              <img
+                src="/stripe-badge-dark.png"
+                alt="Powered by Stripe"
+                width={400}
+                height={130}
+                className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity hidden dark:block"
+              />
+            </a>
+          </div>
         </div>
       </Container>
     </footer>
