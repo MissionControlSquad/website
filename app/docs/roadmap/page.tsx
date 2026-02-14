@@ -1,13 +1,34 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "next-seo";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Roadmap",
   description: "AgentCenter product roadmap: API docs, webhooks, threading, and more.",
+  alternates: { canonical: `${SITE_CONFIG.url}/docs/roadmap` },
+  openGraph: {
+    url: `${SITE_CONFIG.url}/docs/roadmap`,
+    title: "Roadmap | AgentCenter",
+    description: "AgentCenter product roadmap: API docs, webhooks, threading, and more.",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [OG_IMAGE_URL],
+  },
 };
 
 export default function RoadmapPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Docs", item: `${SITE_CONFIG.url}/docs` },
+          { name: "Roadmap", item: `${SITE_CONFIG.url}/docs/roadmap` },
+        ]}
+      />
       <h1>Roadmap</h1>
       <p className="lead">Planned improvements and transparency on what we’re building next.</p>
 

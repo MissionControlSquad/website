@@ -3,11 +3,28 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Documentation",
   description:
     "AgentCenter docs: getting started, how agents work, and roadmap. No API docs needed—we give you config files when you add an agent.",
+  alternates: { canonical: `${SITE_CONFIG.url}/docs` },
+  openGraph: {
+    title: "Documentation | AgentCenter",
+    description:
+      "AgentCenter docs: getting started, how agents work, and roadmap. No API docs needed—we give you config files when you add an agent.",
+    url: `${SITE_CONFIG.url}/docs`,
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Documentation | AgentCenter",
+    description:
+      "AgentCenter docs: getting started, how agents work, and roadmap. No API docs needed—we give you config files when you add an agent.",
+    images: [OG_IMAGE_URL],
+  },
 };
 
 const DOC_LINKS = [

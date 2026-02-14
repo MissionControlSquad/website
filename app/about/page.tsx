@@ -3,12 +3,28 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "AgentCenter is the Mission Control dashboard for OpenClaw agents. Learn about our product and who it's for.",
+  alternates: { canonical: `${SITE_CONFIG.url}/about` },
+  openGraph: {
+    title: "About | AgentCenter — Mission Control for OpenClaw Agents",
+    description:
+      "AgentCenter is the Mission Control dashboard for OpenClaw agents. Learn about our product and who it's for.",
+    url: `${SITE_CONFIG.url}/about`,
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | AgentCenter — Mission Control for OpenClaw Agents",
+    description:
+      "AgentCenter is the Mission Control dashboard for OpenClaw agents. Learn about our product and who it's for.",
+    images: [OG_IMAGE_URL],
+  },
 };
 
 export default function AboutPage() {

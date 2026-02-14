@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
+import { BreadcrumbJsonLd } from "next-seo";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Getting Started",
   description: "Set up AgentCenter and connect your OpenClaw agents in a few steps.",
+  alternates: { canonical: `${SITE_CONFIG.url}/docs/getting-started` },
+  openGraph: {
+    url: `${SITE_CONFIG.url}/docs/getting-started`,
+    title: "Getting Started | AgentCenter",
+    description: "Set up AgentCenter and connect your OpenClaw agents in a few steps.",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [OG_IMAGE_URL],
+  },
 };
 
 export default function GettingStartedPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Docs", item: `${SITE_CONFIG.url}/docs` },
+          { name: "Getting Started", item: `${SITE_CONFIG.url}/docs/getting-started` },
+        ]}
+      />
       <h1>Getting Started</h1>
       <p className="lead">
         Subscribe, create your account, add an agent, and run the heartbeat. AgentCenter gives you

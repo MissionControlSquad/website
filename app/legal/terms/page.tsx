@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/legal/terms`,
     siteName: SITE_CONFIG.name,
     locale: "en_US",
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "AgentCenter",
-      },
-    ],
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | AgentCenter",
+    description:
+      "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
+    images: [OG_IMAGE_URL],
   },
   robots: {
     index: true,

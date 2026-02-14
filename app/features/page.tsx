@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLdScript } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FeaturesSection from "@/components/sections/Features";
 import { Container } from "@/components/ui/Container";
-import { SITE_CONFIG, FEATURES, FEATURE_CATEGORIES } from "@/lib/constants";
+import { FEATURES, FEATURE_CATEGORIES, OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Features",
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/features`,
     siteName: SITE_CONFIG.name,
     type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Features | AgentCenter — AI Agent Management Dashboard",
+    description:
+      "AI agent management and orchestration: Kanban, real-time status, deliverable review, projects, audit trails. Mission Control for your OpenClaw agents.",
+    images: [OG_IMAGE_URL],
   },
   alternates: {
     canonical: `${SITE_CONFIG.url}/features`,
@@ -48,10 +57,7 @@ export default function FeaturesPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(featuresSchema) }}
-      />
+      <JsonLdScript data={featuresSchema} scriptKey="features-itemlist" />
       <Navbar />
       <main id="main-content" className="min-h-screen pt-16">
         <Container className="py-16 md:py-20">

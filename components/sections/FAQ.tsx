@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FAQJsonLd } from "next-seo";
 import { ChevronDown } from "@/components/icons";
 
 const faqs = [
@@ -57,20 +58,6 @@ const faqs = [
   },
 ];
 
-// Generate FAQPage schema for SEO
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
-
 function FAQItem({
   question,
   answer,
@@ -120,11 +107,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-24 px-4 bg-neutral-900">
-      {/* Schema markup for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <FAQJsonLd questions={faqs.map((faq) => ({ question: faq.question, answer: faq.answer }))} />
 
       <div className="max-w-3xl mx-auto">
         <motion.div
