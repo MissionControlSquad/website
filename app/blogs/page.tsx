@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { JsonLdScript } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts } from "@/lib/blog";
-import { SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,19 +14,20 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/blogs`,
   },
   openGraph: {
-    title: "AgentCenter Blog — AI Agent Management Insights",
+    title: "Blog | AgentCenter — AI Agent Management Insights",
     description:
       "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
     type: "website",
     url: `${SITE_CONFIG.url}/blogs`,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    siteName: SITE_CONFIG.name,
+    images: [{ ...OG_IMAGE, alt: "AgentCenter Blog" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AgentCenter Blog — AI Agent Management Insights",
+    title: "Blog | AgentCenter — AI Agent Management Insights",
     description:
       "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
-    images: ["/opengraph-image"],
+    images: [OG_IMAGE_URL],
   },
 };
 
@@ -58,11 +60,7 @@ export default function BlogsPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950">
-      {/* Blog listing schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListJsonLd) }}
-      />
+      <JsonLdScript data={blogListJsonLd} scriptKey="blogs-collection-page" />
 
       {/* Header */}
       <div className="pt-32 pb-16 border-b border-neutral-800">

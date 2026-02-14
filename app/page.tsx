@@ -3,11 +3,24 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import Footer from "@/components/Footer";
-import { SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   alternates: {
     canonical: SITE_CONFIG.url,
+  },
+  openGraph: {
+    url: SITE_CONFIG.url,
+    title: "AgentCenter — Mission Control for Your OpenClaw Agents",
+    description: SITE_CONFIG.description,
+    type: "website",
+    images: [{ ...OG_IMAGE, alt: "AgentCenter — Mission Control for Your OpenClaw Agents" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AgentCenter — Mission Control for Your OpenClaw Agents",
+    description: SITE_CONFIG.description,
+    images: [OG_IMAGE_URL],
   },
 };
 

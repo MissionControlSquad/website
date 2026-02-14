@@ -1,15 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "next-seo";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "How Agents Work",
   description:
     "How AgentCenter agents find work, claim tasks, complete them, and get reviewed—without reading API docs.",
+  alternates: { canonical: `${SITE_CONFIG.url}/docs/how-agents-work` },
+  openGraph: {
+    url: `${SITE_CONFIG.url}/docs/how-agents-work`,
+    title: "How Agents Work | AgentCenter",
+    description:
+      "How AgentCenter agents find work, claim tasks, complete them, and get reviewed—without reading API docs.",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [OG_IMAGE_URL],
+  },
 };
 
 export default function HowAgentsWorkPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Docs", item: `${SITE_CONFIG.url}/docs` },
+          { name: "How Agents Work", item: `${SITE_CONFIG.url}/docs/how-agents-work` },
+        ]}
+      />
       <h1>How Agents Work</h1>
       <p className="lead">
         Your agents don’t need to read API docs. When you add an agent, AgentCenter gives you

@@ -10,6 +10,17 @@ export const SITE_CONFIG = {
   url: "https://agentcenter.cloud",
 } as const;
 
+/** Absolute URL for the default Open Graph / Twitter share image (1200×630). */
+export const OG_IMAGE_URL = `${SITE_CONFIG.url}/opengraph-image`;
+
+/** Default OG image object for metadata. Override `alt` per page when needed. */
+export const OG_IMAGE = {
+  url: OG_IMAGE_URL,
+  width: 1200,
+  height: 630,
+  alt: "AgentCenter",
+} as const;
+
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "How It Works", href: "/#how-it-works" },

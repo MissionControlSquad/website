@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/legal/privacy-policy`,
     siteName: SITE_CONFIG.name,
     locale: "en_US",
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "AgentCenter",
-      },
-    ],
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | AgentCenter",
+    description:
+      "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
+    images: [OG_IMAGE_URL],
   },
   robots: {
     index: true,

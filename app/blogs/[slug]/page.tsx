@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
-import { SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 interface Props {
@@ -33,16 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       type: "article",
       url: `${SITE_CONFIG.url}/blogs/${slug}`,
+      siteName: SITE_CONFIG.name,
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ ...OG_IMAGE, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: ["/opengraph-image"],
+      images: [OG_IMAGE_URL],
     },
   };
 }
@@ -52,40 +54,31 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  // Article JSON-LD for Google rich results
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description,
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Jagodana LLC",
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_CONFIG.url}/android-icon-192x192.png`,
-      },
-    },
-    datePublished: post.date,
-    dateModified: post.date,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${SITE_CONFIG.url}/blogs/${slug}`,
-    },
-    image: `${SITE_CONFIG.url}/opengraph-image`,
-    keywords: post.tags.join(", "),
-  };
+  const postUrl = `${SITE_CONFIG.url}/blogs/${slug}`;
 
   return (
     <div className="min-h-screen bg-neutral-950">
-      {/* Article schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Blog", item: `${SITE_CONFIG.url}/blogs` },
+          { name: post.title, item: postUrl },
+        ]}
+      />
+      <ArticleJsonLd
+        type="BlogPosting"
+        url={postUrl}
+        headline={post.title}
+        description={post.description}
+        author={{ name: post.author }}
+        datePublished={post.date}
+        dateModified={post.date}
+        publisher={{
+          name: "Jagodana LLC",
+          logo: { url: `${SITE_CONFIG.url}/android-icon-192x192.png` },
+        }}
+        image={OG_IMAGE_URL}
+        mainEntityOfPage={{ "@id": postUrl }}
       />
 
       {/* Header */}

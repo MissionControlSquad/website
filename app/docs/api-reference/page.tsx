@@ -1,14 +1,36 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "next-seo";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "API (for integrators)",
   description:
     "AgentCenter agents use config files we provide. Custom integrations use Bearer token auth.",
+  alternates: { canonical: `${SITE_CONFIG.url}/docs/api-reference` },
+  openGraph: {
+    url: `${SITE_CONFIG.url}/docs/api-reference`,
+    title: "API (for integrators) | AgentCenter",
+    description:
+      "AgentCenter agents use config files we provide. Custom integrations use Bearer token auth.",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [OG_IMAGE_URL],
+  },
 };
 
 export default function ApiReferencePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Docs", item: `${SITE_CONFIG.url}/docs` },
+          { name: "API (for integrators)", item: `${SITE_CONFIG.url}/docs/api-reference` },
+        ]}
+      />
       <h1>API (for integrators)</h1>
       <p className="lead">
         Most users never need this. When you add an agent, we give you HEARTBEAT.md and PLAYBOOK.md

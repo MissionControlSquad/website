@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { SITE_CONFIG } from "@/lib/constants";
+import { BreadcrumbJsonLd, HowToJsonLd, JsonLdScript } from "next-seo";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,6 +60,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: SITE_CONFIG.description,
+    images: [{ ...OG_IMAGE, alt: "AgentCenter — Mission Control for Your OpenClaw Agents" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -66,6 +68,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     creator: "@dharmikjagodana",
     site: "@dharmikjagodana",
+    images: [OG_IMAGE_URL],
   },
   icons: {
     icon: [
@@ -139,7 +142,7 @@ const jsonLd = {
         width: 192,
         height: 192,
       },
-      image: `${SITE_CONFIG.url}/opengraph-image`,
+      image: OG_IMAGE_URL,
       email: "hey@dharmikjagodana.com",
       contactPoint: {
         "@type": "ContactPoint",
@@ -213,7 +216,7 @@ const jsonLd = {
         "@type": "Brand",
         name: SITE_CONFIG.name,
       },
-      image: `${SITE_CONFIG.url}/opengraph-image`,
+      image: OG_IMAGE_URL,
       offers: {
         "@type": "Offer",
         url: SITE_CONFIG.url,
@@ -224,73 +227,6 @@ const jsonLd = {
         seller: { "@id": `${SITE_CONFIG.url}/#organization` },
       },
       category: "Software > Developer Tools > AI Agent Management",
-    },
-    // BreadcrumbList — navigation breadcrumbs in search results
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${SITE_CONFIG.url}/#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_CONFIG.url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Features",
-          item: `${SITE_CONFIG.url}/#features`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Pricing",
-          item: `${SITE_CONFIG.url}/#pricing`,
-        },
-        {
-          "@type": "ListItem",
-          position: 4,
-          name: "Blog",
-          item: `${SITE_CONFIG.url}/blogs`,
-        },
-        {
-          "@type": "ListItem",
-          position: 5,
-          name: "FAQ",
-          item: `${SITE_CONFIG.url}/#faq`,
-        },
-      ],
-    },
-    // HowTo — step-by-step rich result in Google
-    {
-      "@type": "HowTo",
-      "@id": `${SITE_CONFIG.url}/#howto`,
-      name: "How to manage AI agents with AgentCenter",
-      description: "Get started in minutes. Create tasks, let agents work, review the results.",
-      step: [
-        {
-          "@type": "HowToStep",
-          position: 1,
-          name: "Create a Task",
-          text: "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
-          url: `${SITE_CONFIG.url}/#how-it-works`,
-        },
-        {
-          "@type": "HowToStep",
-          position: 2,
-          name: "Agents Work",
-          text: "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
-          url: `${SITE_CONFIG.url}/#how-it-works`,
-        },
-        {
-          "@type": "HowToStep",
-          position: 3,
-          name: "Lead Verifies",
-          text: "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
-          url: `${SITE_CONFIG.url}/#how-it-works`,
-        },
-      ],
     },
   ],
 };
@@ -320,15 +256,47 @@ export default function RootLayout({
           data-key="+Xe4CTe4ZFguIA3mzh3qvA"
           async
         />
-        {/* JSON-LD structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLdScript data={jsonLd} scriptKey="root-graph" />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
       >
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Home", item: SITE_CONFIG.url },
+            { name: "Features", item: `${SITE_CONFIG.url}/#features` },
+            { name: "Pricing", item: `${SITE_CONFIG.url}/#pricing` },
+            { name: "Blog", item: `${SITE_CONFIG.url}/blogs` },
+            { name: "FAQ", item: `${SITE_CONFIG.url}/#faq` },
+          ]}
+        />
+        <HowToJsonLd
+          name="How to manage AI agents with AgentCenter"
+          description="Get started in minutes. Create tasks, let agents work, review the results."
+          step={[
+            {
+              "@type": "HowToStep",
+              position: 1,
+              name: "Create a Task",
+              text: "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
+              url: `${SITE_CONFIG.url}/#how-it-works`,
+            },
+            {
+              "@type": "HowToStep",
+              position: 2,
+              name: "Agents Work",
+              text: "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
+              url: `${SITE_CONFIG.url}/#how-it-works`,
+            },
+            {
+              "@type": "HowToStep",
+              position: 3,
+              name: "Lead Verifies",
+              text: "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
+              url: `${SITE_CONFIG.url}/#how-it-works`,
+            },
+          ]}
+        />
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
