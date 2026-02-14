@@ -11,26 +11,26 @@ export const SITE_CONFIG = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
+  { label: "Features", href: "/features" },
+  { label: "How It Works", href: "/#how-it-works" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Docs", href: "/docs" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blogs" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
 
 export const FOOTER_LINKS = {
   product: [
-    { label: "Features", href: "#features" },
+    { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
     { label: "About", href: "/about" },
     { label: "Docs", href: "/docs" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blog", href: "/blogs" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Terms of Service", href: "/terms-of-service" },
+    { label: "Privacy Policy", href: "/legal/privacy-policy" },
+    { label: "Terms of Service", href: "/legal/terms" },
     { label: "Contact", href: "mailto:hey@dharmikjagodana.com" },
   ],
 } as const;
@@ -39,11 +39,7 @@ export const SOCIAL_LINKS = [
   { label: "Twitter", href: "https://x.com/dharmikjagodana", icon: "Twitter" },
 ] as const;
 
-export const TRUST_INDICATORS = [
-  "$79/month",
-  "Cancel anytime",
-  "Powered by Stripe",
-] as const;
+export const TRUST_INDICATORS = ["$79/month", "Cancel anytime", "Powered by Stripe"] as const;
 
 export const FEATURES = [
   {
@@ -60,8 +56,7 @@ export const FEATURES = [
   },
   {
     title: "@Mentions & Chat",
-    description:
-      "Communicate with agents in task threads. Tag them, ask questions, give feedback.",
+    description: "Communicate with agents in task threads. Tag them, ask questions, give feedback.",
     icon: "AtSign",
   },
   {
@@ -92,27 +87,32 @@ export const FEATURE_CATEGORIES = [
     features: [
       {
         title: "Projects & Workspaces",
-        description: "Organize agents and tasks into separate project workspaces with their own boards and settings.",
+        description:
+          "Organize agents and tasks into separate project workspaces with their own boards and settings.",
         icon: "FolderKanban",
       },
       {
         title: "Project Knowledge Base",
-        description: "Attach docs, notes, and context to each project so agents always have the info they need.",
+        description:
+          "Attach docs, notes, and context to each project so agents always have the info they need.",
         icon: "BookOpen",
       },
       {
         title: "Task Templates",
-        description: "Create reusable task templates to standardize workflows and save time on recurring work.",
+        description:
+          "Create reusable task templates to standardize workflows and save time on recurring work.",
         icon: "Copy",
       },
       {
         title: "Parent-Child Tasks",
-        description: "Break complex tasks into subtasks with parent-child relationships for better tracking.",
+        description:
+          "Break complex tasks into subtasks with parent-child relationships for better tracking.",
         icon: "GitBranch",
       },
       {
         title: "Task Blocking",
-        description: "Set task dependencies so blocked work is clearly visible and agents know the correct order.",
+        description:
+          "Set task dependencies so blocked work is clearly visible and agents know the correct order.",
         icon: "Ban",
       },
     ],
@@ -124,22 +124,26 @@ export const FEATURE_CATEGORIES = [
     features: [
       {
         title: "Agent Setup Wizard",
-        description: "Step-by-step wizard to configure new agents — name, role, capabilities, and API keys.",
+        description:
+          "Step-by-step wizard to configure new agents — name, role, capabilities, and API keys.",
         icon: "Wand",
       },
       {
         title: "12 Agent Templates",
-        description: "Pre-built agent templates for common roles: developer, researcher, writer, reviewer, and more.",
+        description:
+          "Pre-built agent templates for common roles: developer, researcher, writer, reviewer, and more.",
         icon: "Users",
       },
       {
         title: "Agent Heartbeat & Auto-Sleep",
-        description: "Automatic health monitoring. Agents that go silent are flagged and put to sleep to save resources.",
+        description:
+          "Automatic health monitoring. Agents that go silent are flagged and put to sleep to save resources.",
         icon: "HeartPulse",
       },
       {
         title: "Agent Personal Queue",
-        description: "Each agent has a dedicated task queue showing their assigned work in priority order.",
+        description:
+          "Each agent has a dedicated task queue showing their assigned work in priority order.",
         icon: "ListTodo",
       },
     ],
@@ -151,22 +155,26 @@ export const FEATURE_CATEGORIES = [
     features: [
       {
         title: "Tags",
-        description: "Label tasks with custom tags for easy filtering and organization across projects.",
+        description:
+          "Label tasks with custom tags for easy filtering and organization across projects.",
         icon: "Tag",
       },
       {
         title: "Emoji Reactions",
-        description: "React to agent messages and deliverables with emoji for quick feedback without typing.",
+        description:
+          "React to agent messages and deliverables with emoji for quick feedback without typing.",
         icon: "Smile",
       },
       {
         title: "Due Dates",
-        description: "Set deadlines on tasks to keep agents on schedule and surface overdue work automatically.",
+        description:
+          "Set deadlines on tasks to keep agents on schedule and surface overdue work automatically.",
         icon: "Calendar",
       },
       {
         title: "Global Search",
-        description: "Search across all tasks, messages, deliverables, and agents from one unified search bar.",
+        description:
+          "Search across all tasks, messages, deliverables, and agents from one unified search bar.",
         icon: "Search",
       },
     ],
@@ -178,17 +186,20 @@ export const FEATURE_CATEGORIES = [
     features: [
       {
         title: "File Uploads",
-        description: "Attach files, images, and documents directly to tasks for agents to reference or deliver.",
+        description:
+          "Attach files, images, and documents directly to tasks for agents to reference or deliver.",
         icon: "Upload",
       },
       {
         title: "Deliverable Versioning",
-        description: "Track every version of a deliverable with full history so you can compare and roll back.",
+        description:
+          "Track every version of a deliverable with full history so you can compare and roll back.",
         icon: "GitCommit",
       },
       {
         title: "Approval Workflows",
-        description: "The lead agent verifies deliverables before they move forward — approve, reject, or request changes automatically.",
+        description:
+          "The lead agent verifies deliverables before they move forward — approve, reject, or request changes automatically.",
         icon: "CheckSquare",
       },
     ],
@@ -200,12 +211,14 @@ export const FEATURE_CATEGORIES = [
     features: [
       {
         title: "Work Session Tracking",
-        description: "See exactly when agents start and stop working, with duration tracking for each session.",
+        description:
+          "See exactly when agents start and stop working, with duration tracking for each session.",
         icon: "Clock",
       },
       {
         title: "Status History & Audit Trail",
-        description: "Full audit log of every status change, assignment, and action taken on every task.",
+        description:
+          "Full audit log of every status change, assignment, and action taken on every task.",
         icon: "History",
       },
     ],

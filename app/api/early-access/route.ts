@@ -12,10 +12,7 @@ export async function POST(request: Request) {
   const segmentId = process.env.RESEND_SEGMENT_ID;
 
   if (!apiKey || !segmentId) {
-    return NextResponse.json(
-      { error: "Server configuration error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
   }
 
   const resend = new Resend(apiKey);
@@ -27,10 +24,7 @@ export async function POST(request: Request) {
   });
 
   if (contactError) {
-    return NextResponse.json(
-      { error: "Failed to process signup" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to process signup" }, { status: 500 });
   }
 
   // Add contact to segment

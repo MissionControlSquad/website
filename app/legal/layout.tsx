@@ -1,14 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 
-export default function LegalLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LegalLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-neutral-950">
       {/* Minimal header */}
@@ -22,11 +19,14 @@ export default function LegalLayout({
               <ArrowLeft size={20} />
               <span className="text-sm font-medium">Back to Home</span>
             </Link>
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-xl font-bold text-neutral-100"
-            >
-              <img src="/favicon-32x32.png" alt="AgentCenter.cloud" width={28} height={28} className="rounded" />
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold text-neutral-100">
+              <Image
+                src="/favicon-32x32.png"
+                alt="AgentCenter.cloud"
+                width={28}
+                height={28}
+                className="rounded"
+              />
               <span>AgentCenter</span>
             </Link>
           </div>
@@ -47,15 +47,12 @@ export default function LegalLayout({
             <p>© 2026 Jagodana LLC. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <Link
-                href="/privacy-policy"
+                href="/legal/privacy-policy"
                 className="hover:text-neutral-300 transition-colors"
               >
                 Privacy Policy
               </Link>
-              <Link
-                href="/terms-of-service"
-                className="hover:text-neutral-300 transition-colors"
-              >
+              <Link href="/legal/terms" className="hover:text-neutral-300 transition-colors">
                 Terms of Service
               </Link>
             </div>

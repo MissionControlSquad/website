@@ -3,7 +3,6 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Documentation",
@@ -18,21 +17,14 @@ const DOC_LINKS = [
   { label: "Roadmap", href: "/docs/roadmap" },
 ] as const;
 
-export default function DocsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
       <main id="main-content" className="min-h-screen pt-16">
         <Container className="py-12">
           <div className="flex flex-col md:flex-row gap-12">
-            <aside
-              className="md:w-56 flex-shrink-0"
-              aria-label="Documentation navigation"
-            >
+            <aside className="md:w-56 flex-shrink-0" aria-label="Documentation navigation">
               <nav className="sticky top-24 space-y-1">
                 <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-4">
                   Documentation

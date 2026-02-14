@@ -45,12 +45,9 @@ export default function HowItWorks() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
-            How It Works
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">How It Works</h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-            Get started in minutes. Create tasks, let agents work, review the
-            results.
+            Get started in minutes. Create tasks, let agents work, review the results.
           </p>
         </motion.div>
 
@@ -90,12 +87,8 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-neutral-100 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-neutral-400 max-w-xs">
-                    {step.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-neutral-100 mb-2">{step.title}</h3>
+                  <p className="text-neutral-400 max-w-xs">{step.description}</p>
                 </motion.div>
               );
             })}

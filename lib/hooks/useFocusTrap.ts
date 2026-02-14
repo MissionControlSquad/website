@@ -18,9 +18,7 @@ export function useFocusTrap(isActive: boolean) {
     );
 
     const firstFocusable = focusableElements[0] as HTMLElement;
-    const lastFocusable = focusableElements[
-      focusableElements.length - 1
-    ] as HTMLElement;
+    const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
 
     if (e.shiftKey) {
       // Shift + Tab: move focus backwards

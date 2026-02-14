@@ -26,13 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.description,
     keywords: post.tags,
     alternates: {
-      canonical: `${SITE_CONFIG.url}/blog/${slug}`,
+      canonical: `${SITE_CONFIG.url}/blogs/${slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
-      url: `${SITE_CONFIG.url}/blog/${slug}`,
+      url: `${SITE_CONFIG.url}/blogs/${slug}`,
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.date,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_CONFIG.url}/blog/${slug}`,
+      "@id": `${SITE_CONFIG.url}/blogs/${slug}`,
     },
     image: `${SITE_CONFIG.url}/opengraph-image`,
     keywords: post.tags.join(", "),
@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl mx-auto">
             <Link
-              href="/blog"
+              href="/blogs"
               className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors mb-8"
             >
               <ArrowRight size={14} className="rotate-180" />
@@ -153,7 +153,7 @@ export default async function BlogPostPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl mx-auto py-8">
             <Link
-              href="/blog"
+              href="/blogs"
               className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
             >
               <ArrowRight size={14} className="rotate-180" />

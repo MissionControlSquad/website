@@ -65,11 +65,7 @@ export default function ThankYouPage() {
               {/* Success icon */}
               <motion.div variants={checkVariants} className="mb-8">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-success-500/10 border border-success-500/20 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
-                  <CheckCircle
-                    size={40}
-                    className="text-success-500"
-                    aria-hidden="true"
-                  />
+                  <CheckCircle size={40} className="text-success-500" aria-hidden="true" />
                 </div>
               </motion.div>
 
@@ -86,8 +82,8 @@ export default function ThankYouPage() {
                 variants={itemVariants}
                 className="text-lg text-neutral-400 mb-12 max-w-lg mx-auto"
               >
-                Your payment has been received successfully. We're excited to
-                get you started with AgentCenter.
+                Your payment has been received successfully. We&apos;re excited to get you started
+                with AgentCenter.
               </motion.p>
 
               {/* Info cards */}
@@ -99,19 +95,13 @@ export default function ThankYouPage() {
                 <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 text-left card-glow">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary-500/10 border border-primary-500/20">
-                      <Clock
-                        size={20}
-                        className="text-primary-400"
-                        aria-hidden="true"
-                      />
+                      <Clock size={20} className="text-primary-400" aria-hidden="true" />
                     </div>
-                    <h2 className="font-semibold text-neutral-100">
-                      Within 24 Hours
-                    </h2>
+                    <h2 className="font-semibold text-neutral-100">Within 24 Hours</h2>
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Our team will review your payment and reach out to you
-                    within 24 hours with everything you need to get started.
+                    Our team will review your payment and reach out to you within 24 hours with
+                    everything you need to get started.
                   </p>
                 </div>
 
@@ -119,19 +109,13 @@ export default function ThankYouPage() {
                 <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 text-left card-glow">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary-500/10 border border-primary-500/20">
-                      <Mail
-                        size={20}
-                        className="text-primary-400"
-                        aria-hidden="true"
-                      />
+                      <Mail size={20} className="text-primary-400" aria-hidden="true" />
                     </div>
-                    <h2 className="font-semibold text-neutral-100">
-                      Check Your Email
-                    </h2>
+                    <h2 className="font-semibold text-neutral-100">Check Your Email</h2>
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    We'll contact you at the email address you used during
-                    payment. Keep an eye on your inbox (and spam folder).
+                    We&apos;ll contact you at the email address you used during payment. Keep an eye
+                    on your inbox (and spam folder).
                   </p>
                 </div>
               </motion.div>
@@ -141,9 +125,7 @@ export default function ThankYouPage() {
                 variants={itemVariants}
                 className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-8 mb-12 text-left"
               >
-                <h3 className="text-lg font-semibold text-neutral-100 mb-5">
-                  What happens next?
-                </h3>
+                <h3 className="text-lg font-semibold text-neutral-100 mb-5">What happens next?</h3>
                 <ol className="space-y-4">
                   {[
                     {
@@ -163,9 +145,7 @@ export default function ThankYouPage() {
                       <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-semibold">
                         {item.step}
                       </span>
-                      <span className="text-neutral-300 pt-0.5">
-                        {item.text}
-                      </span>
+                      <span className="text-neutral-300 pt-0.5">{item.text}</span>
                     </li>
                   ))}
                 </ol>
@@ -192,18 +172,15 @@ export default function ThankYouPage() {
               </motion.div>
 
               {/* Support note */}
-              <motion.p
-                variants={itemVariants}
-                className="mt-8 text-sm text-neutral-500"
-              >
+              <motion.p variants={itemVariants} className="mt-8 text-sm text-neutral-500">
                 Need help? Reach us at{" "}
                 <a
                   href="mailto:hey@dharmikjagodana.com"
                   className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
                 >
                   hey@dharmikjagodana.com
-                </a>
-                {" "}or message me on{" "}
+                </a>{" "}
+                or message me on{" "}
                 <a
                   href="https://x.com/dharmikjagodana"
                   target="_blank"

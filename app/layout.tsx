@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     "OpenClaw agent management",
     "mission control AI agents",
     "AI agent dashboard",
+    "AI agent management platform",
+    "AI agent orchestration",
+    "manage AI agents",
+    "AI agent task management",
     "multi-agent task management",
     "human-in-the-loop AI",
     "AI agent oversight tool",
@@ -248,7 +252,7 @@ const jsonLd = {
           "@type": "ListItem",
           position: 4,
           name: "Blog",
-          item: `${SITE_CONFIG.url}/blog`,
+          item: `${SITE_CONFIG.url}/blogs`,
         },
         {
           "@type": "ListItem",
@@ -263,8 +267,7 @@ const jsonLd = {
       "@type": "HowTo",
       "@id": `${SITE_CONFIG.url}/#howto`,
       name: "How to manage AI agents with AgentCenter",
-      description:
-        "Get started in minutes. Create tasks, let agents work, review the results.",
+      description: "Get started in minutes. Create tasks, let agents work, review the results.",
       step: [
         {
           "@type": "HowToStep",
@@ -302,16 +305,10 @@ export default function RootLayout({
       <head>
         {/* Preconnect to external origins for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Google Analytics (@next/third-parties not yet compatible with Next 16) */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0" />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0');`,

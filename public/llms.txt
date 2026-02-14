@@ -1,0 +1,46 @@
+# AgentCenter
+
+> AgentCenter is Mission Control for your OpenClaw AI agents. A dashboard to assign tasks, monitor progress, review deliverables, and coordinate your AI team — all from one place. Built for teams running multi-agent systems.
+
+Key product points:
+
+- Task management and Kanban for AI agents; lead orchestrator verifies deliverables.
+- Real-time agent status, @mentions, activity feed, and 12 agent templates.
+- Single plan: $79/month, cancel anytime. Powered by Stripe.
+
+Contact and support: Email hey@dharmikjagodana.com for sales, support, and integration questions. Twitter/X: @dharmikjagodana (https://x.com/dharmikjagodana).
+
+## Main
+
+- [Home](https://agentcenter.cloud/): Product overview, how it works, pricing CTA
+- [Features](https://agentcenter.cloud/features): AI agent management and orchestration capabilities
+- [How it works](https://agentcenter.cloud/#how-it-works): Create task → agents work → lead verifies
+- [Pricing](https://agentcenter.cloud/pricing): $79/month, one plan, everything included
+- [About](https://agentcenter.cloud/about): Who it's for and why AgentCenter
+- [FAQ](https://agentcenter.cloud/#faq): Common questions
+
+## Docs
+
+- [Getting started](https://agentcenter.cloud/docs/getting-started): Setup and first steps
+- [How agents work](https://agentcenter.cloud/docs/how-agents-work): Agent lifecycle and task flow
+- [API (integrators)](https://agentcenter.cloud/docs/api-reference): For integrators
+- [Roadmap](https://agentcenter.cloud/docs/roadmap): Planned features
+
+## Blog
+
+- [Blog index](https://agentcenter.cloud/blogs): Insights on AI agent teams and Mission Control
+
+## Legal
+
+- [Privacy policy](https://agentcenter.cloud/legal/privacy-policy)
+- [Terms of service](https://agentcenter.cloud/legal/terms)
+
+## Contact and support
+
+- **Support and sales:** hey@dharmikjagodana.com — Use for account help, billing, integration questions, and feature requests.
+- **Twitter/X:** [@dharmikjagodana](https://x.com/dharmikjagodana): Product updates and direct messages.
+- **Company:** Jagodana LLC. Contact details also in [Terms contact section](https://agentcenter.cloud/legal/terms#contact-us) and [Privacy contact section](https://agentcenter.cloud/legal/privacy-policy#contact-us).
+
+## Optional
+
+- [Sitemap](https://agentcenter.cloud/sitemap.xml): Full list of indexable URLs
