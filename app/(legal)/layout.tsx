@@ -26,7 +26,7 @@ export default function LegalLayout({
               href="/"
               className="flex items-center gap-2 text-xl font-bold text-neutral-100"
             >
-              <img src="/favicon-32x32.png" alt="" width={28} height={28} className="rounded" />
+              <img src="/favicon-32x32.png" alt="AgentCenter.cloud" width={28} height={28} className="rounded" />
               <span>AgentCenter</span>
             </Link>
           </div>

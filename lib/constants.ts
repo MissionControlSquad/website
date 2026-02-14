@@ -13,7 +13,9 @@ export const SITE_CONFIG = {
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "#faq" },
 ] as const;
@@ -21,7 +23,9 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = {
   product: [
     { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "About", href: "/about" },
+    { label: "Docs", href: "/docs" },
     { label: "Blog", href: "/blog" },
   ],
   legal: [

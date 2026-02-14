@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
 
+  // Redirects (e.g. doc URL changes)
+  redirects: async () => [
+    { source: "/docs/agent-lifecycle-and-tasks", destination: "/docs/how-agents-work", permanent: true },
+  ],
+
   // Compression
   compress: true,
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
@@ -65,13 +66,14 @@ export default function Hero() {
             {SITE_CONFIG.description}
           </motion.p>
 
-          {/* Trust indicators */}
+          {/* Trust indicators — static list to avoid hydration mismatch with cached server HTML */}
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500"
+            suppressHydrationWarning
           >
-            {TRUST_INDICATORS.map((indicator, index) => (
-              <span key={index} className="flex items-center gap-2">
+            {TRUST_INDICATORS.map((indicator) => (
+              <span key={indicator} className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-primary-500" />
                 {indicator}
               </span>
@@ -102,13 +104,15 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            {/* Dashboard screenshot */}
-            <img
+            {/* Dashboard screenshot — next/image serves WebP/AVIF and responsive sizes to reduce payload */}
+            <Image
               src="/dashboard-preview.png"
               alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
               width={1920}
               height={1080}
               className="w-full h-auto"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
             />
           </div>
         </motion.div>

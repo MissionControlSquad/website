@@ -14,6 +14,16 @@ export const metadata: Metadata = {
       "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
     type: "website",
     url: `${SITE_CONFIG.url}/privacy-policy`,
+    siteName: SITE_CONFIG.name,
+    locale: "en_US",
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "AgentCenter",
+      },
+    ],
   },
   robots: {
     index: true,

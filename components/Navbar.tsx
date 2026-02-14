@@ -66,7 +66,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2 text-xl font-bold text-neutral-100 hover:text-primary-400 transition-colors"
           >
-            <img src="/favicon-32x32.png" alt="" width={28} height={28} className="rounded" />
+            <img src="/favicon-32x32.png" alt="AgentCenter.cloud" width={28} height={28} className="rounded" />
             <span>{SITE_CONFIG.name}</span>
           </Link>
 
