@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["next-mdx-remote"],
   // Performance optimizations
   experimental: {
     // Enable optimized package imports for smaller bundles
