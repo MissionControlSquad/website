@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   description:
     "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
   alternates: {
-    canonical: `${SITE_CONFIG.url}/blog`,
+    canonical: `${SITE_CONFIG.url}/blogs`,
   },
   openGraph: {
     title: "AgentCenter Blog — AI Agent Management Insights",
     description:
       "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
     type: "website",
-    url: `${SITE_CONFIG.url}/blog`,
+    url: `${SITE_CONFIG.url}/blogs`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+export default function BlogsPage() {
   const posts = getAllPosts();
 
   // CollectionPage + ItemList JSON-LD for blog listing
@@ -39,7 +39,7 @@ export default function BlogPage() {
     name: "AgentCenter Blog",
     description:
       "Insights on managing AI agent teams, Mission Control dashboards, and the future of multi-agent operations.",
-    url: `${SITE_CONFIG.url}/blog`,
+    url: `${SITE_CONFIG.url}/blogs`,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_CONFIG.name,
@@ -50,7 +50,7 @@ export default function BlogPage() {
       itemListElement: posts.map((post, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        url: `${SITE_CONFIG.url}/blogs/${post.slug}`,
         name: post.title,
       })),
     },
@@ -74,12 +74,10 @@ export default function BlogPage() {
             <ArrowRight size={14} className="rotate-180" />
             Back to home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
-            Blog
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">Blog</h1>
           <p className="text-lg text-neutral-400 max-w-2xl">
-            Insights on managing AI agent teams, Mission Control dashboards,
-            and the future of multi-agent operations.
+            Insights on managing AI agent teams, Mission Control dashboards, and the future of
+            multi-agent operations.
           </p>
         </Container>
       </div>
@@ -88,9 +86,7 @@ export default function BlogPage() {
       <Container>
         <div className="py-16">
           {posts.length === 0 ? (
-            <p className="text-neutral-500 text-center py-12">
-              No posts yet. Check back soon.
-            </p>
+            <p className="text-neutral-500 text-center py-12">No posts yet. Check back soon.</p>
           ) : (
             <div className="grid gap-8 md:gap-12">
               {posts.map((post) => (
@@ -98,7 +94,7 @@ export default function BlogPage() {
                   key={post.slug}
                   className="group border-b border-neutral-800/50 pb-8 md:pb-12 last:border-0"
                 >
-                  <Link href={`/blog/${post.slug}`} className="block">
+                  <Link href={`/blogs/${post.slug}`} className="block">
                     <div className="flex flex-wrap items-center gap-3 text-sm text-neutral-500 mb-3">
                       <span className="flex items-center gap-1.5">
                         <Calendar size={14} />
@@ -118,9 +114,7 @@ export default function BlogPage() {
                       {post.title}
                     </h2>
 
-                    <p className="text-neutral-400 text-lg mb-4 line-clamp-2">
-                      {post.description}
-                    </p>
+                    <p className="text-neutral-400 text-lg mb-4 line-clamp-2">{post.description}</p>
 
                     {post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2">

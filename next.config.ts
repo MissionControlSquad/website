@@ -17,7 +17,15 @@ const nextConfig: NextConfig = {
 
   // Redirects (e.g. doc URL changes)
   redirects: async () => [
-    { source: "/docs/agent-lifecycle-and-tasks", destination: "/docs/how-agents-work", permanent: true },
+    {
+      source: "/docs/agent-lifecycle-and-tasks",
+      destination: "/docs/how-agents-work",
+      permanent: true,
+    },
+    { source: "/blog", destination: "/blogs", permanent: true },
+    { source: "/blog/:path*", destination: "/blogs/:path*", permanent: true },
+    { source: "/privacy-policy", destination: "/legal/privacy-policy", permanent: true },
+    { source: "/terms-of-service", destination: "/legal/terms", permanent: true },
   ],
 
   // Compression

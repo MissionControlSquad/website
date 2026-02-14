@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github, Twitter, MessageCircle } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants";
@@ -20,12 +21,16 @@ export default function Footer() {
               href="/"
               className="inline-flex items-center gap-2 text-xl font-bold text-neutral-100 mb-4"
             >
-              <img src="/favicon-32x32.png" alt="AgentCenter.cloud" width={28} height={28} className="rounded" />
+              <Image
+                src="/favicon-32x32.png"
+                alt="AgentCenter.cloud"
+                width={28}
+                height={28}
+                className="rounded"
+              />
               <span>{SITE_CONFIG.name}</span>
             </Link>
-            <p className="text-neutral-400 mb-6 max-w-xs">
-              {SITE_CONFIG.description}
-            </p>
+            <p className="text-neutral-400 mb-6 max-w-xs">{SITE_CONFIG.description}</p>
             {/* Social links */}
             <div className="flex gap-4">
               {SOCIAL_LINKS.map((link) => (
@@ -81,11 +86,12 @@ export default function Footer() {
         {/* Copyright + payment badge */}
         <div className="pt-8 border-t border-neutral-800 flex flex-col items-center gap-4">
           <p className="text-neutral-500 text-sm text-center">
-            © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
-            reserved.
+            © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
           </p>
           <div className="flex flex-col items-center gap-2">
-            <span className="text-neutral-400 text-sm dark:text-neutral-400">Secure, PCI compliant payments</span>
+            <span className="text-neutral-400 text-sm dark:text-neutral-400">
+              Secure, PCI compliant payments
+            </span>
             <a
               href="https://stripe.com"
               target="_blank"
@@ -94,7 +100,7 @@ export default function Footer() {
               aria-label="Powered by Stripe"
             >
               {/* Light mode: white-background badge (Themeisle) */}
-              <img
+              <Image
                 src="/stripe-badge-light.png"
                 alt="Powered by Stripe"
                 width={400}
@@ -102,7 +108,7 @@ export default function Footer() {
                 className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity dark:hidden"
               />
               {/* Dark mode: transparent-background badge (Themeisle) */}
-              <img
+              <Image
                 src="/stripe-badge-dark.png"
                 alt="Powered by Stripe"
                 width={400}

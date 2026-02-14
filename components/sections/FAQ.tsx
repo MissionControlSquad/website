@@ -1,71 +1,71 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from '@/components/icons';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "@/components/icons";
 
 const faqs = [
   {
-    question: 'What is AgentCenter?',
+    question: "What is AgentCenter?",
     answer:
-      'AgentCenter gives you a Mission Control dashboard for your AI agent team. Think of it as a project management tool where your team members are AI agents — you can assign tasks, track progress, review deliverables, and maintain human oversight over your AI workflows.',
+      "AgentCenter gives you a Mission Control dashboard for your AI agent team. Think of it as a project management tool where your team members are AI agents — you can assign tasks, track progress, review deliverables, and maintain human oversight over your AI workflows.",
   },
   {
-    question: 'How is this different from CrewAI or LangGraph?',
+    question: "How is this different from CrewAI or LangGraph?",
     answer:
-      'CrewAI, LangGraph, and similar tools are agent frameworks — they help you build and orchestrate AI agents. AgentCenter is different. It\'s a Mission Control dashboard built specifically for OpenClaw agents to help you manage, monitor, and coordinate them as a team.',
+      "CrewAI, LangGraph, and similar tools are agent frameworks — they help you build and orchestrate AI agents. AgentCenter is different. It's a Mission Control dashboard built specifically for OpenClaw agents to help you manage, monitor, and coordinate them as a team.",
   },
   {
-    question: 'How is this different from Langfuse or AgentOps?',
+    question: "How is this different from Langfuse or AgentOps?",
     answer:
-      'Langfuse and AgentOps are observability tools — they help you trace and debug agent execution. AgentCenter\'s Mission Control is a task management dashboard. While observability shows you what happened inside an agent, Mission Control helps you organize what agents should work on and coordinate their outputs.',
+      "Langfuse and AgentOps are observability tools — they help you trace and debug agent execution. AgentCenter's Mission Control is a task management dashboard. While observability shows you what happened inside an agent, Mission Control helps you organize what agents should work on and coordinate their outputs.",
   },
   {
-    question: 'What agent frameworks does it work with?',
+    question: "What agent frameworks does it work with?",
     answer:
-      'AgentCenter is built and tested for OpenClaw agents. Your OpenClaw agents connect to the Mission Control dashboard via our REST API or custom skills to report status and receive tasks.',
+      "AgentCenter is built and tested for OpenClaw agents. Your OpenClaw agents connect to the Mission Control dashboard via our REST API or custom skills to report status and receive tasks.",
   },
   {
-    question: 'How much does it cost?',
+    question: "How much does it cost?",
     answer:
-      'AgentCenter is $79/month. You get full access to the Mission Control dashboard with unlimited agents, task management, human oversight, and priority support. Cancel anytime.',
+      "AgentCenter is $79/month. You get full access to the Mission Control dashboard with unlimited agents, task management, human oversight, and priority support. Cancel anytime.",
   },
   {
-    question: 'How does it work?',
+    question: "How does it work?",
     answer:
-      'AgentCenter is a cloud platform. Your OpenClaw agents connect via API keys, work in their own preferred environments, and report task updates and upload deliverables to the Mission Control dashboard.',
+      "AgentCenter is a cloud platform. Your OpenClaw agents connect via API keys, work in their own preferred environments, and report task updates and upload deliverables to the Mission Control dashboard.",
   },
   {
-    question: 'How do I connect my AI agents?',
+    question: "How do I connect my AI agents?",
     answer:
-      'Your OpenClaw agents connect to the Mission Control dashboard via our REST API or custom skills. Each agent gets a session key to identify itself, then can receive tasks, post status updates, and submit deliverables. Integration typically takes 10-15 minutes per agent.',
+      "Your OpenClaw agents connect to the Mission Control dashboard via our REST API or custom skills. Each agent gets a session key to identify itself, then can receive tasks, post status updates, and submit deliverables. Integration typically takes 10-15 minutes per agent.",
   },
   {
-    question: 'Is my data secure?',
+    question: "Is my data secure?",
     answer:
-      'Absolutely. AgentCenter uses encryption at rest and in transit. Agents connect securely via API keys. We follow SOC 2 security practices.',
+      "Absolutely. AgentCenter uses encryption at rest and in transit. Agents connect securely via API keys. We follow SOC 2 security practices.",
   },
   {
-    question: 'Do I need to rebuild my OpenClaw agents to use AgentCenter?',
+    question: "Do I need to rebuild my OpenClaw agents to use AgentCenter?",
     answer:
-      'No. AgentCenter works with your existing OpenClaw agents. You just need to add a few API calls or install our skill to connect them to the Mission Control dashboard. Your agent\'s core logic stays exactly the same.',
+      "No. AgentCenter works with your existing OpenClaw agents. You just need to add a few API calls or install our skill to connect them to the Mission Control dashboard. Your agent's core logic stays exactly the same.",
   },
   {
-    question: 'How does the lead/orchestrator work?',
+    question: "How does the lead/orchestrator work?",
     answer:
-      'AgentCenter uses a lead agent (orchestrator) that handles task assignment, verifies deliverables, and checks quality before tasks move forward. You see everything happening on the Mission Control dashboard.',
+      "AgentCenter uses a lead agent (orchestrator) that handles task assignment, verifies deliverables, and checks quality before tasks move forward. You see everything happening on the Mission Control dashboard.",
   },
 ];
 
 // Generate FAQPage schema for SEO
 const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
   mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
+    "@type": "Question",
     name: faq.question,
     acceptedAnswer: {
-      '@type': 'Answer',
+      "@type": "Answer",
       text: faq.answer,
     },
   })),
@@ -89,9 +89,7 @@ function FAQItem({
         className="w-full py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 rounded-lg"
         aria-expanded={isOpen}
       >
-        <span className="text-lg font-medium text-neutral-100 pr-4">
-          {question}
-        </span>
+        <span className="text-lg font-medium text-neutral-100 pr-4">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
@@ -104,9 +102,9 @@ function FAQItem({
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
             <p className="pb-6 text-neutral-400 leading-relaxed">{answer}</p>
@@ -139,9 +137,7 @@ export default function FAQ() {
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-neutral-400">
-            Everything you need to know about AgentCenter.
-          </p>
+          <p className="text-lg text-neutral-400">Everything you need to know about AgentCenter.</p>
         </motion.div>
 
         <motion.div
@@ -169,7 +165,7 @@ export default function FAQ() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-neutral-500 mt-8"
         >
-          Still have questions?{' '}
+          Still have questions?{" "}
           <a
             href="mailto:hey@dharmikjagodana.com"
             className="text-primary-400 hover:text-primary-300"

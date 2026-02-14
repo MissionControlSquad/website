@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function DashboardPreview() {
   return (
@@ -17,7 +17,8 @@ export default function DashboardPreview() {
             See Your AI Team in Action
           </h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-            Real-time visibility into what every agent is working on, their status, and deliverables.
+            Real-time visibility into what every agent is working on, their status, and
+            deliverables.
           </p>
         </motion.div>
 
@@ -71,11 +72,8 @@ export default function DashboardPreview() {
 
                   {/* Kanban columns */}
                   <div className="grid grid-cols-4 gap-4 h-[350px]">
-                    {['To Do', 'In Progress', 'Review', 'Done'].map((column, idx) => (
-                      <div
-                        key={column}
-                        className="bg-neutral-700/30 rounded-xl p-3 space-y-3"
-                      >
+                    {["To Do", "In Progress", "Review", "Done"].map((column, idx) => (
+                      <div key={column} className="bg-neutral-700/30 rounded-xl p-3 space-y-3">
                         <div className="h-6 bg-neutral-600 rounded w-2/3" />
                         {[...Array(idx === 1 ? 3 : idx === 2 ? 2 : 2)].map((_, cardIdx) => (
                           <motion.div
@@ -86,8 +84,8 @@ export default function DashboardPreview() {
                             transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 + cardIdx * 0.05 }}
                             className={`p-3 rounded-lg space-y-2 ${
                               idx === 1 && cardIdx === 0
-                                ? 'bg-primary-500/20 border border-primary-500/30'
-                                : 'bg-neutral-700'
+                                ? "bg-primary-500/20 border border-primary-500/30"
+                                : "bg-neutral-700"
                             }`}
                           >
                             <div className="h-4 bg-neutral-500/50 rounded w-3/4" />
@@ -95,7 +93,11 @@ export default function DashboardPreview() {
                             <div className="flex items-center gap-2 pt-1">
                               <div
                                 className={`w-2 h-2 rounded-full ${
-                                  idx === 1 ? 'bg-agent-working' : idx === 3 ? 'bg-agent-online' : 'bg-agent-idle'
+                                  idx === 1
+                                    ? "bg-agent-working"
+                                    : idx === 3
+                                      ? "bg-agent-online"
+                                      : "bg-agent-idle"
                                 }`}
                               />
                               <div className="h-3 bg-neutral-600/50 rounded w-16" />

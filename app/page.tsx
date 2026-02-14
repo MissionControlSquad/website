@@ -20,12 +20,9 @@ const Features = dynamic(() => import("@/components/sections/Features"), {
   loading: () => <SectionSkeleton height="600px" />,
 });
 
-const DashboardPreview = dynamic(
-  () => import("@/components/sections/DashboardPreview"),
-  {
-    loading: () => <SectionSkeleton height="700px" />,
-  }
-);
+const DashboardPreview = dynamic(() => import("@/components/sections/DashboardPreview"), {
+  loading: () => <SectionSkeleton height="700px" />,
+});
 
 const Pricing = dynamic(() => import("@/components/sections/Pricing"), {
   loading: () => <SectionSkeleton height="400px" />,
@@ -42,11 +39,7 @@ const FinalCTA = dynamic(() => import("@/components/sections/FinalCTA"), {
 // Lightweight skeleton for loading states
 function SectionSkeleton({ height }: { height: string }) {
   return (
-    <div
-      className="w-full animate-pulse bg-neutral-900/30"
-      style={{ height }}
-      aria-hidden="true"
-    />
+    <div className="w-full animate-pulse bg-neutral-900/30" style={{ height }} aria-hidden="true" />
   );
 }
 

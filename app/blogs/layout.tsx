@@ -1,11 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export default function BlogLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function BlogsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />

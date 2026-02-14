@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Zap, CheckCircle } from '@/components/icons';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Zap, CheckCircle } from "@/components/icons";
 
 export default function FinalCTA() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setStatus('loading');
+    setStatus("loading");
     try {
-      const res = await fetch('/api/early-access', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/early-access", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
       if (!res.ok) throw new Error();
-      setStatus('success');
-      setEmail('');
+      setStatus("success");
+      setEmail("");
     } catch {
-      setStatus('idle');
+      setStatus("idle");
     }
   };
 
@@ -42,7 +42,7 @@ export default function FinalCTA() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -69,17 +69,17 @@ export default function FinalCTA() {
 
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-100 mb-6">
-            Ready to Take Control of{' '}
-            <span className="gradient-text">Your AI Team?</span>
+            Ready to Take Control of <span className="gradient-text">Your AI Team?</span>
           </h2>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-2xl mx-auto">
-            Subscribe to get product updates, new features, and tips on managing your OpenClaw agents.
+            Subscribe to get product updates, new features, and tips on managing your OpenClaw
+            agents.
           </p>
 
           {/* Subscribe to updates form */}
           <div className="max-w-md mx-auto mb-6">
-            {status === 'success' ? (
+            {status === "success" ? (
               <div className="flex items-center justify-center gap-2 text-success-500 py-3">
                 <CheckCircle size={20} />
                 <span className="font-medium">You&apos;re subscribed!</span>
@@ -96,10 +96,10 @@ export default function FinalCTA() {
                 />
                 <button
                   type="submit"
-                  disabled={status === 'loading'}
+                  disabled={status === "loading"}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors whitespace-nowrap"
                 >
-                  {status === 'loading' ? (
+                  {status === "loading" ? (
                     <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   ) : (
                     <>

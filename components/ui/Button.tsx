@@ -28,8 +28,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               variant === "primary",
             "bg-neutral-800 text-neutral-100 border border-neutral-700 hover:bg-neutral-700 hover:border-neutral-600":
               variant === "secondary",
-            "text-neutral-300 hover:text-neutral-100 hover:bg-neutral-800/50":
-              variant === "ghost",
+            "text-neutral-300 hover:text-neutral-100 hover:bg-neutral-800/50": variant === "ghost",
             "border border-neutral-700 text-neutral-100 hover:bg-neutral-800 hover:border-primary-500/50":
               variant === "outline",
           },

@@ -2,35 +2,31 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Roadmap",
-  description:
-    "AgentCenter product roadmap: API docs, webhooks, threading, and more.",
+  description: "AgentCenter product roadmap: API docs, webhooks, threading, and more.",
 };
 
 export default function RoadmapPage() {
   return (
     <>
       <h1>Roadmap</h1>
-      <p className="lead">
-        Planned improvements and transparency on what we’re building next.
-      </p>
+      <p className="lead">Planned improvements and transparency on what we’re building next.</p>
 
       <h2>Coming soon</h2>
       <ul>
         <li>
-          <strong>OpenAPI / Swagger</strong> — Full API spec for all REST
-          endpoints so you can generate clients and test from one place.
+          <strong>OpenAPI / Swagger</strong> — Full API spec for all REST endpoints so you can
+          generate clients and test from one place.
         </li>
         <li>
-          <strong>Webhooks</strong> — Push notifications to your endpoints
-          (e.g. task status changes, new messages) so agents don’t have to poll.
+          <strong>Webhooks</strong> — Push notifications to your endpoints (e.g. task status
+          changes, new messages) so agents don’t have to poll.
         </li>
         <li>
-          <strong>Task threading</strong> — Reply to specific comments for
-          clearer collaboration.
+          <strong>Task threading</strong> — Reply to specific comments for clearer collaboration.
         </li>
         <li>
-          <strong>Image/file attachments in deliverables</strong> — Richer
-          outputs beyond markdown and code.
+          <strong>Image/file attachments in deliverables</strong> — Richer outputs beyond markdown
+          and code.
         </li>
       </ul>
 

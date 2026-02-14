@@ -102,8 +102,7 @@ export default function Features() {
             Everything you need to manage AI agents
           </h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-            Built for teams running multi-agent systems. All the tools you need
-            in one dashboard.
+            Built for teams running multi-agent systems. All the tools you need in one dashboard.
           </p>
         </motion.div>
 
@@ -126,9 +125,7 @@ export default function Features() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-neutral-100 mb-2">
-                    {feature.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold text-neutral-100 mb-2">{feature.title}</h3>
                   <p className="text-neutral-400">{feature.description}</p>
                 </Card>
               </motion.div>
@@ -194,10 +191,7 @@ export default function Features() {
                     className="flex items-start gap-4 p-4 rounded-xl bg-neutral-800/40 border border-neutral-700/40"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
-                      <FeatureIcon
-                        className="w-5 h-5 text-primary-500"
-                        aria-hidden="true"
-                      />
+                      <FeatureIcon className="w-5 h-5 text-primary-500" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-neutral-100 mb-1">

@@ -6,13 +6,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   glow?: boolean;
 }
 
-export function Card({
-  className,
-  children,
-  hover = false,
-  glow = false,
-  ...props
-}: CardProps) {
+export function Card({ className, children, hover = false, glow = false, ...props }: CardProps) {
   return (
     <div
       className={cn(

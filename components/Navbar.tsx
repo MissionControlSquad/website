@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "@/components/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
@@ -57,16 +58,19 @@ export default function Navbar() {
       )}
     >
       <Container>
-        <nav
-          className="flex items-center justify-between h-16"
-          aria-label="Main navigation"
-        >
+        <nav className="flex items-center justify-between h-16" aria-label="Main navigation">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-2 text-xl font-bold text-neutral-100 hover:text-primary-400 transition-colors"
           >
-            <img src="/favicon-32x32.png" alt="AgentCenter.cloud" width={28} height={28} className="rounded" />
+            <Image
+              src="/favicon-32x32.png"
+              alt="AgentCenter.cloud"
+              width={28}
+              height={28}
+              className="rounded"
+            />
             <span>{SITE_CONFIG.name}</span>
           </Link>
 
@@ -131,7 +135,12 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <div className="pt-4 border-t border-neutral-800">
-                  <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  <a
+                    href={STRIPE_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                  >
                     <Button className="w-full" size="md">
                       Get Early Access
                     </Button>
