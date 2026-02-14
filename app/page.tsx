@@ -33,6 +33,10 @@ const Features = dynamic(() => import("@/components/sections/Features"), {
   loading: () => <SectionSkeleton height="600px" />,
 });
 
+const PrivacyFirst = dynamic(() => import("@/components/sections/PrivacyFirst"), {
+  loading: () => <SectionSkeleton height="500px" />,
+});
+
 const DashboardPreview = dynamic(() => import("@/components/sections/DashboardPreview"), {
   loading: () => <SectionSkeleton height="700px" />,
 });
@@ -68,6 +72,7 @@ export default function HomePage() {
         {/* Below the fold - dynamically loaded for performance */}
         <HowItWorks />
         <Features />
+        <PrivacyFirst />
         <DashboardPreview />
         <Pricing />
         <FAQ />
