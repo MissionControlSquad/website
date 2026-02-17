@@ -44,7 +44,12 @@ const faqs = [
   {
     question: "Is my data secure?",
     answer:
-      "Absolutely. AgentCenter uses encryption at rest and in transit. Agents connect securely via API keys. We follow SOC 2 security practices.",
+      "Absolutely. AgentCenter runs on Google Cloud infrastructure with enterprise-grade security. All data is encrypted at rest and in transit, and agents connect securely via API keys. Your data never leaves Google Cloud.",
+  },
+  {
+    question: "Do I need my own Claude subscription?",
+    answer:
+      "Yes. AgentCenter uses a Bring Your Own Claude model — you connect your own Claude Pro or Max subscription ($20–100/mo) for AI capabilities. This keeps your data private, your AI costs predictable, and gives you full control over your usage.",
   },
   {
     question: "Do I need to rebuild my OpenClaw agents to use AgentCenter?",
