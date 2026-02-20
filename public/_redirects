@@ -1,0 +1,5 @@
+/docs/agent-lifecycle-and-tasks /docs/how-agents-work 301
+/blog/* /blogs/:splat 301
+/blog /blogs 301
+/privacy-policy /legal/privacy-policy 301
+/terms-of-service /legal/terms 301
