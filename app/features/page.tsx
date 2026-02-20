@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { JsonLdScript } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FeaturesSection from "@/components/sections/Features";
@@ -58,6 +58,12 @@ export default function FeaturesPage() {
   return (
     <>
       <JsonLdScript data={featuresSchema} scriptKey="features-itemlist" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Features", item: `${SITE_CONFIG.url}/features` },
+        ]}
+      />
       <Navbar />
       <main id="main-content" className="min-h-screen pt-16">
         <Container className="py-16 md:py-20">
