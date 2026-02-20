@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import Footer from "@/components/Footer";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { getLatestPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   alternates: {
@@ -53,6 +54,10 @@ const FinalCTA = dynamic(() => import("@/components/sections/FinalCTA"), {
   loading: () => <SectionSkeleton height="300px" />,
 });
 
+const LatestPosts = dynamic(() => import("@/components/sections/LatestPosts"), {
+  loading: () => <SectionSkeleton height="400px" />,
+});
+
 // Lightweight skeleton for loading states
 function SectionSkeleton({ height }: { height: string }) {
   return (
@@ -61,6 +66,14 @@ function SectionSkeleton({ height }: { height: string }) {
 }
 
 export default function HomePage() {
+  const latestPosts = getLatestPosts(3).map(({ slug, title, description, date, readingTime }) => ({
+    slug,
+    title,
+    description,
+    date,
+    readingTime,
+  }));
+
   return (
     <>
       <Navbar />
@@ -76,6 +89,7 @@ export default function HomePage() {
         <DashboardPreview />
         <Pricing />
         <FAQ />
+        {latestPosts.length > 0 && <LatestPosts posts={latestPosts} />}
         <FinalCTA />
       </main>
 
