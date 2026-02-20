@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@/lib/blog";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
@@ -141,7 +142,10 @@ export default async function BlogPostPage({ params }: Props) {
       <Container>
         <article className="max-w-3xl mx-auto py-12 md:py-16">
           <div className="prose prose-invert prose-neutral max-w-none prose-headings:text-neutral-100 prose-p:text-neutral-300 prose-strong:text-neutral-200 prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-code:text-primary-300 prose-code:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800 prose-li:text-neutral-300 prose-blockquote:border-primary-500 prose-blockquote:text-neutral-400 prose-table:text-neutral-300 prose-th:text-neutral-200 prose-td:border-neutral-800 prose-th:border-neutral-800">
-            <MDXRemote source={post.content} />
+            <MDXRemote
+              source={post.content}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
           </div>
         </article>
 
