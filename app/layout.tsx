@@ -239,18 +239,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Preconnect to external origins for faster loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Google Analytics (@next/third-parties not yet compatible with Next 16) */}
+        {/* Preconnect to analytics origins for faster loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* Note: next/font self-hosts Google Fonts — no preconnect to fonts.googleapis.com needed */}
+        {/* Google Analytics — defer execution to avoid blocking render */}
         {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0');`,
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0',{send_page_view:true});`,
           }}
         />
-        {/* Ahrefs analytics */}
+        {/* Ahrefs analytics — async keeps it non-blocking */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="+Xe4CTe4ZFguIA3mzh3qvA"
