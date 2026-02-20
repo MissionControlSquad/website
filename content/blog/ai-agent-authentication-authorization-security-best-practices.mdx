@@ -241,7 +241,7 @@ def validate_agent_request(requesting_agent, target_resource):
 
 All agent-to-agent communication should be encrypted in transit. Use TLS 1.3 minimum. For sensitive operations, add message-level encryption on top of transport encryption.
 
-In a [control plane architecture](/blog/ai-agent-control-plane-managing-agents-at-scale), the control plane can enforce these policies centrally — routing all agent communication through authenticated, encrypted channels.
+In a [control plane architecture](/blogs/ai-agent-control-plane-managing-agents-at-scale), the control plane can enforce these policies centrally — routing all agent communication through authenticated, encrypted channels.
 
 ## Common Auth Vulnerabilities in Agent Systems
 
@@ -277,7 +277,7 @@ Agents performing actions with no record of what they did or why. When something
 
 **Fix:** Log every authenticated action. See the Audit Trails section below.
 
-For a deeper dive into agent security risks, see our guide on [AI Agent Security — 7 Risks You're Probably Ignoring](/blog/ai-agent-security-7-risks-youre-probably-ignoring).
+For a deeper dive into agent security risks, see our guide on [AI Agent Security — 7 Risks You're Probably Ignoring](/blogs/ai-agent-security-risks-prevention).
 
 ## Implementing Auth in Practice — Step-by-Step
 
@@ -414,7 +414,7 @@ def log_agent_action(agent_id, action_type, resource, details, status):
 | Token refresh/rotation         | Track credential lifecycle                    |
 | Agent-to-agent communication   | Map interaction patterns                      |
 
-Integrate audit logs with your [observability stack](/blog/ai-agent-observability-beyond-logs-and-traces) for full visibility into agent behavior.
+Integrate audit logs with your [observability stack](/blogs/ai-agent-monitoring-best-practices-2026) for full visibility into agent behavior.
 
 ## FAQ
 

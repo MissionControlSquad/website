@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About AgentCenter — Mission Control for AI Agents",
   description:
     "AgentCenter is the Mission Control dashboard for OpenClaw agents. Learn about our product and who it's for.",
   alternates: { canonical: `${SITE_CONFIG.url}/about` },

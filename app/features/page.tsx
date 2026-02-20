@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { FEATURES, FEATURE_CATEGORIES, OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Features",
+  title: "Features — AI Agent Management Dashboard",
   description:
     "AI agent management and orchestration dashboard for OpenClaw. Kanban task management, real-time agent status, deliverable review, projects, and audit trails. Built for teams running multi-agent systems.",
   openGraph: {

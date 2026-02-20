@@ -6,7 +6,7 @@ import PricingSection from "@/components/sections/Pricing";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Pricing — $79/mo for Unlimited AI Agents",
   description:
     "AgentCenter pricing: $79/month. One plan, everything included. Cancel anytime. Powered by Stripe.",
   alternates: { canonical: `${SITE_CONFIG.url}/pricing` },

@@ -88,7 +88,7 @@ You can't manage what you can't see. The control plane provides real-time visibi
 - **Work session tracking**: How long each agent spent on each task
 - **Status history and audit trail**: Full timeline of state changes for debugging and accountability
 
-This is where [observability practices](/blogs/ai-agent-observability-what-to-monitor-and-why-it-matters) meet agent management. The control plane is your single pane of glass.
+This is where [observability practices](/blogs/ai-agent-monitoring-best-practices-2026) meet agent management. The control plane is your single pane of glass.
 
 ### 4. Permissions and Access Control
 
@@ -99,7 +99,7 @@ Not every agent should be able to do everything. The control plane enforces boun
 - **Approval gates**: Sensitive actions require human or lead-agent review
 - **API key management**: Each agent authenticates with unique credentials; revoke access instantly if compromised
 
-This connects directly to [agent security practices](/blogs/ai-agent-security-best-practices-authentication-permissions-and-audit-trails). The control plane is where security policies become enforcement.
+This connects directly to [agent security practices](/blogs/ai-agent-authentication-authorization-security-best-practices). The control plane is where security policies become enforcement.
 
 ### 5. Versioning and Change Management
 
@@ -110,7 +110,7 @@ Agents evolve. Their prompts change, their tools get updated, their roles shift.
 - **Rollback capability**: Bad config? Revert to the last known-good version
 - **Deliverable versioning**: Track iterations of agent output, not just the final result
 
-This is the foundation of [CI/CD for AI agents](/blogs/ci-cd-for-ai-agents-how-to-ship-agent-updates-without-breaking-production). Without version control at the control plane level, you're flying blind on what changed and when.
+This is the foundation of [managing multiple AI agents](/blogs/how-to-manage-multiple-ai-agents). Without version control at the control plane level, you're flying blind on what changed and when.
 
 ## Single Agent vs. Fleet: What Changes
 
@@ -222,7 +222,7 @@ Through heartbeat monitoring. Agents send periodic heartbeats; if one goes silen
 At bare minimum: an agent registry, a task queue, and heartbeat monitoring. That gives you identity, work routing, and health visibility. Everything else — approvals, versioning, audit trails — layers on top as your fleet grows.
 
 **How does the control plane relate to deployment and CI/CD?**
-The control plane is where [deployment practices](/blogs/ai-agent-deployment-from-prototype-to-production-in-5-steps) and [CI/CD pipelines](/blogs/ci-cd-for-ai-agents-how-to-ship-agent-updates-without-breaking-production) converge. It tracks which config version each agent is running, detects when upgrades are available, and provides the audit trail that CI/CD pipelines depend on for rollback decisions.
+The control plane is where [deployment practices](/blogs/complete-guide-ai-agent-management-2026) and [CI/CD pipelines](/blogs/ci-cd-for-ai-agents-how-to-ship-agent-updates-without-breaking-production) converge. It tracks which config version each agent is running, detects when upgrades are available, and provides the audit trail that CI/CD pipelines depend on for rollback decisions.
 
 ---
 
