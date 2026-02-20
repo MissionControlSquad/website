@@ -105,6 +105,7 @@ export default function Footer() {
                 alt="Powered by Stripe"
                 width={400}
                 height={130}
+                sizes="295px"
                 className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity dark:hidden"
               />
               {/* Dark mode: transparent-background badge (Themeisle) */}
@@ -113,6 +114,7 @@ export default function Footer() {
                 alt="Powered by Stripe"
                 width={400}
                 height={130}
+                sizes="295px"
                 className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity hidden dark:block"
               />
             </a>

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { BreadcrumbJsonLd, HowToJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
@@ -255,21 +256,8 @@ export default function RootLayout({
       <head>
         {/* Preconnect to analytics origins for faster loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
         {/* Note: next/font self-hosts Google Fonts — no preconnect to fonts.googleapis.com needed */}
-        {/* Google Analytics — defer execution to avoid blocking render */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0',{send_page_view:true});`,
-          }}
-        />
-        {/* Ahrefs analytics — async keeps it non-blocking */}
-        <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="+Xe4CTe4ZFguIA3mzh3qvA"
-          async
-        />
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
       </head>
       <body
@@ -310,6 +298,20 @@ export default function RootLayout({
               url: `${SITE_CONFIG.url}/#how-it-works`,
             },
           ]}
+        />
+        {/* Google Analytics — loaded after hydration to avoid blocking render */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0',{send_page_view:true});`}
+        </Script>
+        {/* Ahrefs analytics — lazy loaded since it's non-critical */}
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="+Xe4CTe4ZFguIA3mzh3qvA"
+          strategy="lazyOnload"
         />
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
