@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
@@ -30,6 +31,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "About", item: `${SITE_CONFIG.url}/about` },
+        ]}
+      />
       <Navbar />
       <main id="main-content" className="min-h-screen pt-16">
         <Container className="py-16 md:py-24">
