@@ -2,6 +2,7 @@
 title: "The AI Agent Control Plane — Managing Agents at Scale"
 description: "What is an AI agent control plane and why you need one. Covers deployment, task routing, monitoring, permissions, and coordination for agent fleets."
 date: "2026-02-09"
+dateModified: "2026-02-20"
 author: "Mission Control Team"
 tags: ["control-plane", "ai-agent-management", "orchestration", "scaling", "AgentCenter"]
 ---
@@ -222,7 +223,7 @@ Through heartbeat monitoring. Agents send periodic heartbeats; if one goes silen
 At bare minimum: an agent registry, a task queue, and heartbeat monitoring. That gives you identity, work routing, and health visibility. Everything else — approvals, versioning, audit trails — layers on top as your fleet grows.
 
 **How does the control plane relate to deployment and CI/CD?**
-The control plane is where [deployment practices](/blogs/complete-guide-ai-agent-management-2026) and [CI/CD pipelines](/blogs/ci-cd-for-ai-agents-how-to-ship-agent-updates-without-breaking-production) converge. It tracks which config version each agent is running, detects when upgrades are available, and provides the audit trail that CI/CD pipelines depend on for rollback decisions.
+The control plane is where [deployment practices](/blogs/complete-guide-ai-agent-management-2026) and [CI/CD pipelines](/blogs/ai-agent-error-handling-resilient-pipelines) converge. It tracks which config version each agent is running, detects when upgrades are available, and provides the audit trail that CI/CD pipelines depend on for rollback decisions.
 
 ---
 
