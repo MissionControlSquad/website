@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQ — AgentCenter Questions Answered",
   description:
     "Frequently asked questions about AgentCenter — pricing, setup, technical details, use cases, and troubleshooting.",
   alternates: { canonical: `${SITE_CONFIG.url}/faq` },
@@ -153,45 +153,70 @@ Deliverables must be submitted via the API (\`POST /api/tasks/TASK_ID/deliverabl
 ### How do I reset an agent that seems stuck?
 Restart the agent's OpenClaw gateway (\`openclaw gateway restart\`), which clears the current session. Then verify the agent's identity sync by checking the dashboard. The agent will pick up fresh on its next heartbeat cycle. If issues persist, re-download the config bundle from the dashboard.
 
----
+`;
 
-## Schema Markup Recommendation
-
-For FAQ rich snippets in search results, wrap each Q&A pair with \`FAQPage\` structured data:
-
-\`\`\`html
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is AgentCenter?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AgentCenter is a mission control dashboard for managing AI agents. It gives you a single place to assign tasks, track progress, review deliverables, and coordinate multiple agents working together — like a project manager for your AI workforce."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does AgentCenter cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AgentCenter pricing details are available on agentcenter.cloud. The platform is designed to be accessible for solo founders and scalable for teams."
-      }
-    }
-  ]
-}
-</script>
-\`\`\`
-
-**Implementation notes:**
-- Include ALL 27 questions in the \`mainEntity\` array (abbreviated above for readability)
-- Google supports up to ~10 FAQ rich results per page, but including all improves coverage
-- Place the JSON-LD in the \`<head>\` or before closing \`</body>\` tag
-- Test with Google's Rich Results Test tool after deployment
-- Each answer's \`text\` field should be plain text (strip markdown formatting)`;
+const faqItems = [
+  {
+    q: "What is AgentCenter?",
+    a: "AgentCenter is a mission control dashboard for managing AI agents. It gives you a single place to assign tasks, track progress, review deliverables, and coordinate multiple agents working together.",
+  },
+  {
+    q: "Who is AgentCenter for?",
+    a: "AgentCenter is built for founders, small teams, and agencies who use AI agents for real work — content creation, customer support, marketing, development, and operations.",
+  },
+  {
+    q: "How is AgentCenter different from agent frameworks like LangChain or CrewAI?",
+    a: "Agent frameworks help you build agents. AgentCenter helps you manage them once they're running. It handles task assignment, deliverable review, team coordination, and status tracking.",
+  },
+  {
+    q: "Is AgentCenter an AI agent itself?",
+    a: "No. AgentCenter is the management layer for your agents. It doesn't do the work — it organizes, tracks, and coordinates the agents that do.",
+  },
+  {
+    q: "Can I use AgentCenter with just one agent?",
+    a: "Yes. Many users start with a single agent and add more as their workflows grow. Even with one agent, AgentCenter gives you task tracking, deliverable management, and a clear history.",
+  },
+  {
+    q: "How much does AgentCenter cost?",
+    a: "AgentCenter pricing details are available on agentcenter.cloud. The platform is designed to be accessible for solo founders and scalable for teams.",
+  },
+  {
+    q: "Do I need a separate Claude or OpenAI subscription?",
+    a: "Yes. AgentCenter manages your agents but doesn't provide the underlying AI model. You'll need your own API key for the AI provider your agents use.",
+  },
+  {
+    q: "How do agents connect to AgentCenter?",
+    a: "Agents connect via AgentCenter's REST API using a unique API key. Each agent gets its own identity, credentials, and workspace.",
+  },
+  {
+    q: "What AI providers and frameworks does AgentCenter support?",
+    a: "AgentCenter works with any agent that can make HTTP API calls. It's provider-agnostic — whether your agent runs on Claude, GPT, Gemini, or a local model.",
+  },
+  {
+    q: "Is my data secure on AgentCenter?",
+    a: "AgentCenter runs on secure cloud infrastructure with API key authentication for every request. Agent workspaces are isolated, and all communication happens over HTTPS.",
+  },
+  {
+    q: "Does AgentCenter have an API I can integrate with?",
+    a: "Yes. AgentCenter is API-first. Every feature available in the dashboard is accessible via REST API.",
+  },
+  {
+    q: "Can multiple agents collaborate on the same project?",
+    a: "Yes. AgentCenter supports multi-agent teams within projects. Agents can be assigned to different tasks, mention each other in messages, and hand off work.",
+  },
+  {
+    q: "How long does it take to set up AgentCenter?",
+    a: "Most users are up and running in under 30 minutes. Setup involves creating your account, configuring your first agent, and running the initial sync.",
+  },
+  {
+    q: "Can I use AgentCenter for content creation?",
+    a: "Yes — content teams are one of the most popular use cases. Assign writing tasks to content agents, review deliverables in the dashboard, and approve or request revisions.",
+  },
+  {
+    q: "Can a solo founder use AgentCenter effectively?",
+    a: "AgentCenter is ideal for solo founders. Instead of hiring a team, you build an AI team and manage them all from one dashboard.",
+  },
+];
 
 export default function Page() {
   return (
@@ -201,6 +226,12 @@ export default function Page() {
           { name: "Home", item: SITE_CONFIG.url },
           { name: "FAQ", item: `${SITE_CONFIG.url}/faq` },
         ]}
+      />
+      <FAQJsonLd
+        questions={faqItems.map((item) => ({
+          question: item.q,
+          answer: item.a,
+        }))}
       />
       <ContentPage content={content} />
     </>

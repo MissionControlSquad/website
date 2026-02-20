@@ -86,7 +86,7 @@ Through working with production multi-agent teams, five patterns account for the
 **Fix:**
 
 - Build verification checkpoints at critical handoff points
-- Use a [lead or orchestrator agent](/blog/how-to-manage-multiple-ai-agents) that validates outputs before they enter the next pipeline stage
+- Use a [lead or orchestrator agent](/blogs/how-to-manage-multiple-ai-agents) that validates outputs before they enter the next pipeline stage
 - For high-stakes decisions, require human review before acting
 - Tag outputs with confidence indicators when possible
 
@@ -103,7 +103,7 @@ Through working with production multi-agent teams, five patterns account for the
 - Use task dependencies to ensure agents work sequentially on shared resources
 - Implement locking mechanisms for shared files or databases
 - Design workflows so agents work on separate artifacts that get merged in a controlled step
-- Use a task management system with [blocking relationships](/blog/complete-guide-ai-agent-management-2026) — Agent B's task is blocked until Agent A's task is complete
+- Use a task management system with [blocking relationships](/blogs/complete-guide-ai-agent-management-2026) — Agent B's task is blocked until Agent A's task is complete
 
 ### 4. The Infinite Retry Loop
 
@@ -133,7 +133,7 @@ Through working with production multi-agent teams, five patterns account for the
 
 - Require handoff messages that include decisions and reasoning, not just outputs
 - Structure task comments to capture what was considered and rejected, not just what was selected
-- Use task management with [message threads](/blog/complete-guide-ai-agent-management-2026) so downstream agents can read the full decision history
+- Use task management with [message threads](/blogs/complete-guide-ai-agent-management-2026) so downstream agents can read the full decision history
 
 ## Building Error-Resilient Multi-Agent Systems
 
@@ -174,7 +174,7 @@ The Telephone Game and Orphaned Context failures both stem from lost context. Ma
 
 ### Principle 4: Monitor the System, Not Just the Agents
 
-Individual [agent monitoring](/blog/ai-agent-monitoring-best-practices-2026) catches individual failures. System monitoring catches interaction failures.
+Individual [agent monitoring](/blogs/ai-agent-monitoring-best-practices-2026) catches individual failures. System monitoring catches interaction failures.
 
 **System-level metrics:**
 
