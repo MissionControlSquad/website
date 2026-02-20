@@ -4,8 +4,10 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Container } from "@/components/ui/Container";
-import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@/lib/blog";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { PostNavigation } from "@/components/blog/PostNavigation";
 import type { Metadata } from "next";
 
 interface Props {
@@ -55,6 +57,8 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const postUrl = `${SITE_CONFIG.url}/blogs/${slug}`;
+  const relatedPosts = getRelatedPosts(slug, 3);
+  const { prev, next } = getAdjacentPosts(slug);
 
   return (
     <div className="min-h-screen bg-neutral-950">
@@ -118,13 +122,14 @@ export default async function BlogPostPage({ params }: Props) {
             {post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-6">
                 {post.tags.map((tag) => (
-                  <span
+                  <Link
                     key={tag}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-neutral-800 text-neutral-400 text-xs"
+                    href={`/blogs?tag=${encodeURIComponent(tag)}`}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-neutral-800 text-neutral-400 text-xs hover:bg-neutral-700 hover:text-neutral-300 transition-colors"
                   >
                     <Tag size={10} />
                     {tag}
-                  </span>
+                  </Link>
                 ))}
               </div>
             )}
@@ -139,22 +144,33 @@ export default async function BlogPostPage({ params }: Props) {
             <MDXRemote source={post.content} />
           </div>
         </article>
-      </Container>
 
-      {/* Back link */}
-      <div className="border-t border-neutral-800">
-        <Container>
-          <div className="max-w-3xl mx-auto py-8">
+        {/* CTA to product */}
+        <div className="max-w-3xl mx-auto pb-12">
+          <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900/50 text-center">
+            <p className="text-lg font-semibold text-neutral-200 mb-2">
+              Ready to manage your AI agents?
+            </p>
+            <p className="text-neutral-400 text-sm mb-4">
+              AgentCenter is Mission Control for your OpenClaw agents — tasks, monitoring,
+              deliverables, all in one dashboard.
+            </p>
             <Link
-              href="/blogs"
-              className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
+              href="/pricing"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-500 text-white font-medium hover:bg-primary-600 transition-colors"
             >
-              <ArrowRight size={14} className="rotate-180" />
-              Back to all posts
+              Get started
+              <ArrowRight size={16} />
             </Link>
           </div>
-        </Container>
-      </div>
+        </div>
+
+        {/* Related posts */}
+        <RelatedPosts posts={relatedPosts} />
+
+        {/* Prev/Next navigation */}
+        <PostNavigation prev={prev} next={next} />
+      </Container>
     </div>
   );
 }
