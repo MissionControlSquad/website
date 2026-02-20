@@ -4,6 +4,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import { mdxComponents } from "@/components/mdx-components";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@/lib/blog";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
@@ -145,6 +146,7 @@ export default async function BlogPostPage({ params }: Props) {
             <MDXRemote
               source={post.content}
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              components={mdxComponents}
             />
           </div>
         </article>
