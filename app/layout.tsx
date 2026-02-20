@@ -91,6 +91,20 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/manifest.json",
+  verification: {
+    // Replace placeholder values with actual verification codes from each search engine console
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined,
+    // Bing verification via meta tag
+    other: {
+      ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+        : {}),
+      ...(process.env.NEXT_PUBLIC_BAIDU_SITE_VERIFICATION
+        ? { "baidu-site-verification": process.env.NEXT_PUBLIC_BAIDU_SITE_VERIFICATION }
+        : {}),
+    },
+  },
   other: {
     "msapplication-TileColor": "#ffffff",
     "msapplication-TileImage": "/ms-icon-144x144.png",
