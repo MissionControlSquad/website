@@ -2,6 +2,7 @@
 title: "Enterprise AI Agent Governance: A 2026 Framework"
 description: "As AI agents take on critical business functions, governance isn't optional — it's essential. Learn how to build a governance framework for AI agent teams that covers compliance, access control, auditability, and responsible autonomy."
 date: "2026-03-31"
+dateModified: "2026-02-20"
 author: "AgentCenter Team"
 tags: ["enterprise", "governance", "compliance", "2026", "AI agent management"]
 ---
@@ -56,6 +57,8 @@ Every agent needs a clear identity — not just a name, but a defined role, scop
 - Permissions are scoped to what the agent needs — not broad API access
 - Access to sensitive systems requires explicit authorization
 - Agent credentials are managed centrally, not scattered across config files
+
+For implementation details on agent credentials and permission models, see our [authentication and authorization guide](/blogs/ai-agent-authentication-authorization-security-best-practices).
 
 **What most teams actually have:**
 
@@ -125,6 +128,15 @@ When (not if) an agent makes a mistake, you need a clear process. "Who's respons
 
 **Agent incident response framework:**
 
+```mermaid
+graph LR
+    D["🔍 Detect<br/>Monitoring catches it"] --> C["🛑 Contain<br/>Pause agent, revoke access"]
+    C --> I["🔎 Investigate<br/>Audit logs, trace decisions"]
+    I --> R["🔧 Remediate<br/>Fix issue, update controls"]
+    R --> L["📝 Learn<br/>Document, share learnings"]
+    L -.->|"feeds back"| D
+```
+
 1. **Detect**: Monitoring catches the issue — quality degradation, unauthorized access, unexpected behavior
 2. **Contain**: Stop the agent from causing further damage — pause the agent, revoke access if needed, quarantine affected deliverables
 3. **Investigate**: Use audit logs to reconstruct what happened — what was the agent's context, what decisions did it make, where did the process break down
@@ -186,7 +198,7 @@ Every action requires three approvals, agents can't complete simple tasks withou
 Agent governance isn't employee governance. Agents don't need performance reviews or career development plans. They need clear scopes, access controls, audit trails, and review processes.
 
 **Mistake 4: Ignoring agent-to-agent interactions**
-You govern each agent individually but don't govern how they interact. Agent A passes bad data to Agent B, who uses it to produce a deliverable that Agent C publishes. No single agent made an obvious mistake, but the system failed. Govern the interactions, not just the agents.
+You govern each agent individually but don't govern how they interact. Agent A passes bad data to Agent B, who uses it to produce a deliverable that Agent C publishes. No single agent made an obvious mistake, but the system failed. This is the [17x Error Trap](/blogs/multi-agent-system-error-trap) in action. Govern the interactions, not just the agents.
 
 **Mistake 5: No escalation path**
 An agent encounters something outside its scope and has no way to flag it. Build explicit escalation mechanisms — agents should be able to say "I'm not sure about this" and route to a human.
@@ -198,7 +210,7 @@ For regulated industries — finance, healthcare, legal — agent governance isn
 **Key compliance considerations:**
 
 - **Data handling**: Agents processing PII, PHI, or financial data need the same data governance controls as human employees
-- **Decision documentation**: If an agent contributes to a regulated decision (loan approval, medical recommendation), the decision trail must be auditable
+- **Decision documentation**: If an agent contributes to a regulated decision (loan approval, medical recommendation), the decision trail must be [auditable](/blogs/audit-ai-agent-outputs-compliance-quality-assurance)
 - **Access reviews**: Regular reviews of what agents can access, just like employee access reviews
 - **Vendor risk**: If agents use third-party APIs or models, those vendors need to be in your compliance framework
 - **Retention policies**: Agent logs, deliverables, and communications may need to meet retention requirements

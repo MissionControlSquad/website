@@ -6,38 +6,6 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.7,
   exclude: ["/api/*", "/_next/*", "/admin/*", "/thank-you", "/opengraph-image"],
-  transform: async (config, path) => {
-    // Custom priority and changefreq per page type
-    let priority = 0.7;
-    let changefreq = "weekly";
-
-    if (path === "/") {
-      priority = 1.0;
-      changefreq = "daily";
-    } else if (["/features", "/pricing", "/blogs"].includes(path)) {
-      priority = 0.9;
-      changefreq = "weekly";
-    } else if (["/about", "/docs"].includes(path)) {
-      priority = 0.8;
-      changefreq = "monthly";
-    } else if (path.startsWith("/blogs/")) {
-      priority = 0.8;
-      changefreq = "monthly";
-    } else if (path.startsWith("/docs/")) {
-      priority = 0.7;
-      changefreq = "monthly";
-    } else if (path.startsWith("/legal/")) {
-      priority = 0.3;
-      changefreq = "yearly";
-    }
-
-    return {
-      loc: path,
-      changefreq,
-      priority,
-      lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
-    };
-  },
   robotsTxtOptions: {
     policies: [
       {

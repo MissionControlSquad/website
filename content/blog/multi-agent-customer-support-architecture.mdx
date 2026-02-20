@@ -1,7 +1,8 @@
 ---
 title: "Building a Multi-Agent Customer Support System — Architecture Guide"
 description: "Why single-bot support breaks at scale, and how to design a multi-agent architecture that actually works. Complete guide with handoff protocols and deployment strategy."
-date: "2026-02-20"
+date: "2026-02-21"
+dateModified: "2026-02-20"
 author: "AgentCenter Team"
 tags: ["multi-agent", "customer-support", "architecture", "ai-agents", "AgentCenter"]
 ---
@@ -46,36 +47,15 @@ The result: your bot handles 40% of tickets well, frustrates customers on anothe
 
 A multi-agent support system mirrors how real support teams work. You need three layers:
 
-```
-┌─────────────────────────────────────────────────┐
-│                  CUSTOMER                        │
-└──────────────────────┬──────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────┐
-│              TRIAGE AGENT                        │
-│   • Classifies intent                           │
-│   • Extracts key info                           │
-│   • Routes to specialist                        │
-└───────┬──────────┬──────────┬───────────────────┘
-        │          │          │
-        ▼          ▼          ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐
-│ BILLING  │ │ TECHNICAL│ │ ACCOUNT  │
-│SPECIALIST│ │SPECIALIST│ │SPECIALIST│
-│          │ │          │ │          │
-│ Refunds  │ │ Debug    │ │ Password │
-│ Disputes │ │ Logs     │ │ Settings │
-│ Plans    │ │ APIs     │ │ Upgrades │
-└────┬─────┘ └────┬─────┘ └────┬─────┘
-     │            │            │
-     ▼            ▼            ▼
-┌─────────────────────────────────────────────────┐
-│            ESCALATION AGENT                      │
-│   • Handles edge cases                          │
-│   • Aggregates context from specialists         │
-│   • Decides: retry specialist OR human handoff  │
-└─────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    CUST["👤 Customer"] --> TRIAGE["🔀 Triage Agent<br/>Classifies intent<br/>Extracts key info<br/>Routes to specialist"]
+    TRIAGE --> BILL["💳 Billing Specialist<br/>Refunds · Disputes · Plans"]
+    TRIAGE --> TECH["🔧 Technical Specialist<br/>Debug · Logs · APIs"]
+    TRIAGE --> ACCT["👤 Account Specialist<br/>Password · Settings · Upgrades"]
+    BILL --> ESC["🚨 Escalation Agent<br/>Edge cases · Context aggregation<br/>Retry or human handoff"]
+    TECH --> ESC
+    ACCT --> ESC
 ```
 
 ### The Triage Agent
@@ -156,7 +136,7 @@ This agent should use your most capable model. It handles the hardest 10-15% of 
 
 Handoffs are where multi-agent systems succeed or fail. A bad handoff makes the customer repeat themselves. A good handoff is invisible.
 
-For deeper patterns on agent coordination, see our guide on [AI agent orchestration patterns](/blog/ai-agent-orchestration-patterns).
+For deeper patterns on agent coordination, see our guide on [multi-agent design patterns](/blogs/multi-agent-design-patterns).
 
 ### The Handoff Payload
 
@@ -236,13 +216,13 @@ def handoff(from_agent, to_agent, conversation, classification):
     return payload["handoff_id"]
 ```
 
-For more on designing robust handoff patterns, see [common AI agent design patterns](/blog/common-ai-agent-design-patterns).
+For more on designing robust handoff patterns, see [multi-agent design patterns](/blogs/multi-agent-design-patterns).
 
 ## Monitoring Conversation Quality and Resolution Rates
 
 You can't improve what you don't measure. Multi-agent systems need monitoring at two levels: individual agent performance and system-wide flow.
 
-For a comprehensive monitoring setup, see our guide on [monitoring AI agents in production](/blog/monitoring-ai-agents-production).
+For a comprehensive monitoring setup, see our guide on [monitoring AI agents in production](/blogs/ai-agent-monitoring-best-practices-2026).
 
 ### Agent-Level Metrics
 
@@ -294,13 +274,15 @@ Set up alerts for:
 
 Create each agent with its role, model, and capabilities:
 
-```
-Agents to create:
-├── Triage Agent (classifier, fast model)
-├── Billing Specialist (refund tools, empathetic tone)
-├── Technical Specialist (log access, precise tone)
-├── Account Specialist (account tools, friendly tone)
-└── Escalation Agent (all tools, senior reasoning)
+```mermaid
+graph LR
+    subgraph Agents to create
+        T["🔀 Triage Agent<br/>classifier · fast model"]
+        B["💳 Billing Specialist<br/>refund tools · empathetic tone"]
+        TC["🔧 Technical Specialist<br/>log access · precise tone"]
+        A["👤 Account Specialist<br/>account tools · friendly tone"]
+        E["🚨 Escalation Agent<br/>all tools · senior reasoning"]
+    end
 ```
 
 In AgentCenter, each agent gets its own identity, system prompt, tool access, and monitoring dashboard. You can see all agents' status, current tasks, and performance from a single view.
@@ -375,6 +357,6 @@ The architecture in this guide scales from handling hundreds of tickets to thous
 
 **Related reading:**
 
-- [AI Agent Orchestration Patterns](/blog/ai-agent-orchestration-patterns)
-- [Common AI Agent Design Patterns](/blog/common-ai-agent-design-patterns)
-- [Monitoring AI Agents in Production](/blog/monitoring-ai-agents-production)
+- [Multi-Agent Design Patterns](/blogs/multi-agent-design-patterns)
+- [AI Agent Monitoring Best Practices](/blogs/ai-agent-monitoring-best-practices-2026)
+- [How to Manage Multiple AI Agents](/blogs/how-to-manage-multiple-ai-agents)

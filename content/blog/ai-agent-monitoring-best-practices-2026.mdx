@@ -2,6 +2,7 @@
 title: "AI Agent Monitoring: Best Practices and Tools for 2026"
 description: "Learn how to monitor AI agents in production — from heartbeat tracking and anomaly detection to observability dashboards and alerting strategies that keep your agent team running smoothly."
 date: "2026-03-17"
+dateModified: "2026-02-20"
 author: "AgentCenter Team"
 tags: ["monitoring", "observability", "performance", "AgentCenter", "best-practices"]
 ---
@@ -28,7 +29,7 @@ The same agent, given the same task, might produce different results each time. 
 
 ### Cascading Dependencies
 
-In a [multi-agent system](/blog/how-to-manage-multiple-ai-agents), Agent B depends on Agent A's output. If Agent A's quality degrades, Agent B's output degrades too — but the root cause is upstream. Monitoring individual agents isn't enough. You need to monitor the relationships between them.
+In a [multi-agent system](/blogs/how-to-manage-multiple-ai-agents), Agent B depends on Agent A's output. If Agent A's quality degrades, Agent B's output degrades too — but the root cause is upstream. Monitoring individual agents isn't enough. You need to monitor the relationships between them.
 
 ### Resource Consumption Is Variable
 
@@ -131,7 +132,7 @@ Performance monitoring helps you right-size your agent team. If one agent is con
 
 ### 4. Cost Monitoring: What's It Costing?
 
-AI agents consume paid API resources. Without cost monitoring, you're running a business with no expense tracking.
+AI agents consume paid API resources. Without cost monitoring, you're running a business with no expense tracking. This is one of the [hidden costs of DIY agent management](/blogs/hidden-costs-diy-ai-agent-management) that teams overlook.
 
 **Cost dimensions:**
 
@@ -157,7 +158,7 @@ Cost monitoring isn't just about saving money. It's about understanding the econ
 
 ### 5. Coordination Monitoring: Are Agents Working Together?
 
-In multi-agent systems, individual agent health doesn't tell the full story. You need to monitor how agents interact.
+In multi-agent systems, individual agent health doesn't tell the full story. You need to monitor how agents interact. When coordination breaks down, errors [multiply exponentially](/blogs/multi-agent-system-error-trap) across agent boundaries.
 
 **Coordination signals:**
 
@@ -181,6 +182,15 @@ In multi-agent systems, individual agent health doesn't tell the full story. You
 - Communication drops to zero between previously active agents
 
 ## Building Your Monitoring Stack
+
+```mermaid
+graph TD
+    L1["Layer 1: Agent-Native Monitoring<br/>Heartbeats · Task status · Deliverables · Team coordination"]
+    L2["Layer 2: Infrastructure Monitoring<br/>CPU · Memory · Disk · Network"]
+    L3["Layer 3: LLM-Specific Monitoring<br/>Token usage · API latency · Error rates · Cost per call"]
+    L4["Layer 4: Business Metrics<br/>Task completion · Quality scores · Cost per task · ROI"]
+    L1 --> L2 --> L3 --> L4
+```
 
 You don't need to build everything from scratch. The right approach combines purpose-built agent monitoring with standard observability tools.
 

@@ -1,7 +1,8 @@
 ---
 title: "How to Audit AI Agent Outputs — Compliance & Quality Assurance Guide"
 description: "Build audit pipelines for AI agent outputs. Covers compliance frameworks, quality scoring, audit trail design, and scaling strategies for agent teams."
-date: "2026-02-20"
+date: "2026-02-23"
+dateModified: "2026-02-20"
 author: "Mission Control Team"
 tags: ["compliance", "quality-assurance", "ai-agents", "audit", "AgentCenter"]
 ---
@@ -47,8 +48,9 @@ These run on every output, in real time or near-real time. Think of them as your
 
 **Example pipeline:**
 
-```
-Agent Output → Format Check → PII Scanner → Fact Checker → Score → Pass/Flag
+```mermaid
+graph LR
+    A["📤 Agent Output"] --> B["📐 Format Check"] --> C["🔒 PII Scanner"] --> D["✅ Fact Checker"] --> E["📊 Score"] --> F["🚦 Pass / Flag"]
 ```
 
 Automated checks should flag, not block. You want visibility, not bottlenecks — unless you're in a regulated domain where blocking is required.
@@ -255,6 +257,8 @@ Audit logs must be tamper-proof:
 - **Access controls** — Agents should never have write access to audit logs. Separate the logging system from the agent system.
 - **Regular integrity checks** — Automated verification that log chains are unbroken.
 
+For a broader governance framework that covers access control, autonomy levels, and incident response alongside auditing, see our [enterprise AI agent governance guide](/blogs/enterprise-ai-agent-governance-2026).
+
 ## Scaling Audits as Your Agent Team Grows
 
 What works for 2 agents won't work for 20. Here's how to scale:
@@ -266,6 +270,8 @@ What works for 2 agents won't work for 20. Here's how to scale:
 - Set up automated capture — don't skip this even at small scale.
 
 ### Phase 2: Growing Team (4-10 agents)
+
+At this scale, [managing multiple agents](/blogs/how-to-manage-multiple-ai-agents) introduces coordination challenges that make auditing even more critical.
 
 - Shift to statistical sampling for routine tasks.
 - Implement LLM-as-judge for automated scoring.
@@ -285,7 +291,7 @@ What works for 2 agents won't work for 20. Here's how to scale:
 1. **Auditing everything manually** — You'll burn out reviewers and create a bottleneck.
 2. **Auditing nothing** — "Our agents are good enough" is a statement you can't back up without data.
 3. **Inconsistent rubrics** — Different reviewers scoring differently makes your quality data useless.
-4. **Ignoring agent-to-agent outputs** — Internal agent communications can propagate errors silently.
+4. **Ignoring agent-to-agent outputs** — Internal agent communications can [propagate errors silently](/blogs/multi-agent-system-error-trap).
 5. **No feedback loop** — If audit findings don't improve agent configuration, you're just generating reports.
 
 ## Putting It All Together

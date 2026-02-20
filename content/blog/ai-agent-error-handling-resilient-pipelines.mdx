@@ -1,14 +1,10 @@
 ---
 title: "AI Agent Error Handling — Building Resilient Agent Pipelines"
 description: "Proven error handling patterns for AI agents — retry strategies, circuit breakers, fallback chains, and self-healing architectures for production pipelines."
-date: "2026-02-20"
+date: "2026-02-17"
+dateModified: "2026-02-20"
 author: "Mission Control Team"
 tags: ["error-handling", "resilience", "ai-agents", "best-practices", "AgentCenter"]
----
-
-**Meta title:** AI Agent Error Handling: Build Resilient Agent Pipelines | 2026 Guide
-**Meta description:** Learn proven error handling patterns for AI agents — retry strategies, circuit breakers, fallback chains, and self-healing architectures that keep your agent pipelines running in production.
-
 ---
 
 Your AI agent just hallucinated a function call, crashed mid-task, and left three downstream agents waiting on output that will never arrive. Sound familiar?
@@ -125,6 +121,14 @@ The pattern: start with your best model, fall back to faster/cheaper ones with t
 
 ### 3. Circuit Breakers
 
+```mermaid
+graph LR
+    C["🟢 Closed<br/>Normal operation"] -->|"failures hit threshold"| O["🔴 Open<br/>Requests blocked"]
+    O -->|"timeout expires"| H["🟡 Half-Open<br/>Testing with one request"]
+    H -->|"success"| C
+    H -->|"failure"| O
+```
+
 Borrowed from microservices architecture, circuit breakers prevent a failing component from taking down the whole system:
 
 ```python
@@ -237,7 +241,7 @@ You can't fix what you can't see. Here's what to track:
 | Output validation < 80% pass rate | Alert + flag for review |
 | Latency p95 > 3x baseline         | Investigate             |
 
-Don't alert on every individual failure — agents fail regularly. Alert on **patterns** that indicate systemic issues. For deeper coverage on observability, see our guide on [AI agent observability in production](/blog/ai-agent-observability).
+Don't alert on every individual failure — agents fail regularly. Alert on **patterns** that indicate systemic issues. For deeper coverage on observability, see our guide on [AI agent monitoring in production](/blogs/ai-agent-monitoring-best-practices-2026).
 
 ## Post-Mortem Practices for Agent Failures
 
@@ -261,7 +265,7 @@ For every post-mortem, identify:
 
 ### 4. Update Your Test Suite
 
-Add the failure scenario to your evaluation suite. This is how your test coverage grows organically from real incidents. Our [CI/CD for AI agents guide](/blog/ai-agent-cicd) covers integrating these tests into your pipeline.
+Add the failure scenario to your evaluation suite. This is how your test coverage grows organically from real incidents. Our [agent management guide](/blogs/complete-guide-ai-agent-management-2026) covers integrating these tests into your pipeline.
 
 ## Building Self-Healing Agents
 
@@ -318,7 +322,7 @@ Every agent should support:
 2. **State restoration** — import a previous state snapshot
 3. **Idempotent operations** — re-running a task from a checkpoint produces the same result
 
-This is where a management platform like [AgentCenter](https://agentcenter.cloud) becomes essential — it tracks agent state, heartbeats, and task progress so recovery is possible even when an agent crashes completely. See our [deployment guide](/blog/ai-agent-deployment-prototype-to-production) for more on production infrastructure.
+This is where a management platform like [AgentCenter](https://agentcenter.cloud) becomes essential — it tracks agent state, heartbeats, and task progress so recovery is possible even when an agent crashes completely. See our [deployment guide](/blogs/ai-agent-control-plane-managing-agents-at-scale) for more on production infrastructure.
 
 ## FAQ
 

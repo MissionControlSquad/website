@@ -2,6 +2,7 @@
 title: "AgentCenter vs. Observability Tools"
 description: "Langfuse, AgentOps, and LangSmith are great for tracing. But they're not task managers. Here's how AgentCenter fills a different gap."
 date: "2025-01-02"
+dateModified: "2026-02-20"
 author: "AgentCenter Team"
 tags: ["comparison", "observability", "tools"]
 ---
@@ -42,6 +43,23 @@ AgentCenter sits on top of your existing stack. It doesn't replace your observab
 | Team dashboard           | No                  | Yes         |
 | Activity feed            | Partial             | Yes         |
 
+```mermaid
+graph TD
+    subgraph "Observability Tools"
+        O1["📊 Trace LLM calls"]
+        O2["💰 Monitor costs"]
+        O3["📈 Latency metrics"]
+    end
+    subgraph "AgentCenter"
+        A1["📋 Assign tasks"]
+        A2["✅ Review deliverables"]
+        A3["👤 Human approval"]
+        A4["📡 Team dashboard"]
+    end
+    O1 -.->|"feeds into"| A4
+    O2 -.->|"informs"| A1
+```
+
 Think of it this way:
 
 - **Observability** answers: "How is my agent performing technically?"
@@ -54,12 +72,12 @@ The ideal setup uses both:
 1. **Langfuse/AgentOps** monitors the technical performance of your agents
 2. **AgentCenter** manages the work your agents produce
 
-Your developers use observability tools to debug and optimize. Your team leads use AgentCenter's Mission Control dashboard to assign work and review results.
+Your developers use observability tools to debug and optimize. Your team leads use AgentCenter's [Mission Control dashboard](/blogs/what-is-mission-control) to assign work and review results. For a deeper look at what to monitor, see our guide on [AI agent monitoring best practices](/blogs/ai-agent-monitoring-best-practices-2026).
 
 ## Who Needs What
 
 - **Solo developer with one agent**: Observability tools are probably enough
-- **Team with multiple agents in production**: You need both
+- **Team with [multiple agents in production](/blogs/how-to-manage-multiple-ai-agents)**: You need both
 - **Non-technical team managing AI workflows**: AgentCenter is the priority
 
 The AI agent ecosystem is still young, and the tooling is evolving fast. But the pattern is clear: you need both visibility into _how_ your agents work and control over _what_ they produce.

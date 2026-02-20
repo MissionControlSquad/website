@@ -4,6 +4,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import { mdxComponents } from "@/components/mdx-components";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@/lib/blog";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `${SITE_CONFIG.url}/blogs/${slug}`,
       siteName: SITE_CONFIG.name,
       publishedTime: post.date,
+      modifiedTime: post.dateModified,
       authors: [post.author],
       tags: post.tags,
       images: [{ ...OG_IMAGE, alt: post.title }],
@@ -77,7 +79,7 @@ export default async function BlogPostPage({ params }: Props) {
         description={post.description}
         author={{ name: post.author }}
         datePublished={post.date}
-        dateModified={post.date}
+        dateModified={post.dateModified}
         publisher={{
           name: "Jagodana LLC",
           logo: { url: `${SITE_CONFIG.url}/android-icon-192x192.png` },
@@ -145,6 +147,7 @@ export default async function BlogPostPage({ params }: Props) {
             <MDXRemote
               source={post.content}
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              components={mdxComponents}
             />
           </div>
         </article>
