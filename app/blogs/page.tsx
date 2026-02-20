@@ -31,14 +31,10 @@ export const metadata: Metadata = {
   },
 };
 
-interface Props {
-  searchParams: Promise<{ tag?: string }>;
-}
-
-export default async function BlogsPage({ searchParams }: Props) {
-  const { tag: activeTag } = await searchParams;
+export default function BlogsPage() {
   const allPosts = getAllPosts();
   const allTags = getAllTags();
+  const activeTag = undefined;
 
   const posts = activeTag ? allPosts.filter((p) => p.tags.includes(activeTag)) : allPosts;
 
