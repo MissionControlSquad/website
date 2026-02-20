@@ -28,6 +28,22 @@ This means you need authentication patterns designed for programmatic, autonomou
 
 ## Authentication Patterns for AI Agents
 
+```mermaid
+graph LR
+    subgraph "Simple"
+        AK["🔑 API Keys<br/>One key per agent"]
+    end
+    subgraph "Medium"
+        OA["🔐 OAuth2<br/>Scoped tokens, auto-refresh"]
+    end
+    subgraph "Strong"
+        MT["🛡️ mTLS<br/>Mutual certificate auth"]
+        JWT["📜 JWT<br/>Signed claims, short-lived"]
+    end
+    AK --> OA --> MT
+    AK --> OA --> JWT
+```
+
 ### API Keys
 
 The simplest approach. The agent gets a unique key, sends it with every request.

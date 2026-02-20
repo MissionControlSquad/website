@@ -298,16 +298,17 @@ You're **managing** AI agents in production and need operational control regardl
 
 Here's a mental model that clarifies when you need what:
 
-```
-Build Agents ←————————————————————————→ Manage Agents
-
-CrewAI        AutoGen        LangGraph        AgentCenter
-(framework)   (framework)    (framework)      (platform)
-
-"How should my   "How should my    "How should my    "How do I
- agents think?"   agents talk?"     agents flow?"     keep track
-                                                      of all of
-                                                      them?"
+```mermaid
+graph LR
+    subgraph "Build Agents"
+        C["CrewAI<br/>framework<br/><i>How should my<br/>agents think?</i>"]
+        A["AutoGen<br/>framework<br/><i>How should my<br/>agents talk?</i>"]
+        L["LangGraph<br/>framework<br/><i>How should my<br/>agents flow?</i>"]
+    end
+    subgraph "Manage Agents"
+        AC["AgentCenter<br/>platform<br/><i>How do I keep<br/>track of all of them?</i>"]
+    end
+    C --> A --> L --> AC
 ```
 
 Most teams start on the left (building agents) and gradually move right (managing agents) as they scale. The common mistake is trying to solve management problems with framework features — like using CrewAI's tracing to monitor a fleet of agents, or building custom dashboards on top of AutoGen.

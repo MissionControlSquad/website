@@ -182,6 +182,15 @@ In multi-agent systems, individual agent health doesn't tell the full story. You
 
 ## Building Your Monitoring Stack
 
+```mermaid
+graph TD
+    L1["Layer 1: Agent-Native Monitoring<br/>Heartbeats · Task status · Deliverables · Team coordination"]
+    L2["Layer 2: Infrastructure Monitoring<br/>CPU · Memory · Disk · Network"]
+    L3["Layer 3: LLM-Specific Monitoring<br/>Token usage · API latency · Error rates · Cost per call"]
+    L4["Layer 4: Business Metrics<br/>Task completion · Quality scores · Cost per task · ROI"]
+    L1 --> L2 --> L3 --> L4
+```
+
 You don't need to build everything from scratch. The right approach combines purpose-built agent monitoring with standard observability tools.
 
 ### Layer 1: Agent-Native Monitoring

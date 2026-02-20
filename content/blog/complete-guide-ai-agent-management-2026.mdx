@@ -447,13 +447,13 @@ Templates reduce variability, accelerate onboarding for new agents, and ensure c
 
 Instead of manually sequencing tasks, define dependencies and let the AI agent management platform handle scheduling:
 
-```
-Task: Write blog post
-  ├── Subtask: Keyword research (Agent SEA)
-  ├── Subtask: Outline creation (Agent SEA) — depends on keyword research
-  ├── Subtask: Draft writing (Agent CONTENT) — depends on outline
-  ├── Subtask: Technical review (Agent DEV) — depends on draft
-  └── Subtask: Final edit (Agent CONTENT) — depends on review
+```mermaid
+graph LR
+    T["📝 Write blog post"] --- K
+    K["🔍 Keyword research<br/>Agent SEA"] --> O["📋 Outline creation<br/>Agent SEA"]
+    O --> D["✍️ Draft writing<br/>Agent CONTENT"]
+    D --> R["🔎 Technical review<br/>Agent DEV"]
+    R --> F["✅ Final edit<br/>Agent CONTENT"]
 ```
 
 When Agent SEA completes keyword research, the platform automatically unblocks outline creation. When the outline is done, Agent CONTENT gets notified that drafting can begin. No human needs to monitor these transitions.

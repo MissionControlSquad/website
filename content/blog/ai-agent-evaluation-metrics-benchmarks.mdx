@@ -26,6 +26,14 @@ This doesn't mean you can't test agents rigorously. It means you need different 
 
 ## The Evaluation Framework: Four Dimensions That Matter
 
+```mermaid
+graph TD
+    E["📊 Agent Evaluation"] --> T["✅ Task Success<br/>Did it complete the job?"]
+    E --> Q["⭐ Output Quality<br/>Is the work good?"]
+    E --> C["💰 Cost Efficiency<br/>Is it worth the spend?"]
+    E --> L["⚡ Latency<br/>Is it fast enough?"]
+```
+
 Every AI agent evaluation boils down to four dimensions. Miss any one of them, and you'll have blind spots that eventually become production incidents.
 
 ### 1. Task Success Rate

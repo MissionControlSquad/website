@@ -68,24 +68,14 @@ The control plane decides what work goes where. This isn't just a to-do list —
 - **Blocking and dependencies**: Task B can't start until Task A completes — the control plane enforces this
 - **Parent-child subtasks**: Break complex work into manageable pieces with clear ownership
 
-```
-┌─────────────────────────────────────────────────┐
-│              CONTROL PLANE                       │
-│                                                  │
-│  ┌─────────┐  ┌──────────┐  ┌───────────────┐  │
-│  │  INBOX   │→ │ ASSIGNED │→ │ IN PROGRESS   │  │
-│  │ (queue)  │  │ (routed) │  │  (executing)  │  │
-│  └─────────┘  └──────────┘  └───────┬───────┘  │
-│                                      │          │
-│                              ┌───────▼───────┐  │
-│                              │    REVIEW      │  │
-│                              │  (approval)    │  │
-│                              └───────┬───────┘  │
-│                                      │          │
-│                              ┌───────▼───────┐  │
-│                              │     DONE       │  │
-│                              └───────────────┘  │
-└─────────────────────────────────────────────────┘
+```mermaid
+graph LR
+    subgraph Control Plane
+        A["📥 Inbox<br/>queue"] --> B["📌 Assigned<br/>routed"]
+        B --> C["⚙️ In Progress<br/>executing"]
+        C --> D["🔍 Review<br/>approval"]
+        D --> E["✅ Done"]
+    end
 ```
 
 ### 3. Monitoring and Observability
