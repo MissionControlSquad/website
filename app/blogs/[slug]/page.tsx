@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `${SITE_CONFIG.url}/blogs/${slug}`,
       siteName: SITE_CONFIG.name,
       publishedTime: post.date,
+      modifiedTime: post.dateModified,
       authors: [post.author],
       tags: post.tags,
       images: [{ ...OG_IMAGE, alt: post.title }],
@@ -78,7 +79,7 @@ export default async function BlogPostPage({ params }: Props) {
         description={post.description}
         author={{ name: post.author }}
         datePublished={post.date}
-        dateModified={post.date}
+        dateModified={post.dateModified}
         publisher={{
           name: "Jagodana LLC",
           logo: { url: `${SITE_CONFIG.url}/android-icon-192x192.png` },

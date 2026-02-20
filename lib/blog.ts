@@ -9,6 +9,7 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string;
+  dateModified: string;
   author: string;
   tags: string[];
   content: string;
@@ -36,6 +37,7 @@ export function getAllPosts(): BlogPost[] {
       title: data.title ?? "",
       description: data.description ?? "",
       date: data.date ?? "",
+      dateModified: data.dateModified ?? data.date ?? "",
       author: data.author ?? "Mission Control Team",
       tags: data.tags ?? [],
       content,
@@ -65,6 +67,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     title: data.title ?? "",
     description: data.description ?? "",
     date: data.date ?? "",
+    dateModified: data.dateModified ?? data.date ?? "",
     author: data.author ?? "Mission Control Team",
     tags: data.tags ?? [],
     content,
