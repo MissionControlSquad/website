@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { JsonLdScript } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts } from "@/lib/blog";
@@ -60,6 +60,12 @@ export default function BlogsPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Blog", item: `${SITE_CONFIG.url}/blogs` },
+        ]}
+      />
       <JsonLdScript data={blogListJsonLd} scriptKey="blogs-collection-page" />
 
       {/* Header */}
