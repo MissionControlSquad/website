@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingSection from "@/components/sections/Pricing";
@@ -29,6 +30,12 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Pricing", item: `${SITE_CONFIG.url}/pricing` },
+        ]}
+      />
       <Navbar />
       <main id="main-content" className="min-h-screen pt-16">
         <PricingSection />
