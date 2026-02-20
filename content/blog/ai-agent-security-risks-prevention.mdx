@@ -141,6 +141,15 @@ Platforms like AgentCenter provide this visibility out of the box: real-time age
 
 The teams that get agent security right share common patterns:
 
+```mermaid
+graph LR
+    subgraph "Defense in Depth"
+        A["🛡️ Input<br/>Validation"] --> B["🔐 Permission<br/>Controls"]
+        B --> C["📤 Output<br/>Filtering"]
+        C --> D["📊 Monitoring"] --> E["👤 Human<br/>Oversight"]
+    end
+```
+
 **Defense in depth:** No single security measure is sufficient. Layer input validation, permission controls, output filtering, monitoring, and human oversight. Assume each layer will fail — the others catch it.
 
 **Zero trust for agents:** Treat every agent like an untrusted employee on their first day. Verify every action. Log everything. Revoke access when not needed.

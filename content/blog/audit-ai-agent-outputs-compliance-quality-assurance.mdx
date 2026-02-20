@@ -47,8 +47,9 @@ These run on every output, in real time or near-real time. Think of them as your
 
 **Example pipeline:**
 
-```
-Agent Output → Format Check → PII Scanner → Fact Checker → Score → Pass/Flag
+```mermaid
+graph LR
+    A["📤 Agent Output"] --> B["📐 Format Check"] --> C["🔒 PII Scanner"] --> D["✅ Fact Checker"] --> E["📊 Score"] --> F["🚦 Pass / Flag"]
 ```
 
 Automated checks should flag, not block. You want visibility, not bottlenecks — unless you're in a regulated domain where blocking is required.

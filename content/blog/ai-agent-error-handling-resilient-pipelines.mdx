@@ -125,6 +125,14 @@ The pattern: start with your best model, fall back to faster/cheaper ones with t
 
 ### 3. Circuit Breakers
 
+```mermaid
+graph LR
+    C["🟢 Closed<br/>Normal operation"] -->|"failures hit threshold"| O["🔴 Open<br/>Requests blocked"]
+    O -->|"timeout expires"| H["🟡 Half-Open<br/>Testing with one request"]
+    H -->|"success"| C
+    H -->|"failure"| O
+```
+
 Borrowed from microservices architecture, circuit breakers prevent a failing component from taking down the whole system:
 
 ```python

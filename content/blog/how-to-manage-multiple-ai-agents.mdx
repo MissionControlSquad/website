@@ -172,18 +172,15 @@ A common mistake when figuring out how to manage multiple AI agents is to run ev
 
 Instead, model your work as a dependency graph:
 
-```
-Keyword Research (Agent SEA)
-    ↓
-Content Outline (Agent SEA)
-    ↓
-Draft Article (Agent CONTENT) ←→ Source Images (Agent DESIGN)
-    ↓
-Edit Article (Agent EDITOR)
-    ↓
-Technical Review (Agent DEV)
-    ↓
-Publish (Agent OPS)
+```mermaid
+graph TD
+    K["🔍 Keyword Research<br/>Agent SEA"] --> O["📋 Content Outline<br/>Agent SEA"]
+    O --> D["✍️ Draft Article<br/>Agent CONTENT"]
+    O --> I["🎨 Source Images<br/>Agent DESIGN"]
+    D --> E["✏️ Edit Article<br/>Agent EDITOR"]
+    I --> E
+    E --> R["🔎 Technical Review<br/>Agent DEV"]
+    R --> P["🚀 Publish<br/>Agent OPS"]
 ```
 
 In this graph, "Draft Article" and "Source Images" can happen in parallel — they don't depend on each other. But both depend on "Content Outline" being complete, and "Edit Article" depends on both being complete.

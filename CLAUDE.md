@@ -57,6 +57,65 @@ tags: ["tag1", "tag2"]
 ---
 ```
 
+### Mermaid Diagrams
+
+Every blog post should include at least one Mermaid diagram where the content describes a flow, architecture, pipeline, hierarchy, or process. Diagrams render automatically — just use a ` ```mermaid ` code block.
+
+**Rules:**
+
+- Use `<br/>` for multi-line labels, never `\n`
+- Add emoji prefixes to key nodes for visual clarity
+- Use `graph TD` for top-down flows (hierarchies, architectures)
+- Use `graph LR` for left-to-right flows (pipelines, sequences)
+- Use `subgraph` to group related nodes
+- Use `-->` for solid connections, `-.->` for dotted/optional connections
+- Use `<-->` for bidirectional connections
+- Use `style` to highlight error/warning nodes when contextually appropriate
+- Keep diagrams focused — one concept per diagram, not the whole post
+- Place the diagram right before the text it illustrates
+
+**Example — Pipeline:**
+
+````markdown
+```mermaid
+graph LR
+    A["📥 Input"] --> B["⚙️ Process<br/>step details"] --> C["📤 Output"]
+```
+````
+
+**Example — Architecture with subgroups:**
+
+````markdown
+```mermaid
+graph TD
+    subgraph "Layer 1"
+        A["🔍 Component A"]
+        B["📊 Component B"]
+    end
+    subgraph "Layer 2"
+        C["✅ Component C"]
+    end
+    A --> C
+    B --> C
+```
+````
+
+**Example — Decision tree:**
+
+````markdown
+```mermaid
+graph TD
+    Q{"Question?"} -->|Yes| A["Option A"]
+    Q -->|No| B["Option B"]
+```
+````
+
+**What NOT to do:**
+
+- No ASCII art diagrams (box-drawing characters like `┌ ┐ └ ┘ │ ─`). Always use Mermaid instead.
+- No `\n` in labels — use `<br/>` for line breaks.
+- Don't overload a single diagram with 10+ nodes. Split into multiple diagrams if needed.
+
 ### Date Rules
 
 - Every blog post must have a unique date — no two posts share the same day.

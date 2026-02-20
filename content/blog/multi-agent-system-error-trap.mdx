@@ -34,6 +34,15 @@ These aren't edge cases. In production multi-agent systems, interaction failures
 
 The most dangerous multi-agent errors don't announce themselves. They propagate silently through the system.
 
+```mermaid
+graph LR
+    R["🔍 Research Agent<br/>includes wrong stat"] -->|"passes bad data"| W["✍️ Writing Agent<br/>weaves it into narrative"]
+    W -->|"looks polished"| V["✅ Review Agent<br/>checks grammar only"]
+    V --> O["❌ Wrong output<br/>delivered with confidence"]
+    style R fill:#4a1942
+    style O fill:#4a1942
+```
+
 Consider a content pipeline: a research agent gathers information, a writing agent creates a draft, a review agent checks quality. If the research agent includes an inaccurate statistic, the writing agent weaves it into a compelling narrative, and the review agent — checking for grammar and structure, not factual accuracy — approves it.
 
 Three agents. Three successful task completions. Zero errors detected. One completely wrong output delivered with confidence.

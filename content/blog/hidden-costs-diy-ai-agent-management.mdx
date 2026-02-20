@@ -121,6 +121,16 @@ The "buy" side of the equation has matured significantly in 2026. Purpose-built 
 
 ## A Decision Framework: Build vs Buy
 
+```mermaid
+graph TD
+    Q1{"Is agent management<br/>your core product?"} -->|Yes| BUILD["🔨 Build"]
+    Q1 -->|No| Q2{"More than 5 agents<br/>in production?"}
+    Q2 -->|No| Q3{"Unique regulatory<br/>requirements?"}
+    Q2 -->|Yes| BUY["🛒 Buy"]
+    Q3 -->|Yes| BUILD
+    Q3 -->|No| BUY
+```
+
 Not every team should buy, and not every team should build. Here's how to decide:
 
 ### Build When:

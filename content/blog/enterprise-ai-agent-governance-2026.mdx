@@ -125,6 +125,15 @@ When (not if) an agent makes a mistake, you need a clear process. "Who's respons
 
 **Agent incident response framework:**
 
+```mermaid
+graph LR
+    D["🔍 Detect<br/>Monitoring catches it"] --> C["🛑 Contain<br/>Pause agent, revoke access"]
+    C --> I["🔎 Investigate<br/>Audit logs, trace decisions"]
+    I --> R["🔧 Remediate<br/>Fix issue, update controls"]
+    R --> L["📝 Learn<br/>Document, share learnings"]
+    L -.->|"feeds back"| D
+```
+
 1. **Detect**: Monitoring catches the issue — quality degradation, unauthorized access, unexpected behavior
 2. **Contain**: Stop the agent from causing further damage — pause the agent, revoke access if needed, quarantine affected deliverables
 3. **Investigate**: Use audit logs to reconstruct what happened — what was the agent's context, what decisions did it make, where did the process break down

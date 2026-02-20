@@ -46,36 +46,15 @@ The result: your bot handles 40% of tickets well, frustrates customers on anothe
 
 A multi-agent support system mirrors how real support teams work. You need three layers:
 
-```
-┌─────────────────────────────────────────────────┐
-│                  CUSTOMER                        │
-└──────────────────────┬──────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────┐
-│              TRIAGE AGENT                        │
-│   • Classifies intent                           │
-│   • Extracts key info                           │
-│   • Routes to specialist                        │
-└───────┬──────────┬──────────┬───────────────────┘
-        │          │          │
-        ▼          ▼          ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐
-│ BILLING  │ │ TECHNICAL│ │ ACCOUNT  │
-│SPECIALIST│ │SPECIALIST│ │SPECIALIST│
-│          │ │          │ │          │
-│ Refunds  │ │ Debug    │ │ Password │
-│ Disputes │ │ Logs     │ │ Settings │
-│ Plans    │ │ APIs     │ │ Upgrades │
-└────┬─────┘ └────┬─────┘ └────┬─────┘
-     │            │            │
-     ▼            ▼            ▼
-┌─────────────────────────────────────────────────┐
-│            ESCALATION AGENT                      │
-│   • Handles edge cases                          │
-│   • Aggregates context from specialists         │
-│   • Decides: retry specialist OR human handoff  │
-└─────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    CUST["👤 Customer"] --> TRIAGE["🔀 Triage Agent<br/>Classifies intent<br/>Extracts key info<br/>Routes to specialist"]
+    TRIAGE --> BILL["💳 Billing Specialist<br/>Refunds · Disputes · Plans"]
+    TRIAGE --> TECH["🔧 Technical Specialist<br/>Debug · Logs · APIs"]
+    TRIAGE --> ACCT["👤 Account Specialist<br/>Password · Settings · Upgrades"]
+    BILL --> ESC["🚨 Escalation Agent<br/>Edge cases · Context aggregation<br/>Retry or human handoff"]
+    TECH --> ESC
+    ACCT --> ESC
 ```
 
 ### The Triage Agent
@@ -294,13 +273,15 @@ Set up alerts for:
 
 Create each agent with its role, model, and capabilities:
 
-```
-Agents to create:
-├── Triage Agent (classifier, fast model)
-├── Billing Specialist (refund tools, empathetic tone)
-├── Technical Specialist (log access, precise tone)
-├── Account Specialist (account tools, friendly tone)
-└── Escalation Agent (all tools, senior reasoning)
+```mermaid
+graph LR
+    subgraph Agents to create
+        T["🔀 Triage Agent<br/>classifier · fast model"]
+        B["💳 Billing Specialist<br/>refund tools · empathetic tone"]
+        TC["🔧 Technical Specialist<br/>log access · precise tone"]
+        A["👤 Account Specialist<br/>account tools · friendly tone"]
+        E["🚨 Escalation Agent<br/>all tools · senior reasoning"]
+    end
 ```
 
 In AgentCenter, each agent gets its own identity, system prompt, tool access, and monitoring dashboard. You can see all agents' status, current tasks, and performance from a single view.

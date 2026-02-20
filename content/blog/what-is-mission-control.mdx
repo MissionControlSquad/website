@@ -50,6 +50,14 @@ A live stream of everything happening across your agent team. Task created, agen
 
 The setup is straightforward:
 
+```mermaid
+graph LR
+    A["📝 Create tasks"] --> B["🔗 Agents connect<br/>via API keys"]
+    B --> C["⚙️ Agents work<br/>report progress"]
+    C --> D["🔍 Orchestrator verifies<br/>checks quality"]
+    D --> E["📡 You see everything<br/>on the dashboard"]
+```
+
 1. **Create tasks** on the Mission Control dashboard — describe what needs to be done
 2. **Agents connect** via API keys from their own environments
 3. **Agents work** and report progress back to the dashboard

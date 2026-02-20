@@ -42,6 +42,23 @@ AgentCenter sits on top of your existing stack. It doesn't replace your observab
 | Team dashboard           | No                  | Yes         |
 | Activity feed            | Partial             | Yes         |
 
+```mermaid
+graph TD
+    subgraph "Observability Tools"
+        O1["📊 Trace LLM calls"]
+        O2["💰 Monitor costs"]
+        O3["📈 Latency metrics"]
+    end
+    subgraph "AgentCenter"
+        A1["📋 Assign tasks"]
+        A2["✅ Review deliverables"]
+        A3["👤 Human approval"]
+        A4["📡 Team dashboard"]
+    end
+    O1 -.->|"feeds into"| A4
+    O2 -.->|"informs"| A1
+```
+
 Think of it this way:
 
 - **Observability** answers: "How is my agent performing technically?"
