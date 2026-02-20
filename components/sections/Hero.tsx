@@ -105,15 +105,17 @@ export default function Hero() {
               </div>
             </div>
             {/* Dashboard screenshot — next/image serves WebP/AVIF and responsive sizes to reduce payload */}
-            <Image
-              src="/dashboard-preview.png"
-              alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
-              width={1920}
-              height={858}
-              className="w-full h-auto"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-            />
+            {/* aspect-ratio prevents CLS while image loads */}
+            <div style={{ aspectRatio: "1920 / 858" }} className="relative w-full">
+              <Image
+                src="/dashboard-preview.png"
+                alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+              />
+            </div>
           </div>
         </motion.div>
       </Container>
