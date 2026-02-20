@@ -93,6 +93,21 @@ module.exports = {
       priority = 1.0;
       changefreq = "daily";
     }
+    // Comparison pages
+    else if (path.startsWith("/compare/")) {
+      priority = 0.8;
+      changefreq = "monthly";
+    }
+    // FAQ
+    else if (path === "/faq") {
+      priority = 0.8;
+      changefreq = "monthly";
+    }
+    // Changelog
+    else if (path === "/changelog") {
+      priority = 0.7;
+      changefreq = "weekly";
+    }
     // Core product pages
     else if (["/features", "/pricing", "/about"].includes(path)) {
       priority = 0.9;
