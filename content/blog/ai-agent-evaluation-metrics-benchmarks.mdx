@@ -1,7 +1,8 @@
 ---
 title: "How to Evaluate AI Agents — Metrics, Benchmarks, and Evals That Matter"
 description: "Build a practical evaluation framework for AI agents. From task completion metrics to designing eval suites that catch real failures before your users do."
-date: "2026-02-20"
+date: "2026-02-19"
+dateModified: "2026-02-20"
 author: "AgentCenter Team"
 tags: ["evaluation", "metrics", "benchmarks", "ai-agents", "testing"]
 ---
@@ -25,6 +26,14 @@ Unit tests work when outputs are deterministic. Given input X, expect output Y. 
 This doesn't mean you can't test agents rigorously. It means you need different tools.
 
 ## The Evaluation Framework: Four Dimensions That Matter
+
+```mermaid
+graph TD
+    E["📊 Agent Evaluation"] --> T["✅ Task Success<br/>Did it complete the job?"]
+    E --> Q["⭐ Output Quality<br/>Is the work good?"]
+    E --> C["💰 Cost Efficiency<br/>Is it worth the spend?"]
+    E --> L["⚡ Latency<br/>Is it fast enough?"]
+```
 
 Every AI agent evaluation boils down to four dimensions. Miss any one of them, and you'll have blind spots that eventually become production incidents.
 
@@ -132,7 +141,7 @@ Single eval runs tell you where you are. Trends tell you where you're going. Bui
 - Cost per task (is it creeping up?)
 - Failure mode breakdown (are new failure patterns emerging?)
 
-This is where [agent observability](/blogs/ai-agent-observability-beyond-logs-and-traces) becomes critical. Your eval pipeline needs the same telemetry infrastructure as your production agents.
+This is where [agent monitoring](/blogs/ai-agent-monitoring-best-practices-2026) becomes critical. Your eval pipeline needs the same telemetry infrastructure as your production agents.
 
 ## Benchmark Design for Multi-Step Agent Tasks
 
@@ -187,7 +196,7 @@ Every model update is a potential regression. When your underlying model changes
 3. Deploy to a canary group first (10% of traffic)
 4. Monitor canary metrics for 24-48 hours before full rollout
 
-This mirrors how you'd handle any [CI/CD pipeline for agents](/blogs/ci-cd-for-ai-agents) — test, canary, promote.
+This mirrors how you'd handle any [managing agents at scale](/blogs/ai-agent-control-plane-managing-agents-at-scale) — test, canary, promote.
 
 ## When to Use Human Eval vs. Automated Eval
 
