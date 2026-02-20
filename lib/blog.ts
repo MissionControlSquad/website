@@ -43,7 +43,11 @@ export function getAllPosts(): BlogPost[] {
     };
   });
 
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const now = new Date();
+
+  return posts
+    .filter((post) => new Date(post.date).getTime() <= now.getTime())
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {
@@ -52,6 +56,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
 
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
+
+  const postDate = data.date ? new Date(data.date) : null;
+  if (postDate && postDate.getTime() > Date.now()) return null;
 
   return {
     slug,
