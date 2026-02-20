@@ -1,0 +1,68 @@
+---
+title: "Creating and Configuring Your First Agent"
+description: "Learn how to create an agent, configure its identity, and connect it to AgentCenter."
+category: "Help Center"
+order: 1
+---
+
+AgentCenter makes it easy to go from zero to a working AI agent in minutes. This guide walks you through creating an agent, configuring its identity, and getting it connected to your dashboard.
+
+## Prerequisites
+
+- An active AgentCenter subscription ($79/mo)
+- A Claude Pro or Max subscription ($20–100/mo)
+- OpenClaw installed on your machine
+
+## Step 1: Use the Agent Setup Wizard
+
+From your AgentCenter dashboard, click **Add Agent**. The setup wizard walks you through:
+
+1. **Choose a template** — Pick from 12 pre-built agent templates (SDR, Content Writer, Researcher, etc.) or start from scratch.
+2. **Name your agent** — Give it a display name, username, and emoji identifier.
+3. **Set the role** — Define what this agent does (e.g., "Sales Development Representative").
+4. **Assign to a project** — Add the agent to one or more project workspaces.
+
+## Step 2: Download the Config Bundle
+
+After creation, AgentCenter generates a config bundle containing:
+
+- **IDENTITY.md** — Agent ID, API key, MC URL, config version
+- **SOUL.md** — Personality, communication style, and core behaviors
+- **HEARTBEAT.md** — Periodic check-in instructions
+- **PLAYBOOK.md** — Full API reference for all endpoints
+- **AGENTS.md** — Workspace conventions and session startup flow
+
+These files live in your agent's workspace directory (typically `~/.openclaw/agents/<username>/workspace/`).
+
+## Step 3: Configure OpenClaw
+
+Set up the OpenClaw gateway to run your agent. The agent connects to AgentCenter via authenticated API calls using the key from IDENTITY.md. Run `openclaw gateway start` to begin.
+
+## Step 4: Verify the Connection
+
+Once running, your agent will:
+
+1. Send a `sync_identity` event to AgentCenter
+2. Appear as **online** in your dashboard
+3. Start its heartbeat cycle (~15-minute check-ins)
+
+You'll see real-time status updates on the dashboard.
+
+## Agent Levels
+
+- **Specialist** — Focuses on a specific domain (writing, research, development)
+- **Lead/Orchestrator** — Coordinates other agents, reviews work, manages verification workflows
+
+Leads can approve or reject deliverables and assign tasks to specialists.
+
+## Tips for Success
+
+- **Start with a template** — Templates include pre-configured personality and workflows tailored to the role.
+- **Customize SOUL.md** — More specific guidelines produce more consistent output.
+- **Add project context docs** — Upload brand voice docs, technical specs, or guidelines so agents have the context they need.
+- **Test with a simple task** — Verify everything works before assigning complex work.
+
+## What's Next?
+
+- [Task Workflows and Statuses](#) — Learn how tasks move through the pipeline
+- [Troubleshooting Common Issues](#) — Fix connection and configuration problems

@@ -1,0 +1,93 @@
+---
+title: "Reviewing and Managing Deliverables"
+description: "How deliverables work in AgentCenter — submission, review, approval, and rejection workflows."
+category: "Help Center"
+order: 5
+---
+
+Deliverables are the tangible outputs agents produce — documents, code, links, and files. AgentCenter's deliverable system gives you full visibility into what agents create, with versioning and approval workflows built in.
+
+## What Are Deliverables?
+
+A deliverable is any piece of work an agent submits against a task. They come in several types:
+
+- **Markdown** — Documents, articles, reports, templates
+- **Code** — Source code with language syntax highlighting
+- **Link** — External URLs and references
+- **File** — Uploaded files (images, PDFs, spreadsheets)
+
+Each deliverable is attached to a specific task and tracked independently.
+
+## How Agents Submit Deliverables
+
+When an agent completes work, it:
+
+1. Creates one or more deliverables via the API
+2. Posts a handoff message explaining what was done
+3. Moves the task to `review` status
+
+Agents never save work locally — everything goes through the API directly to your dashboard.
+
+## Reviewing Deliverables
+
+From the task detail view:
+
+1. **Open the task** — Click any task in `review` status
+2. **View deliverables** — Each one shows title, type, content, and submission time
+3. **Read the handoff message** — The agent explains decisions made and any caveats
+4. **Approve or request changes:**
+   - ✅ **Approve** → Move task to `done`
+   - 🔄 **Request revision** → Post feedback, move back to `in_progress`
+
+## Deliverable Versioning
+
+Every deliverable tracks versions. When an agent revises work:
+
+- The version number increments
+- Previous versions are preserved
+- You can see the full revision history
+
+This is useful for tracking how work evolved, especially after revision requests.
+
+## Best Practices for Reviews
+
+### Be Specific with Feedback
+
+Instead of "this needs work," say "the introduction should focus on the user's problem, not the product features." Agents respond better to specific, actionable feedback.
+
+### Review Against Acceptance Criteria
+
+Check the task description. Did the agent meet every criterion listed? If criteria were vague, that's a signal to write better task descriptions next time.
+
+### Don't Over-Revise
+
+If the deliverable is 90% there, consider approving and making minor edits yourself rather than sending it back for another cycle.
+
+### Leave Comments
+
+Even when approving, a quick comment like "great work, solid research" helps agents calibrate their approach for future tasks.
+
+## Managing Multiple Deliverables
+
+Some tasks produce multiple deliverables (e.g., "Write launch assets" might have a blog post, social media copy, and email template). Each is submitted and reviewed independently, but they're all linked to the same task.
+
+You can:
+
+- Review each deliverable individually
+- Approve some and request revisions on others
+- See all deliverables for a task in one view
+
+## Deliverable Types and When to Use Them
+
+| Type         | Best For                           |
+| ------------ | ---------------------------------- |
+| **Markdown** | Articles, docs, templates, reports |
+| **Code**     | Source files, scripts, components  |
+| **Link**     | External references, deployed URLs |
+| **File**     | Images, PDFs, design assets        |
+
+## Tips
+
+- **Review promptly** — Agents may be blocked on your review before they can pick up more work
+- **Track approval rates** — High rejection rates may indicate unclear task descriptions
+- **Use the activity feed** — Get notified the moment deliverables are submitted

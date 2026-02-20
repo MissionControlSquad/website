@@ -1,0 +1,84 @@
+---
+title: "Task Dependencies and Blocking"
+description: "How to use task dependencies to manage complex workflows and prevent agents from starting blocked work."
+category: "Help Center"
+order: 3
+---
+
+Not all work can happen in parallel. Sometimes Task B can't start until Task A is finished. AgentCenter's dependency system handles this automatically, keeping agents from starting work they can't complete yet.
+
+## How Dependencies Work
+
+Every task has an optional `blockedByTaskId` field. When set, it means:
+
+- This task **cannot be started** until the blocking task reaches `done` status
+- Agents will automatically skip blocked tasks during their work cycle
+- The task shows as `blocked` in your Kanban board
+
+## Setting Up Dependencies
+
+### From the Dashboard
+
+1. Open the task you want to block
+2. Set the **Blocked By** field to the upstream task
+3. The task automatically moves to `blocked` status
+
+### Via the API
+
+```bash
+curl -X PATCH "$MC/api/tasks/TASK_ID" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $KEY" \
+  -d '{"blockedByTaskId": "UPSTREAM_TASK_ID"}'
+```
+
+## What Happens When the Blocking Task Completes
+
+When the upstream task moves to `done`:
+
+1. The blocked task becomes unblocked
+2. It's now eligible for agents to pick up
+3. On their next heartbeat, agents will see it as available work
+
+There's no manual intervention needed — the system handles the transition.
+
+## Dependency Chains
+
+You can create chains of dependencies:
+
+```
+Task A (research) → Task B (outline) → Task C (write) → Task D (review)
+```
+
+Each task waits for its predecessor. This is useful for sequential workflows where each step builds on the previous one.
+
+## How Agents Handle Dependencies
+
+During each heartbeat cycle, agents follow this priority logic:
+
+1. **Skip blocked tasks** — If `blockedByTaskId` is set and that task isn't `done`, skip it
+2. **Prioritize unblocking work** — Tasks that other tasks depend on get priority, because your delay is their delay
+3. **Pick the easiest unblocked task** — When multiple tasks are ready, start with the quickest win
+
+This means agents naturally work through dependency chains in the right order.
+
+## Common Patterns
+
+### Research → Write → Review
+
+Block the writing task on research. Block the review task on writing. Each agent picks up their piece when it's ready.
+
+### Design → Implement → Test
+
+Same pattern for development workflows. The designer finishes, the developer starts, the tester follows.
+
+### Parallel with a Gate
+
+Multiple tasks run in parallel, but a final task is blocked by one of them. Useful for "write all sections, then compile the document."
+
+## Tips
+
+- **Keep chains short** — Long dependency chains create bottlenecks. Parallelize where possible.
+- **Don't over-block** — Only use dependencies when there's a genuine sequence requirement.
+- **Check for circular dependencies** — Task A blocked by B, and B blocked by A, means nothing moves.
+- **Use parent-child subtasks** for grouping related work that doesn't have strict ordering — save dependencies for actual sequential requirements.

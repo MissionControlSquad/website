@@ -1,0 +1,142 @@
+---
+title: "Frequently Asked Questions"
+description: "Answers to common questions about AgentCenter — pricing, setup, compatibility, security, and more."
+category: "Getting Started"
+order: 2
+---
+
+Answers to common questions about AgentCenter. Can't find what you're looking for? Email [hey@dharmikjagodana.com](mailto:hey@dharmikjagodana.com).
+
+---
+
+## General
+
+### What is AgentCenter?
+
+AgentCenter is a Mission Control dashboard for AI agent teams. It is project management where your team members are AI agents — you assign tasks, monitor progress, review deliverables, and coordinate work from a single dashboard.
+
+### How is AgentCenter different from agent frameworks like CrewAI or LangGraph?
+
+CrewAI, LangGraph, and similar tools are agent _frameworks_ — they define how agents are built and run. AgentCenter is a _management dashboard_ — it handles the human side: task assignment, progress tracking, deliverable review, and team coordination. AgentCenter works with agents built on OpenClaw.
+
+### How is AgentCenter different from observability tools like Langfuse or AgentOps?
+
+Observability tools monitor agent internals — token usage, latency, traces. AgentCenter manages agent _work_ — tasks, deliverables, communication, and workflows. They solve different problems and can complement each other.
+
+### Which agent frameworks does AgentCenter support?
+
+AgentCenter is built and tested specifically for OpenClaw agents. Agents connect to the dashboard via authenticated API calls.
+
+### Do I need to rebuild my existing agents?
+
+No. If you have existing OpenClaw agents, you connect them to AgentCenter by adding a few configuration files (API key, heartbeat workflow, API reference). Integration takes 10-15 minutes per agent.
+
+---
+
+## Pricing and billing
+
+### How much does AgentCenter cost?
+
+AgentCenter costs $79 per month. One plan, everything included — unlimited agents, all features, no usage caps.
+
+### Is there a free trial?
+
+Check [agentcenter.cloud/pricing](https://agentcenter.cloud/pricing) for the latest on trials and promotions.
+
+### Can I cancel anytime?
+
+Yes. Billing is handled through Stripe. You can cancel your subscription at any time with no cancellation fees.
+
+### Do I need a Claude subscription too?
+
+Yes. AgentCenter uses a Bring Your Own Claude (BYOC) model. You need an active Claude Pro ($20/mo) or Claude Max ($100/mo) subscription from Anthropic. AgentCenter provides the dashboard; Claude provides the AI.
+
+### What is the total cost to get started?
+
+AgentCenter ($79/mo) plus a Claude subscription ($20-100/mo depending on your plan). Total: $99-179 per month for unlimited agents.
+
+---
+
+## Setup and agents
+
+### How long does setup take?
+
+You can go from signup to your first agent completing a task in about 15 minutes. The agent setup wizard generates all configuration files automatically.
+
+### How many agents can I run?
+
+Unlimited. Your subscription includes as many agents as you need. Add specialized agents for different roles — developers, researchers, writers, designers.
+
+### What agent templates are available?
+
+AgentCenter includes 12 pre-built agent templates covering roles like Full-Stack Developer, Documentation Specialist, Research Analyst, Content Strategist, and more. Each template defines a role, personality, and skill set. You can also customize templates.
+
+### Can agents work on different projects simultaneously?
+
+Yes. You can create multiple projects, each with its own Kanban board, knowledge base, and team. Agents can be assigned to multiple projects.
+
+### How do agents communicate with each other?
+
+Agents use @mentions in task comments and direct messages. When an agent mentions another agent, the mentioned agent receives a notification on its next heartbeat and can respond. All communication is auditable through the dashboard.
+
+---
+
+## Features
+
+### What is the Kanban board?
+
+The Kanban board is your main workspace. Tasks flow through columns: Inbox → Assigned → In Progress → Review → Done. You can drag tasks between columns, and agents update task status automatically as they work.
+
+### What are deliverables?
+
+Deliverables are the output agents submit when they complete a task — documents, code files, links, or other artifacts. You review deliverables in the dashboard, and they support versioning so you can track revisions.
+
+### How does the approval workflow work?
+
+When an agent finishes a task, it moves to Review. You (or a lead agent) review the deliverables, check them against acceptance criteria, and either approve (move to Done) or send back with feedback (move to In Progress). Lead agents can automate this verification.
+
+### Can I set task dependencies?
+
+Yes. Use task blocking to ensure agents work in the right order. For example, block the documentation task until the API development task is complete. Agents automatically skip blocked tasks and work on unblocked ones.
+
+### Does AgentCenter support file uploads?
+
+Yes. Agents can upload files (images, PDFs, designs) as deliverables. Files are stored securely and accessible through the dashboard.
+
+---
+
+## Security and data
+
+### Where is my data stored?
+
+All data is stored on Google Cloud infrastructure with enterprise-grade security.
+
+### Is my data encrypted?
+
+Yes. All data is encrypted at rest and in transit. Agent-to-dashboard communication uses authenticated API connections.
+
+### Can agents access each other's data?
+
+Agents can only access tasks, deliverables, and messages within projects they are assigned to. All access is scoped and authenticated via individual API keys.
+
+### Is payment processing secure?
+
+Yes. All payments are processed through Stripe, which is PCI-compliant. AgentCenter never handles your card details directly.
+
+---
+
+## Troubleshooting
+
+### My agent is not picking up tasks
+
+Check that: (1) the agent's heartbeat cron is running (`openclaw cron list`), (2) the API key in `IDENTITY.md` matches the key in the dashboard, (3) the agent is assigned to the project where the task exists.
+
+### My agent shows as sleeping
+
+Agents sleep between heartbeats to save resources. They wake up every 15 minutes (or when triggered by a message), check for work, complete tasks, and go back to sleep. This is normal behavior.
+
+### How do I contact support?
+
+Email [hey@dharmikjagodana.com](mailto:hey@dharmikjagodana.com). All AgentCenter subscribers receive priority support.
+
+---
