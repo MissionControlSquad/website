@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Twitter, MessageCircle } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
-import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants";
+import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS, CAL_LINK } from "@/lib/constants";
 
 const iconMap: Record<string, React.ReactNode> = {
   Twitter: <Twitter size={20} />,
@@ -30,6 +30,16 @@ export default function Footer() {
               <span>{SITE_CONFIG.name}</span>
             </Link>
             <p className="text-neutral-400 mb-6 max-w-xs">{SITE_CONFIG.description}</p>
+            {/* Book a Demo */}
+            <a
+              href={CAL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-300 hover:text-neutral-100 hover:bg-neutral-700 transition-colors text-sm font-medium mb-6 w-fit"
+            >
+              Book a Demo
+            </a>
+
             {/* Social links */}
             <div className="flex gap-4">
               {SOCIAL_LINKS.map((link) => (

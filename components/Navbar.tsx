@@ -7,7 +7,7 @@ import { Menu, X } from "@/components/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
+import { NAV_LINKS, SITE_CONFIG, STRIPE_LINK, CAL_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 
@@ -88,22 +88,34 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="sm" variant="secondary">
+                Book a Demo
+              </Button>
+            </a>
             <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="sm">Get Early Access</Button>
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2.5 min-w-11 min-h-11 flex items-center justify-center text-neutral-400 hover:text-neutral-100 transition-colors"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-          >
-            {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-          </button>
+          {/* Mobile CTA + Menu Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="sm" variant="secondary">
+                Book a Demo
+              </Button>
+            </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2.5 min-w-11 min-h-11 flex items-center justify-center text-neutral-400 hover:text-neutral-100 transition-colors"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+            >
+              {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            </button>
+          </div>
         </nav>
       </Container>
 
@@ -134,7 +146,17 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-neutral-800">
+                <div className="pt-4 border-t border-neutral-800 space-y-3">
+                  <a
+                    href={CAL_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Button className="w-full" size="md" variant="secondary">
+                      Book a Demo
+                    </Button>
+                  </a>
                   <a
                     href={STRIPE_LINK}
                     target="_blank"

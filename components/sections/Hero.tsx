@@ -4,7 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
-import { SITE_CONFIG, TRUST_INDICATORS } from "@/lib/constants";
+import { Button } from "@/components/ui/Button";
+import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK, STRIPE_LINK } from "@/lib/constants";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,6 +66,21 @@ export default function Hero() {
           >
             {SITE_CONFIG.description}
           </motion.p>
+
+          {/* CTA buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          >
+            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="secondary">
+                Book a Demo
+              </Button>
+            </a>
+            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="lg">Get Early Access</Button>
+            </a>
+          </motion.div>
 
           {/* Trust indicators — static list to avoid hydration mismatch with cached server HTML */}
           <motion.div
