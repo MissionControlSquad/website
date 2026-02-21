@@ -28,13 +28,14 @@ const cardBase =
 function NetworkTopologyCard() {
   const hub = { cx: 200, cy: 130 };
   const nodes = [
-    { label: "AWS EC2", cx: 65, cy: 45 },
-    { label: "Local Mac", cx: 335, cy: 40 },
-    { label: "GCP VM", cx: 360, cy: 195 },
-    { label: "Raspberry Pi", cx: 55, cy: 200 },
-    { label: "On-Prem", cx: 200, cy: 245 },
+    { agent: "Agent 1", label: "AWS EC2", cx: 65, cy: 45 },
+    { agent: "Agent 2", label: "Local Mac", cx: 335, cy: 40 },
+    { agent: "Agent 3", label: "GCP VM", cx: 360, cy: 195 },
+    { agent: "Agent 4", label: "Raspberry Pi", cx: 55, cy: 200 },
+    { agent: "Agent 5", label: "On-Prem", cx: 200, cy: 245 },
   ];
   const logoSize = 28;
+  const orbitR = logoSize + 8;
 
   return (
     <motion.div
@@ -56,6 +57,10 @@ function NetworkTopologyCard() {
               <stop offset="60%" stopColor="rgba(14,165,233,0.08)" />
               <stop offset="100%" stopColor="rgba(14,165,233,0)" />
             </radialGradient>
+            <radialGradient id="nodeGlow">
+              <stop offset="0%" stopColor="rgba(74,222,128,0.2)" />
+              <stop offset="100%" stopColor="rgba(74,222,128,0)" />
+            </radialGradient>
             <clipPath id="logoClip">
               <circle cx={hub.cx} cy={hub.cy} r={logoSize - 2} />
             </clipPath>
@@ -64,7 +69,7 @@ function NetworkTopologyCard() {
           {/* Outer glow */}
           <circle cx={hub.cx} cy={hub.cy} r="90" fill="url(#hubGlow)" />
 
-          {/* Connection lines with gradient effect */}
+          {/* Connection lines */}
           {nodes.map((n, i) => (
             <motion.line
               key={`line-${i}`}
@@ -74,7 +79,7 @@ function NetworkTopologyCard() {
               y2={n.cy}
               stroke="#0ea5e9"
               strokeWidth={1.5}
-              strokeOpacity={0.35}
+              strokeOpacity={0.3}
               strokeDasharray="4 3"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
@@ -83,19 +88,46 @@ function NetworkTopologyCard() {
             />
           ))}
 
-          {/* Hub — outer ring */}
+          {/* Data pulse dots traveling along lines */}
+          {nodes.map((n, i) => {
+            const dx = n.cx - hub.cx;
+            const dy = n.cy - hub.cy;
+            return (
+              <motion.circle
+                key={`pulse-dot-${i}`}
+                r="2.5"
+                fill="#38bdf8"
+                initial={{ opacity: 0 }}
+                whileInView={{
+                  cx: [hub.cx, hub.cx + dx * 0.5, n.cx],
+                  cy: [hub.cy, hub.cy + dy * 0.5, n.cy],
+                  opacity: [0, 0.9, 0],
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 2,
+                  delay: 1.5 + i * 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            );
+          })}
+
+          {/* Hub — spinning dashed orbit ring */}
           <motion.circle
             cx={hub.cx}
             cy={hub.cy}
-            r={logoSize + 4}
+            r={orbitR}
             fill="none"
             stroke="#0ea5e9"
-            strokeWidth={1}
-            strokeOpacity={0.3}
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            strokeWidth={0.8}
+            strokeOpacity={0.25}
+            strokeDasharray="3 5"
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: `${hub.cx}px ${hub.cy}px` }}
           />
 
           {/* Hub — main circle */}
@@ -109,7 +141,7 @@ function NetworkTopologyCard() {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
 
           {/* Hub — logo image */}
@@ -129,7 +161,7 @@ function NetworkTopologyCard() {
           {/* Hub label */}
           <motion.text
             x={hub.cx}
-            y={hub.cy + logoSize + 16}
+            y={hub.cy + logoSize + 18}
             textAnchor="middle"
             fill="#38bdf8"
             fontSize="10"
@@ -142,9 +174,47 @@ function NetworkTopologyCard() {
             AgentCenter
           </motion.text>
 
+          {/* Hub pulse rings */}
+          {[0, 1].map((ring) => (
+            <motion.circle
+              key={`hub-pulse-${ring}`}
+              cx={hub.cx}
+              cy={hub.cy}
+              r={logoSize}
+              fill="none"
+              stroke="#0ea5e9"
+              strokeWidth={1}
+              initial={{ opacity: 0, scale: 1 }}
+              whileInView={{
+                opacity: [0.4, 0],
+                scale: [1, 2.2],
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 3,
+                delay: ring * 1.5,
+                repeat: Infinity,
+                ease: "easeOut",
+              }}
+            />
+          ))}
+
           {/* Agent nodes */}
           {nodes.map((n, i) => (
             <g key={`node-${i}`}>
+              {/* Subtle glow behind node */}
+              <motion.circle
+                cx={n.cx}
+                cy={n.cy}
+                r="24"
+                fill="url(#nodeGlow)"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 + i * 0.1 }}
+              />
+
+              {/* Node circle */}
               <motion.circle
                 cx={n.cx}
                 cy={n.cy}
@@ -155,61 +225,78 @@ function NetworkTopologyCard() {
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.4 + i * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.4, delay: 0.4 + i * 0.1, ease: "backOut" }}
               />
-              {/* Status dot */}
+
+              {/* Agent pulse ring */}
               <motion.circle
                 cx={n.cx}
                 cy={n.cy}
-                r="4"
-                fill="#4ade80"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: [0, 1, 0.6, 1] }}
+                r="16"
+                fill="none"
+                stroke="#4ade80"
+                strokeWidth={0.8}
+                initial={{ opacity: 0, scale: 1 }}
+                whileInView={{
+                  opacity: [0.4, 0],
+                  scale: [1, 1.6],
+                }}
                 viewport={{ once: true }}
                 transition={{
-                  delay: 0.8 + i * 0.1,
                   duration: 2.5,
+                  delay: 1.2 + i * 0.3,
                   repeat: Infinity,
-                  repeatType: "reverse",
+                  ease: "easeOut",
                 }}
               />
-              {/* Label */}
+
+              {/* Online status dot (top-right) */}
+              <motion.circle
+                cx={n.cx + 11}
+                cy={n.cy - 11}
+                r="3.5"
+                fill="#4ade80"
+                stroke="#27272a"
+                strokeWidth={1}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 + i * 0.1, type: "spring", stiffness: 300 }}
+              />
+
+              {/* Agent name inside circle */}
+              <motion.text
+                x={n.cx}
+                y={n.cy + 1}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="#e5e5e5"
+                fontSize="7"
+                fontWeight="500"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 + i * 0.1 }}
+              >
+                {n.agent}
+              </motion.text>
+
+              {/* Device label below */}
               <motion.text
                 x={n.cx}
                 y={n.cy + 28}
                 textAnchor="middle"
                 fill="#a1a1aa"
-                fontSize="10"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                fontSize="9"
+                initial={{ opacity: 0, y: n.cy + 34 }}
+                whileInView={{ opacity: 1, y: n.cy + 28 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.6 + i * 0.1 }}
+                transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
               >
                 {n.label}
               </motion.text>
             </g>
           ))}
-
-          {/* Hub pulse ring */}
-          <motion.circle
-            cx={hub.cx}
-            cy={hub.cy}
-            r={logoSize}
-            fill="none"
-            stroke="#0ea5e9"
-            strokeWidth={1}
-            initial={{ opacity: 0, scale: 1 }}
-            whileInView={{
-              opacity: [0.5, 0],
-              scale: [1, 2],
-            }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeOut",
-            }}
-          />
         </svg>
       </div>
     </motion.div>
