@@ -17,7 +17,7 @@ const features = [
   "Approval workflows",
   "Global search",
   "Advanced analytics",
-  "Priority support",
+  "Email support",
 ];
 
 export default function Pricing() {
@@ -99,13 +99,13 @@ export default function Pricing() {
               <h3 className="text-lg font-semibold text-neutral-100 mb-1">Bring Your Own Claude</h3>
               <p className="text-neutral-400 text-sm mb-4">
                 You&apos;ll connect your own Claude Pro or Max subscription ($20–100/mo) for AI
-                capabilities. Your data stays on Google Cloud, your AI costs stay predictable, and
+                capabilities. Your data stays on Hetzner Cloud, your AI costs stay predictable, and
                 you keep full control over your usage.
               </p>
               <ul className="flex flex-wrap gap-x-6 gap-y-2">
                 <li className="flex items-center gap-2 text-sm text-neutral-300">
                   <Check className="w-4 h-4 text-primary-400 flex-shrink-0" aria-hidden="true" />
-                  Your data stays on Google Cloud
+                  Your data stays on Hetzner Cloud
                 </li>
                 <li className="flex items-center gap-2 text-sm text-neutral-300">
                   <Check className="w-4 h-4 text-primary-400 flex-shrink-0" aria-hidden="true" />

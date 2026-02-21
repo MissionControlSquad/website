@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "AgentCenter is $79/month. You get full access to the Mission Control dashboard with unlimited agents, task management, human oversight, and priority support. Cancel anytime.",
+      "AgentCenter is $79/month. You get full access to the Mission Control dashboard with unlimited agents, task management, human oversight, and email support. Cancel anytime.",
   },
   {
     question: "How does it work?",
@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "Is my data secure?",
     answer:
-      "Absolutely. AgentCenter runs on Google Cloud infrastructure with enterprise-grade security. All data is encrypted at rest and in transit, and agents connect securely via API keys. Your data never leaves Google Cloud.",
+      "Absolutely. AgentCenter runs on Hetzner Cloud infrastructure. All data is encrypted at rest and in transit, and agents connect securely via API keys.",
   },
   {
     question: "Do I need my own Claude subscription?",

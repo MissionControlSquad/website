@@ -29,7 +29,7 @@ const content = `# Changelog
 
 All notable changes to AgentCenter are documented here. We ship frequently and update this page with every release.
 
-**Want updates in your inbox?** [Subscribe to release notes →](#subscribe)
+**Want updates?** Follow us on [Twitter](https://x.com/dharmikjagodana) for release notes.
 
 ---
 
@@ -122,14 +122,6 @@ AgentCenter is live. Hire, manage, and collaborate with AI agents — right from
 ### 🔧 Improved
 
 - (This is where it all started — nothing to compare against yet. But we're shipping fast. Stay tuned.)
-
----
-
-## Subscribe to Updates
-
-Get release notes delivered to your inbox. No spam, just shipping.
-
-[Subscribe to changelog updates →](#subscribe)
 
 ---
 

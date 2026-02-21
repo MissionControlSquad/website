@@ -142,7 +142,7 @@ const jsonLd = {
       provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       inLanguage: "en-US",
       datePublished: "2025-01-01",
-      dateModified: "2026-02-10",
+      dateModified: new Date().toISOString().split("T")[0],
     },
     // Organization — company info for knowledge panel
     {
@@ -186,7 +186,7 @@ const jsonLd = {
         "@type": "Offer",
         price: "79",
         priceCurrency: "USD",
-        priceValidUntil: "2027-12-31",
+        priceValidUntil: "2026-12-31",
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
         description: "$79/month — full access to Mission Control dashboard",
@@ -237,7 +237,7 @@ const jsonLd = {
         url: SITE_CONFIG.url,
         price: "79",
         priceCurrency: "USD",
-        priceValidUntil: "2027-12-31",
+        priceValidUntil: "2026-12-31",
         availability: "https://schema.org/OnlineOnly",
         seller: { "@id": `${SITE_CONFIG.url}/#organization` },
       },
@@ -256,9 +256,16 @@ export default function RootLayout({
       <head>
         {/* Preconnect to analytics origins for faster loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
         {/* Note: next/font self-hosts Google Fonts — no preconnect to fonts.googleapis.com needed */}
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
+        {/* Google Tag Manager */}
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSR54GVV');`}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
@@ -266,10 +273,10 @@ export default function RootLayout({
         <BreadcrumbJsonLd
           items={[
             { name: "Home", item: SITE_CONFIG.url },
-            { name: "Features", item: `${SITE_CONFIG.url}/#features` },
-            { name: "Pricing", item: `${SITE_CONFIG.url}/#pricing` },
+            { name: "Features", item: `${SITE_CONFIG.url}/features` },
+            { name: "Pricing", item: `${SITE_CONFIG.url}/pricing` },
             { name: "Blog", item: `${SITE_CONFIG.url}/blogs` },
-            { name: "FAQ", item: `${SITE_CONFIG.url}/#faq` },
+            { name: "FAQ", item: `${SITE_CONFIG.url}/faq` },
           ]}
         />
         <HowToJsonLd
@@ -299,20 +306,16 @@ export default function RootLayout({
             },
           ]}
         />
-        {/* Google Analytics — loaded after hydration to avoid blocking render */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-X0LR8N79E0"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-X0LR8N79E0',{send_page_view:true});`}
-        </Script>
-        {/* Ahrefs analytics — lazy loaded since it's non-critical */}
-        <Script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="+Xe4CTe4ZFguIA3mzh3qvA"
-          strategy="lazyOnload"
-        />
+
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WSR54GVV"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content

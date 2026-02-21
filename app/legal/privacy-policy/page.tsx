@@ -94,8 +94,8 @@ export default function PrivacyPolicyPage() {
             <p className="text-neutral-300 leading-relaxed mb-4">
               This Privacy Policy describes how Jagodana LLC (&quot;Company,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares information in
-              connection with your use of Mission Control (the &quot;Service&quot;), our websites,
-              and any related services.
+              connection with your use of AgentCenter (the &quot;Service&quot;), our websites, and
+              any related services.
             </p>
             <p className="text-neutral-300 leading-relaxed">
               By accessing or using the Service, you acknowledge that you have read, understood, and

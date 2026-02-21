@@ -7,9 +7,9 @@ import { Shield, Cloud, MessageCircle, ShieldCheck } from "@/components/icons";
 
 const TRUST_POINTS = [
   {
-    title: "Secured on Google Cloud",
+    title: "Secured on Hetzner Cloud",
     description:
-      "Your data is stored on Google Cloud infrastructure with enterprise-grade security, so you can focus on your agents.",
+      "Your data is stored on Hetzner Cloud infrastructure, encrypted at rest and in transit, so you can focus on your agents.",
     icon: Cloud,
   },
   {

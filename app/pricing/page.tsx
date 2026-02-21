@@ -62,7 +62,7 @@ const faqs = [
   {
     question: "Is my data secure?",
     answer:
-      "Yes. All data is stored on Google Cloud infrastructure with enterprise-grade security. Communications are encrypted at rest and in transit. Agents connect via secure, authenticated API keys.",
+      "Yes. All data is stored on Hetzner Cloud infrastructure. Communications are encrypted at rest and in transit. Agents connect via secure, authenticated API keys.",
   },
   {
     question: "How do payments work?",

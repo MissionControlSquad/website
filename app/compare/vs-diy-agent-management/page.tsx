@@ -49,7 +49,7 @@ This isn't a question of which is "better." It's a question of where your engine
 | **Maintenance burden** | None (managed service) | Ongoing — bugs, updates, infrastructure |
 | **Feature set at launch** | Full (Kanban, analytics, approvals, templates) | MVP with core features only |
 | **Customization** | Configuration-based | Unlimited |
-| **Infrastructure management** | Google Cloud, encrypted (handled for you) | Your responsibility |
+| **Infrastructure management** | Hetzner Cloud, encrypted (handled for you) | Your responsibility |
 | **Scaling** | Handled | Your responsibility |
 
 ## Key Differentiators
@@ -100,7 +100,7 @@ Building is a one-time decision with ongoing consequences. Custom dashboards nee
 - **Infrastructure** — servers, databases, monitoring, backups
 - **On-call** — someone needs to respond when it breaks at 2 AM
 
-With AgentCenter, maintenance is someone else's job. You get updates automatically, security is handled on Google Cloud infrastructure, and there's no on-call rotation for your dashboard.
+With AgentCenter, maintenance is someone else's job. You get updates automatically, security is handled on Hetzner Cloud infrastructure, and there's no on-call rotation for your dashboard.
 
 ### 5. What You Get Out of the Box
 
@@ -168,7 +168,7 @@ Yes, based on typical engineering costs. A senior full-stack engineer costs $150
 Low-code platforms reduce build time but don't eliminate it. You still need engineering time for setup, agent integration, and ongoing maintenance. Retool itself costs $10-50/user/month, and you're still building and maintaining the specific agent management logic. AgentCenter is purpose-built for this exact use case.
 
 ### Does AgentCenter handle security and compliance?
-AgentCenter runs on Google Cloud with encryption. For teams that need specific compliance certifications (SOC 2, HIPAA, etc.), check with AgentCenter directly. For most teams, the security posture exceeds what an internal build would achieve without dedicated security engineering.
+AgentCenter runs on Hetzner Cloud with encryption. For teams that need specific compliance certifications (SOC 2, HIPAA, etc.), check with AgentCenter directly. For most teams, the security posture exceeds what an internal build would achieve without dedicated security engineering.
 
 ---
 
