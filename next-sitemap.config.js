@@ -6,7 +6,7 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/api/*", "/_next/*", "/admin/*", "/thank-you", "/opengraph-image"],
+  exclude: ["/api/*", "/_next/*", "/admin/*", "/thank-you", "/opengraph-image.png"],
   robotsTxtOptions: {
     policies: [
       {
