@@ -26,14 +26,15 @@ const cardBase =
 
 /* ── Card 1: Network Topology (hero card) ── */
 function NetworkTopologyCard() {
+  const hub = { cx: 200, cy: 130 };
   const nodes = [
-    { label: "AWS EC2", cx: 70, cy: 40 },
-    { label: "Local Mac", cx: 230, cy: 35 },
-    { label: "GCP VM", cx: 260, cy: 150 },
-    { label: "Raspberry Pi", cx: 50, cy: 155 },
-    { label: "On-Prem", cx: 160, cy: 185 },
+    { label: "AWS EC2", cx: 65, cy: 45 },
+    { label: "Local Mac", cx: 335, cy: 40 },
+    { label: "GCP VM", cx: 360, cy: 195 },
+    { label: "Raspberry Pi", cx: 55, cy: 200 },
+    { label: "On-Prem", cx: 200, cy: 245 },
   ];
-  const hub = { cx: 155, cy: 105 };
+  const logoSize = 28;
 
   return (
     <motion.div
@@ -47,18 +48,23 @@ function NetworkTopologyCard() {
         A single control plane connecting agents across any infrastructure.
       </p>
 
-      <div className="relative w-full aspect-[3/2] max-w-[340px] lg:max-w-none mx-auto flex-1">
-        <svg viewBox="0 0 310 220" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-          {/* Radial glow behind hub */}
+      <div className="relative w-full aspect-[4/3] max-w-[400px] lg:max-w-none mx-auto flex-1">
+        <svg viewBox="0 0 400 280" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
           <defs>
             <radialGradient id="hubGlow">
-              <stop offset="0%" stopColor="rgba(14,165,233,0.25)" />
+              <stop offset="0%" stopColor="rgba(14,165,233,0.3)" />
+              <stop offset="60%" stopColor="rgba(14,165,233,0.08)" />
               <stop offset="100%" stopColor="rgba(14,165,233,0)" />
             </radialGradient>
+            <clipPath id="logoClip">
+              <circle cx={hub.cx} cy={hub.cy} r={logoSize - 2} />
+            </clipPath>
           </defs>
-          <circle cx={hub.cx} cy={hub.cy} r="60" fill="url(#hubGlow)" />
 
-          {/* Connection lines */}
+          {/* Outer glow */}
+          <circle cx={hub.cx} cy={hub.cy} r="90" fill="url(#hubGlow)" />
+
+          {/* Connection lines with gradient effect */}
           {nodes.map((n, i) => (
             <motion.line
               key={`line-${i}`}
@@ -68,19 +74,35 @@ function NetworkTopologyCard() {
               y2={n.cy}
               stroke="#0ea5e9"
               strokeWidth={1.5}
-              strokeOpacity={0.4}
+              strokeOpacity={0.35}
+              strokeDasharray="4 3"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 + i * 0.12, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.3 + i * 0.1, ease: "easeOut" }}
             />
           ))}
 
-          {/* Hub node */}
+          {/* Hub — outer ring */}
           <motion.circle
             cx={hub.cx}
             cy={hub.cy}
-            r="18"
+            r={logoSize + 4}
+            fill="none"
+            stroke="#0ea5e9"
+            strokeWidth={1}
+            strokeOpacity={0.3}
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          />
+
+          {/* Hub — main circle */}
+          <motion.circle
+            cx={hub.cx}
+            cy={hub.cy}
+            r={logoSize}
             fill="#18181b"
             stroke="#0ea5e9"
             strokeWidth={2}
@@ -89,20 +111,35 @@ function NetworkTopologyCard() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           />
+
+          {/* Hub — logo image */}
+          <motion.image
+            href="/favicon-96x96.png"
+            x={hub.cx - logoSize + 5}
+            y={hub.cy - logoSize + 5}
+            width={(logoSize - 5) * 2}
+            height={(logoSize - 5) * 2}
+            clipPath="url(#logoClip)"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.4 }}
+          />
+
+          {/* Hub label */}
           <motion.text
             x={hub.cx}
-            y={hub.cy + 1}
+            y={hub.cy + logoSize + 16}
             textAnchor="middle"
-            dominantBaseline="middle"
             fill="#38bdf8"
-            fontSize="8"
+            fontSize="10"
             fontWeight="600"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.4 }}
           >
-            HUB
+            AgentCenter
           </motion.text>
 
           {/* Agent nodes */}
@@ -111,44 +148,45 @@ function NetworkTopologyCard() {
               <motion.circle
                 cx={n.cx}
                 cy={n.cy}
-                r="12"
+                r="16"
                 fill="#27272a"
                 stroke="#3f3f46"
                 strokeWidth={1.5}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.4 + i * 0.12, ease: "easeOut" }}
+                transition={{ duration: 0.4, delay: 0.4 + i * 0.1, ease: "easeOut" }}
               />
-              <motion.text
-                x={n.cx}
-                y={n.cy + 22}
-                textAnchor="middle"
-                fill="#a1a1aa"
-                fontSize="9"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + i * 0.12 }}
-              >
-                {n.label}
-              </motion.text>
-              {/* Tiny pulse dot */}
+              {/* Status dot */}
               <motion.circle
                 cx={n.cx}
                 cy={n.cy}
-                r="3"
+                r="4"
                 fill="#4ade80"
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: [0, 1, 0.5, 1] }}
+                whileInView={{ opacity: [0, 1, 0.6, 1] }}
                 viewport={{ once: true }}
                 transition={{
-                  delay: 0.8 + i * 0.12,
-                  duration: 2,
+                  delay: 0.8 + i * 0.1,
+                  duration: 2.5,
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
               />
+              {/* Label */}
+              <motion.text
+                x={n.cx}
+                y={n.cy + 28}
+                textAnchor="middle"
+                fill="#a1a1aa"
+                fontSize="10"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 + i * 0.1 }}
+              >
+                {n.label}
+              </motion.text>
             </g>
           ))}
 
@@ -156,18 +194,18 @@ function NetworkTopologyCard() {
           <motion.circle
             cx={hub.cx}
             cy={hub.cy}
-            r="18"
+            r={logoSize}
             fill="none"
             stroke="#0ea5e9"
             strokeWidth={1}
             initial={{ opacity: 0, scale: 1 }}
             whileInView={{
-              opacity: [0.6, 0],
-              scale: [1, 1.8],
+              opacity: [0.5, 0],
+              scale: [1, 2],
             }}
             viewport={{ once: true }}
             transition={{
-              duration: 2,
+              duration: 2.5,
               repeat: Infinity,
               ease: "easeOut",
             }}
