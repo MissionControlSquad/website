@@ -89,7 +89,7 @@ How much of the agent's available time is spent on productive work?
 - **Blocked time** — time spent waiting on dependencies, approvals, or external resources
 - **Overhead time** — time spent on context loading, retries, and error recovery
 
-High idle time means your task pipeline is the bottleneck. High blocked time means your workflow has dependency problems. High overhead time means the agent needs optimization.
+High idle time means your task pipeline is the bottleneck. High blocked time means your workflow has dependency problems. High overhead time means the agent needs tuning.
 
 ## 5 AI Agent Failure Modes You Need to Detect
 
@@ -126,6 +126,24 @@ The agent reports as active but isn't making meaningful progress. Often caused b
 ## Building Your AI Agent Observability Stack
 
 A production-ready monitoring system needs four layers:
+
+```mermaid
+graph TD
+    subgraph "Layer 1: Real-Time Status"
+        A["🟢 Agent Status<br/>active / idle / error"]
+    end
+    subgraph "Layer 2: Task Telemetry"
+        B["📋 Task Tracking<br/>tokens, duration, tools"]
+    end
+    subgraph "Layer 3: Quality"
+        C["✅ Quality Checks<br/>format, accuracy, completeness"]
+    end
+    subgraph "Layer 4: Trends"
+        D["📈 Trend Analysis<br/>weekly + monthly patterns"]
+    end
+    A --> B --> C --> D
+    D -.->|"alerts + insights"| A
+```
 
 ### Layer 1: Real-Time Status
 

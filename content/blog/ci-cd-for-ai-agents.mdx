@@ -1,5 +1,5 @@
 ---
-title: "CI/CD for AI Agents — How to Ship Agent Updates Without Breaking Production"
+title: "CI/CD for AI Agents: Ship Updates Safely"
 description: "How to build a CI/CD pipeline for AI agents. Covers evaluation-driven deployments, canary strategies, and rollback for agent systems."
 date: "2026-02-06"
 author: "AgentCenter Team"
@@ -42,14 +42,9 @@ Your agent's behavior depends not just on your code, but on the underlying model
 
 Here's a pipeline architecture that accounts for these differences:
 
-```
-+-----------+    +-----------+    +-----------+    +-----------+    +-----------+
-|  Commit   |--->|  Build    |--->|  Eval     |--->|  Canary   |--->|  Full     |
-|  Change   |    |  & Lint   |    |  Gates    |    |  Deploy   |    |  Rollout  |
-+-----------+    +-----------+    +-----------+    +-----------+    +-----------+
-                      |               |               |               |
-                   Static          Behavioral      Live Traffic    Monitor
-                   Checks          Testing         (5-10%)         & Alert
+```mermaid
+graph LR
+    A["📝 Commit<br/>Change"] --> B["🔧 Build & Lint<br/>Static Checks"] --> C["🧪 Eval Gates<br/>Behavioral Testing"] --> D["🐤 Canary Deploy<br/>Live Traffic 5-10%"] --> E["🚀 Full Rollout<br/>Monitor & Alert"]
 ```
 
 ### Stage 1: Commit & Static Analysis
@@ -159,10 +154,15 @@ Blue-green works differently with agents because of state. You can't just swap �
 4. **Verify**: Monitor green for a stabilization period
 5. **Retire**: Shut down blue after confirmation
 
-```
-Blue (v1.2)  --- completing tasks --- drain --- retire
-                                        |
-Green (v1.3) --- warming up --------- accepting tasks --- primary
+```mermaid
+graph LR
+    subgraph "🔵 Blue v1.2"
+        B1["⚙️ Completing tasks"] --> B2["🔽 Drain"] --> B3["🛑 Retire"]
+    end
+    subgraph "🟢 Green v1.3"
+        G1["🔄 Warming up"] --> G2["📥 Accepting tasks"] --> G3["✅ Primary"]
+    end
+    B2 -.-> G2
 ```
 
 The critical difference from web services: **agents have memory and in-progress work**. A hard cutover risks losing context or orphaning tasks. Always drain gracefully.
@@ -201,7 +201,7 @@ alerts:
 
 ## Rollback Strategies When Agents Misbehave
 
-Rollback for agents is harder than for stateless services. Here are three strategies, from simplest to most robust:
+Rollback for agents is harder than for stateless services. Here are three strategies, from simplest to most thorough:
 
 ### 1. Configuration Rollback
 
@@ -232,16 +232,12 @@ Instead of rolling back, reduce the agent's autonomy:
 
 ### The Rollback Decision Tree
 
-```
-Issue detected
-    |
-    |-- Safety violation?      --> Immediate halt + version rollback
-    |
-    |-- Quality degradation?   --> Canary rollback + investigate
-    |
-    |-- Intermittent errors?   --> Graceful degradation + monitor
-    |
-    |-- Performance regression? --> Config rollback + eval re-run
+```mermaid
+graph TD
+    A{"🚨 Issue detected"} -->|Safety violation?| B["🛑 Immediate halt<br/>+ version rollback"]
+    A -->|Quality degradation?| C["🐤 Canary rollback<br/>+ investigate"]
+    A -->|Intermittent errors?| D["⚠️ Graceful degradation<br/>+ monitor"]
+    A -->|Performance regression?| E["🔧 Config rollback<br/>+ eval re-run"]
 ```
 
 ## Putting It All Together: A Real Pipeline
@@ -272,7 +268,7 @@ Total time from commit to full rollout: **24-48 hours** for high-risk changes, *
 ## FAQ
 
 **Q: How long should eval suites take?**
-A: Target 5-15 minutes for the standard suite. Longer comprehensive suites can run nightly. The key is keeping the feedback loop fast enough that developers don't skip it.
+A: Target 5-15 minutes for the standard suite. Longer full suites can run nightly. The key is keeping the feedback loop fast enough that developers don't skip it.
 
 **Q: Can I use the same CI/CD tool I use for regular software?**
 A: Yes — GitHub Actions, GitLab CI, Jenkins all work. You'll add custom eval stages, but the pipeline orchestration is the same.
@@ -289,7 +285,7 @@ A: Use LLM-as-judge with explicit rubrics. Define what "good" means (clarity, ac
 **Q: Should every prompt change go through the full pipeline?**
 A: Risk-classify changes. Typo fixes can skip canary. New tool permissions need the full pipeline. Automate this classification in Stage 1.
 
-## Conclusion
+## Where This Leaves You
 
 CI/CD for AI agents isn't about forcing probabilistic systems into deterministic pipelines. It's about building confidence through evaluation, deploying gradually, and having fast rollback when things go sideways.
 

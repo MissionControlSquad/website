@@ -14,6 +14,29 @@ Most teams building with AI agents in 2026 are focused on capabilities: making a
 
 Here are seven AI agent security risks you're probably ignoring — and what to do about each one.
 
+```mermaid
+graph TD
+    subgraph "External Threats"
+        A["💉 1. Prompt Injection"]
+        B["📦 4. Supply Chain"]
+    end
+    subgraph "Internal Risks"
+        C["🔧 2. Tool Misuse"]
+        D["📤 3. Data Exfiltration"]
+        E["🔓 5. Missing Guardrails"]
+    end
+    subgraph "Operational Gaps"
+        F["👁️ 6. No Monitoring"]
+        G["🏗️ 7. No Security Architecture"]
+    end
+    A --> C
+    B --> C
+    C --> D
+    E --> D
+    F -.->|"undetected"| D
+    G -.->|"no response plan"| F
+```
+
 ## 1. Prompt Injection and Jailbreaking
 
 **The risk:** An attacker crafts input that hijacks your agent's behavior, overriding its instructions to perform unauthorized actions.
@@ -167,7 +190,7 @@ AI agents are the most powerful — and most dangerous — tools most organizati
 
 The seven risks above aren't theoretical. They're happening right now, to teams that assumed "we'll add security later." Later never comes. The breach comes first.
 
-Start with the basics: least privilege, sandboxing, monitoring. Then build up to comprehensive guardrails, audit trails, and incident response plans. Use tools purpose-built for agent management — generic infrastructure monitoring won't cut it.
+Start with the basics: least privilege, sandboxing, monitoring. Then build up to full guardrails, audit trails, and incident response plans. Use tools purpose-built for agent management — generic infrastructure monitoring won't cut it.
 
 Your agents are only as secure as the management layer around them. Make it airtight.
 
@@ -181,7 +204,7 @@ Prompt injection remains the most critical risk. Unlike traditional software vul
 
 ### How do I secure AI agents that have tool access?
 
-Apply the principle of least privilege: each agent gets only the permissions it needs for its specific role. Implement human-in-the-loop approval for destructive actions, sandbox agents in isolated environments, rate-limit tool calls, and maintain comprehensive audit logs of every action.
+Apply the principle of least privilege: each agent gets only the permissions it needs for its specific role. Implement human-in-the-loop approval for destructive actions, sandbox agents in isolated environments, rate-limit tool calls, and maintain complete audit logs of every action.
 
 ### Can AI agents be hacked through their dependencies?
 
@@ -197,7 +220,7 @@ Classify the data your agents can access and enforce output filtering for sensit
 
 ### Should I build or buy agent security infrastructure?
 
-For most teams, buying is significantly more efficient. [Building a comprehensive agent management platform](/blog/ai-agent-management-platform-build-vs-buy) — including security monitoring, permission models, and audit trails — costs $50,000-$80,000+ in development time alone. Purpose-built platforms like AgentCenter provide these capabilities at a fraction of the cost, with ongoing updates as the threat landscape evolves.
+For most teams, buying is significantly more efficient. [Building a full agent management platform](/blog/ai-agent-management-platform-build-vs-buy) — including security monitoring, permission models, and audit trails — costs $50,000-$80,000+ in development time alone. Purpose-built platforms like AgentCenter provide these capabilities at a fraction of the cost, with ongoing updates as the threat environment evolves.
 
 ### How often should I audit AI agent security?
 

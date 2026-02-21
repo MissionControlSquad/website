@@ -1,6 +1,6 @@
 ---
 title: "From 2 to 50 AI Agents: A Scaling Playbook"
-description: "A practical scaling playbook for growing your AI agent fleet from 2 to 50+. Learn the bottlenecks, architecture patterns, and operational strategies that make large agent teams work."
+description: "A practical scaling playbook for growing your AI agent fleet from 2 to 50+. Bottlenecks, architecture patterns, and strategies for large agent teams."
 date: "2026-03-03"
 dateModified: "2026-03-03"
 author: "AgentCenter Team"
@@ -55,7 +55,7 @@ graph TD
     D --> E["📊 Observability<br/>& Monitoring"]
     E --> F{"Scale<br/>Decision"}
     F -->|"Queue depth high"| G["➕ Add Agents"]
-    F -->|"Costs rising"| H["🔄 Optimize Routing"]
+    F -->|"Costs rising"| H["🔄 Tune Routing"]
     F -->|"Stable"| I["✅ Maintain"]
 ```
 
@@ -296,7 +296,7 @@ Here's a phased approach based on agent count:
 - Multi-region deployment
 - Canary deployments for agent updates
 - Automated capacity planning
-- Cost optimization (model routing, caching)
+- Cost reduction (model routing, caching)
 - Chaos engineering to validate resilience
 
 ---

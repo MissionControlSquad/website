@@ -1,5 +1,5 @@
 ---
-title: "How to Evaluate AI Agents — Metrics, Benchmarks, and Evals That Matter"
+title: "AI Agent Evaluation: Metrics and Benchmarks Guide"
 description: "Build a practical evaluation framework for AI agents. From task completion metrics to designing eval suites that catch real failures before your users do."
 date: "2026-02-19"
 dateModified: "2026-02-20"
@@ -61,7 +61,7 @@ Quality metrics vary by agent type, but the pattern is consistent:
 | Agent Type        | Quality Metrics                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Code generation   | Correctness, readability, test coverage, security            |
-| Content writing   | Accuracy, tone match, SEO optimization, originality          |
+| Content writing   | Accuracy, tone match, SEO quality, originality               |
 | Customer support  | Resolution accuracy, tone appropriateness, policy compliance |
 | Research/analysis | Source quality, claim accuracy, completeness, relevance      |
 | Data processing   | Accuracy, completeness, format compliance                    |
@@ -81,7 +81,7 @@ Key cost metrics:
 - **Tool calls per task:** How many external API calls the agent makes
 - **Cost per successful task:** The real number — total spend divided by _correctly completed_ tasks
 
-Cost efficiency matters because it determines whether your agent is viable at scale. An agent that costs $0.50 per customer ticket is impressive. One that costs $5.00 per ticket needs optimization before it can replace the $15/hour human — the math only works at high volume.
+Cost efficiency matters because it determines whether your agent is viable at scale. An agent that costs $0.50 per customer ticket is impressive. One that costs $5.00 per ticket needs work before it can replace the $15/hour human — the math only works at high volume.
 
 **Watch for cost spirals:** Agents that retry failed tool calls, enter reasoning loops, or generate unnecessarily verbose outputs can burn through tokens fast. Set cost budgets per task and alert when agents exceed them.
 
@@ -96,7 +96,7 @@ Track:
 - **Step latency:** Time spent in each phase (planning, tool calls, generation)
 - **Throughput:** Tasks completed per hour/day at steady state
 
-Latency breakdowns reveal optimization opportunities. If 80% of task time is spent waiting for tool responses, optimizing the agent's reasoning won't help — you need faster tools or better parallelization.
+Latency breakdowns reveal where to focus. If 80% of task time is spent waiting for tool responses, improving the agent's reasoning won't help — you need faster tools or better parallelization.
 
 ## Building Eval Suites for Agent Workflows
 
@@ -110,7 +110,7 @@ Start with real tasks, not synthetic ones. Pull 50-100 representative tasks from
 - **Medium (30%):** Tasks requiring multi-step reasoning or tool use
 - **Hard (10%):** Edge cases, ambiguous instructions, adversarial inputs
 
-This distribution matters. If your eval set is all hard cases, you'll over-optimize for edge cases and miss regressions on the bread-and-butter tasks that represent 80% of production volume.
+This distribution matters. If your eval set is all hard cases, you'll over-index on edge cases and miss regressions on the bread-and-butter tasks that represent 80% of production volume.
 
 ### Step 2: Build Automated Evaluators
 

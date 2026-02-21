@@ -115,7 +115,7 @@ Worse, they couldn't tell _which_ contracts had errors. The agents were confiden
 
 ### The Problem
 
-A SaaS company with 200+ microservices was spending too much engineering time on operational tasks — incident response, scaling decisions, deployment validation, cost optimization. Their SRE team of six couldn't keep up.
+A SaaS company with 200+ microservices was spending too much engineering time on operational tasks — incident response, scaling decisions, deployment validation, cost reduction. Their SRE team of six couldn't keep up.
 
 ### What They Built
 
@@ -124,7 +124,7 @@ A fleet of infrastructure agents, each owning a specific operational domain:
 - **Incident triage agents** (4) — monitor alerts, correlate signals, draft incident reports
 - **Scaling agents** (6) — manage auto-scaling decisions based on traffic patterns and cost constraints
 - **Deployment validators** (8) — run post-deploy health checks, canary analysis, and automatic rollbacks
-- **Cost optimization agents** (4) — identify idle resources, recommend rightsizing, schedule non-critical workloads
+- **Cost reduction agents** (4) — identify idle resources, recommend rightsizing, schedule non-critical workloads
 - **Documentation agents** (6) — keep runbooks updated based on actual incident resolutions
 - **Security scanning agents** (6) — continuous compliance checks across infrastructure
 
@@ -132,7 +132,7 @@ A fleet of infrastructure agents, each owning a specific operational domain:
 
 At 34 agents, coordination became the bottleneck. Three specific problems:
 
-1. **Conflicting actions** — The scaling agent would scale up a service while the cost optimization agent was trying to scale it down. These conflicts happened at 3 AM when no one was watching.
+1. **Conflicting actions** — The scaling agent would scale up a service while the cost reduction agent was trying to scale it down. These conflicts happened at 3 AM when no one was watching.
 
 2. **Alert storms** — When one agent triggered an action, it created alerts that other agents responded to, creating cascading reactions. A single deployment once triggered 847 agent actions in 12 minutes.
 
@@ -178,7 +178,7 @@ A content production pipeline with specialized agents:
 - **Brief generation agent** — creates detailed content briefs from research and client guidelines
 - **Draft agents** (4) — write initial drafts for different content types (long-form, social, email)
 - **Brand voice agents** (4) — review drafts against each client's brand guidelines and tone
-- **SEO optimization agent** — handles keyword placement, meta descriptions, internal linking
+- **SEO agent** — handles keyword placement, meta descriptions, internal linking
 - **Performance analysis agents** (3) — pull analytics data and generate insights for content strategy
 
 ### What Went Wrong First
@@ -191,7 +191,7 @@ The bigger problem was management overhead. With 40+ clients and 16 agents, the 
 
 1. **Client-specific agent profiles** — Instead of one-size-fits-all prompts, each client got a configuration profile with brand voice examples, prohibited phrases, preferred structures, and topic guardrails. Switching between clients became a config change, not a prompt rewrite.
 
-2. **Quality scoring automation** — Every piece of content got scored on readability, brand alignment, SEO optimization, and factual accuracy before human review. Content scoring above 85% went to a quick-approval queue; below 70% got auto-flagged for rewrite.
+2. **Quality scoring automation** — Every piece of content got scored on readability, brand alignment, SEO quality, and factual accuracy before human review. Content scoring above 85% went to a quick-approval queue; below 70% got auto-flagged for rewrite.
 
 3. **Workflow orchestration** — A task management system that tracked every piece of content through the pipeline — research → brief → draft → brand review → SEO → approval. The team could see bottlenecks instantly and reassign work. AgentCenter's task and workflow features simplified this significantly.
 
@@ -266,6 +266,16 @@ graph TD
     D["🌱 Start Small"] --> F
     E["🏛️ Governance"] --> F
     F --> G["📈 Scale<br/>Deliberately"]
+```
+
+Every team followed a similar journey — here's the pattern that kept showing up:
+
+```mermaid
+graph LR
+    A["🧪 Pilot<br/>1-3 agents"] --> B["🔥 Growing Pains<br/>Quality, cost,<br/>coordination issues"]
+    B --> C["🔧 Fix the Basics<br/>Monitoring, auditing,<br/>governance"]
+    C --> D["📈 Scale<br/>Deliberately"]
+    D --> E["✅ Production<br/>Fleet"]
 ```
 
 These stories come from different industries, different scales, and different use cases. But the same patterns show up everywhere:

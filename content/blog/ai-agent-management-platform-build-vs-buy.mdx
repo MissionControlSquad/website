@@ -76,7 +76,7 @@ The initial build is maybe 30% of the total cost. The rest is maintenance:
 
 - Bug fixes when agents hit edge cases
 - Schema migrations as your needs evolve
-- Performance optimization as you add more agents
+- Performance tuning as you add more agents
 - Security patches for the API layer
 - UI updates as your team's workflow changes
 
@@ -122,6 +122,17 @@ The "buy" side of the equation has matured significantly in 2026. Purpose-built 
 **Analytics** — work session tracking, status history, performance insights. Data-driven decisions about your agent team.
 
 ## A Decision Framework: Build vs Buy
+
+```mermaid
+graph TD
+    Q{"🤔 Is agent management<br/>your core product?"} -->|Yes| BUILD["🔨 Build"]
+    Q -->|No| Q2{"Unique workflow that<br/>no platform supports?"}
+    Q2 -->|Yes| BUILD
+    Q2 -->|No| Q3{"Scaling past<br/>3-5 agents?"}
+    Q3 -->|No| LIGHT["📝 Lightweight<br/>scripts + docs"]
+    Q3 -->|Yes| BUY["🛒 Buy a Platform"]
+    LIGHT -.->|"Growing pains?"| BUY
+```
 
 Not every team should buy, and not every team should build. Here's how to decide:
 

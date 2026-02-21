@@ -1,19 +1,9 @@
 ---
-title: "Blog Post: How to Audit AI Agent Outputs — Compliance & Quality Assurance Guide"
+title: "How to Audit AI Agent Outputs — QA Guide"
 description: "Compliance and quality assurance guide for AI agent outputs. Covers audit pipelines, quality scoring, compliance frameworks, and scaling audits."
 date: "2026-02-18"
 author: "AgentCenter Team"
 tags: ["ai agent compliance audit", "ai agent quality assurance", "audit ai agent outputs"]
----
-
----
-
-title: How to Audit AI Agent Outputs — Compliance & Quality Assurance Guide
-meta_title: How to Audit AI Agent Outputs | Compliance & QA Guide for AI Teams
-meta_description: Learn how to build audit pipelines for AI agent outputs. Covers compliance frameworks (SOC 2, GDPR), quality scoring systems, audit trail design, and scaling strategies for growing agent teams.
-slug: audit-ai-agent-outputs-compliance-quality-assurance
-tags: [blog, security, compliance, seo, ai-agents]
-
 ---
 
 # How to Audit AI Agent Outputs: A Compliance & Quality Assurance Guide
@@ -44,7 +34,7 @@ If you're running agents through a platform like [AgentCenter](https://agentcent
 
 ## Types of Audits
 
-Not all audits serve the same purpose. A robust auditing strategy combines three approaches:
+Not all audits serve the same purpose. A solid auditing strategy combines three approaches:
 
 ### 1. Automated Quality Checks
 
@@ -93,6 +83,15 @@ Schedule these quarterly at minimum. Treat them like financial audits — struct
 
 ## Building an Audit Pipeline
 
+```mermaid
+graph LR
+    A["📥 Capture<br/>Log outputs + context"] --> B["🔍 Evaluate<br/>Rules, LLM-judge,<br/>domain validators"]
+    B --> C["🚩 Flag<br/>Critical / Warning / Info"]
+    C --> D["👤 Review<br/>Approve, reject,<br/>correct, escalate"]
+    D -.-> E["🔄 Feedback Loop<br/>Improve agents<br/>& evaluators"]
+    E -.-> B
+```
+
 A practical audit pipeline has four stages: **Capture → Evaluate → Flag → Review**.
 
 ### Stage 1: Capture
@@ -127,7 +126,7 @@ Not everything needs human attention. Your flagging system should prioritize:
 
 - **Critical flags** (immediate review): PII exposure, safety violations, compliance failures.
 - **Warning flags** (next review cycle): Quality scores below threshold, unusual patterns, customer-facing content.
-- **Info flags** (periodic batch review): Minor style issues, optimization opportunities.
+- **Info flags** (periodic batch review): Minor style issues, improvement opportunities.
 
 ### Stage 4: Review
 

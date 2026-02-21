@@ -1,5 +1,5 @@
 ---
-title: "How to Evaluate AI Agents — Metrics, Benchmarks, and Evals That Matter"
+title: "How to Evaluate AI Agents: Metrics and Evals"
 description: "Metrics, benchmarks, and eval frameworks that matter for AI agents. Build real evaluation pipelines for task success, quality, cost, and latency."
 date: "2026-02-12"
 author: "AgentCenter Team"
@@ -25,6 +25,22 @@ Unit tests work when outputs are deterministic. Given input X, expect output Y. 
 This doesn't mean you can't test agents rigorously. It means you need different tools.
 
 ## The Evaluation Framework: Four Dimensions That Matter
+
+```mermaid
+graph TD
+    subgraph "📋 Evaluation Framework"
+        A["🎯 Task Success Rate<br/>Completion & correctness"]
+        B["⭐ Output Quality<br/>Rubric-scored 1-5"]
+        C["💰 Cost Efficiency<br/>Cost per successful task"]
+        D["⏱️ Latency & Throughput<br/>Time to completion"]
+    end
+    A --> E["📊 Eval Suite"]
+    B --> E
+    C --> E
+    D --> E
+    E --> F["🔄 Continuous<br/>Production Monitoring"]
+    F -.-> A
+```
 
 Every AI agent evaluation boils down to four dimensions. Miss any one of them, and you'll have blind spots that eventually become production incidents.
 
@@ -52,7 +68,7 @@ Quality metrics vary by agent type, but the pattern is consistent:
 | Agent Type        | Quality Metrics                                              |
 | ----------------- | ------------------------------------------------------------ |
 | Code generation   | Correctness, readability, test coverage, security            |
-| Content writing   | Accuracy, tone match, SEO optimization, originality          |
+| Content writing   | Accuracy, tone match, SEO quality, originality               |
 | Customer support  | Resolution accuracy, tone appropriateness, policy compliance |
 | Research/analysis | Source quality, claim accuracy, completeness, relevance      |
 | Data processing   | Accuracy, completeness, format compliance                    |
@@ -72,7 +88,7 @@ Key cost metrics:
 - **Tool calls per task:** How many external API calls the agent makes
 - **Cost per successful task:** The real number — total spend divided by _correctly completed_ tasks
 
-Cost efficiency matters because it determines whether your agent is viable at scale. An agent that costs $0.50 per customer ticket is impressive. One that costs $5.00 per ticket needs optimization before it can replace the $15/hour human — the math only works at high volume.
+Cost efficiency matters because it determines whether your agent is viable at scale. An agent that costs $0.50 per customer ticket is impressive. One that costs $5.00 per ticket needs work before it can replace the $15/hour human — the math only works at high volume.
 
 **Watch for cost spirals:** Agents that retry failed tool calls, enter reasoning loops, or generate unnecessarily verbose outputs can burn through tokens fast. Set cost budgets per task and alert when agents exceed them.
 
@@ -87,7 +103,7 @@ Track:
 - **Step latency:** Time spent in each phase (planning, tool calls, generation)
 - **Throughput:** Tasks completed per hour/day at steady state
 
-Latency breakdowns reveal optimization opportunities. If 80% of task time is spent waiting for tool responses, optimizing the agent's reasoning won't help — you need faster tools or better parallelization.
+Latency breakdowns reveal where to focus. If 80% of task time is spent waiting for tool responses, improving the agent's reasoning won't help — you need faster tools or better parallelization.
 
 ## Building Eval Suites for Agent Workflows
 
@@ -101,7 +117,7 @@ Start with real tasks, not synthetic ones. Pull 50-100 representative tasks from
 - **Medium (30%):** Tasks requiring multi-step reasoning or tool use
 - **Hard (10%):** Edge cases, ambiguous instructions, adversarial inputs
 
-This distribution matters. If your eval set is all hard cases, you'll over-optimize for edge cases and miss regressions on the bread-and-butter tasks that represent 80% of production volume.
+This distribution matters. If your eval set is all hard cases, you'll over-index on edge cases and miss regressions on the bread-and-butter tasks that represent 80% of production volume.
 
 ### Step 2: Build Automated Evaluators
 
