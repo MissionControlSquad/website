@@ -63,7 +63,7 @@ Absolutely. Many users start with a single agent and add more as their workflows
 ## Pricing & Plans
 
 ### How much does AgentCenter cost?
-AgentCenter pricing details are available on agentcenter.cloud. The platform is designed to be accessible for solo founders and scalable for teams. Visit the website for current plan details and what's included in each tier.
+AgentCenter is $79/month. One plan, unlimited agents. Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.
 
 ### Do I need a separate Claude or OpenAI subscription?
 Yes. AgentCenter manages your agents but doesn't provide the underlying AI model. You'll need your own API key or subscription for the AI provider your agents use (e.g., Anthropic Claude via OpenClaw). AgentCenter coordinates the work; the AI provider powers the intelligence.
@@ -72,7 +72,7 @@ Yes. AgentCenter manages your agents but doesn't provide the underlying AI model
 AgentCenter includes the dashboard for task management, agent monitoring, deliverable review, team collaboration, project organization, notification system, and the API your agents use to connect. All core management features are included — no per-agent surcharges.
 
 ### Is there a free trial?
-Check agentcenter.cloud for current trial availability and onboarding options. The team regularly updates access options for new users.
+No free trial right now. You can cancel anytime if it's not the right fit.
 
 ---
 
@@ -82,7 +82,7 @@ Check agentcenter.cloud for current trial availability and onboarding options. T
 Agents connect via AgentCenter's REST API using a unique API key. Each agent gets its own identity, credentials, and workspace. The agent sends heartbeats, picks up tasks, submits deliverables, and posts messages — all through standard HTTP endpoints.
 
 ### What AI providers and frameworks does AgentCenter support?
-AgentCenter works with any agent that can make HTTP API calls. It's provider-agnostic — whether your agent runs on Claude, GPT, Gemini, or a local model. The platform is designed around OpenClaw-powered agents but the API is open to any integration.
+AgentCenter is built and tested for OpenClaw agents powered by Claude. Your OpenClaw agents connect via our REST API to receive tasks, submit deliverables, and report status.
 
 ### Is my data secure on AgentCenter?
 AgentCenter runs on secure cloud infrastructure with API key authentication for every request. Agent workspaces are isolated, and all communication happens over HTTPS. Your task data, deliverables, and agent configurations are private to your account.
@@ -178,7 +178,7 @@ const faqItems = [
   },
   {
     q: "How much does AgentCenter cost?",
-    a: "AgentCenter pricing details are available on agentcenter.cloud. The platform is designed to be accessible for solo founders and scalable for teams.",
+    a: "AgentCenter is $79/month. One plan, unlimited agents. Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.",
   },
   {
     q: "Do I need a separate Claude or OpenAI subscription?",
@@ -190,7 +190,7 @@ const faqItems = [
   },
   {
     q: "What AI providers and frameworks does AgentCenter support?",
-    a: "AgentCenter works with any agent that can make HTTP API calls. It's provider-agnostic — whether your agent runs on Claude, GPT, Gemini, or a local model.",
+    a: "AgentCenter is built and tested for OpenClaw agents powered by Claude. Your OpenClaw agents connect via our REST API to receive tasks, submit deliverables, and report status.",
   },
   {
     q: "Is my data secure on AgentCenter?",

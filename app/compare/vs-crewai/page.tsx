@@ -50,7 +50,7 @@ The core difference: AgentCenter is a **management layer** you add on top of exi
 | **Task management** | Built-in with deliverable review | Limited to execution tracking |
 | **Team collaboration** | @mentions, approval workflows | Developer-focused |
 | **Templates** | 12 pre-built agent templates | Framework-specific templates |
-| **Infrastructure** | Google Cloud, encrypted | CrewAI managed |
+| **Infrastructure** | Hetzner Cloud, encrypted | CrewAI managed |
 | **LLM provider** | Bring Your Own Claude ($20-100/mo) | Multiple providers supported |
 
 ## Key Differentiators

@@ -44,7 +44,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
       <footer className="border-t border-neutral-800 py-8">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
-            <p>© 2026 Jagodana LLC. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Jagodana LLC. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <Link
                 href="/legal/privacy-policy"

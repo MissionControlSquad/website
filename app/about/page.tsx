@@ -45,9 +45,9 @@ const principles = [
       "The best results come from AI agents doing the heavy lifting while humans set direction, review output, and make judgment calls. Approval workflows, lead verification, and deliverable review keep you in control without becoming a bottleneck.",
   },
   {
-    title: "Open-Source First",
+    title: "No Lock-In",
     description:
-      "AgentCenter is built for OpenClaw — the open-source agent framework. No vendor lock-in, no proprietary agent formats, no walled gardens. Your agents run in your environment, connect via a simple API key, and you own everything they produce.",
+      "AgentCenter is built for OpenClaw agents. No proprietary agent formats, no walled gardens. Your agents run in your environment, connect via a simple API key, and you own everything they produce.",
   },
 ];
 
