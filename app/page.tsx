@@ -1,7 +1,14 @@
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
+import HowItWorks from "@/components/sections/HowItWorks";
+import Features from "@/components/sections/Features";
+import PrivacyFirst from "@/components/sections/PrivacyFirst";
+import DashboardPreview from "@/components/sections/DashboardPreview";
+import Pricing from "@/components/sections/Pricing";
+import FAQ from "@/components/sections/FAQ";
+import FinalCTA from "@/components/sections/FinalCTA";
+import LatestPosts from "@/components/sections/LatestPosts";
 import Footer from "@/components/Footer";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 import { getLatestPosts } from "@/lib/blog";
@@ -25,46 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Dynamic imports for below-fold sections to reduce initial bundle
-const HowItWorks = dynamic(() => import("@/components/sections/HowItWorks"), {
-  loading: () => <SectionSkeleton height="500px" />,
-});
-
-const Features = dynamic(() => import("@/components/sections/Features"), {
-  loading: () => <SectionSkeleton height="600px" />,
-});
-
-const PrivacyFirst = dynamic(() => import("@/components/sections/PrivacyFirst"), {
-  loading: () => <SectionSkeleton height="500px" />,
-});
-
-const DashboardPreview = dynamic(() => import("@/components/sections/DashboardPreview"), {
-  loading: () => <SectionSkeleton height="700px" />,
-});
-
-const Pricing = dynamic(() => import("@/components/sections/Pricing"), {
-  loading: () => <SectionSkeleton height="400px" />,
-});
-
-const FAQ = dynamic(() => import("@/components/sections/FAQ"), {
-  loading: () => <SectionSkeleton height="800px" />,
-});
-
-const FinalCTA = dynamic(() => import("@/components/sections/FinalCTA"), {
-  loading: () => <SectionSkeleton height="300px" />,
-});
-
-const LatestPosts = dynamic(() => import("@/components/sections/LatestPosts"), {
-  loading: () => <SectionSkeleton height="400px" />,
-});
-
-// Lightweight skeleton for loading states
-function SectionSkeleton({ height }: { height: string }) {
-  return (
-    <div className="w-full animate-pulse bg-neutral-900/30" style={{ height }} aria-hidden="true" />
-  );
-}
-
 export default function HomePage() {
   const latestPosts = getLatestPosts(3).map(({ slug, title, description, date, readingTime }) => ({
     slug,
@@ -79,10 +46,7 @@ export default function HomePage() {
       <Navbar />
 
       <main id="main-content">
-        {/* Above the fold - loaded immediately */}
         <Hero />
-
-        {/* Below the fold - dynamically loaded for performance */}
         <HowItWorks />
         <Features />
         <PrivacyFirst />
