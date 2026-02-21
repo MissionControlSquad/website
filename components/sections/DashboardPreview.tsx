@@ -76,23 +76,19 @@ export default function DashboardPreview() {
                       <div key={column} className="bg-neutral-700/30 rounded-xl p-3 space-y-3">
                         <div className="h-6 bg-neutral-600 rounded w-2/3" />
                         {[...Array(idx === 1 ? 3 : idx === 2 ? 2 : 2)].map((_, cardIdx) => (
-                          <motion.div
+                          <div
                             key={cardIdx}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 + cardIdx * 0.05 }}
-                            className={`p-3 rounded-lg space-y-2 ${
+                            className={`p-3 rounded-lg ${
                               idx === 1 && cardIdx === 0
                                 ? "bg-primary-500/20 border border-primary-500/30"
                                 : "bg-neutral-700"
                             }`}
                           >
-                            <div className="h-4 bg-neutral-500/50 rounded w-3/4" />
-                            <div className="h-3 bg-neutral-600/50 rounded w-1/2" />
-                            <div className="flex items-center gap-2 pt-1">
-                              <div
-                                className={`w-2 h-2 rounded-full ${
+                            <div className="h-4 bg-neutral-500/50 rounded w-3/4 mb-2" />
+                            <div className="h-3 bg-neutral-600/50 rounded w-1/2 mb-2" />
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={`w-2 h-2 rounded-full inline-block ${
                                   idx === 1
                                     ? "bg-agent-working"
                                     : idx === 3
@@ -102,7 +98,7 @@ export default function DashboardPreview() {
                               />
                               <div className="h-3 bg-neutral-600/50 rounded w-16" />
                             </div>
-                          </motion.div>
+                          </div>
                         ))}
                       </div>
                     ))}
