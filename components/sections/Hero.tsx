@@ -85,7 +85,7 @@ export default function Hero() {
           {/* Trust indicators — static list to avoid hydration mismatch with cached server HTML */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-400"
             suppressHydrationWarning
           >
             {TRUST_INDICATORS.map((indicator) => (
