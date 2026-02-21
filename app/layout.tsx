@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { BreadcrumbJsonLd, HowToJsonLd, JsonLdScript } from "next-seo";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     creator: "@dharmikjagodana",
     site: "@dharmikjagodana",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
   icons: {
     icon: [

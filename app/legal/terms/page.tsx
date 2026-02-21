@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Terms of Service | AgentCenter",
     description:
       "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
   robots: {
     index: true,

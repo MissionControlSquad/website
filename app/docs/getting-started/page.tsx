@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Getting Started",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

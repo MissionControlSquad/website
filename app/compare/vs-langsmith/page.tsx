@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs LangSmith",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "AgentCenter vs LangSmith | AgentCenter",
     description:
       "Compare AgentCenter and LangSmith. Understand the difference between agent management and LLM observability.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

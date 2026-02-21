@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "FAQ — AgentCenter Questions Answered",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "FAQ | AgentCenter — Mission Control for OpenClaw Agents",
     description:
       "Frequently asked questions about AgentCenter — pricing, setup, technical details, use cases, and troubleshooting.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

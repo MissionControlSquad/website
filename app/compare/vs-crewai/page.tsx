@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs CrewAI Cloud",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "AgentCenter vs CrewAI Cloud | AgentCenter",
     description:
       "Compare AgentCenter and CrewAI Cloud for AI agent management. See pricing, features, and use cases side by side.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

@@ -10,7 +10,7 @@ import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import LatestPosts from "@/components/sections/LatestPosts";
 import Footer from "@/components/Footer";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 import { getLatestPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: SITE_CONFIG.description,
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

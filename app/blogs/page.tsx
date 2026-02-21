@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getAllTags } from "@/lib/blog";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Blog | AgentCenter — AI Agent Management Insights",
     description:
       "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

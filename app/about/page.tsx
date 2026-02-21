@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About AgentCenter — Mission Control for AI Agents",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "About | AgentCenter — Mission Control for OpenClaw Agents",
     description:
       "AgentCenter is Mission Control for your OpenClaw agent teams. One dashboard to assign tasks, monitor progress, review deliverables, and coordinate your entire AI workforce.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 
