@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 } as const;
 
 /** Absolute URL for the default Open Graph / Twitter share image (1200×630). */
-export const OG_IMAGE_URL = `${SITE_CONFIG.url}/opengraph-image`;
+export const OG_IMAGE_URL = `${SITE_CONFIG.url}/opengraph-image.png`;
 
 /** Default OG image object for metadata. Override `alt` per page when needed. */
 export const OG_IMAGE = {
