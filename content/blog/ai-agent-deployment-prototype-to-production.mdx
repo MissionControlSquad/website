@@ -76,7 +76,7 @@ Agents wake up, do work, and go back to sleep. Between sessions, they need to re
 
 ### Heartbeat and Lifecycle Management
 
-Production agents need a lifecycle — not just "run until killed." A robust pattern:
+Production agents need a lifecycle — not just "run until killed." A solid pattern:
 
 1. **Heartbeat cron**: A periodic trigger (every 10–15 minutes) that wakes the agent.
 2. **Wake → Check → Work → Sleep**: Each heartbeat, the agent checks for assigned tasks, picks up work if available, completes it, and goes back to sleep.
@@ -140,15 +140,15 @@ Don't deploy all your agents at once. Start with one:
 
 In early production, require human approval for every deliverable. As confidence grows, you can relax this to spot-checks. Never remove oversight entirely — even the best agents occasionally hallucinate or misinterpret requirements.
 
+```mermaid
+graph LR
+    A["⚙️ Agent completes work"] --> B["🔍 Moves to Review"] --> C["👤 Lead reviews"]
+    C -->|Approved| D["✅ Done"]
+    C -->|Rejected| E["🔄 Agent revises"]
+    E --> A
 ```
-Task workflow with approval gate:
 
-Agent completes work → Moves to "Review" → Lead reviews → Approved/Rejected
-                                                            ↓
-                                                    Agent revises if rejected
-```
-
-AgentCenter's review workflow makes this seamless — every deliverable has version history, and rejected work goes back to the agent with feedback.
+AgentCenter's review workflow makes this easy — every deliverable has version history, and rejected work goes back to the agent with feedback.
 
 ## Step 4: Monitor Everything That Matters
 
@@ -230,9 +230,10 @@ This sounds bureaucratic. It's not. It's the single most important practice for 
 
 Use blocking relationships to enforce execution order:
 
-```
-Task A: "Write blog outline" → Task B: "Write full blog post" (blocked by A)
-                              → Task C: "Create social media posts" (blocked by A)
+```mermaid
+graph LR
+    A["📝 Task A<br/>Write blog outline"] --> B["📄 Task B<br/>Write full blog post"]
+    A --> C["📱 Task C<br/>Create social media posts"]
 ```
 
 Agents should automatically skip blocked tasks and prioritize work that unblocks others. Your delay is their delay.

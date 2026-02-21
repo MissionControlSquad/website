@@ -38,6 +38,20 @@ This doesn't mean you should abandon traditional observability. You still need i
 
 Effective ai agent observability requires four layers, each capturing a different dimension of agent behavior:
 
+```mermaid
+graph LR
+    subgraph "Observability Pipeline"
+        A["🤖 Agent Run"] --> B["🔍 Traces<br/>decision chain"]
+        A --> C["📝 Evals<br/>quality scoring"]
+        A --> D["🔄 Replays<br/>session recording"]
+        A --> E["💲 Cost Tracking<br/>per-call + per-task"]
+    end
+    B --> F["📊 Dashboard<br/>alerts + trends"]
+    C --> F
+    D --> F
+    E --> F
+```
+
 ### Layer 1: Traces — Following the Decision Chain
 
 Agent traces are fundamentally different from distributed system traces. Instead of tracking a request across microservices, you're tracking a _reasoning process_ across decisions.
@@ -196,7 +210,7 @@ Teams typically progress through four stages:
 
 **Stage 3 — Evaluation**: Continuous quality scoring in production. You catch degradation before users report it.
 
-**Stage 4 — Predictive**: ML models on your observability data that predict failures, identify optimization opportunities, and auto-tune agent configurations.
+**Stage 4 — Predictive**: ML models on your observability data that predict failures, identify improvement opportunities, and auto-tune agent configurations.
 
 Most teams are at Stage 1 or 2. Getting to Stage 3 is where the real ROI lives.
 

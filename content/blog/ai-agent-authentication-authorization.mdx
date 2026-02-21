@@ -1,23 +1,9 @@
 ---
-title: "Blog Post: AI Agent Authentication & Authorization — Security Best Practices"
+title: "AI Agent Authentication & Authorization Best Practices"
 description: "AI agent authentication and authorization best practices. Covers API keys, OAuth2, RBAC, securing agent-to-agent communication, and audit trails."
 date: "2026-02-16"
 author: "AgentCenter Team"
 tags: ["ai agent security", "ai agent authentication", "secure ai agents"]
----
-
----
-
-title: "AI Agent Authentication & Authorization — Security Best Practices"
-meta_title: "AI Agent Authentication & Authorization: Security Best Practices for 2026"
-meta_description: "Learn how to secure AI agents with proper authentication and authorization. Covers API keys, OAuth2, mTLS, RBAC, least privilege, and practical code examples for agent security."
-slug: ai-agent-authentication-authorization-security-best-practices
-target_keywords:
-
-- ai agent security best practices
-- ai agent authentication
-- secure ai agents
-
 ---
 
 # AI Agent Authentication & Authorization — Security Best Practices
@@ -43,6 +29,15 @@ AI agents break every one of those assumptions:
 This means you need authentication patterns designed for programmatic, autonomous systems — not retrofitted user auth.
 
 ## Authentication Patterns for AI Agents
+
+```mermaid
+graph LR
+    A["🤖 AI Agent"] --> B["🔑 Auth Service<br/>OAuth2 / mTLS / JWT"]
+    B --> C["🎫 Token Issued<br/>scoped + short-lived"]
+    C --> D["🛡️ API Gateway<br/>verify token + check RBAC"]
+    D --> E["📦 Protected API<br/>data returned"]
+    D -.->|"❌ Denied"| F["🚫 Access Denied<br/>logged + alerted"]
+```
 
 ### API Keys
 

@@ -1,6 +1,6 @@
 ---
-title: "Building a Multi-Agent Customer Support System — Architecture Guide"
-description: "Why single-bot support breaks at scale, and how to design a multi-agent architecture that actually works. Complete guide with handoff protocols and deployment strategy."
+title: "Multi-Agent Customer Support Architecture Guide"
+description: "Why single-bot support breaks at scale, and how to design a multi-agent architecture that works. Includes handoff protocols and deployment strategy."
 date: "2026-02-21"
 dateModified: "2026-02-20"
 author: "AgentCenter Team"
@@ -216,13 +216,13 @@ def handoff(from_agent, to_agent, conversation, classification):
     return payload["handoff_id"]
 ```
 
-For more on designing robust handoff patterns, see [multi-agent design patterns](/blogs/multi-agent-design-patterns).
+For more on designing reliable handoff patterns, see [multi-agent design patterns](/blogs/multi-agent-design-patterns).
 
 ## Monitoring Conversation Quality and Resolution Rates
 
 You can't improve what you don't measure. Multi-agent systems need monitoring at two levels: individual agent performance and system-wide flow.
 
-For a comprehensive monitoring setup, see our guide on [monitoring AI agents in production](/blogs/ai-agent-monitoring-best-practices-2026).
+For a complete monitoring setup, see our guide on [monitoring AI agents in production](/blogs/ai-agent-monitoring-best-practices-2026).
 
 ### Agent-Level Metrics
 

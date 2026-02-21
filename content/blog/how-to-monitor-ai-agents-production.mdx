@@ -102,6 +102,24 @@ Track:
 
 ## Setting Up Your Monitoring Stack
 
+```mermaid
+graph TD
+    subgraph "Layer 1"
+        A["💓 Heartbeat Monitoring<br/>Agent alive? Status?"]
+    end
+    subgraph "Layer 2"
+        B["📋 Task Lifecycle Tracking<br/>created → assigned → done"]
+    end
+    subgraph "Layer 3"
+        C["🔍 LLM Call Logging<br/>Tokens, latency, cost"]
+    end
+    subgraph "Layer 4"
+        D["✅ Output Validation<br/>Schema, quality, human review"]
+    end
+    A --> B --> C --> D
+    D --> E["📊 Dashboard<br/>& Alerts"]
+```
+
 ### Layer 1: Heartbeat Monitoring
 
 The foundation. Every agent should emit a periodic heartbeat signal — a simple "I'm alive and here's what I'm doing."

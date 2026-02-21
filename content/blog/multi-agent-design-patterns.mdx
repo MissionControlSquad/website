@@ -111,7 +111,7 @@ graph LR
 - Consider error recovery. If stage 3 fails, can you restart from stage 3 without re-running stages 1 and 2? Checkpoint intermediate results.
 - Monitor stage-level latency. One slow stage drags down the whole pipeline.
 
-**Real-world example:** An SEO content pipeline: Agent 1 does keyword research and produces a brief. Agent 2 writes the draft. Agent 3 edits for tone and readability. Agent 4 optimizes for SEO metadata. Each agent touches the content once and passes it forward.
+**Real-world example:** An SEO content pipeline: Agent 1 does keyword research and produces a brief. Agent 2 writes the draft. Agent 3 edits for tone and readability. Agent 4 handles SEO metadata. Each agent touches the content once and passes it forward.
 
 ---
 
@@ -261,14 +261,14 @@ graph TD
 
 There's no universal best pattern. The right choice depends on your workload, team size, and reliability requirements.
 
-| Factor              | Supervisor                   | Pipeline             | Debate                     | MapReduce                | Swarm                |
-| ------------------- | ---------------------------- | -------------------- | -------------------------- | ------------------------ | -------------------- |
-| **Best for**        | Delegating diverse sub-tasks | Sequential workflows | Quality-critical decisions | Large parallel workloads | Dynamic, bursty work |
-| **Coordination**    | Centralized                  | Linear               | Peer-to-peer               | Centralized              | Decentralized        |
-| **Latency**         | Medium                       | High (sequential)    | High (multiple rounds)     | Low (parallel)           | Variable             |
-| **Fault tolerance** | Low (single point)           | Low (chain breaks)   | Medium                     | Medium                   | High                 |
-| **Complexity**      | Low                          | Low                  | Medium                     | Medium                   | High                 |
-| **Scalability**     | Limited by supervisor        | Limited by stages    | Limited by rounds          | High                     | High                 |
+| Factor              | Supervisor                   | Pipeline             | Debate                     | MapReduce                | Swarm                 |
+| ------------------- | ---------------------------- | -------------------- | -------------------------- | ------------------------ | --------------------- |
+| **Best for**        | Delegating diverse sub-tasks | Sequential workflows | Quality-critical decisions | Large parallel workloads | Flexible, bursty work |
+| **Coordination**    | Centralized                  | Linear               | Peer-to-peer               | Centralized              | Decentralized         |
+| **Latency**         | Medium                       | High (sequential)    | High (multiple rounds)     | Low (parallel)           | Variable              |
+| **Fault tolerance** | Low (single point)           | Low (chain breaks)   | Medium                     | Medium                   | High                  |
+| **Complexity**      | Low                          | Low                  | Medium                     | Medium                   | High                  |
+| **Scalability**     | Limited by supervisor        | Limited by stages    | Limited by rounds          | High                     | High                  |
 
 **Decision framework:**
 
