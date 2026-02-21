@@ -5,7 +5,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FeaturesSection from "@/components/sections/Features";
 import { Container } from "@/components/ui/Container";
-import { FEATURES, FEATURE_CATEGORIES, OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import {
+  FEATURES,
+  FEATURE_CATEGORIES,
+  OG_IMAGE,
+  TWITTER_IMAGE,
+  SITE_CONFIG,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Features — AI Agent Management Dashboard",
@@ -25,7 +31,7 @@ export const metadata: Metadata = {
     title: "Features | AgentCenter — AI Agent Management Dashboard",
     description:
       "AI agent management and orchestration: Kanban, real-time status, deliverable review, projects, audit trails. Mission Control for your OpenClaw agents.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
   alternates: {
     canonical: `${SITE_CONFIG.url}/features`,

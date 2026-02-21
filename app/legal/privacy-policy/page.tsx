@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy | AgentCenter",
     description:
       "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
   robots: {
     index: true,

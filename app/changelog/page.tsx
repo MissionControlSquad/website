@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Changelog",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Changelog | AgentCenter — Mission Control for OpenClaw Agents",
     description:
       "All notable changes to AgentCenter. New features, improvements, and bug fixes — documented with every release.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

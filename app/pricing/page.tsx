@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingSection from "@/components/sections/Pricing";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Pricing — $79/mo for Unlimited AI Agents | AgentCenter",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Pricing | AgentCenter — $79/mo for Unlimited AI Agents",
     description:
       "AgentCenter pricing: $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

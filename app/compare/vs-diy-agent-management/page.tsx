@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Building Your Own Dashboard",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "AgentCenter vs DIY Agent Dashboard | AgentCenter",
     description:
       "Should you build your own AI agent dashboard or use AgentCenter? Compare costs, timelines, and trade-offs.",
-    images: [OG_IMAGE_URL],
+    images: [TWITTER_IMAGE],
   },
 };
 

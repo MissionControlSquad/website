@@ -23,6 +23,14 @@ export const OG_IMAGE = {
   alt: "AgentCenter",
 } as const;
 
+/** Twitter image object with type/width/height so twitter:image:* meta tags render. */
+export const TWITTER_IMAGE = {
+  url: OG_IMAGE_URL,
+  width: 1200,
+  height: 630,
+  type: "image/png",
+} as const;
+
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
