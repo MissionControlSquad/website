@@ -254,6 +254,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <link
+          rel="preconnect"
+          href="https://static.cloudflareinsights.com"
+          crossOrigin="anonymous"
+        />
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="lazyOnload">
