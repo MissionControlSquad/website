@@ -252,7 +252,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         {/* Preconnect to analytics origins for faster loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -269,6 +269,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
+        suppressHydrationWarning
       >
         <BreadcrumbJsonLd
           items={[
