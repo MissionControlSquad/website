@@ -1,31 +1,7 @@
-"use client";
-
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK, STRIPE_LINK } from "@/lib/constants";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
 
 export default function Hero() {
   return (
@@ -37,41 +13,27 @@ export default function Hero() {
       </div>
 
       <Container>
-        <motion.div
-          className="max-w-4xl mx-auto text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="max-w-4xl mx-auto text-center">
           {/* Announcement badge */}
-          <motion.div variants={itemVariants} className="mb-6">
+          <div className="mb-6 animate-hero-fade-in [animation-delay:100ms]">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium">
               <Sparkles size={16} aria-hidden="true" />
               <span>Built for OpenClaw agents</span>
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-100 mb-6"
-          >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-100 mb-6 animate-hero-fade-in [animation-delay:200ms]">
             {SITE_CONFIG.tagline}
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10"
-          >
+          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 animate-hero-fade-in [animation-delay:300ms]">
             {SITE_CONFIG.description}
-          </motion.p>
+          </p>
 
           {/* CTA buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 animate-hero-fade-in [animation-delay:400ms]">
             <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="secondary">
                 Book a Demo
@@ -80,24 +42,20 @@ export default function Hero() {
             <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="lg">Get Early Access</Button>
             </a>
-          </motion.div>
+          </div>
 
-          {/* Trust indicators — static list to avoid hydration mismatch with cached server HTML */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-400"
-            suppressHydrationWarning
-          >
+          {/* Trust indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-400 animate-hero-fade-in [animation-delay:500ms]">
             {TRUST_INDICATORS.map((indicator) => (
               <span key={indicator} className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-primary-500" />
                 {indicator}
               </span>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        {/* Dashboard preview — no animation delay to avoid LCP render delay */}
+        {/* Dashboard preview */}
         <div className="mt-16 md:mt-24 relative">
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" />
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
@@ -114,17 +72,23 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            {/* Dashboard screenshot — next/image serves WebP/AVIF and responsive sizes to reduce payload */}
+            {/* Dashboard screenshot — responsive srcSet to avoid serving 1920w on small screens */}
             {/* aspect-ratio prevents CLS while image loads */}
             <div style={{ aspectRatio: "1920 / 858" }} className="relative w-full">
-              <Image
-                src="/dashboard-preview.webp"
-                alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-              />
+              <picture>
+                <source
+                  srcSet="/dashboard-preview-800w.webp 800w, /dashboard-preview-1200w.webp 1200w, /dashboard-preview.webp 1920w"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+                  type="image/webp"
+                />
+                <img
+                  src="/dashboard-preview.webp"
+                  alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
+                  className="w-full h-full object-cover"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>

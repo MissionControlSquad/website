@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowRight, Zap, CheckCircle } from "@/components/icons";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function FinalCTA() {
   const [email, setEmail] = useState("");
@@ -31,41 +31,18 @@ export default function FinalCTA() {
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-primary-950/40 to-neutral-950" />
 
-      {/* Animated glow effect */}
+      {/* Animated glow effect — CSS animation instead of framer-motion */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="w-[600px] h-[600px] bg-primary-500/20 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="w-[600px] h-[600px] bg-primary-500/20 rounded-full blur-[120px] animate-cta-glow" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
+        <ScrollReveal className="text-center">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-primary-500/20 text-primary-300 text-sm font-medium px-4 py-2 rounded-full mb-8"
-          >
+          <div className="inline-flex items-center gap-2 bg-primary-500/20 text-primary-300 text-sm font-medium px-4 py-2 rounded-full mb-8">
             <Zap className="w-4 h-4" aria-hidden="true" />
             <span>Stay in the loop</span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-100 mb-6">
@@ -113,16 +90,8 @@ export default function FinalCTA() {
           </div>
 
           {/* Trust */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-neutral-500 text-sm"
-          >
-            No spam. Just product updates and tips.
-          </motion.p>
-        </motion.div>
+          <p className="text-neutral-500 text-sm">No spam. Just product updates and tips.</p>
+        </ScrollReveal>
       </div>
     </section>
   );

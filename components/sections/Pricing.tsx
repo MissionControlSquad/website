@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Check, ArrowRight } from "@/components/icons";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { STRIPE_LINK } from "@/lib/constants";
 
 const features = [
@@ -24,24 +24,15 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-24 px-4 bg-neutral-950">
       <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">Simple Pricing</h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
             One plan. Everything included. No surprises.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+        <ScrollReveal
+          staggerIndex={1}
           className="relative p-8 md:p-12 rounded-2xl bg-primary-500/10 border-2 border-primary-500"
         >
           <div className="text-center mb-8">
@@ -79,14 +70,11 @@ export default function Pricing() {
             </a>
             <p className="text-neutral-500 text-sm mt-4">Cancel anytime. Powered by Stripe.</p>
           </div>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Bring Your Own Claude */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <ScrollReveal
+          staggerIndex={2}
           className="mt-8 p-6 md:p-8 rounded-2xl bg-neutral-800/50 border border-neutral-700"
         >
           <div className="flex items-start gap-4">
@@ -118,7 +106,7 @@ export default function Pricing() {
               </ul>
             </div>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );

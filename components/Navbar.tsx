@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "@/components/icons";
-import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS, SITE_CONFIG, STRIPE_LINK, CAL_LINK } from "@/lib/constants";
@@ -119,60 +118,60 @@ export default function Navbar() {
         </nav>
       </Container>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            ref={mobileMenuRef}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-neutral-950/95 backdrop-blur-xl border-b border-neutral-800"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation menu"
-            id="mobile-menu"
-          >
-            <Container>
-              <nav className="py-4 space-y-4" aria-label="Mobile navigation">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block py-2 text-neutral-300 hover:text-neutral-100 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="pt-4 border-t border-neutral-800 space-y-3">
-                  <a
-                    href={CAL_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Button className="w-full" size="md" variant="secondary">
-                      Book a Demo
-                    </Button>
-                  </a>
-                  <a
-                    href={STRIPE_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Button className="w-full" size="md">
-                      Get Early Access
-                    </Button>
-                  </a>
-                </div>
-              </nav>
-            </Container>
-          </motion.div>
+      {/* Mobile Menu — CSS grid-rows trick for height:auto animation */}
+      <div
+        ref={mobileMenuRef}
+        className={cn(
+          "md:hidden grid transition-[grid-template-rows,opacity] duration-200 ease-out",
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         )}
-      </AnimatePresence>
+        role={isOpen ? "dialog" : undefined}
+        aria-modal={isOpen ? true : undefined}
+        aria-label={isOpen ? "Mobile navigation menu" : undefined}
+        id="mobile-menu"
+      >
+        <div className="overflow-hidden bg-neutral-950/95 backdrop-blur-xl border-b border-neutral-800">
+          <Container>
+            <nav className="py-4 space-y-4" aria-label="Mobile navigation">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-2 text-neutral-300 hover:text-neutral-100 transition-colors"
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-neutral-800 space-y-3">
+                <a
+                  href={CAL_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  <Button className="w-full" size="md" variant="secondary">
+                    Book a Demo
+                  </Button>
+                </a>
+                <a
+                  href={STRIPE_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  <Button className="w-full" size="md">
+                    Get Early Access
+                  </Button>
+                </a>
+              </div>
+            </nav>
+          </Container>
+        </div>
+      </div>
     </header>
   );
 }

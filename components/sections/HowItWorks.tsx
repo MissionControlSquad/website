@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { PlusCircle, Bot, CheckCircle } from "@/components/icons";
 import { ComponentType, SVGProps } from "react";
@@ -14,51 +14,20 @@ const iconMap: Record<string, IconComponent> = {
   CheckCircle,
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
-
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-24 md:py-32 bg-neutral-900/50">
       <Container>
         {/* Section header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">How It Works</h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
             Get started in minutes. Create tasks, let agents work, review the results.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Steps */}
-        <motion.div
-          className="relative"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="relative">
           {/* Connector line (desktop) */}
           <div className="hidden md:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent" />
 
@@ -66,9 +35,9 @@ export default function HowItWorks() {
             {HOW_IT_WORKS_STEPS.map((step, index) => {
               const Icon = iconMap[step.icon];
               return (
-                <motion.div
+                <ScrollReveal
                   key={step.number}
-                  variants={itemVariants}
+                  staggerIndex={index}
                   className="relative flex flex-col items-center text-center"
                 >
                   {/* Connector line (mobile) */}
@@ -89,11 +58,11 @@ export default function HowItWorks() {
                   {/* Content */}
                   <h3 className="text-xl font-semibold text-neutral-100 mb-2">{step.title}</h3>
                   <p className="text-neutral-400 max-w-xs">{step.description}</p>
-                </motion.div>
+                </ScrollReveal>
               );
             })}
           </div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
