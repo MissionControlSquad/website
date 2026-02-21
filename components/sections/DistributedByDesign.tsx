@@ -450,28 +450,75 @@ function OneTimeSetupCard() {
         </div>
         <h3 className="text-lg font-semibold text-neutral-100">One-time setup</h3>
       </div>
-      <div className="space-y-2 mt-4">
-        {steps.map((s, i) => (
-          <motion.div
-            key={i}
-            className="flex items-center gap-2.5"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 + i * 0.15, duration: 0.3 }}
-          >
-            <span
-              className={`w-5 h-5 rounded-full border text-[10px] font-bold flex items-center justify-center shrink-0 ${
-                s.num === "✓"
-                  ? "border-green-500/40 bg-green-500/10 text-green-400"
-                  : "border-primary-500/40 bg-primary-500/10 text-primary-400"
-              }`}
-            >
-              {s.num}
-            </span>
-            <span className={`text-xs ${s.color}`}>{s.text}</span>
-          </motion.div>
-        ))}
+      <div className="relative mt-4">
+        {/* Vertical connector line */}
+        <motion.div
+          className="absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-primary-500/40 via-primary-500/20 to-green-500/40"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          style={{ transformOrigin: "top" }}
+        />
+
+        <div className="space-y-3">
+          {steps.map((s, i) => {
+            const isLast = s.num === "✓";
+            return (
+              <motion.div
+                key={i}
+                className="relative flex items-center gap-3"
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + i * 0.2, duration: 0.4, ease: "easeOut" }}
+              >
+                {/* Step circle */}
+                <motion.span
+                  className={`relative z-10 w-5 h-5 rounded-full border text-[10px] font-bold flex items-center justify-center shrink-0 ${
+                    isLast
+                      ? "border-green-500/50 bg-green-500/15 text-green-400"
+                      : "border-primary-500/50 bg-primary-500/15 text-primary-400"
+                  }`}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.5 + i * 0.2,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 15,
+                  }}
+                >
+                  {s.num}
+                </motion.span>
+
+                {/* Text with progress bar */}
+                <div className="flex-1 min-w-0">
+                  <span className={`text-xs font-medium ${s.color}`}>{s.text}</span>
+                  <motion.div
+                    className={`h-0.5 mt-1 rounded-full ${isLast ? "bg-green-500/30" : "bg-primary-500/20"}`}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 + i * 0.2, duration: 0.5, ease: "easeOut" }}
+                  />
+                </div>
+
+                {/* Completion glow for last step */}
+                {isLast && (
+                  <motion.div
+                    className="absolute -inset-1 rounded-lg bg-green-500/5 border border-green-500/10"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.2, duration: 0.5 }}
+                  />
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </motion.div>
   );
