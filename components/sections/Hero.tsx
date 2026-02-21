@@ -118,7 +118,7 @@ export default function Hero() {
             {/* aspect-ratio prevents CLS while image loads */}
             <div style={{ aspectRatio: "1920 / 858" }} className="relative w-full">
               <Image
-                src="/dashboard-preview.png"
+                src="/dashboard-preview.webp"
                 alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
                 fill
                 className="object-cover"

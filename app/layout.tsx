@@ -254,9 +254,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        {/* Preconnect to analytics origins for faster loading */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        {/* Note: next/font self-hosts Google Fonts — no preconnect to fonts.googleapis.com needed */}
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="lazyOnload">
