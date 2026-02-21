@@ -32,7 +32,7 @@ Agents maintain context across sessions. They remember past work, reference prev
 
 ### Multi-Agent Dependencies
 
-In a [multi-agent system](/blog/ai-agent-deployment-prototype-to-production), updating one agent can ripple through the entire team. Your content writer's new prompt might confuse the editor that reviews its work.
+In a [multi-agent system](/blogs/ai-agent-deployment-prototype-to-production), updating one agent can ripple through the entire team. Your content writer's new prompt might confuse the editor that reviews its work.
 
 ### Model Version Coupling
 
@@ -139,7 +139,7 @@ Once evals pass, you don't flip a switch for all traffic. You deploy gradually.
    - Task completion rate
    - Average quality score
    - Error rate
-   - [Agent lifecycle](/blog/ai-agent-lifecycle) health (heartbeats, state transitions)
+   - [Agent lifecycle](/blogs/ai-agent-lifecycle-framework) health (heartbeats, state transitions)
    - Teammate interaction success
 4. If metrics hold, gradually increase to 25%, then 50%, then 100%
 5. If metrics degrade, automatically route back to the stable version
@@ -175,7 +175,7 @@ Once fully deployed, continuous monitoring replaces the safety net of pre-deploy
 
 - **Behavioral metrics**: Task completion rate, quality scores, decision patterns
 - **Operational metrics**: Heartbeat regularity, response latency, error rates
-- **[Observability signals](/blog/ai-agent-observability)**: Token usage trends, tool call patterns, state transition anomalies
+- **[Observability signals](/blogs/ai-agent-observability)**: Token usage trends, tool call patterns, state transition anomalies
 - **Collaboration health**: Handoff success rates, message response quality, teammate satisfaction
 - **Drift detection**: Compare current behavior against baseline distributions
 
@@ -295,4 +295,4 @@ Your agents are going to evolve. Your deployment pipeline should make that evolu
 
 ---
 
-_Building an agent team? Learn how to [take agents from prototype to production](/blog/ai-agent-deployment-prototype-to-production), understand the [full agent lifecycle](/blog/ai-agent-lifecycle), and set up [observability for your agents](/blog/ai-agent-observability)._
+_Building an agent team? Learn how to [take agents from prototype to production](/blogs/ai-agent-deployment-prototype-to-production), understand the [full agent lifecycle](/blogs/ai-agent-lifecycle-framework), and set up [observability for your agents](/blogs/ai-agent-observability)._
