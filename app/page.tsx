@@ -5,7 +5,7 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
 import Features from "@/components/sections/Features";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
-import DashboardPreview from "@/components/sections/DashboardPreview";
+
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -48,7 +48,6 @@ export default function HomePage() {
 
       <main id="main-content">
         <Hero />
-        <DashboardPreview />
         <DistributedByDesign />
         <HowItWorks />
         <Features />
