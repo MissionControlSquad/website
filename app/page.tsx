@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
+import DistributedByDesign from "@/components/sections/DistributedByDesign";
 import Features from "@/components/sections/Features";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
 import DashboardPreview from "@/components/sections/DashboardPreview";
@@ -47,10 +48,11 @@ export default function HomePage() {
 
       <main id="main-content">
         <Hero />
+        <DashboardPreview />
+        <DistributedByDesign />
         <HowItWorks />
         <Features />
         <PrivacyFirst />
-        <DashboardPreview />
         <Pricing />
         <FAQ />
         {latestPosts.length > 0 && <LatestPosts posts={latestPosts} />}
