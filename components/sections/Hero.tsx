@@ -97,14 +97,8 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Dashboard preview placeholder */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.6 }}
-          className="mt-16 md:mt-24 relative"
-        >
+        {/* Dashboard preview — no animation delay to avoid LCP render delay */}
+        <div className="mt-16 md:mt-24 relative">
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" />
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
             {/* Browser chrome */}
@@ -133,7 +127,7 @@ export default function Hero() {
               />
             </div>
           </div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
