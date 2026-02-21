@@ -94,7 +94,7 @@ export default function Footer() {
 
         {/* Copyright + payment badge */}
         <div className="pt-8 border-t border-neutral-800 flex flex-col items-center gap-4">
-          <p className="text-neutral-500 text-sm text-center">
+          <p className="text-neutral-400 text-sm text-center">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
           </p>
           <div className="flex flex-col items-center gap-2">

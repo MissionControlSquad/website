@@ -37,7 +37,7 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
               href={`/blogs/${post.slug}`}
               className="group block p-6 rounded-xl border border-neutral-800 bg-neutral-900/50 hover:border-neutral-700 hover:bg-neutral-900 transition-all"
             >
-              <div className="flex items-center gap-3 text-xs text-neutral-500 mb-4">
+              <div className="flex items-center gap-3 text-xs text-neutral-400 mb-4">
                 <span className="flex items-center gap-1">
                   <Calendar size={12} />
                   {new Date(post.date).toLocaleDateString("en-US", {
