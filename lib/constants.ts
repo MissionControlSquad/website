@@ -2,6 +2,8 @@
 
 export const STRIPE_LINK = "https://buy.stripe.com/dRm7sN0KKdnfbs4afl53O00";
 
+export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
+
 export const SITE_CONFIG = {
   name: "AgentCenter",
   tagline: "Mission Control for Your OpenClaw Agents",
@@ -23,12 +25,9 @@ export const OG_IMAGE = {
 
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
-  { label: "How It Works", href: "/#how-it-works" },
   { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
   { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blogs" },
-  { label: "FAQ", href: "/faq" },
 ] as const;
 
 export const FOOTER_LINKS = {

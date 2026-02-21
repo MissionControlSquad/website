@@ -60,7 +60,7 @@ export default function HowItWorks() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Connector line (desktop) */}
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent -translate-y-1/2" />
+          <div className="hidden md:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative">
             {HOW_IT_WORKS_STEPS.map((step, index) => {
