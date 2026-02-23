@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FAQJsonLd } from "next-seo";
 import { ChevronDown } from "@/components/icons";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const faqs = [
   {
@@ -82,27 +82,15 @@ function FAQItem({
         aria-expanded={isOpen}
       >
         <span className="text-lg font-medium text-neutral-100 pr-4">{question}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex-shrink-0"
-        >
-          <ChevronDown className="w-5 h-5 text-neutral-400" aria-hidden="true" />
-        </motion.div>
+        <span className="flex-shrink-0">
+          <ChevronDown className="w-5 h-5 text-neutral-400 chevron-icon" aria-hidden="true" />
+        </span>
       </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 text-neutral-400 leading-relaxed">{answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="accordion-body" data-open={isOpen}>
+        <div>
+          <p className="pb-6 text-neutral-400 leading-relaxed">{answer}</p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -115,25 +103,16 @@ export default function FAQ() {
       <FAQJsonLd questions={faqs.map((faq) => ({ question: faq.question, answer: faq.answer }))} />
 
       <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <ScrollReveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-neutral-400">Everything you need to know about AgentCenter.</p>
-        </motion.div>
+        </ScrollReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+        <ScrollReveal
           className="bg-neutral-800 rounded-2xl p-6 md:p-8 border border-neutral-700"
+          staggerIndex={1}
         >
           {faqs.map((faq, idx) => (
             <FAQItem
@@ -144,23 +123,19 @@ export default function FAQ() {
               onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
             />
           ))}
-        </motion.div>
+        </ScrollReveal>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center text-neutral-500 mt-8"
-        >
-          Still have questions?{" "}
-          <a
-            href="mailto:hey@dharmikjagodana.com"
-            className="text-primary-400 hover:text-primary-300"
-          >
-            Contact us
-          </a>
-        </motion.p>
+        <ScrollReveal className="text-center text-neutral-500 mt-8" staggerIndex={2}>
+          <p>
+            Still have questions?{" "}
+            <a
+              href="mailto:hey@dharmikjagodana.com"
+              className="text-primary-400 hover:text-primary-300"
+            >
+              Contact us
+            </a>
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
