@@ -4,8 +4,9 @@ import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 import { ArrowRight } from "@/components/icons";
+import { StripeLink } from "@/components/StripeLink";
 
 export const metadata: Metadata = {
   title: "Testimonials — What Teams Say About AgentCenter",
@@ -256,19 +257,14 @@ export default function TestimonialsPage() {
               <p className="text-neutral-400 mb-8 text-lg">
                 $79/month. Unlimited agents. Everything included.
               </p>
-              <a
-                href={STRIPE_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
-              >
+              <StripeLink className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors">
                 Get Started
                 <ArrowRight
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
                   aria-hidden="true"
                 />
-              </a>
+              </StripeLink>
             </div>
           </Container>
         </section>

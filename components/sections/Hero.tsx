@@ -1,9 +1,14 @@
+"use client";
+
 import { Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK, STRIPE_LINK } from "@/lib/constants";
+import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK } from "@/lib/constants";
+import { useStripeLink } from "@/lib/hooks/useStripeLink";
 
 export default function Hero() {
+  const stripeLink = useStripeLink();
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
       {/* Background gradient */}
@@ -39,7 +44,7 @@ export default function Hero() {
                 Book a Demo
               </Button>
             </a>
-            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
+            <a href={stripeLink} target="_blank" rel="noopener noreferrer">
               <Button size="lg">Get Early Access</Button>
             </a>
           </div>
