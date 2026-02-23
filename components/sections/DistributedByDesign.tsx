@@ -1,25 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Monitor, Wand, Activity, Zap, GitBranch } from "@/components/icons";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const cardBase =
   "rounded-xl bg-neutral-800/60 border border-neutral-700/50 p-6 transition-all duration-300 hover:border-primary-500/30 card-glow-hover overflow-hidden";
@@ -38,9 +21,9 @@ function NetworkTopologyCard() {
   const orbitR = logoSize + 8;
 
   return (
-    <motion.div
-      variants={itemVariants}
+    <ScrollReveal
       className={`${cardBase} md:col-span-2 lg:col-span-2 md:row-span-1 lg:row-span-2 flex flex-col`}
+      staggerIndex={0}
     >
       <h3 className="text-xl font-semibold text-neutral-100 mb-1">
         One dashboard. Agents everywhere.
@@ -69,53 +52,47 @@ function NetworkTopologyCard() {
           {/* Outer glow */}
           <circle cx={hub.cx} cy={hub.cy} r="90" fill="url(#hubGlow)" />
 
-          {/* Connection lines */}
-          {nodes.map((n, i) => (
-            <motion.line
-              key={`line-${i}`}
-              x1={hub.cx}
-              y1={hub.cy}
-              x2={n.cx}
-              y2={n.cy}
-              stroke="#0ea5e9"
-              strokeWidth={1.5}
-              strokeOpacity={0.3}
-              strokeDasharray="4 3"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-            />
-          ))}
-
-          {/* Data pulse dots traveling along lines */}
+          {/* Connection lines — stroke-dasharray line draw */}
           {nodes.map((n, i) => {
             const dx = n.cx - hub.cx;
             const dy = n.cy - hub.cy;
+            const len = Math.sqrt(dx * dx + dy * dy);
             return (
-              <motion.circle
-                key={`pulse-dot-${i}`}
-                r="2.5"
-                fill="#38bdf8"
-                initial={{ opacity: 0 }}
-                whileInView={{
-                  cx: [hub.cx, hub.cx + dx * 0.5, n.cx],
-                  cy: [hub.cy, hub.cy + dy * 0.5, n.cy],
-                  opacity: [0, 0.9, 0],
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 2,
-                  delay: 1.5 + i * 0.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+              <line
+                key={`line-${i}`}
+                x1={hub.cx}
+                y1={hub.cy}
+                x2={n.cx}
+                y2={n.cy}
+                stroke="#0ea5e9"
+                strokeWidth={1.5}
+                strokeOpacity={0.3}
+                strokeDasharray={`${len}`}
+                strokeDashoffset={`${len}`}
+                className="svg-line-anim"
+                style={{ "--delay": `${300 + i * 100}ms` } as React.CSSProperties}
               />
             );
           })}
 
+          {/* Data pulse dots traveling along lines via offset-path */}
+          {nodes.map((n, i) => (
+            <circle
+              key={`pulse-dot-${i}`}
+              r="2.5"
+              fill="#38bdf8"
+              className="svg-data-dot"
+              style={
+                {
+                  offsetPath: `path('M ${hub.cx} ${hub.cy} L ${n.cx} ${n.cy}')`,
+                  "--delay": `${1500 + i * 400}ms`,
+                } as React.CSSProperties
+              }
+            />
+          ))}
+
           {/* Hub — spinning dashed orbit ring */}
-          <motion.circle
+          <circle
             cx={hub.cx}
             cy={hub.cy}
             r={orbitR}
@@ -124,59 +101,51 @@ function NetworkTopologyCard() {
             strokeWidth={0.8}
             strokeOpacity={0.25}
             strokeDasharray="3 5"
-            initial={{ rotate: 0 }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="svg-orbit"
             style={{ transformOrigin: `${hub.cx}px ${hub.cy}px` }}
           />
 
           {/* Hub — main circle */}
-          <motion.circle
+          <circle
             cx={hub.cx}
             cy={hub.cy}
             r={logoSize}
             fill="#18181b"
             stroke="#0ea5e9"
             strokeWidth={2}
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="svg-node-scale"
+            style={{ "--delay": "0ms" } as React.CSSProperties}
           />
 
           {/* Hub — logo image */}
-          <motion.image
+          <image
             href="/favicon-96x96.png"
             x={hub.cx - logoSize + 5}
             y={hub.cy - logoSize + 5}
             width={(logoSize - 5) * 2}
             height={(logoSize - 5) * 2}
             clipPath="url(#logoClip)"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.4 }}
+            className="svg-fade-in"
+            style={{ "--delay": "300ms" } as React.CSSProperties}
           />
 
           {/* Hub label */}
-          <motion.text
+          <text
             x={hub.cx}
             y={hub.cy + logoSize + 18}
             textAnchor="middle"
             fill="#38bdf8"
             fontSize="10"
             fontWeight="600"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            className="svg-fade-in"
+            style={{ "--delay": "400ms" } as React.CSSProperties}
           >
             AgentCenter
-          </motion.text>
+          </text>
 
           {/* Hub pulse rings */}
           {[0, 1].map((ring) => (
-            <motion.circle
+            <circle
               key={`hub-pulse-${ring}`}
               cx={hub.cx}
               cy={hub.cy}
@@ -184,18 +153,13 @@ function NetworkTopologyCard() {
               fill="none"
               stroke="#0ea5e9"
               strokeWidth={1}
-              initial={{ opacity: 0, scale: 1 }}
-              whileInView={{
-                opacity: [0.4, 0],
-                scale: [1, 2.2],
-              }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 3,
-                delay: ring * 1.5,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
+              className="svg-pulse-hub"
+              style={
+                {
+                  "--delay": `${ring * 1500}ms`,
+                  transformOrigin: `${hub.cx}px ${hub.cy}px`,
+                } as React.CSSProperties
+              }
             />
           ))}
 
@@ -203,69 +167,58 @@ function NetworkTopologyCard() {
           {nodes.map((n, i) => (
             <g key={`node-${i}`}>
               {/* Subtle glow behind node */}
-              <motion.circle
+              <circle
                 cx={n.cx}
                 cy={n.cy}
                 r="24"
                 fill="url(#nodeGlow)"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + i * 0.1 }}
+                className="svg-fade-in"
+                style={{ "--delay": `${600 + i * 100}ms` } as React.CSSProperties}
               />
 
               {/* Node circle */}
-              <motion.circle
+              <circle
                 cx={n.cx}
                 cy={n.cy}
                 r="16"
                 fill="#27272a"
                 stroke="#3f3f46"
                 strokeWidth={1.5}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.4 + i * 0.1, ease: "backOut" }}
+                className="svg-node-scale"
+                style={{ "--delay": `${400 + i * 100}ms` } as React.CSSProperties}
               />
 
               {/* Agent pulse ring */}
-              <motion.circle
+              <circle
                 cx={n.cx}
                 cy={n.cy}
                 r="16"
                 fill="none"
                 stroke="#4ade80"
                 strokeWidth={0.8}
-                initial={{ opacity: 0, scale: 1 }}
-                whileInView={{
-                  opacity: [0.4, 0],
-                  scale: [1, 1.6],
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 2.5,
-                  delay: 1.2 + i * 0.3,
-                  repeat: Infinity,
-                  ease: "easeOut",
-                }}
+                className="svg-pulse-agent"
+                style={
+                  {
+                    "--delay": `${1200 + i * 300}ms`,
+                    transformOrigin: `${n.cx}px ${n.cy}px`,
+                  } as React.CSSProperties
+                }
               />
 
               {/* Online status dot (top-right) */}
-              <motion.circle
+              <circle
                 cx={n.cx + 11}
                 cy={n.cy - 11}
                 r="3.5"
                 fill="#4ade80"
                 stroke="#27272a"
                 strokeWidth={1}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 + i * 0.1, type: "spring", stiffness: 300 }}
+                className="svg-node-scale"
+                style={{ "--delay": `${800 + i * 100}ms` } as React.CSSProperties}
               />
 
               {/* Agent name inside circle */}
-              <motion.text
+              <text
                 x={n.cx}
                 y={n.cy + 1}
                 textAnchor="middle"
@@ -273,33 +226,29 @@ function NetworkTopologyCard() {
                 fill="#e5e5e5"
                 fontSize="7"
                 fontWeight="500"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + i * 0.1 }}
+                className="svg-fade-in"
+                style={{ "--delay": `${500 + i * 100}ms` } as React.CSSProperties}
               >
                 {n.agent}
-              </motion.text>
+              </text>
 
               {/* Device label below */}
-              <motion.text
+              <text
                 x={n.cx}
                 y={n.cy + 28}
                 textAnchor="middle"
                 fill="#a1a1aa"
                 fontSize="9"
-                initial={{ opacity: 0, y: n.cy + 34 }}
-                whileInView={{ opacity: 1, y: n.cy + 28 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
+                className="svg-label-up"
+                style={{ "--delay": `${600 + i * 100}ms` } as React.CSSProperties}
               >
                 {n.label}
-              </motion.text>
+              </text>
             </g>
           ))}
         </svg>
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 }
 
@@ -312,7 +261,7 @@ function AnyMachineCard() {
   ];
 
   return (
-    <motion.div variants={itemVariants} className={`${cardBase} md:col-span-2 lg:col-span-2`}>
+    <ScrollReveal className={`${cardBase} md:col-span-2 lg:col-span-2`} staggerIndex={1}>
       <div className="flex items-center gap-3 mb-3">
         <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center">
           <Monitor className="w-5 h-5 text-primary-500" aria-hidden="true" />
@@ -324,21 +273,18 @@ function AnyMachineCard() {
       </p>
       <div className="space-y-2">
         {machines.map((m, i) => (
-          <motion.div
+          <div
             key={m.os}
-            className="flex items-center gap-2 rounded-lg bg-neutral-900/60 border border-neutral-700/40 px-3 py-2"
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+            className="scroll-reveal-left flex items-center gap-2 rounded-lg bg-neutral-900/60 border border-neutral-700/40 px-3 py-2"
+            style={{ "--stagger-index": i } as React.CSSProperties}
           >
             <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: m.color }} />
             <code className="text-xs text-neutral-500 font-mono">{m.prompt}</code>
             <span className="text-xs text-neutral-300 ml-auto">{m.os}</span>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 }
 
@@ -351,7 +297,7 @@ function SpecializedAgentsCard() {
   ];
 
   return (
-    <motion.div variants={itemVariants} className={`${cardBase} md:col-span-2 lg:col-span-2`}>
+    <ScrollReveal className={`${cardBase} md:col-span-2 lg:col-span-2`} staggerIndex={2}>
       <div className="flex items-center gap-3 mb-3">
         <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center">
           <Wand className="w-5 h-5 text-primary-500" aria-hidden="true" />
@@ -368,25 +314,19 @@ function SpecializedAgentsCard() {
             <span className="text-neutral-600 text-xs hidden sm:inline">&rarr;</span>
             <div className="flex gap-1.5 flex-wrap">
               {a.skills.map((s, si) => (
-                <motion.span
+                <span
                   key={s}
-                  className="text-xs px-2 py-0.5 rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20 hover:bg-primary-500/20 transition-colors cursor-default"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.3 + ai * 0.12 + si * 0.06,
-                    duration: 0.3,
-                  }}
+                  className="scroll-reveal-scale text-xs px-2 py-0.5 rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20 hover:bg-primary-500/20 transition-colors cursor-default"
+                  style={{ "--stagger-index": ai * 3 + si } as React.CSSProperties}
                 >
                   {s}
-                </motion.span>
+                </span>
               ))}
             </div>
           </div>
         ))}
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 }
 
@@ -400,7 +340,7 @@ function LiveHeartbeatsCard() {
   ];
 
   return (
-    <motion.div variants={itemVariants} className={cardBase}>
+    <ScrollReveal className={cardBase} staggerIndex={3}>
       <div className="flex items-center gap-3 mb-3">
         <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center">
           <Activity className="w-5 h-5 text-primary-500" aria-hidden="true" />
@@ -409,13 +349,10 @@ function LiveHeartbeatsCard() {
       </div>
       <div className="space-y-2.5 mt-4">
         {agents.map((a, i) => (
-          <motion.div
+          <div
             key={a.name}
-            className="flex items-center gap-2"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 + i * 0.1 }}
+            className="scroll-reveal-left flex items-center gap-2"
+            style={{ "--stagger-index": i } as React.CSSProperties}
           >
             <span className="relative flex h-2.5 w-2.5">
               {(a.status === "online" || a.status === "working") && (
@@ -426,10 +363,10 @@ function LiveHeartbeatsCard() {
               <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${a.color}`} />
             </span>
             <span className="text-xs text-neutral-400 font-mono truncate">{a.name}</span>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 }
 
@@ -443,7 +380,7 @@ function OneTimeSetupCard() {
   ];
 
   return (
-    <motion.div variants={itemVariants} className={cardBase}>
+    <ScrollReveal className={cardBase} staggerIndex={4}>
       <div className="flex items-center gap-3 mb-3">
         <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center">
           <Zap className="w-5 h-5 text-primary-500" aria-hidden="true" />
@@ -452,75 +389,51 @@ function OneTimeSetupCard() {
       </div>
       <div className="relative mt-4">
         {/* Vertical connector line */}
-        <motion.div
-          className="absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-primary-500/40 via-primary-500/20 to-green-500/40"
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          style={{ transformOrigin: "top" }}
-        />
+        <div className="scroll-reveal-scale-y absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-primary-500/40 via-primary-500/20 to-green-500/40" />
 
         <div className="space-y-3">
           {steps.map((s, i) => {
             const isLast = s.num === "✓";
             return (
-              <motion.div
+              <div
                 key={i}
-                className="relative flex items-center gap-3"
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 + i * 0.2, duration: 0.4, ease: "easeOut" }}
+                className="scroll-reveal-left relative flex items-center gap-3"
+                style={{ "--stagger-index": i + 2 } as React.CSSProperties}
               >
                 {/* Step circle */}
-                <motion.span
-                  className={`relative z-10 w-5 h-5 rounded-full border text-[10px] font-bold flex items-center justify-center shrink-0 ${
+                <span
+                  className={`scroll-reveal-scale relative z-10 w-5 h-5 rounded-full border text-[10px] font-bold flex items-center justify-center shrink-0 ${
                     isLast
                       ? "border-green-500/50 bg-green-500/15 text-green-400"
                       : "border-primary-500/50 bg-primary-500/15 text-primary-400"
                   }`}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.5 + i * 0.2,
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 15,
-                  }}
+                  style={{ "--stagger-index": i + 3 } as React.CSSProperties}
                 >
                   {s.num}
-                </motion.span>
+                </span>
 
                 {/* Text with progress bar */}
                 <div className="flex-1 min-w-0">
                   <span className={`text-xs font-medium ${s.color}`}>{s.text}</span>
-                  <motion.div
-                    className={`h-0.5 mt-1 rounded-full ${isLast ? "bg-green-500/30" : "bg-primary-500/20"}`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 + i * 0.2, duration: 0.5, ease: "easeOut" }}
+                  <div
+                    className={`scroll-reveal-width h-0.5 mt-1 rounded-full ${isLast ? "bg-green-500/30" : "bg-primary-500/20"}`}
+                    style={{ "--stagger-index": i } as React.CSSProperties}
                   />
                 </div>
 
                 {/* Completion glow for last step */}
                 {isLast && (
-                  <motion.div
-                    className="absolute -inset-1 rounded-lg bg-green-500/5 border border-green-500/10"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1.2, duration: 0.5 }}
+                  <div
+                    className="scroll-reveal-scale absolute -inset-1 rounded-lg bg-green-500/5 border border-green-500/10"
+                    style={{ "--stagger-index": 8 } as React.CSSProperties}
                   />
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 }
 
@@ -529,7 +442,7 @@ function ScaleCard() {
   const nodeCount = 8;
 
   return (
-    <motion.div variants={itemVariants} className={`${cardBase} md:col-span-2 lg:col-span-2`}>
+    <ScrollReveal className={`${cardBase} md:col-span-2 lg:col-span-2`} staggerIndex={5}>
       <div className="flex items-center gap-3 mb-3">
         <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center">
           <GitBranch className="w-5 h-5 text-primary-500" aria-hidden="true" />
@@ -541,36 +454,22 @@ function ScaleCard() {
       </p>
 
       <div className="relative flex items-center justify-between w-full">
-        <motion.div
-          className="absolute top-1/2 left-0 right-0 h-px bg-primary-500/30"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ transformOrigin: "left" }}
-        />
+        <div className="scroll-reveal-scale-x absolute top-1/2 left-0 right-0 h-px bg-primary-500/30" />
         {Array.from({ length: nodeCount }).map((_, i) => (
-          <motion.div
+          <div
             key={i}
-            className="relative z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-900 border border-neutral-600 flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: 0.3 + i * 0.08,
-              duration: 0.3,
-              ease: "easeOut",
-            }}
+            className="scroll-reveal-scale relative z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-900 border border-neutral-600 flex items-center justify-center"
+            style={{ "--stagger-index": i + 2 } as React.CSSProperties}
           >
             {i >= nodeCount - 2 ? (
               <span className="text-xs text-primary-400 font-bold">+</span>
             ) : (
               <span className="w-2 h-2 rounded-full bg-agent-online" />
             )}
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </ScrollReveal>
   );
 }
 
@@ -579,13 +478,7 @@ export default function DistributedByDesign() {
   return (
     <section id="distributed" className="py-24 md:py-32">
       <Container>
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
             Distributed by design
           </h2>
@@ -593,22 +486,16 @@ export default function DistributedByDesign() {
             Your agents live on different machines with different skills. AgentCenter brings them
             all into one place.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <NetworkTopologyCard />
           <AnyMachineCard />
           <SpecializedAgentsCard />
           <LiveHeartbeatsCard />
           <OneTimeSetupCard />
           <ScaleCard />
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

@@ -135,6 +135,241 @@
   transform: translateY(0);
 }
 
+/* Scroll-reveal variant: slide from left */
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 100ms);
+}
+
+.scroll-revealed .scroll-reveal-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scroll-reveal variant: scale in */
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 60ms);
+}
+
+.scroll-revealed .scroll-reveal-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Scroll-reveal variant: scaleY from top */
+.scroll-reveal-scale-y {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.8s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 100ms + 300ms);
+}
+
+.scroll-revealed .scroll-reveal-scale-y {
+  transform: scaleY(1);
+}
+
+/* Scroll-reveal variant: scaleX from left */
+.scroll-reveal-scale-x {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 100ms + 200ms);
+}
+
+.scroll-revealed .scroll-reveal-scale-x {
+  transform: scaleX(1);
+}
+
+/* Scroll-reveal variant: width from 0 */
+.scroll-reveal-width {
+  width: 0;
+  transition: width 0.5s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 200ms + 600ms);
+}
+
+.scroll-revealed .scroll-reveal-width {
+  width: 100%;
+}
+
+/* FAQ accordion expand/collapse */
+.accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+}
+
+.accordion-body[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.accordion-body > div {
+  overflow: hidden;
+}
+
+/* FAQ chevron rotation */
+.chevron-icon {
+  transition: transform 0.2s ease-out;
+}
+
+[aria-expanded="true"] .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Tab panel enter animation */
+@keyframes tab-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-panel {
+  animation: tab-enter 0.25s ease-out both;
+}
+
+/* SVG pulse ring (hub) */
+@keyframes svg-pulse-ring {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+/* SVG pulse ring (agent nodes) */
+@keyframes svg-pulse-ring-agent {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* SVG orbit spin */
+@keyframes svg-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* SVG data pulse dot */
+@keyframes svg-data-pulse {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+/* SVG line draw */
+@keyframes svg-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* SVG elements triggered by scroll-revealed ancestor */
+.scroll-revealed .svg-node-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.svg-node-scale {
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--delay, 0ms);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scroll-revealed .svg-fade-in {
+  opacity: 1;
+}
+
+.svg-fade-in {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  transition-delay: var(--delay, 0ms);
+}
+
+.scroll-revealed .svg-label-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svg-label-up {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+  transition-delay: var(--delay, 0ms);
+}
+
+.scroll-revealed .svg-line-anim {
+  animation: svg-line-draw 0.7s ease-out forwards;
+  animation-delay: var(--delay, 300ms);
+}
+
+.scroll-revealed .svg-pulse-hub {
+  animation: svg-pulse-ring 3s ease-out infinite;
+  animation-delay: var(--delay, 0ms);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scroll-revealed .svg-pulse-agent {
+  animation: svg-pulse-ring-agent 2.5s ease-out infinite;
+  animation-delay: var(--delay, 0ms);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scroll-revealed .svg-orbit {
+  animation: svg-orbit-spin 20s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scroll-revealed .svg-data-dot {
+  animation: svg-data-pulse 2s ease-in-out infinite;
+  animation-delay: var(--delay, 0ms);
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;

@@ -1,46 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, Mail, Clock, ArrowRight } from "@/components/icons";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
-
-const checkVariants = {
-  hidden: { scale: 0, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      type: "spring" as const,
-      stiffness: 200,
-      damping: 15,
-      delay: 0.1,
-    },
-  },
-};
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function ThankYouPage() {
   return (
@@ -56,40 +22,33 @@ export default function ThankYouPage() {
           </div>
 
           <Container>
-            <motion.div
-              className="max-w-2xl mx-auto text-center"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="max-w-2xl mx-auto text-center">
               {/* Success icon */}
-              <motion.div variants={checkVariants} className="mb-8">
+              <ScrollReveal className="mb-8" staggerIndex={0}>
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-success-500/10 border border-success-500/20 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
                   <CheckCircle size={40} className="text-success-500" aria-hidden="true" />
                 </div>
-              </motion.div>
+              </ScrollReveal>
 
               {/* Heading */}
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-100 mb-4"
-              >
-                Thank You for Your Payment!
-              </motion.h1>
+              <ScrollReveal staggerIndex={1}>
+                <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-100 mb-4">
+                  Thank You for Your Payment!
+                </h1>
+              </ScrollReveal>
 
               {/* Subtext */}
-              <motion.p
-                variants={itemVariants}
-                className="text-lg text-neutral-400 mb-12 max-w-lg mx-auto"
-              >
-                Your payment has been received successfully. We&apos;re excited to get you started
-                with AgentCenter.
-              </motion.p>
+              <ScrollReveal staggerIndex={2}>
+                <p className="text-lg text-neutral-400 mb-12 max-w-lg mx-auto">
+                  Your payment has been received successfully. We&apos;re excited to get you started
+                  with AgentCenter.
+                </p>
+              </ScrollReveal>
 
               {/* Info cards */}
-              <motion.div
-                variants={itemVariants}
+              <ScrollReveal
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12"
+                staggerIndex={3}
               >
                 {/* Response time card */}
                 <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 text-left card-glow">
@@ -118,12 +77,12 @@ export default function ThankYouPage() {
                     on your inbox (and spam folder).
                   </p>
                 </div>
-              </motion.div>
+              </ScrollReveal>
 
               {/* What happens next */}
-              <motion.div
-                variants={itemVariants}
+              <ScrollReveal
                 className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-8 mb-12 text-left"
+                staggerIndex={4}
               >
                 <h3 className="text-lg font-semibold text-neutral-100 mb-5">What happens next?</h3>
                 <ol className="space-y-4">
@@ -149,12 +108,12 @@ export default function ThankYouPage() {
                     </li>
                   ))}
                 </ol>
-              </motion.div>
+              </ScrollReveal>
 
               {/* CTA */}
-              <motion.div
-                variants={itemVariants}
+              <ScrollReveal
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                staggerIndex={5}
               >
                 <Link href="/">
                   <Button variant="secondary" size="lg">
@@ -169,28 +128,30 @@ export default function ThankYouPage() {
                     </span>
                   </Button>
                 </a>
-              </motion.div>
+              </ScrollReveal>
 
               {/* Support note */}
-              <motion.p variants={itemVariants} className="mt-8 text-sm text-neutral-500">
-                Need help? Reach us at{" "}
-                <a
-                  href="mailto:hey@dharmikjagodana.com"
-                  className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
-                >
-                  hey@dharmikjagodana.com
-                </a>{" "}
-                or message me on{" "}
-                <a
-                  href="https://x.com/dharmikjagodana"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
-                >
-                  X/Twitter
-                </a>
-              </motion.p>
-            </motion.div>
+              <ScrollReveal className="mt-8 text-sm text-neutral-500" staggerIndex={6}>
+                <p>
+                  Need help? Reach us at{" "}
+                  <a
+                    href="mailto:hey@dharmikjagodana.com"
+                    className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
+                  >
+                    hey@dharmikjagodana.com
+                  </a>{" "}
+                  or message me on{" "}
+                  <a
+                    href="https://x.com/dharmikjagodana"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
+                  >
+                    X/Twitter
+                  </a>
+                </p>
+              </ScrollReveal>
+            </div>
           </Container>
         </section>
       </main>

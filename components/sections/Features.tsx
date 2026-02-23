@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { FEATURES, FEATURE_CATEGORIES } from "@/lib/constants";
@@ -33,6 +32,7 @@ import {
   Clock,
 } from "@/components/icons";
 import { ComponentType, SVGProps } from "react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
 
@@ -64,25 +64,6 @@ const iconMap: Record<string, IconComponent> = {
   Clock,
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
-
 export default function Features() {
   const [activeTab, setActiveTab] = useState<string>(FEATURE_CATEGORIES[0].id);
   const activeCategory = FEATURE_CATEGORIES.find((c) => c.id === activeTab)!;
@@ -91,56 +72,35 @@ export default function Features() {
     <section id="features" className="py-24 md:py-32">
       <Container>
         {/* Section header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
             Everything you need to manage AI agents
           </h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
             Built for teams running multi-agent systems. All the tools you need in one dashboard.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Zone 1: Core features grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {FEATURES.map((feature) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FEATURES.map((feature, i) => {
             const Icon = iconMap[feature.icon];
             return (
-              <motion.div key={feature.title} variants={itemVariants}>
+              <ScrollReveal key={feature.title} staggerIndex={i}>
                 <Card hover className="h-full">
-                  {/* Icon container */}
                   <div className="w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-primary-500" aria-hidden="true" />
                   </div>
-
-                  {/* Content */}
                   <h3 className="text-xl font-semibold text-neutral-100 mb-2">{feature.title}</h3>
                   <p className="text-neutral-400">{feature.description}</p>
                 </Card>
-              </motion.div>
+              </ScrollReveal>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Zone 2: Tabbed "More Features" section */}
-        <motion.div
-          className="mt-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <ScrollReveal className="mt-20">
           {/* Sub-header */}
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold text-neutral-100 mb-3">
@@ -174,39 +134,31 @@ export default function Features() {
           </div>
 
           {/* Tab content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-            >
-              {activeCategory.features.map((feature) => {
-                const FeatureIcon = iconMap[feature.icon];
-                return (
-                  <div
-                    key={feature.title}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-neutral-800/40 border border-neutral-700/40"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
-                      <FeatureIcon className="w-5 h-5 text-primary-500" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-neutral-100 mb-1">
-                        {feature.title}
-                      </h4>
-                      <p className="text-sm text-neutral-400 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
+          <div
+            key={activeTab}
+            className="tab-panel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            {activeCategory.features.map((feature) => {
+              const FeatureIcon = iconMap[feature.icon];
+              return (
+                <div
+                  key={feature.title}
+                  className="flex items-start gap-4 p-4 rounded-xl bg-neutral-800/40 border border-neutral-700/40"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                    <FeatureIcon className="w-5 h-5 text-primary-500" aria-hidden="true" />
                   </div>
-                );
-              })}
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-neutral-100 mb-1">{feature.title}</h4>
+                    <p className="text-sm text-neutral-400 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </ScrollReveal>
       </Container>
     </section>
   );
