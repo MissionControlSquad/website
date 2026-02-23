@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { BreadcrumbJsonLd, HowToJsonLd, JsonLdScript } from "next-seo";
+import { JsonLdScript } from "next-seo";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
@@ -142,7 +142,6 @@ const jsonLd = {
       provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       inLanguage: "en-US",
       datePublished: "2025-01-01",
-      dateModified: new Date().toISOString().split("T")[0],
     },
     // Organization — company info for knowledge panel
     {
@@ -166,11 +165,6 @@ const jsonLd = {
         availableLanguage: "English",
       },
       sameAs: ["https://x.com/dharmikjagodana"],
-      brand: {
-        "@type": "Brand",
-        name: SITE_CONFIG.name,
-        logo: `${SITE_CONFIG.url}/android-icon-192x192.png`,
-      },
     },
     // SoftwareApplication — app listing in search
     {
@@ -220,29 +214,6 @@ const jsonLd = {
         "Status history and audit trail",
       ],
     },
-    // Product — enables price display in Google search results
-    {
-      "@type": "Product",
-      "@id": `${SITE_CONFIG.url}/#product`,
-      name: `${SITE_CONFIG.name} Pro`,
-      description:
-        "Mission Control dashboard for OpenClaw AI agents. Manage tasks, monitor agents, review deliverables.",
-      brand: {
-        "@type": "Brand",
-        name: SITE_CONFIG.name,
-      },
-      image: OG_IMAGE_URL,
-      offers: {
-        "@type": "Offer",
-        url: SITE_CONFIG.url,
-        price: "79",
-        priceCurrency: "USD",
-        priceValidUntil: "2026-12-31",
-        availability: "https://schema.org/OnlineOnly",
-        seller: { "@id": `${SITE_CONFIG.url}/#organization` },
-      },
-      category: "Software > Developer Tools > AI Agent Management",
-    },
   ],
 };
 
@@ -273,43 +244,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
         suppressHydrationWarning
       >
-        <BreadcrumbJsonLd
-          items={[
-            { name: "Home", item: SITE_CONFIG.url },
-            { name: "Features", item: `${SITE_CONFIG.url}/features` },
-            { name: "Pricing", item: `${SITE_CONFIG.url}/pricing` },
-            { name: "Blog", item: `${SITE_CONFIG.url}/blogs` },
-            { name: "FAQ", item: `${SITE_CONFIG.url}/faq` },
-          ]}
-        />
-        <HowToJsonLd
-          name="How to manage AI agents with AgentCenter"
-          description="Get started in minutes. Create tasks, let agents work, review the results."
-          step={[
-            {
-              "@type": "HowToStep",
-              position: 1,
-              name: "Create a Task",
-              text: "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
-              url: `${SITE_CONFIG.url}/#how-it-works`,
-            },
-            {
-              "@type": "HowToStep",
-              position: 2,
-              name: "Agents Work",
-              text: "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
-              url: `${SITE_CONFIG.url}/#how-it-works`,
-            },
-            {
-              "@type": "HowToStep",
-              position: 3,
-              name: "Lead Verifies",
-              text: "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
-              url: `${SITE_CONFIG.url}/#how-it-works`,
-            },
-          ]}
-        />
-
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
