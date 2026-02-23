@@ -257,7 +257,7 @@ Audit logs must be tamper-proof:
 - **Access controls** — Agents should never have write access to audit logs. Separate the logging system from the agent system.
 - **Regular integrity checks** — Automated verification that log chains are unbroken.
 
-For a broader governance framework that covers access control, autonomy levels, and incident response alongside auditing, see our [enterprise AI agent governance guide](/blogs/enterprise-ai-agent-governance-2026).
+For a broader governance framework, consider adding access control, autonomy levels, and incident response alongside auditing.
 
 ## Scaling Audits as Your Agent Team Grows
 
@@ -291,7 +291,7 @@ At this scale, [managing multiple agents](/blogs/how-to-manage-multiple-ai-agent
 1. **Auditing everything manually** — You'll burn out reviewers and create a bottleneck.
 2. **Auditing nothing** — "Our agents are good enough" is a statement you can't back up without data.
 3. **Inconsistent rubrics** — Different reviewers scoring differently makes your quality data useless.
-4. **Ignoring agent-to-agent outputs** — Internal agent communications can [propagate errors silently](/blogs/multi-agent-system-error-trap).
+4. **Ignoring agent-to-agent outputs** — Internal agent communications can propagate errors silently.
 5. **No feedback loop** — If audit findings don't improve agent configuration, you're just generating reports.
 
 ## Putting It All Together
