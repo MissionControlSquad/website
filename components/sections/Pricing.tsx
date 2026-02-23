@@ -2,7 +2,7 @@
 
 import { Check, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { STRIPE_LINK } from "@/lib/constants";
+import { useStripeLink } from "@/lib/hooks/useStripeLink";
 
 const features = [
   "Unlimited AI agents",
@@ -21,6 +21,8 @@ const features = [
 ];
 
 export default function Pricing() {
+  const stripeLink = useStripeLink();
+
   return (
     <section id="pricing" className="py-24 px-4 bg-neutral-950">
       <div className="max-w-3xl mx-auto">
@@ -56,7 +58,7 @@ export default function Pricing() {
 
           <div className="text-center">
             <a
-              href={STRIPE_LINK}
+              href={stripeLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"

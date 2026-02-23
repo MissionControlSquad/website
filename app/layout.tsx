@@ -231,7 +231,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager — also loads Endorsely referral tracking (sets window.endorsely_referral) */}
         <Script id="gtm-init" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

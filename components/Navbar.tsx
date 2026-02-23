@@ -6,7 +6,8 @@ import Image from "next/image";
 import { Menu, X } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG, STRIPE_LINK, CAL_LINK } from "@/lib/constants";
+import { NAV_LINKS, SITE_CONFIG, CAL_LINK } from "@/lib/constants";
+import { useStripeLink } from "@/lib/hooks/useStripeLink";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const mobileMenuRef = useFocusTrap(isOpen);
+  const stripeLink = useStripeLink();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,7 +95,7 @@ export default function Navbar() {
                 Book a Demo
               </Button>
             </a>
-            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
+            <a href={stripeLink} target="_blank" rel="noopener noreferrer">
               <Button size="sm">Get Early Access</Button>
             </a>
           </div>
@@ -157,7 +159,7 @@ export default function Navbar() {
                   </Button>
                 </a>
                 <a
-                  href={STRIPE_LINK}
+                  href={stripeLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}

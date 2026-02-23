@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG, STRIPE_LINK } from "@/lib/constants";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { StripeLink } from "@/components/StripeLink";
 
 export const metadata: Metadata = {
   title: "Getting Started",
@@ -38,11 +39,9 @@ export default function GettingStartedPage() {
 
       <h2>1. Subscribe and log in</h2>
       <p>
-        <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
-          Subscribe
-        </a>{" "}
-        ($79/month). After payment, open <strong>{SITE_CONFIG.url}</strong> and create your admin
-        account (username + password) when prompted.
+        <StripeLink>Subscribe</StripeLink> ($79/month). After payment, open{" "}
+        <strong>{SITE_CONFIG.url}</strong> and create your admin account (username + password) when
+        prompted.
       </p>
 
       <h2>2. Create a project</h2>
