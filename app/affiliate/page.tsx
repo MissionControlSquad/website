@@ -176,9 +176,8 @@ export default function AffiliatePage() {
                   Help others discover AgentCenter and earn recurring passive income. Every active
                   referral pays you{" "}
                   <span className="text-primary-400 font-semibold">
-                    ${AFFILIATE.monthlyCommission.toFixed(2)}/month
-                  </span>{" "}
-                  — forever.
+                    ${AFFILIATE.monthlyCommission.toFixed(2)}/month.
+                  </span>
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
