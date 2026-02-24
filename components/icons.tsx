@@ -430,3 +430,45 @@ export function Monitor(props: IconProps) {
     </Icon>
   );
 }
+
+export function DollarSign(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <line x1="12" x2="12" y1="2" y2="22" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </Icon>
+  );
+}
+
+export function BarChart3(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M3 3v18h18" />
+      <path d="M18 17V9" />
+      <path d="M13 17V5" />
+      <path d="M8 17v-3" />
+    </Icon>
+  );
+}
+
+export function Gift(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      <path d="M12 22v-11" />
+      <path d="M5 7h14" />
+      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5A4.8 4.8 0 0 1 12 7" />
+      <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5A4.8 4.8 0 0 0 12 7" />
+    </Icon>
+  );
+}
+
+export function TrendingUp(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+      <polyline points="16 7 22 7 22 13" />
+    </Icon>
+  );
+}
