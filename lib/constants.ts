@@ -36,6 +36,7 @@ export const NAV_LINKS = [
   { label: "Pricing", href: "/pricing" },
   { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blogs" },
+  { label: "Affiliate", href: "/affiliate" },
 ] as const;
 
 export const FOOTER_LINKS = {
@@ -47,6 +48,7 @@ export const FOOTER_LINKS = {
     { label: "Blog", href: "/blogs" },
     { label: "FAQ", href: "/faq" },
     { label: "Changelog", href: "/changelog" },
+    { label: "Affiliate", href: "/affiliate" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
@@ -59,7 +61,25 @@ export const SOCIAL_LINKS = [
   { label: "Twitter", href: "https://x.com/dharmikjagodana", icon: "Twitter" },
 ] as const;
 
-export const TRUST_INDICATORS = ["$79/month", "Cancel anytime", "Powered by Stripe"] as const;
+/** Pricing configuration */
+export const PRICING = {
+  monthly: 79,
+  currency: "USD",
+  billingPeriod: "month" as const,
+} as const;
+
+/** Affiliate program configuration */
+export const AFFILIATE = {
+  commissionRate: 0.3, // 30%
+  monthlyCommission: PRICING.monthly * 0.3, // $23.70
+  url: "https://agentcenter-cloud.endorsely.com",
+} as const;
+
+export const TRUST_INDICATORS = [
+  `$${PRICING.monthly}/${PRICING.billingPeriod}`,
+  "Cancel anytime",
+  "Powered by Stripe",
+] as const;
 
 export const FEATURES = [
   {

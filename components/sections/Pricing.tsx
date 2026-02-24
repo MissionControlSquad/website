@@ -3,6 +3,7 @@
 import { Check, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useStripeLink } from "@/lib/hooks/useStripeLink";
+import { PRICING } from "@/lib/constants";
 
 const features = [
   "Unlimited AI agents",
@@ -39,8 +40,10 @@ export default function Pricing() {
         >
           <div className="text-center mb-8">
             <div className="flex items-baseline justify-center gap-1 mb-3">
-              <span className="text-5xl md:text-6xl font-bold text-neutral-100">$79</span>
-              <span className="text-xl text-neutral-400">/month</span>
+              <span className="text-5xl md:text-6xl font-bold text-neutral-100">
+                ${PRICING.monthly}
+              </span>
+              <span className="text-xl text-neutral-400">/{PRICING.billingPeriod}</span>
             </div>
             <p className="text-neutral-300 text-lg">
               Everything you need to manage your AI agent team
