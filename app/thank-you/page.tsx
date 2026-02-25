@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,8 +8,13 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, Mail, Clock, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { trackPurchaseConversion } from "@/lib/tracking";
 
 export default function ThankYouPage() {
+  useEffect(() => {
+    trackPurchaseConversion();
+  }, []);
+
   return (
     <>
       <Navbar />
