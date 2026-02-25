@@ -5,6 +5,8 @@ import { JsonLdScript } from "next-seo";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
+const GTM_ID = "GTM-WSR54GVV";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -231,28 +233,32 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
-        {/* Google Tag Manager — also loads Endorsely referral tracking (sets window.endorsely_referral) */}
-        <Script id="gtm-init" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        {/* Google Tag Manager — manages GA4, Google Ads, and Meta Pixel */}
+        {GTM_ID && (
+          <Script id="gtm-init" strategy="afterInteractive">
+            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WSR54GVV');`}
-        </Script>
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+          </Script>
+        )}
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
         suppressHydrationWarning
       >
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WSR54GVV"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        {/* GTM noscript fallback */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
