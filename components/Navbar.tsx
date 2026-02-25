@@ -95,7 +95,7 @@ export default function Navbar() {
                 Book a Demo
               </Button>
             </a>
-            <Button size="sm" onClick={checkout} disabled={isCheckoutLoading}>
+            <Button size="sm" onClick={() => checkout()} disabled={isCheckoutLoading}>
               {isCheckoutLoading ? "Loading…" : "Get Early Access"}
             </Button>
           </div>

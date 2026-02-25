@@ -29,6 +29,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       currency: session.currency,
       status: session.status,
       paymentStatus: session.payment_status,
+      plan: session.metadata?.plan ?? null,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
