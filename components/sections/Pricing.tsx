@@ -2,7 +2,7 @@
 
 import { Check, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { useStripeLink } from "@/lib/hooks/useStripeLink";
+import { useCheckout } from "@/lib/hooks/useCheckout";
 import { PRICING } from "@/lib/constants";
 
 const features = [
@@ -22,7 +22,7 @@ const features = [
 ];
 
 export default function Pricing() {
-  const stripeLink = useStripeLink();
+  const { checkout, isLoading } = useCheckout();
 
   return (
     <section id="pricing" className="py-24 px-4 bg-neutral-950">
@@ -60,19 +60,20 @@ export default function Pricing() {
           </ul>
 
           <div className="text-center">
-            <a
-              href={stripeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
+            <button
+              onClick={checkout}
+              disabled={isLoading}
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
             >
-              Subscribe Now
-              <ArrowRight
-                size={18}
-                className="group-hover:translate-x-1 transition-transform"
-                aria-hidden="true"
-              />
-            </a>
+              {isLoading ? "Loading…" : "Subscribe Now"}
+              {!isLoading && (
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
+              )}
+            </button>
             <p className="text-neutral-500 text-sm mt-4">Cancel anytime. Powered by Stripe.</p>
           </div>
         </ScrollReveal>
