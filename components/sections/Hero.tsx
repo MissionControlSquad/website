@@ -4,10 +4,10 @@ import { Sparkles } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK } from "@/lib/constants";
-import { useStripeLink } from "@/lib/hooks/useStripeLink";
+import { useCheckout } from "@/lib/hooks/useCheckout";
 
 export default function Hero() {
-  const stripeLink = useStripeLink();
+  const { checkout, isLoading } = useCheckout();
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
@@ -44,9 +44,9 @@ export default function Hero() {
                 Book a Demo
               </Button>
             </a>
-            <a href={stripeLink} target="_blank" rel="noopener noreferrer">
-              <Button size="lg">Get Early Access</Button>
-            </a>
+            <Button size="lg" onClick={() => checkout()} disabled={isLoading}>
+              {isLoading ? "Loading…" : "Get Early Access"}
+            </Button>
           </div>
 
           {/* Trust indicators */}
