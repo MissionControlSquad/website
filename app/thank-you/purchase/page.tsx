@@ -1,7 +1,3 @@
-"use client";
-
-import { Suspense, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,28 +5,10 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, Mail, Clock, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { trackPurchaseConversion } from "@/lib/tracking";
-
-function PurchaseTracker() {
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    trackPurchaseConversion({
-      value: Number(searchParams.get("amount")) || 79.0,
-      currency: searchParams.get("currency") || "USD",
-      transactionId: searchParams.get("session_id") || "",
-    });
-  }, [searchParams]);
-
-  return null;
-}
 
 export default function ThankYouPurchasePage() {
   return (
     <>
-      <Suspense fallback={null}>
-        <PurchaseTracker />
-      </Suspense>
       <Navbar />
 
       <main id="main-content">
