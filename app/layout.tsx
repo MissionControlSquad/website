@@ -3,6 +3,8 @@ import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
 import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { MetaPixel } from "@/components/MetaPixel";
 import "./globals.css";
 
 const inter = Inter({
@@ -244,6 +246,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
         suppressHydrationWarning
       >
+        <GoogleAnalytics />
+        <MetaPixel />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
