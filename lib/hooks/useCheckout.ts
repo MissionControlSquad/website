@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { type BillingPlan, DEFAULT_PLAN } from "@/lib/constants";
 
 declare global {
   interface Window {
@@ -85,31 +86,34 @@ export function useCheckout() {
     return () => clearInterval(interval);
   }, []);
 
-  const checkout = useCallback(async () => {
-    if (isLoading) return;
-    setIsLoading(true);
+  const checkout = useCallback(
+    async (plan: BillingPlan = DEFAULT_PLAN) => {
+      if (isLoading) return;
+      setIsLoading(true);
 
-    try {
-      const res = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ referral: referral || undefined }),
-      });
+      try {
+        const res = await fetch("/api/create-checkout-session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan, referral: referral || undefined }),
+        });
 
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Failed to create checkout session");
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || "Failed to create checkout session");
+        }
+
+        const { url } = await res.json();
+        if (url) {
+          window.location.href = url;
+        }
+      } catch (err) {
+        console.error("Checkout error:", err);
+        setIsLoading(false);
       }
-
-      const { url } = await res.json();
-      if (url) {
-        window.location.href = url;
-      }
-    } catch (err) {
-      console.error("Checkout error:", err);
-      setIsLoading(false);
-    }
-  }, [isLoading, referral]);
+    },
+    [isLoading, referral]
+  );
 
   return { checkout, isLoading };
 }

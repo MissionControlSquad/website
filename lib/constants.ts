@@ -59,11 +59,16 @@ export const SOCIAL_LINKS = [
   { label: "Twitter", href: "https://x.com/dharmikjagodana", icon: "Twitter" },
 ] as const;
 
+/** Billing plan type */
+export type BillingPlan = (typeof BILLING_PLANS)[number];
+export const BILLING_PLANS = ["monthly", "yearly"] as const;
+export const DEFAULT_PLAN: BillingPlan = "monthly";
+
 /** Pricing configuration */
 export const PRICING = {
   monthly: 79,
+  yearly: 799,
   currency: "USD",
-  billingPeriod: "month" as const,
 } as const;
 
 /** Affiliate program configuration */
@@ -74,7 +79,7 @@ export const AFFILIATE = {
 } as const;
 
 export const TRUST_INDICATORS = [
-  `$${PRICING.monthly}/${PRICING.billingPeriod}`,
+  `$${PRICING.monthly}/month`,
   "Cancel anytime",
   "Powered by Stripe",
 ] as const;

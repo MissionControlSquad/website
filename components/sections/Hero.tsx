@@ -44,7 +44,7 @@ export default function Hero() {
                 Book a Demo
               </Button>
             </a>
-            <Button size="lg" onClick={checkout} disabled={isLoading}>
+            <Button size="lg" onClick={() => checkout()} disabled={isLoading}>
               {isLoading ? "Loading…" : "Get Early Access"}
             </Button>
           </div>

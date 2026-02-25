@@ -22,6 +22,7 @@ interface SessionData {
   currency: string | null;
   status: string | null;
   paymentStatus: string | null;
+  plan: string | null;
 }
 
 function ThankYouContent() {
@@ -69,6 +70,7 @@ function ThankYouContent() {
 
   const displayEmail = session?.email;
   const displayAmount = session?.amount != null ? `$${(session.amount / 100).toFixed(2)}` : null;
+  const billingLabel = session?.plan === "yearly" ? "year" : "month";
 
   return (
     <>
@@ -112,7 +114,9 @@ function ThankYouContent() {
                     {displayAmount && (
                       <>
                         Your payment of{" "}
-                        <span className="text-neutral-100 font-medium">{displayAmount}/month</span>{" "}
+                        <span className="text-neutral-100 font-medium">
+                          {displayAmount}/{billingLabel}
+                        </span>{" "}
                         has been received.{" "}
                       </>
                     )}

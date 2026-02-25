@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Check, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useCheckout } from "@/lib/hooks/useCheckout";
-import { PRICING } from "@/lib/constants";
+import { PRICING, type BillingPlan, DEFAULT_PLAN } from "@/lib/constants";
 
 const features = [
   "Unlimited AI agents",
@@ -21,8 +22,15 @@ const features = [
   "Email support",
 ];
 
+const yearlyMonthly = Math.round((PRICING.yearly / 12) * 100) / 100;
+const savingsPercent = Math.round((1 - PRICING.yearly / (PRICING.monthly * 12)) * 100);
+
 export default function Pricing() {
   const { checkout, isLoading } = useCheckout();
+  const [plan, setPlan] = useState<BillingPlan>(DEFAULT_PLAN);
+
+  const displayPrice = plan === "monthly" ? PRICING.monthly : yearlyMonthly;
+  const period = plan === "monthly" ? "month" : "month";
 
   return (
     <section id="pricing" className="py-24 px-4 bg-neutral-950">
@@ -34,6 +42,35 @@ export default function Pricing() {
           </p>
         </ScrollReveal>
 
+        {/* Billing toggle */}
+        <ScrollReveal className="flex items-center justify-center gap-3 mb-10" staggerIndex={0}>
+          <button
+            onClick={() => setPlan("monthly")}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              plan === "monthly"
+                ? "bg-primary-500/20 text-primary-400 border border-primary-500/30"
+                : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={() => setPlan("yearly")}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              plan === "yearly"
+                ? "bg-primary-500/20 text-primary-400 border border-primary-500/30"
+                : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            Yearly
+            {savingsPercent > 0 && (
+              <span className="ml-2 text-xs bg-success-500/20 text-success-400 px-2 py-0.5 rounded-full">
+                Save {savingsPercent}%
+              </span>
+            )}
+          </button>
+        </ScrollReveal>
+
         <ScrollReveal
           staggerIndex={1}
           className="relative p-8 md:p-12 rounded-2xl bg-primary-500/10 border-2 border-primary-500"
@@ -41,10 +78,19 @@ export default function Pricing() {
           <div className="text-center mb-8">
             <div className="flex items-baseline justify-center gap-1 mb-3">
               <span className="text-5xl md:text-6xl font-bold text-neutral-100">
-                ${PRICING.monthly}
+                ${Math.floor(displayPrice)}
               </span>
-              <span className="text-xl text-neutral-400">/{PRICING.billingPeriod}</span>
+              {/* Show cents only if not a round number */}
+              {displayPrice % 1 !== 0 && (
+                <span className="text-2xl font-bold text-neutral-100">
+                  .{String(Math.round((displayPrice % 1) * 100)).padStart(2, "0")}
+                </span>
+              )}
+              <span className="text-xl text-neutral-400">/{period}</span>
             </div>
+            {plan === "yearly" && (
+              <p className="text-sm text-neutral-400 mb-2">Billed as ${PRICING.yearly}/year</p>
+            )}
             <p className="text-neutral-300 text-lg">
               Everything you need to manage your AI agent team
             </p>
@@ -61,7 +107,7 @@ export default function Pricing() {
 
           <div className="text-center">
             <button
-              onClick={checkout}
+              onClick={() => checkout(plan)}
               disabled={isLoading}
               className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
             >
