@@ -7,7 +7,7 @@ import { Menu, X } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS, SITE_CONFIG, CAL_LINK } from "@/lib/constants";
-import { useStripeLink } from "@/lib/hooks/useStripeLink";
+import { useCheckout } from "@/lib/hooks/useCheckout";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 
@@ -15,7 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const mobileMenuRef = useFocusTrap(isOpen);
-  const stripeLink = useStripeLink();
+  const { checkout, isLoading: isCheckoutLoading } = useCheckout();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,9 +95,9 @@ export default function Navbar() {
                 Book a Demo
               </Button>
             </a>
-            <a href={stripeLink} target="_blank" rel="noopener noreferrer">
-              <Button size="sm">Get Early Access</Button>
-            </a>
+            <Button size="sm" onClick={() => checkout()} disabled={isCheckoutLoading}>
+              {isCheckoutLoading ? "Loading…" : "Get Early Access"}
+            </Button>
           </div>
 
           {/* Mobile CTA + Menu Button */}
@@ -158,17 +158,18 @@ export default function Navbar() {
                     Book a Demo
                   </Button>
                 </a>
-                <a
-                  href={stripeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
+                <Button
+                  className="w-full"
+                  size="md"
+                  onClick={() => {
+                    setIsOpen(false);
+                    checkout();
+                  }}
+                  disabled={isCheckoutLoading}
                   tabIndex={isOpen ? 0 : -1}
                 >
-                  <Button className="w-full" size="md">
-                    Get Early Access
-                  </Button>
-                </a>
+                  {isCheckoutLoading ? "Loading…" : "Get Early Access"}
+                </Button>
               </div>
             </nav>
           </Container>

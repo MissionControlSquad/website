@@ -102,7 +102,7 @@ const howItWorks = [
 const faqs = [
   {
     question: "How much can I earn?",
-    answer: `You earn ${(AFFILIATE.commissionRate * 100).toFixed(0)}% of every subscription payment. Since AgentCenter costs $${PRICING.monthly}/${PRICING.billingPeriod}, you'll earn $${AFFILIATE.monthlyCommission.toFixed(2)} per referral per month. With 10 active referrals, that's $${(AFFILIATE.monthlyCommission * 10).toFixed(2)}/month or $${(AFFILIATE.monthlyCommission * 10 * 12).toFixed(2)}/year in passive income.`,
+    answer: `You earn ${(AFFILIATE.commissionRate * 100).toFixed(0)}% of every subscription payment. Since AgentCenter costs $${PRICING.monthly}/month, you'll earn $${AFFILIATE.monthlyCommission.toFixed(2)} per referral per month. With 10 active referrals, that's $${(AFFILIATE.monthlyCommission * 10).toFixed(2)}/month or $${(AFFILIATE.monthlyCommission * 10 * 12).toFixed(2)}/year in passive income.`,
   },
   {
     question: "When do I get paid?",
@@ -322,8 +322,8 @@ export default function AffiliatePage() {
                         High-Value Product
                       </h3>
                       <p className="text-neutral-400 text-sm">
-                        AgentCenter provides real value at ${PRICING.monthly}/$
-                        {PRICING.billingPeriod}, making it easy to justify and recommend.
+                        AgentCenter provides real value at ${PRICING.monthly}/month, making it easy
+                        to justify and recommend.
                       </p>
                     </div>
                   </div>
