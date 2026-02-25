@@ -57,6 +57,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       line_items: [{ price: priceMap[plan], quantity: 1 }],
+      allow_promotion_codes: true,
       success_url: `${origin}/thank-you/purchase?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/pricing`,
       metadata: {

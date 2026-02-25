@@ -106,7 +106,13 @@ export function useCheckout() {
         const { url } = await res.json();
         if (url) {
           window.location.href = url;
+          // Don't reset loading — page is navigating away.
+          // If user hits back from Stripe, the component remounts fresh.
+          return;
         }
+
+        // No URL returned — treat as error
+        setIsLoading(false);
       } catch (err) {
         console.error("Checkout error:", err);
         setIsLoading(false);
