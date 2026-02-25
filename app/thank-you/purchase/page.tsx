@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,7 +10,66 @@ import { Button } from "@/components/ui/Button";
 import { CheckCircle, Mail, Clock, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export default function ThankYouPage() {
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+  }
+}
+
+interface SessionData {
+  email: string | null;
+  amount: number | null;
+  currency: string | null;
+  status: string | null;
+  paymentStatus: string | null;
+}
+
+function ThankYouContent() {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get("session_id");
+
+  const [session, setSession] = useState<SessionData | null>(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(!!sessionId);
+
+  // Fetch session details and fire conversion events
+  useEffect(() => {
+    if (!sessionId) return;
+
+    let fired = false;
+
+    async function fetchSession() {
+      try {
+        const res = await fetch(`/api/checkout-session?session_id=${sessionId}`);
+        if (!res.ok) throw new Error("Failed to fetch session");
+        const data: SessionData = await res.json();
+        setSession(data);
+
+        // Fire GTM dataLayer event once
+        if (!fired && data.paymentStatus === "paid" && window.dataLayer) {
+          fired = true;
+          window.dataLayer.push({
+            event: "purchase",
+            ecommerce: {
+              transaction_id: sessionId,
+              value: data.amount ? data.amount / 100 : 0,
+              currency: (data.currency || "usd").toUpperCase(),
+            },
+          });
+        }
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchSession();
+  }, [sessionId]);
+
+  const displayEmail = session?.email;
+  const displayAmount = session?.amount != null ? `$${(session.amount / 100).toFixed(2)}` : null;
+
   return (
     <>
       <Navbar />
@@ -35,12 +98,28 @@ export default function ThankYouPage() {
                 </h1>
               </ScrollReveal>
 
-              {/* Subtext */}
+              {/* Subtext with real data */}
               <ScrollReveal staggerIndex={2}>
-                <p className="text-lg text-neutral-400 mb-12 max-w-lg mx-auto">
-                  Your payment has been received successfully. We&apos;re excited to get you started
-                  with AgentCenter.
-                </p>
+                {loading ? (
+                  <div className="h-6 w-64 mx-auto mb-12 rounded bg-neutral-800 animate-pulse" />
+                ) : error ? (
+                  <p className="text-lg text-neutral-400 mb-12 max-w-lg mx-auto">
+                    Your payment has been received successfully. We&apos;re excited to get you
+                    started with AgentCenter.
+                  </p>
+                ) : (
+                  <p className="text-lg text-neutral-400 mb-12 max-w-lg mx-auto">
+                    {displayAmount && (
+                      <>
+                        Your payment of{" "}
+                        <span className="text-neutral-100 font-medium">{displayAmount}/month</span>{" "}
+                        has been received.{" "}
+                      </>
+                    )}
+                    {!displayAmount && <>Your payment has been received successfully. </>}
+                    We&apos;re excited to get you started with AgentCenter.
+                  </p>
+                )}
               </ScrollReveal>
 
               {/* Info cards */}
@@ -71,8 +150,18 @@ export default function ThankYouPage() {
                     <h2 className="font-semibold text-neutral-100">Check Your Email</h2>
                   </div>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    We&apos;ll contact you at the email address you used during payment. Keep an eye
-                    on your inbox (and spam folder).
+                    {displayEmail ? (
+                      <>
+                        We&apos;ll contact you at{" "}
+                        <span className="text-neutral-200 font-medium">{displayEmail}</span>. Keep
+                        an eye on your inbox (and spam folder).
+                      </>
+                    ) : (
+                      <>
+                        We&apos;ll contact you at the email address you used during payment. Keep an
+                        eye on your inbox (and spam folder).
+                      </>
+                    )}
                   </p>
                 </div>
               </ScrollReveal>
@@ -156,5 +245,13 @@ export default function ThankYouPage() {
 
       <Footer />
     </>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense>
+      <ThankYouContent />
+    </Suspense>
   );
 }

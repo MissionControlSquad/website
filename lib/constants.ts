@@ -1,7 +1,5 @@
 // Site-wide constants
 
-export const STRIPE_LINK = "https://buy.stripe.com/dRm7sN0KKdnfbs4afl53O00";
-
 export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
 
 export const SITE_CONFIG = {
