@@ -226,11 +226,13 @@ function SoldOutView({
 
         <Container className="relative text-center">
           <div className="mx-auto max-w-3xl">
-            <div className="mb-8 inline-flex h-24 w-24 items-center justify-center rounded-full border border-success-500/20 bg-success-500/10 shadow-[0_0_60px_rgba(34,197,94,0.2)]">
-              <span className="text-5xl">&#10003;</span>
+            <div className="mb-6 flex justify-center">
+              <div className="flex h-24 w-24 items-center justify-center rounded-full border border-success-500/20 bg-success-500/10 shadow-[0_0_60px_rgba(34,197,94,0.2)]">
+                <span className="text-5xl">&#10003;</span>
+              </div>
             </div>
 
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-success-500/30 bg-success-500/10 px-4 py-2 text-sm font-medium text-success-500">
+            <span className="inline-flex items-center gap-2 rounded-full border border-success-500/30 bg-success-500/10 px-4 py-2 text-sm font-medium text-success-500">
               All {total} seats claimed
             </span>
 

@@ -3,18 +3,15 @@ import Stripe from "stripe";
 export const MONTHLY_PRICE = 79;
 export const YEARLY_COST = MONTHLY_PRICE * 12; // $948
 
-// TODO: restore production values before merging
-// { start: 0, end: 25 }, { start: 25, end: 50 }, { start: 50, end: 75 }, { start: 75, end: 100 }
-// TOTAL_SEATS = 100, SEATS_PER_TIER = 25
 export const TIERS = [
-  { name: "Founding Member", label: "Tier 1", start: 0, end: 3, price: 259 },
-  { name: "Builder", label: "Tier 2", start: 3, end: 5, price: 459 },
-  { name: "Growth", label: "Tier 3", start: 5, end: 7, price: 659 },
-  { name: "Pioneer", label: "Tier 4", start: 7, end: 10, price: 899 },
+  { name: "Founding Member", label: "Tier 1", start: 0, end: 25, price: 259 },
+  { name: "Builder", label: "Tier 2", start: 25, end: 50, price: 459 },
+  { name: "Growth", label: "Tier 3", start: 50, end: 75, price: 659 },
+  { name: "Pioneer", label: "Tier 4", start: 75, end: 100, price: 899 },
 ] as const;
 
-export const TOTAL_SEATS = 10;
-export const SEATS_PER_TIER = 3;
+export const TOTAL_SEATS = 100;
+export const SEATS_PER_TIER = 25;
 
 export type TierName = (typeof TIERS)[number]["name"];
 export const TIER_NAMES = TIERS.map((t) => t.name) as unknown as TierName[];
