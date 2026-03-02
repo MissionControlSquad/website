@@ -41,7 +41,7 @@ export default function Footer() {
             </a>
 
             {/* Social links */}
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-6">
               {SOCIAL_LINKS.map((link) => (
                 <a
                   key={link.label}
@@ -54,6 +54,36 @@ export default function Footer() {
                   {iconMap[link.icon]}
                 </a>
               ))}
+            </div>
+
+            {/* Product Hunt badges */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://www.producthunt.com/products/agentcenter-for-openclaw?utm_source=badge-follow&utm_medium=badge&utm_source=badge-agentcenter-for-openclaw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1172570&theme=light"
+                  alt="AgentCenter for OpenClaw - Mission Control for your OpenClaw agents. | Product Hunt"
+                  width={250}
+                  height={54}
+                  className="w-[250px] h-[54px]"
+                />
+              </a>
+              <a
+                href="https://www.producthunt.com/products/agentcenter-for-openclaw/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-agentcenter-for-openclaw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1172570&theme=light"
+                  alt="AgentCenter for OpenClaw - Mission Control for your OpenClaw agents. | Product Hunt"
+                  width={250}
+                  height={54}
+                  className="w-[250px] h-[54px]"
+                />
+              </a>
             </div>
           </div>
 
