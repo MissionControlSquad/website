@@ -6,6 +6,7 @@ import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/consta
 import "./globals.css";
 
 const GTM_ID = "GTM-WSR54GVV";
+const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -264,6 +265,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           Skip to main content
         </a>
         {children}
+        {/* HubSpot — free live chat and chatbot widget */}
+        {HUBSPOT_PORTAL_ID && (
+          <Script
+            id="hs-script-loader"
+            src={`//js.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
+            strategy="lazyOnload"
+          />
+        )}
       </body>
     </html>
   );
