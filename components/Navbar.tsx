@@ -101,7 +101,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile CTA + Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-4">
             <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="sm" variant="secondary">
                 Book a Demo
@@ -146,13 +146,14 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-neutral-800 space-y-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 pt-4 border-t border-neutral-800 space-y-3">
                 <a
                   href={CAL_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                   tabIndex={isOpen ? 0 : -1}
+                  className="w-full"
                 >
                   <Button className="w-full" size="md" variant="secondary">
                     Book a Demo
