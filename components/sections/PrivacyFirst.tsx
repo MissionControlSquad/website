@@ -47,7 +47,7 @@ export default function PrivacyFirst() {
         </ScrollReveal>
 
         {/* Core features grid */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2  gap-6">
           {TRUST_POINTS.map((point, index) => {
             const Icon = point.icon;
             return (

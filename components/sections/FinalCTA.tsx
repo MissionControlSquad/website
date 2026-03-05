@@ -62,7 +62,10 @@ export default function FinalCTA() {
                 <span className="font-medium">You&apos;re subscribed!</span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex gap-2">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+              >
                 <input
                   type="email"
                   value={email}
