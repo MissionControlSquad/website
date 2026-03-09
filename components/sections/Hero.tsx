@@ -62,7 +62,7 @@ export default function Hero() {
 
         {/* Dashboard preview */}
         <div className="mt-16 md:mt-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" /> */}
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
             {/* Browser chrome */}
             <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-800 bg-neutral-900">
@@ -77,23 +77,16 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            {/* Dashboard screenshot — responsive srcSet to avoid serving 1920w on small screens */}
-            {/* aspect-ratio prevents CLS while image loads */}
-            <div style={{ aspectRatio: "1920 / 858" }} className="relative w-full">
-              <picture>
-                <source
-                  srcSet="/dashboard-preview-800w.webp 800w, /dashboard-preview-1200w.webp 1200w, /dashboard-preview.webp 1920w"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-                  type="image/webp"
-                />
-                <img
-                  src="/dashboard-preview.webp"
-                  alt="AgentCenter Mission Control dashboard showing Kanban board with agent tasks, squad members, and activity feed"
-                  className="w-full h-full object-cover"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </picture>
+            {/* Walkthrough video via Cloudflare Stream */}
+            {/* TODO: Replace CLOUDFLARE_VIDEO_ID with the actual video ID from Cloudflare Stream */}
+            <div style={{ aspectRatio: "16 / 9" }} className="relative w-full">
+              <iframe
+                src="https://www.youtube.com/embed/R-neFn06cB4?autoplay=1&mute=1&loop=1&playlist=R-neFn06cB4&controls=1&rel=0"
+                title="AgentCenter walkthrough"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
             </div>
           </div>
         </div>
