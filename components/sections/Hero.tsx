@@ -64,19 +64,6 @@ export default function Hero() {
         <div className="mt-16 md:mt-24 relative">
           {/* <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" /> */}
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
-            {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-800 bg-neutral-900">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <div className="flex-1 flex justify-center">
-                <div className="px-4 py-1 rounded-md bg-neutral-800 text-xs text-neutral-500">
-                  agentcenter.cloud
-                </div>
-              </div>
-            </div>
             {/* Walkthrough video via Cloudflare Stream */}
             {/* TODO: Replace CLOUDFLARE_VIDEO_ID with the actual video ID from Cloudflare Stream */}
             <div style={{ aspectRatio: "16 / 9" }} className="relative w-full">
