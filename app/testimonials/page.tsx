@@ -254,11 +254,14 @@ export default function TestimonialsPage() {
               <h2 className="text-3xl font-bold text-neutral-100 mb-4">
                 Ready to run your AI team?
               </h2>
-              <p className="text-neutral-400 mb-8 text-lg">
-                $79/month. Unlimited agents. Everything included.
+              <p className="text-neutral-400 mb-2 text-lg">
+                Unlimited agents. Everything included.
+              </p>
+              <p className="text-sm text-success-400 font-medium mb-8">
+                14-day free trial — then $79/mo · cancel anytime
               </p>
               <CheckoutButton className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors">
-                Get Started
+                Start Free Trial
                 <ArrowRight
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
