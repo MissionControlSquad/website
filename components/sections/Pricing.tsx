@@ -106,12 +106,17 @@ export default function Pricing() {
           </ul>
 
           <div className="text-center">
+            {plan === "monthly" && (
+              <p className="text-sm font-medium text-success-400 mb-3">
+                7-day free trial — no charge today
+              </p>
+            )}
             <button
               onClick={() => checkout(plan)}
               disabled={isLoading}
               className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
             >
-              {isLoading ? "Loading…" : "Subscribe Now"}
+              {isLoading ? "Loading…" : plan === "monthly" ? "Start Free Trial" : "Subscribe Now"}
               {!isLoading && (
                 <ArrowRight
                   size={18}
