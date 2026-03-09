@@ -96,7 +96,16 @@ export default function Navbar() {
               </Button>
             </a>
             <Button size="sm" onClick={() => checkout()} disabled={isCheckoutLoading}>
-              {isCheckoutLoading ? "Loading…" : "Get Early Access"}
+              {isCheckoutLoading ? (
+                "Loading…"
+              ) : (
+                <span className="flex items-center gap-1.5">
+                  <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
+                    7 days free
+                  </span>
+                  Start Free Trial
+                </span>
+              )}
             </Button>
           </div>
 
@@ -169,7 +178,16 @@ export default function Navbar() {
                   disabled={isCheckoutLoading}
                   tabIndex={isOpen ? 0 : -1}
                 >
-                  {isCheckoutLoading ? "Loading…" : "Get Early Access"}
+                  {isCheckoutLoading ? (
+                    "Loading…"
+                  ) : (
+                    <span className="flex items-center gap-1.5">
+                      <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
+                        7 days free
+                      </span>
+                      Start Free Trial
+                    </span>
+                  )}
                 </Button>
               </div>
             </nav>
