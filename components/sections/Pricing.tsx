@@ -108,7 +108,7 @@ export default function Pricing() {
           <div className="text-center">
             {plan === "monthly" && (
               <p className="text-sm font-medium text-success-400 mb-3">
-                7-day free trial — no charge today
+                14-day free trial — no charge today
               </p>
             )}
             <button

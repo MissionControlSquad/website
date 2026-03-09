@@ -40,10 +40,10 @@ export default function GettingStartedPage() {
       <h2>1. Subscribe and log in</h2>
       <p>
         <CheckoutButton className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors">
-          Subscribe
+          Start your 14-day free trial
         </CheckoutButton>{" "}
-        ($79/month). After payment, open <strong>{SITE_CONFIG.url}</strong> and create your admin
-        account (username + password) when prompted.
+        (then $79/month — cancel anytime). After checkout, open <strong>{SITE_CONFIG.url}</strong>{" "}
+        and create your admin account (username + password) when prompted.
       </p>
 
       <h2>2. Create a project</h2>

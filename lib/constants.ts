@@ -79,7 +79,7 @@ export const AFFILIATE = {
 } as const;
 
 export const TRUST_INDICATORS = [
-  "7-day free trial",
+  "14-day free trial",
   `$${PRICING.monthly}/month after`,
   "Cancel anytime",
   "Powered by Stripe",

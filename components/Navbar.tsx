@@ -101,7 +101,7 @@ export default function Navbar() {
               ) : (
                 <span className="flex items-center gap-1.5">
                   <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                    7 days free
+                    14 days free
                   </span>
                   Start Free Trial
                 </span>
@@ -183,7 +183,7 @@ export default function Navbar() {
                   ) : (
                     <span className="flex items-center gap-1.5">
                       <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                        7 days free
+                        14 days free
                       </span>
                       Start Free Trial
                     </span>

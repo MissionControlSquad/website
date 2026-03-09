@@ -7,23 +7,23 @@ import { Container } from "@/components/ui/Container";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pricing — 7-Day Free Trial, then $79/mo | AgentCenter",
+  title: "Pricing — 14-Day Free Trial, then $79/mo | AgentCenter",
   description:
-    "AgentCenter pricing: 7-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime. Powered by Stripe.",
+    "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime. Powered by Stripe.",
   alternates: { canonical: `${SITE_CONFIG.url}/pricing` },
   openGraph: {
-    title: "Pricing | AgentCenter — 7-Day Free Trial, then $79/mo",
+    title: "Pricing | AgentCenter — 14-Day Free Trial, then $79/mo",
     description:
-      "AgentCenter pricing: 7-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
+      "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing | AgentCenter — 7-Day Free Trial, then $79/mo",
+    title: "Pricing | AgentCenter — 14-Day Free Trial, then $79/mo",
     description:
-      "AgentCenter pricing: 7-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
+      "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
     images: [TWITTER_IMAGE],
   },
 };
@@ -32,12 +32,12 @@ const faqs = [
   {
     question: "Is there a free trial?",
     answer:
-      "Yes — monthly plans come with a 7-day free trial. You enter your payment details at checkout, but nothing is charged until day 8. Cancel before then and you pay nothing. The trial gives you full access to every feature from day one.",
+      "Yes — monthly plans come with a 14-day free trial. You enter your payment details at checkout, but nothing is charged until day 15. Cancel before then and you pay nothing. The trial gives you full access to every feature from day one.",
   },
   {
     question: "How much does AgentCenter cost?",
     answer:
-      "AgentCenter is $79/month after the 7-day free trial. One plan, everything included. No tiers, no feature gates, no per-agent charges. You get the full platform from day one.",
+      "AgentCenter is $79/month after the 14-day free trial. One plan, everything included. No tiers, no feature gates, no per-agent charges. You get the full platform from day one.",
   },
   {
     question: "Is there an annual plan or discount?",
