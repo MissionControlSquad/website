@@ -106,12 +106,17 @@ export default function Pricing() {
           </ul>
 
           <div className="text-center">
+            {plan === "monthly" && (
+              <p className="text-sm font-medium text-success-400 mb-3">
+                14-day free trial — no charge today
+              </p>
+            )}
             <button
               onClick={() => checkout(plan)}
               disabled={isLoading}
               className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
             >
-              {isLoading ? "Loading…" : "Subscribe Now"}
+              {isLoading ? "Loading…" : plan === "monthly" ? "Start Free Trial" : "Subscribe Now"}
               {!isLoading && (
                 <ArrowRight
                   size={18}
@@ -122,40 +127,26 @@ export default function Pricing() {
             </button>
             <p className="text-neutral-500 text-sm mt-4">Cancel anytime. Powered by Stripe.</p>
           </div>
-        </ScrollReveal>
 
-        {/* Bring Your Own Claude */}
-        <ScrollReveal
-          staggerIndex={2}
-          className="mt-8 p-6 md:p-8 rounded-2xl bg-neutral-800/50 border border-neutral-700"
-        >
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
-              <span className="text-xl" role="img" aria-label="Key">
+          {/* Claude requirement — part of this plan, not a separate plan */}
+          <div className="mt-8 pt-6 border-t border-primary-500/20">
+            <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-3">
+              Also required
+            </p>
+            <div className="flex items-start gap-3">
+              <span className="text-base mt-0.5" role="img" aria-label="Key">
                 🔑
               </span>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-neutral-100 mb-1">Bring Your Own Claude</h3>
-              <p className="text-neutral-400 text-sm mb-4">
-                You&apos;ll connect your own Claude Pro or Max subscription ($20–100/mo) for AI
-                capabilities. Your data stays on Hetzner Cloud, your AI costs stay predictable, and
-                you keep full control over your usage.
-              </p>
-              <ul className="flex flex-wrap gap-x-6 gap-y-2">
-                <li className="flex items-center gap-2 text-sm text-neutral-300">
-                  <Check className="w-4 h-4 text-primary-400 flex-shrink-0" aria-hidden="true" />
-                  Your data stays on Hetzner Cloud
-                </li>
-                <li className="flex items-center gap-2 text-sm text-neutral-300">
-                  <Check className="w-4 h-4 text-primary-400 flex-shrink-0" aria-hidden="true" />
-                  Predictable AI costs
-                </li>
-                <li className="flex items-center gap-2 text-sm text-neutral-300">
-                  <Check className="w-4 h-4 text-primary-400 flex-shrink-0" aria-hidden="true" />
-                  Full usage control
-                </li>
-              </ul>
+              <div>
+                <p className="text-sm text-neutral-300 font-medium mb-1">
+                  Your own Claude Pro or Max subscription
+                </p>
+                <p className="text-sm text-neutral-500">
+                  AgentCenter is the dashboard — Claude is the engine. You bring your own Anthropic
+                  subscription ($20–100/mo). Your data stays on Hetzner Cloud, costs stay
+                  predictable, and you keep full control.
+                </p>
+              </div>
             </div>
           </div>
         </ScrollReveal>
