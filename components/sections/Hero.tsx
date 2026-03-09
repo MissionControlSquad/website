@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "@/components/icons";
+import { Sparkles, ArrowRight } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK } from "@/lib/constants";
@@ -44,9 +44,27 @@ export default function Hero() {
                 Book a Demo
               </Button>
             </a>
-            <Button size="lg" onClick={() => checkout()} disabled={isLoading}>
-              {isLoading ? "Loading…" : "Get Early Access"}
-            </Button>
+            <button
+              onClick={() => checkout()}
+              disabled={isLoading}
+              className="group relative inline-flex flex-col items-center px-8 py-3.5 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            >
+              <span className="flex items-center gap-2 text-white font-semibold text-base">
+                {isLoading ? "Loading…" : "Start 14-Day Free Trial"}
+                {!isLoading && (
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                    aria-hidden="true"
+                  />
+                )}
+              </span>
+              {!isLoading && (
+                <span className="text-xs text-primary-200/70 mt-0.5">
+                  then $79/mo · cancel anytime
+                </span>
+              )}
+            </button>
           </div>
 
           {/* Trust indicators */}
@@ -64,19 +82,6 @@ export default function Hero() {
         <div className="mt-16 md:mt-24 relative">
           {/* <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" /> */}
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
-            {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-800 bg-neutral-900">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <div className="flex-1 flex justify-center">
-                <div className="px-4 py-1 rounded-md bg-neutral-800 text-xs text-neutral-500">
-                  agentcenter.cloud
-                </div>
-              </div>
-            </div>
             {/* Walkthrough video via Cloudflare Stream */}
             {/* TODO: Replace CLOUDFLARE_VIDEO_ID with the actual video ID from Cloudflare Stream */}
             <div style={{ aspectRatio: "16 / 9" }} className="relative w-full">
