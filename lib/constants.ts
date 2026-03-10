@@ -269,6 +269,34 @@ export const FEATURE_CATEGORIES = [
   },
 ] as const;
 
+export const USE_CASES = [
+  {
+    title: "AI Research Teams",
+    description:
+      "Agents collect, analyze, and synthesize information across sources automatically.",
+    icon: "Search",
+    href: "/blogs/complete-guide-ai-agent-management-2026",
+  },
+  {
+    title: "Autonomous Product Builders",
+    description: "Agents generate ideas, write code, run tests, and deploy — end to end.",
+    icon: "Bot",
+    href: "/blogs/ai-agent-deployment-prototype-to-production",
+  },
+  {
+    title: "Automated Business Operations",
+    description: "Agents handle repetitive workflows so your team focuses on what matters.",
+    icon: "Zap",
+    href: "/blogs/ai-agent-lifecycle-framework",
+  },
+  {
+    title: "Data Monitoring Systems",
+    description: "Agents track metrics, detect anomalies, and generate alerts in real time.",
+    icon: "Activity",
+    href: "/blogs/ai-agent-monitoring-best-practices-2026",
+  },
+] as const;
+
 export const HOW_IT_WORKS_STEPS = [
   {
     number: 1,
