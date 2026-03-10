@@ -4,9 +4,9 @@ export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
 
 export const SITE_CONFIG = {
   name: "AgentCenter",
-  tagline: "Mission Control for Your OpenClaw Agents",
+  tagline: "Mission Control for AI Agent Teams",
   description:
-    "Mission Control dashboard for your OpenClaw agents. Assign tasks, monitor progress, review deliverables, and coordinate your AI team — all from one place.",
+    "Build, monitor, and scale autonomous AI agents from a single dashboard. Assign tasks, track progress, review deliverables, and coordinate your entire AI team.",
   url: "https://agentcenter.cloud",
 } as const;
 

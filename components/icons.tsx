@@ -473,6 +473,14 @@ export function TrendingUp(props: IconProps) {
   );
 }
 
+export function Play(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <polygon points="6 3 20 12 6 21 6 3" />
+    </Icon>
+  );
+}
+
 export function AlertTriangle(props: IconProps) {
   return (
     <Icon {...props}>

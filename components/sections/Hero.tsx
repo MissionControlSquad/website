@@ -1,10 +1,13 @@
 "use client";
 
-import { Sparkles, ArrowRight } from "@/components/icons";
+import Image from "next/image";
+import { Sparkles, ArrowRight, Play } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK } from "@/lib/constants";
+import { SITE_CONFIG, TRUST_INDICATORS } from "@/lib/constants";
 import { useCheckout } from "@/lib/hooks/useCheckout";
+
+const DEMO_VIDEO_URL = "https://www.youtube.com/watch?v=R-neFn06cB4";
 
 export default function Hero() {
   const { checkout, isLoading } = useCheckout();
@@ -23,7 +26,7 @@ export default function Hero() {
           <div className="mb-6 animate-hero-fade-in [animation-delay:100ms]">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium">
               <Sparkles size={16} aria-hidden="true" />
-              <span>Built for OpenClaw agents</span>
+              <span>The dashboard your AI agents deserve</span>
             </span>
           </div>
 
@@ -39,11 +42,6 @@ export default function Hero() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 animate-hero-fade-in [animation-delay:400ms]">
-            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="secondary">
-                Book a Demo
-              </Button>
-            </a>
             <button
               onClick={() => checkout()}
               disabled={isLoading}
@@ -65,6 +63,12 @@ export default function Hero() {
                 </span>
               )}
             </button>
+            <a href={DEMO_VIDEO_URL} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="secondary" className="gap-2">
+                <Play size={18} aria-hidden="true" />
+                Watch Demo
+              </Button>
+            </a>
           </div>
 
           {/* Trust indicators */}
@@ -78,21 +82,18 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Dashboard preview */}
-        <div className="mt-16 md:mt-24 relative">
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" /> */}
+        {/* Dashboard screenshot */}
+        <div className="mt-16 md:mt-24 relative animate-hero-fade-in [animation-delay:600ms]">
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
-            {/* Walkthrough video via Cloudflare Stream */}
-            {/* TODO: Replace CLOUDFLARE_VIDEO_ID with the actual video ID from Cloudflare Stream */}
-            <div style={{ aspectRatio: "16 / 9" }} className="relative w-full">
-              <iframe
-                src="https://www.youtube.com/embed/R-neFn06cB4?autoplay=1&mute=1&loop=1&playlist=R-neFn06cB4&controls=1&rel=0"
-                title="AgentCenter walkthrough"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-0"
-              />
-            </div>
+            <Image
+              src="/dashboard-preview.webp"
+              alt="AgentCenter dashboard — task board, agent status, and deliverable review in one view"
+              width={1200}
+              height={675}
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </Container>

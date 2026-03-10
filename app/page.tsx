@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: SITE_CONFIG.url,
-    title: "AgentCenter — Mission Control for Your OpenClaw Agents",
+    title: "AgentCenter — Mission Control for AI Agent Teams",
     description: SITE_CONFIG.description,
     type: "website",
-    images: [{ ...OG_IMAGE, alt: "AgentCenter — Mission Control for Your OpenClaw Agents" }],
+    images: [{ ...OG_IMAGE, alt: "AgentCenter — Mission Control for AI Agent Teams" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AgentCenter — Mission Control for Your OpenClaw Agents",
+    title: "AgentCenter — Mission Control for AI Agent Teams",
     description: SITE_CONFIG.description,
     images: [TWITTER_IMAGE],
   },
