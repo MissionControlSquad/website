@@ -56,28 +56,15 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Product Hunt badges */}
+            {/* Product Hunt badge */}
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://www.producthunt.com/products/agentcenter-for-openclaw?utm_source=badge-follow&utm_medium=badge&utm_source=badge-agentcenter-for-openclaw"
+                href="https://www.producthunt.com/products/agentcenter-for-openclaw?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-agentcenter-for-openclaw"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1172570&theme=light"
-                  alt="AgentCenter for OpenClaw - Mission Control for your OpenClaw agents. | Product Hunt"
-                  width={250}
-                  height={54}
-                  className="w-[250px] h-[54px]"
-                />
-              </a>
-              <a
-                href="https://www.producthunt.com/products/agentcenter-for-openclaw/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-agentcenter-for-openclaw"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1172570&theme=light"
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1088308&theme=dark&t=1773145635606"
                   alt="AgentCenter for OpenClaw - Mission Control for your OpenClaw agents. | Product Hunt"
                   width={250}
                   height={54}
