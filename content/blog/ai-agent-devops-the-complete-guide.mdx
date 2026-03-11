@@ -1,0 +1,334 @@
+---
+title: "AI Agent DevOps: The Complete Guide"
+description: "Everything you need to run AI agents in production — deployment, monitoring, CI/CD, incident response, and operational best practices."
+date: "2026-03-10"
+author: "AgentCenter Team"
+tags: ["ai-agents", "devops", "production", "monitoring", "operations"]
+keywords: ["ai agent devops", "ai agent production", "ai agent monitoring", "ai agent deployment"]
+---
+
+# AI Agent DevOps: The Complete Guide
+
+You built an AI agent. It works on your laptop. Now what?
+
+The gap between a working agent and a production agent is the same gap that exists between a working web app and a production web app — except most teams have never crossed it for agents before. There is no established playbook. No standard CI/CD pipeline. No "Heroku for agents" (yet).
+
+This guide is the playbook. Everything you need to deploy, monitor, and operate AI agents in production — drawn from real patterns used by teams running multi-agent systems today.
+
+---
+
+## What Makes Agent DevOps Different
+
+Traditional DevOps assumes deterministic systems. You deploy code, it runs the same way every time (or it is a bug). Agents break this assumption in three ways:
+
+1. **Non-deterministic output.** The same prompt can produce different results. "Deploy and verify" is not as simple as running tests.
+2. **Stateful execution.** Agents carry context across steps. A restart might lose progress mid-task.
+3. **External dependencies.** Agents call LLM APIs, search engines, databases, and other agents. Each is a potential failure point.
+
+This means agent DevOps needs everything traditional DevOps has — plus additional patterns for handling non-determinism, state, and cascading failures.
+
+---
+
+## The Agent DevOps Stack
+
+A production agent system has five layers:
+
+### Layer 1: Agent Code & Configuration
+
+The agent itself — prompts, tools, logic, and configuration files.
+
+**Best practices:**
+
+- Version-control everything: system prompts, tool definitions, configuration
+- Separate agent logic from credentials (environment variables, not hardcoded keys)
+- Use configuration files that can be updated without redeploying code
+- Pin LLM model versions (do not default to "latest")
+
+### Layer 2: Deployment & Execution
+
+Where and how agents run.
+
+**Options by scale:**
+| Scale | Approach | Pros | Cons |
+|---|---|---|---|
+| 1-5 agents | Local machine / single server | Simple, cheap | No redundancy |
+| 5-20 agents | Cloud VMs or containers | Scalable, isolated | More ops overhead |
+| 20-100+ agents | Container orchestration (K8s) or managed platform | Auto-scaling, resilient | Complex setup |
+
+**Key principles:**
+
+- Each agent should be independently deployable
+- Agents should be stateless where possible (persist state externally)
+- Use health checks to detect hung or crashed agents
+
+### Layer 3: Task Management & Coordination
+
+The control plane that assigns work and tracks progress.
+
+This is the layer most teams skip — and most teams regret skipping. Without it, you have independent agents with no coordination.
+
+→ **AgentCenter** provides this layer out of the box: task queues, assignment, status tracking, cross-agent visibility, and deliverable management.
+
+### Layer 4: Monitoring & Observability
+
+Knowing what your agents are doing, in real time and historically.
+
+**Three pillars of agent observability:**
+
+- **Heartbeats:** Is the agent alive and working? (Layer 3 / AgentCenter handles this)
+- **Traces:** What did the agent do step-by-step? (LangSmith, AgentOps, or custom logging)
+- **Metrics:** How long did it take? How much did it cost? What is the error rate?
+
+### Layer 5: Incident Response & Recovery
+
+What happens when things go wrong.
+
+---
+
+## Deploying Agents: A Practical Guide
+
+### Step 1: Containerize Your Agent
+
+Wrap each agent in a container with its dependencies. A minimal Dockerfile:
+
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "agent.py"]
+```
+
+Why containers? Isolation, reproducibility, and easy scaling. If agent A needs Python 3.11 and agent B needs Node 20, containers handle it.
+
+### Step 2: Externalize State
+
+Agents should not store critical state in memory or local files. Use:
+
+- **Task management API** (AgentCenter) for work state
+- **Database** for persistent agent memory
+- **Object storage** (S3, GCS) for deliverables and artifacts
+
+Why? If an agent crashes and restarts, it should be able to resume work. Local state dies with the process.
+
+### Step 3: Configure Health Checks
+
+Every agent needs a way to report "I am alive and working." Two patterns:
+
+**Pull-based (heartbeat):**
+The agent periodically sends a status update to the control plane.
+
+```bash
+# Agent sends heartbeat every 10 minutes
+curl -X POST "$MC/api/events/ingest" \
+  -H "Authorization: Bearer $KEY" \
+  -d '{"type":"agent.heartbeat","statusMessage":"Processing task #42"}'
+```
+
+**Push-based (health endpoint):**
+An orchestrator pings the agent's health endpoint.
+
+```bash
+# Kubernetes-style liveness probe
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  periodSeconds: 60
+```
+
+Use both when possible. Heartbeats catch application-level hangs. Health endpoints catch process-level crashes.
+
+### Step 4: Set Up Deployment Pipeline
+
+A basic agent CI/CD pipeline:
+
+1. **Push to main** → trigger pipeline
+2. **Run tests** → unit tests for tools, integration tests for agent flows
+3. **Build container** → tag with git SHA
+4. **Deploy to staging** → run against test tasks
+5. **Promote to production** → rolling update, one agent at a time
+
+The critical difference from web app CI/CD: you cannot fully test agent output deterministically. Focus tests on:
+
+- Tool function correctness (deterministic)
+- API integration (mocked or sandboxed)
+- Output format and structure (schema validation)
+- Guard rails and safety checks
+
+---
+
+## Monitoring Agents in Production
+
+### What to Monitor
+
+**Agent-level metrics:**
+
+- Heartbeat freshness (time since last check-in)
+- Current status (working, idle, errored)
+- Task completion rate
+- Average task duration
+- Error rate per agent
+
+**System-level metrics:**
+
+- LLM API latency and error rates
+- Token usage and cost per agent/task
+- Memory and CPU per container
+- Queue depth (unassigned tasks waiting)
+
+**Business-level metrics:**
+
+- Deliverables submitted per day
+- Review approval rate
+- Time from task creation to completion
+- Agent utilization (working time / total time)
+
+### Alerting Rules
+
+Start simple. These five alerts catch most production issues:
+
+| Alert           | Condition                              | Severity |
+| --------------- | -------------------------------------- | -------- |
+| Agent down      | No heartbeat for 30 min                | Critical |
+| Task stuck      | Same task in_progress for >4 hours     | Warning  |
+| High error rate | >20% of API calls failing for an agent | Critical |
+| Cost spike      | Daily LLM cost >2x rolling average     | Warning  |
+| Queue backup    | >10 unassigned tasks for >1 hour       | Warning  |
+
+---
+
+## Incident Response for Agent Systems
+
+### Common Failure Modes
+
+**1. LLM API outage**
+
+- _Symptom:_ All agents stall simultaneously
+- _Response:_ Pause task assignment, agents retry with exponential backoff
+- _Prevention:_ Multi-provider fallback (OpenAI → Anthropic → local model)
+
+**2. Agent infinite loop**
+
+- _Symptom:_ One agent burns tokens without producing output
+- _Response:_ Kill the agent process, reassign task
+- _Prevention:_ Token budget per task, maximum step count, timeout enforcement
+
+**3. Cascading failure**
+
+- _Symptom:_ Agent A's bad output causes Agent B to fail, which blocks Agent C
+- _Response:_ Identify root cause agent, pause downstream tasks
+- _Prevention:_ Validate deliverables before passing to dependent tasks, use blocking dependencies
+
+**4. Stale context**
+
+- _Symptom:_ Agent produces outdated or contradictory output
+- _Response:_ Clear agent context/memory, reprocess with fresh data
+- _Prevention:_ TTL on cached context, periodic memory refresh
+
+### The Agent Incident Playbook
+
+1. **Detect** — Automated alerts or human report
+2. **Isolate** — Pause the affected agent(s) without stopping the fleet
+3. **Diagnose** — Check traces, logs, and recent deliverables
+4. **Fix** — Update config, restart agent, or reassign task
+5. **Verify** — Confirm agent is healthy and producing correct output
+6. **Document** — Log the incident and update runbooks
+
+---
+
+## Agent CI/CD: Testing Non-Deterministic Systems
+
+The hardest part of agent DevOps is testing. You cannot assert exact output. Instead, test at multiple levels:
+
+### Level 1: Unit Tests (Deterministic)
+
+Test individual tools and functions.
+
+```python
+def test_search_tool():
+    result = search_tool("test query")
+    assert isinstance(result, list)
+    assert len(result) > 0
+    assert "title" in result[0]
+```
+
+### Level 2: Integration Tests (Semi-Deterministic)
+
+Test agent workflows with mocked LLM responses.
+
+```python
+def test_research_workflow():
+    with mock_llm(responses=["Summary of findings..."]):
+        result = agent.run("Research topic X")
+        assert result.status == "completed"
+        assert len(result.deliverable) > 100
+```
+
+### Level 3: Evaluation Tests (Statistical)
+
+Run the agent against a test suite and measure quality.
+
+```python
+def test_content_quality():
+    results = [agent.run(task) for task in test_tasks]
+    avg_quality = evaluate_quality(results)
+    assert avg_quality > 0.8  # 80% threshold
+```
+
+### Level 4: Shadow Testing (Production)
+
+Run new agent versions alongside production on duplicate tasks. Compare output quality before promoting.
+
+---
+
+## Configuration Management
+
+Agents need configuration updates more frequently than traditional services — prompt tweaks, tool additions, parameter changes.
+
+**Pattern: Hot-reloadable configuration**
+
+1. Store agent config in a central system (AgentCenter config bundle, database, or config service)
+2. Agents check for config updates on each heartbeat
+3. When an update is available, agents pull and apply without restarting
+4. Config changes are versioned and auditable
+
+AgentCenter implements this with config versions — agents sync their config version on each heartbeat, and the dashboard flags when an upgrade is available.
+
+---
+
+## Cost Management
+
+LLM API costs scale linearly (or worse) with agent count. At 100 agents, unmanaged costs become a serious problem.
+
+**Cost control strategies:**
+
+- **Token budgets per task** — Set maximum token spend per task type
+- **Model tiering** — Use cheaper models for simple tasks, premium models for complex ones
+- **Caching** — Cache common LLM responses (especially for repeated tool calls)
+- **Batch processing** — Group similar tasks to share context and reduce redundant API calls
+- **Usage dashboards** — Track cost per agent, per project, per day
+
+---
+
+## Putting It All Together
+
+A production-ready agent DevOps setup:
+
+1. ✅ **Version-controlled** agent code and configuration
+2. ✅ **Containerized** agents with independent deployment
+3. ✅ **Centralized task management** (AgentCenter)
+4. ✅ **Heartbeat monitoring** with alerting
+5. ✅ **CI/CD pipeline** with multi-level testing
+6. ✅ **Incident response** playbook documented
+7. ✅ **Cost tracking** and budgets per agent/project
+8. ✅ **Configuration management** with hot-reload
+
+You do not need all of this on day one. Start with task management and heartbeats (the highest-impact, lowest-effort wins), then layer in CI/CD, monitoring, and cost controls as your fleet grows.
+
+[→ Get started with AgentCenter — free tier available](https://agentcenter.cloud)
+
+---
+
+_AI agents in production are not a coding problem — they are an operations problem. Treat them like the infrastructure they are, and they will deliver like the team they can become._
