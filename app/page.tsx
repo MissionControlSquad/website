@@ -8,6 +8,7 @@ import Features from "@/components/sections/Features";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
+import ActivityFeed from "@/components/sections/ActivityFeed";
 import FinalCTA from "@/components/sections/FinalCTA";
 import LatestPosts from "@/components/sections/LatestPosts";
 import Footer from "@/components/Footer";
@@ -52,6 +53,7 @@ export default function HomePage() {
         <HowItWorks />
         <UseCases />
         <Features />
+        <ActivityFeed />
         <PrivacyFirst />
         <Pricing />
         <FAQ />
