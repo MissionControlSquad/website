@@ -1,19 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, MessageCircle } from "@/components/icons";
+import { Twitter, MessageCircle, Github } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS, CAL_LINK } from "@/lib/constants";
 
 const iconMap: Record<string, React.ReactNode> = {
   Twitter: <Twitter size={20} />,
   MessageCircle: <MessageCircle size={20} />,
+  Github: <Github size={20} />,
 };
 
 export default function Footer() {
   return (
     <footer className="py-16 border-t border-neutral-800 bg-neutral-950">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link
@@ -86,6 +87,26 @@ export default function Footer() {
                   >
                     {link.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Community links */}
+          <div>
+            <h3 className="font-semibold text-neutral-100 mb-4">Community</h3>
+            <ul className="space-y-3">
+              {SOCIAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-100 transition-colors"
+                  >
+                    {iconMap[link.icon]}
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
