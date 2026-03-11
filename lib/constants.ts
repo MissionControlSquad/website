@@ -40,6 +40,10 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = {
   product: [
     { label: "Features", href: "/features" },
+    { label: "Agent Dashboard", href: "/features/agent-dashboard" },
+    { label: "Task Orchestration", href: "/features/task-orchestration" },
+    { label: "Agent Monitoring", href: "/features/agent-monitoring" },
+    { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
     { label: "Pricing", href: "/pricing" },
     { label: "About", href: "/about" },
     { label: "Docs", href: "/docs" },
