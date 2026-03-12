@@ -56,13 +56,6 @@ export const FOOTER_LINKS = {
     { label: "Agent Monitoring", href: "/features/agent-monitoring" },
     { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
   ],
-  useCases: [
-    { label: "AI Research Teams", href: "/features#agent-management" },
-    { label: "Autonomous Builders", href: "/features#deliverables-quality" },
-    { label: "Business Operations", href: "/features#project-management" },
-    { label: "Data Monitoring", href: "/features#monitoring-audit" },
-    { label: "Testimonials", href: "/testimonials" },
-  ],
   comparisons: [
     { label: "vs CrewAI", href: "/compare/vs-crewai" },
     { label: "vs LangSmith", href: "/compare/vs-langsmith" },

@@ -150,7 +150,7 @@ Build multi-agent workflows that actually deliver. Start your 14-day free trial 
 - [Learn about task management →](/features/task-orchestration)
 - [Deep dive into agent monitoring →](/features/agent-monitoring)
 - [Back to AgentCenter →](/)
-- [Read: How to Manage 100 AI Agents at Scale →](/blogs)
+- [Read: How to Manage 100 AI Agents at Scale →](/blogs/how-to-manage-100-ai-agents-at-scale)
 `;
 
 export default function MultiAgentWorkflowsPage() {

@@ -13,7 +13,6 @@ const iconMap: Record<string, React.ReactNode> = {
 const FOOTER_SECTIONS = [
   { title: "Product", links: FOOTER_LINKS.product },
   { title: "Features", links: FOOTER_LINKS.features },
-  { title: "Use Cases", links: FOOTER_LINKS.useCases },
   { title: "Compare", links: FOOTER_LINKS.comparisons },
   { title: "Legal", links: FOOTER_LINKS.legal },
 ] as const;
@@ -22,7 +21,7 @@ export default function Footer() {
   return (
     <footer className="py-16 border-t border-neutral-800 bg-neutral-950">
       <Container>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link
