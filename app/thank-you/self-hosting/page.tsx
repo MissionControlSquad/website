@@ -315,7 +315,7 @@ function SelfHostingThankYouContent() {
                     </a>{" "}
                     or message me on{" "}
                     <a
-                      href="https://x.com/dharmikjagodana"
+                      href="https://x.com/AgentsCenter"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-400 underline underline-offset-2 transition-colors hover:text-primary-300"

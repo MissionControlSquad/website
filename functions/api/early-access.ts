@@ -70,7 +70,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           </p>
           <p>Follow me on X (Twitter) for the latest updates and behind-the-scenes progress:</p>
           <p style="margin: 16px 0;">
-            <a href="https://x.com/dharmikjagodana" style="color: #1a8cd8; text-decoration: none; font-weight: 500;">@dharmikjagodana on X</a>
+            <a href="https://x.com/AgentsCenter" style="color: #1a8cd8; text-decoration: none; font-weight: 500;">@AgentsCenter on X</a>
           </p>
           <br />
           <p>— Dharmik Jagodana, Founder of AgentCenter</p>

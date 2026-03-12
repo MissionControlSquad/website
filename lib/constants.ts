@@ -41,41 +41,25 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   product: [
-    { label: "Features", href: "/features" },
-    { label: "Agent Dashboard", href: "/features/agent-dashboard" },
-    { label: "Task Orchestration", href: "/features/task-orchestration" },
-    { label: "Agent Monitoring", href: "/features/agent-monitoring" },
-    { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
     { label: "Pricing", href: "/pricing" },
     { label: "Self-Hosting", href: "/self-hosting" },
     { label: "About", href: "/about" },
-    { label: "Docs", href: "/docs" },
     { label: "Blog", href: "/blogs" },
     { label: "FAQ", href: "/faq" },
     { label: "Changelog", href: "/changelog" },
     { label: "Affiliate", href: "/affiliate" },
   ],
-  useCases: [
-    { label: "AI Research Teams", href: "/features#agent-management" },
-    { label: "Autonomous Builders", href: "/features#deliverables-quality" },
-    { label: "Business Operations", href: "/features#project-management" },
-    { label: "Data Monitoring", href: "/features#monitoring-audit" },
-    { label: "Testimonials", href: "/testimonials" },
+  features: [
+    { label: "Features", href: "/features" },
+    { label: "Agent Dashboard", href: "/features/agent-dashboard" },
+    { label: "Task Orchestration", href: "/features/task-orchestration" },
+    { label: "Agent Monitoring", href: "/features/agent-monitoring" },
+    { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
   ],
   comparisons: [
     { label: "vs CrewAI", href: "/compare/vs-crewai" },
     { label: "vs LangSmith", href: "/compare/vs-langsmith" },
     { label: "vs DIY Management", href: "/compare/vs-diy-agent-management" },
-    { label: "About", href: "/about" },
-    { label: "FAQ", href: "/faq" },
-  ],
-  resources: [
-    { label: "Documentation", href: "/docs" },
-    { label: "Getting Started", href: "/docs/getting-started" },
-    { label: "How Agents Work", href: "/docs/how-agents-work" },
-    { label: "API Reference", href: "/docs/api-reference" },
-    { label: "Roadmap", href: "/docs/roadmap" },
-    { label: "Blog", href: "/blogs" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
@@ -85,8 +69,8 @@ export const FOOTER_LINKS = {
 } as const;
 
 export const SOCIAL_LINKS = [
-  { label: "Twitter", href: "https://x.com/dharmikjagodana", icon: "Twitter" },
-  { label: "Discord", href: "https://discord.gg/agentcenter", icon: "MessageCircle" },
+  { label: "Twitter", href: "https://x.com/AgentsCenter", icon: "Twitter" },
+  { label: "Discord", href: "https://discord.gg/rXpjytYr", icon: "MessageCircle" },
   { label: "GitHub", href: "https://github.com/MissionControlSquad", icon: "Github" },
 ] as const;
 
