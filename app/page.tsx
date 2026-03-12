@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
+import UseCases from "@/components/sections/UseCases";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
 import Features from "@/components/sections/Features";
+import SocialProof from "@/components/sections/SocialProof";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
@@ -49,7 +51,9 @@ export default function HomePage() {
         <Hero />
         <DistributedByDesign />
         <HowItWorks />
+        <UseCases />
         <Features />
+        <SocialProof />
         <PrivacyFirst />
         <Pricing />
         <FAQ />
