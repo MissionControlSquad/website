@@ -6,48 +6,48 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/api/*", "/_next/*", "/admin/*", "/thank-you", "/opengraph-image.png"],
+  exclude: ["/api/*", "/_next/*", "/admin/*", "/thank-you", "/thank-you/*", "/opengraph-image.png"],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "GPTBot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "ChatGPT-User",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "Claude-Web",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "Anthropic-AI",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "Google-Extended",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "PerplexityBot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
       {
         userAgent: "cohere-ai",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/"],
       },
     ],
     additionalSitemaps: [],
