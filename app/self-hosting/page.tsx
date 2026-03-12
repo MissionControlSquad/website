@@ -631,6 +631,52 @@ export default function SelfHostingPage() {
             </p>
           </div>
         </section>
+
+        {/* Final CTA */}
+        <section className="py-24 px-4 bg-neutral-950 border-t border-neutral-800">
+          <Container>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
+                Ready to Run AgentCenter on Your Own Server?
+              </h2>
+              <p className="text-lg text-neutral-400 mb-10">
+                One Docker image. Your infrastructure. ${SELFHOSTING_PRICING.monthly}/month — or
+                save {SELFHOSTING_PRICING.yearlyDiscount}% with an annual license.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="#pricing"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
+                >
+                  Get Your License
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center gap-2 px-8 py-4 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold rounded-xl transition-colors"
+                >
+                  Try the Cloud Plan Instead
+                </Link>
+              </div>
+              <p className="text-sm text-neutral-500 mt-6">
+                Cancel anytime. Activation key delivered within 24 hours.
+              </p>
+            </div>
+          </Container>
+        </section>
       </main>
       <Footer />
     </>
