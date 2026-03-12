@@ -12,9 +12,9 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const FOOTER_SECTIONS = [
   { title: "Product", links: FOOTER_LINKS.product },
+  { title: "Features", links: FOOTER_LINKS.features },
   { title: "Use Cases", links: FOOTER_LINKS.useCases },
   { title: "Compare", links: FOOTER_LINKS.comparisons },
-  { title: "Resources", links: FOOTER_LINKS.resources },
   { title: "Legal", links: FOOTER_LINKS.legal },
 ] as const;
 
