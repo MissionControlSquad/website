@@ -6,6 +6,7 @@ import UseCases from "@/components/sections/UseCases";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
 import Features from "@/components/sections/Features";
 import LiveActivityFeed from "@/components/sections/LiveActivityFeed";
+import SocialProof from "@/components/sections/SocialProof";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
@@ -54,6 +55,7 @@ export default function HomePage() {
         <UseCases />
         <Features />
         <LiveActivityFeed />
+        <SocialProof />
         <PrivacyFirst />
         <Pricing />
         <FAQ />

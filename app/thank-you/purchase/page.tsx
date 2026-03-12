@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, AlertTriangle, Mail, Clock, ArrowRight } from "@/components/icons";
@@ -27,15 +28,19 @@ interface SessionData {
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const sessionId = searchParams.get("session_id");
 
   const [session, setSession] = useState<SessionData | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(!!sessionId);
 
-  // Fetch session details and fire conversion events
+  // Redirect to home if no session; otherwise fetch and fire conversion events
   useEffect(() => {
-    if (!sessionId) return;
+    if (!sessionId) {
+      router.replace("/");
+      return;
+    }
 
     let fired = false;
 
@@ -66,7 +71,7 @@ function ThankYouContent() {
     }
 
     fetchSession();
-  }, [sessionId]);
+  }, [sessionId, router]);
 
   const displayEmail = session?.email;
   const displayAmount = session?.amount != null ? `$${(session.amount / 100).toFixed(2)}` : null;
@@ -250,7 +255,7 @@ function ThankYouContent() {
                       Back to Home
                     </Button>
                   </Link>
-                  <a href="mailto:hey@dharmikjagodana.com">
+                  <a href={`mailto:${CONTACT_EMAIL}`}>
                     <Button variant="outline" size="lg">
                       <span className="flex items-center gap-2">
                         Questions? Contact Us
@@ -264,10 +269,10 @@ function ThankYouContent() {
                   <p>
                     Need help? Reach us at{" "}
                     <a
-                      href="mailto:hey@dharmikjagodana.com"
+                      href={`mailto:${CONTACT_EMAIL}`}
                       className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
                     >
-                      hey@dharmikjagodana.com
+                      {CONTACT_EMAIL}
                     </a>{" "}
                     or message me on{" "}
                     <a

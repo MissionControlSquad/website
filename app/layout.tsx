@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
-import { OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
+import { CONTACT_EMAIL, OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
 const GTM_ID = "GTM-WSR54GVV";
@@ -159,10 +159,10 @@ const jsonLd = {
         height: 192,
       },
       image: OG_IMAGE_URL,
-      email: "hey@dharmikjagodana.com",
+      email: CONTACT_EMAIL,
       contactPoint: {
         "@type": "ContactPoint",
-        email: "hey@dharmikjagodana.com",
+        email: CONTACT_EMAIL,
         contactType: "customer support",
         availableLanguage: "English",
       },

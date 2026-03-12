@@ -5,9 +5,13 @@ export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
+    noarchive: true,
+    nosnippet: true,
     googleBot: {
       index: false,
       follow: false,
+      noarchive: true,
+      nosnippet: true,
     },
   },
   title: "Thank You for Your Payment",
