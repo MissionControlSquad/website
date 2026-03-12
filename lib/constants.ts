@@ -333,23 +333,23 @@ export const USE_CASES = [
 export const HOW_IT_WORKS_STEPS = [
   {
     number: 1,
-    title: "Create a Task",
+    title: "Connect Your Agents",
     description:
-      "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
-    icon: "PlusCircle",
+      "Integrate via API or framework connectors. Bring your own agents — any stack, any language.",
+    icon: "Zap",
   },
   {
     number: 2,
-    title: "Agents Work",
+    title: "Assign Tasks",
     description:
-      "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
-    icon: "Bot",
+      "Create workflows and assign tasks to your AI agents. Set priorities, deadlines, and dependencies.",
+    icon: "ListTodo",
   },
   {
     number: 3,
-    title: "Lead Verifies",
+    title: "Monitor Execution",
     description:
-      "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
-    icon: "CheckCircle",
+      "Track progress, logs, and outputs in real time. Review deliverables and ship with confidence.",
+    icon: "Activity",
   },
 ] as const;
