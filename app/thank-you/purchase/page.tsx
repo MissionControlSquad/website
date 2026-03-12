@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, AlertTriangle, Mail, Clock, ArrowRight } from "@/components/icons";
@@ -254,7 +255,7 @@ function ThankYouContent() {
                       Back to Home
                     </Button>
                   </Link>
-                  <a href="mailto:hey@dharmikjagodana.com">
+                  <a href={`mailto:${CONTACT_EMAIL}`}>
                     <Button variant="outline" size="lg">
                       <span className="flex items-center gap-2">
                         Questions? Contact Us
@@ -268,10 +269,10 @@ function ThankYouContent() {
                   <p>
                     Need help? Reach us at{" "}
                     <a
-                      href="mailto:hey@dharmikjagodana.com"
+                      href={`mailto:${CONTACT_EMAIL}`}
                       className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
                     >
-                      hey@dharmikjagodana.com
+                      {CONTACT_EMAIL}
                     </a>{" "}
                     or message me on{" "}
                     <a

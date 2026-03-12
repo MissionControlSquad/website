@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -446,7 +446,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="text-neutral-300">
               <p className="font-semibold text-neutral-100">Jagodana LLC</p>
-              <p>Email: hey@dharmikjagodana.com</p>
+              <p>Email: {CONTACT_EMAIL}</p>
               <p>Website: https://www.jagodana.com</p>
             </div>
           </section>

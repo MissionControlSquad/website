@@ -1,5 +1,7 @@
 // Site-wide constants
 
+export const CONTACT_EMAIL = "dharmendra@agentcenter.cloud";
+
 export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
 
 export const SITE_CONFIG = {
@@ -52,7 +54,7 @@ export const FOOTER_LINKS = {
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Service", href: "/legal/terms" },
-    { label: "Contact", href: "mailto:hey@dharmikjagodana.com" },
+    { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
   ],
 } as const;
 
