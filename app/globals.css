@@ -495,3 +495,19 @@ input[type="range"].earnings-slider::-moz-range-thumb:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.6);
 }
+
+/* ── Lightbox animation ── */
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-lightbox-in {
+  animation: lightbox-in 0.25s ease-out both;
+}
