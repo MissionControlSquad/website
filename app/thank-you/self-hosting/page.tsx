@@ -92,7 +92,7 @@ function SelfHostingThankYouContent() {
     },
     {
       step: "4",
-      text: "Set the activation key as an environment variable and run docker-compose up — AgentCenter validates your license and starts.",
+      text: "Run docker-compose up, open the app in your browser, and enter your activation key on the activation page when prompted. You're live.",
     },
   ];
 
@@ -208,8 +208,8 @@ function SelfHostingThankYouContent() {
                       <h2 className="font-semibold text-neutral-100">Activation Key</h2>
                     </div>
                     <p className="text-sm leading-relaxed text-neutral-400">
-                      A unique key tied to your license. Set it as an env variable in your
-                      docker-compose.yml before starting.
+                      A unique key tied to your license. After you start the app, open it in your
+                      browser and enter the key on the activation page — no config files needed.
                     </p>
                   </div>
 
