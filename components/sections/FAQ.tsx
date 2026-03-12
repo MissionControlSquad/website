@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FAQJsonLd } from "next-seo";
 import { ChevronDown } from "@/components/icons";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const faqs = [
@@ -128,10 +129,7 @@ export default function FAQ() {
         <ScrollReveal className="text-center text-neutral-500 mt-8" staggerIndex={2}>
           <p>
             Still have questions?{" "}
-            <a
-              href="mailto:hey@dharmikjagodana.com"
-              className="text-primary-400 hover:text-primary-300"
-            >
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-400 hover:text-primary-300">
               Contact us
             </a>
           </p>

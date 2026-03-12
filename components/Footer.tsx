@@ -10,13 +10,21 @@ const iconMap: Record<string, React.ReactNode> = {
   Github: <Github size={20} />,
 };
 
+const FOOTER_SECTIONS = [
+  { title: "Product", links: FOOTER_LINKS.product },
+  { title: "Use Cases", links: FOOTER_LINKS.useCases },
+  { title: "Compare", links: FOOTER_LINKS.comparisons },
+  { title: "Resources", links: FOOTER_LINKS.resources },
+  { title: "Legal", links: FOOTER_LINKS.legal },
+] as const;
+
 export default function Footer() {
   return (
     <footer className="py-16 border-t border-neutral-800 bg-neutral-950">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-12">
           {/* Brand column */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-xl font-bold text-neutral-100 mb-4"
@@ -30,7 +38,9 @@ export default function Footer() {
               />
               <span>{SITE_CONFIG.name}</span>
             </Link>
-            <p className="text-neutral-400 mb-6 max-w-xs">{SITE_CONFIG.description}</p>
+            <p className="text-neutral-400 mb-6 max-w-xs text-sm leading-relaxed">
+              {SITE_CONFIG.description}
+            </p>
             {/* Book a Demo */}
             <a
               href={CAL_LINK}
@@ -75,59 +85,33 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Product links */}
-          <div>
-            <h3 className="font-semibold text-neutral-100 mb-4">Product</h3>
-            <ul className="space-y-3">
-              {FOOTER_LINKS.product.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-400 hover:text-neutral-100 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Community links */}
-          <div>
-            <h3 className="font-semibold text-neutral-100 mb-4">Community</h3>
-            <ul className="space-y-3">
-              {SOCIAL_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-100 transition-colors"
-                  >
-                    {iconMap[link.icon]}
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal links */}
-          <div>
-            <h3 className="font-semibold text-neutral-100 mb-4">Legal</h3>
-            <ul className="space-y-3">
-              {FOOTER_LINKS.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-400 hover:text-neutral-100 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Navigation columns */}
+          {FOOTER_SECTIONS.map((section) => (
+            <div key={section.title}>
+              <h3 className="font-semibold text-neutral-100 mb-4 text-sm">{section.title}</h3>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    {link.href.startsWith("mailto:") ? (
+                      <a
+                        href={link.href}
+                        className="text-neutral-400 hover:text-neutral-100 transition-colors text-sm"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-neutral-400 hover:text-neutral-100 transition-colors text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Copyright + payment badge */}

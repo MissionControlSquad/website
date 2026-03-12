@@ -25,6 +25,18 @@ export const metadata: Metadata = {
       "100 lifetime seats. AI agents that do real work. Lock in founder pricing before it's gone.",
     images: [TWITTER_IMAGE],
   },
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+    },
+  },
 };
 
 export default function LifetimeDealPage() {

@@ -14,6 +14,69 @@ export interface BlogPost {
   tags: string[];
   content: string;
   readingTime: string;
+  schemas: object[];
+}
+
+/**
+ * Parse <JsonLd data={{...}} /> blocks from raw MDX content at build time.
+ * Runs server-side only; uses Function() on trusted authored content.
+ */
+function extractJsonLdSchemas(content: string): object[] {
+  const schemas: object[] = [];
+  let i = 0;
+
+  while (i < content.length) {
+    const tagPos = content.indexOf("<JsonLd", i);
+    if (tagPos === -1) break;
+
+    const dataPropPos = content.indexOf("data={{", tagPos);
+    if (dataPropPos === -1) {
+      i = tagPos + 1;
+      continue;
+    }
+
+    // Start at the inner `{` (the JS object literal)
+    const innerStart = dataPropPos + 6;
+    let depth = 0;
+    let j = innerStart;
+    let inString = false;
+    let stringChar = "";
+
+    while (j < content.length) {
+      const ch = content[j];
+      if (inString) {
+        if (ch === "\\") {
+          j += 2;
+          continue;
+        }
+        if (ch === stringChar) inString = false;
+      } else {
+        if (ch === '"' || ch === "'" || ch === "`") {
+          inString = true;
+          stringChar = ch;
+        } else if (ch === "{") {
+          depth++;
+        } else if (ch === "}") {
+          depth--;
+          if (depth === 0) break;
+        }
+      }
+      j++;
+    }
+
+    const objExpr = content.slice(innerStart, j + 1);
+    try {
+       
+      const schema = new Function(`return (${objExpr})`)();
+      if (schema && typeof schema === "object") schemas.push(schema);
+    } catch {
+      // skip malformed blocks
+    }
+
+    i = j + 1;
+  }
+
+  return schemas;
 }
 
 function calculateReadingTime(content: string): string {
@@ -42,6 +105,7 @@ export function getAllPosts(): BlogPost[] {
       tags: data.tags ?? [],
       content,
       readingTime: calculateReadingTime(content),
+      schemas: data.schemas ?? [],
     };
   });
 
@@ -72,6 +136,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     tags: data.tags ?? [],
     content,
     readingTime: calculateReadingTime(content),
+    schemas: [...(data.schemas ?? []), ...extractJsonLdSchemas(content)],
   };
 }
 
