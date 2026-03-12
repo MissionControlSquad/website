@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG, TRUST_INDICATORS, CAL_LINK } from "@/lib/constants";
 import { useCheckout } from "@/lib/hooks/useCheckout";
+import { trackCTA } from "@/lib/analytics";
 
 export default function Hero() {
   const { checkout, isLoading } = useCheckout();
@@ -39,13 +40,21 @@ export default function Hero() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 animate-hero-fade-in [animation-delay:400ms]">
-            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+            <a
+              href={CAL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackCTA("hero", "book_demo")}
+            >
               <Button size="lg" variant="secondary">
                 Book a Demo
               </Button>
             </a>
             <button
-              onClick={() => checkout()}
+              onClick={() => {
+                trackCTA("hero", "start_trial");
+                checkout();
+              }}
               disabled={isLoading}
               className="group relative inline-flex flex-col items-center px-8 py-3.5 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
             >

@@ -96,6 +96,43 @@ export default function FeaturesPage() {
               </Link>
             </p>
           </div>
+
+          {/* Feature Deep Dives */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mt-8 mb-12">
+            {[
+              {
+                href: "/features/agent-dashboard",
+                title: "Agent Dashboard",
+                desc: "Real-time visibility into every agent's status, tasks, and deliverables.",
+              },
+              {
+                href: "/features/task-orchestration",
+                title: "Task Orchestration",
+                desc: "Assign, sequence, and track tasks across your AI workforce.",
+              },
+              {
+                href: "/features/agent-monitoring",
+                title: "Agent Monitoring",
+                desc: "Live health checks, performance metrics, and anomaly detection.",
+              },
+              {
+                href: "/features/multi-agent-workflows",
+                title: "Multi-Agent Workflows",
+                desc: "Coordinate complex pipelines across multiple specialized agents.",
+              },
+            ].map((page) => (
+              <Link
+                key={page.href}
+                href={page.href}
+                className="group block rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-primary-500/50 hover:bg-neutral-900 transition-all"
+              >
+                <h3 className="text-lg font-semibold text-neutral-100 group-hover:text-primary-400 transition-colors mb-2">
+                  {page.title} →
+                </h3>
+                <p className="text-sm text-neutral-400">{page.desc}</p>
+              </Link>
+            ))}
+          </div>
         </Container>
         <FeaturesSection />
       </main>
