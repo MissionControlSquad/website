@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -181,10 +181,10 @@ export default function TermsOfServicePage() {
               You&apos;re responsible for all activity under your account. Use a strong password,
               enable any available security features, and notify us immediately at{" "}
               <a
-                href="mailto:hey@dharmikjagodana.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-primary-400 hover:text-primary-300 transition-colors"
               >
-                hey@dharmikjagodana.com
+                {CONTACT_EMAIL}
               </a>{" "}
               if you suspect unauthorized access.
             </p>
@@ -287,10 +287,10 @@ export default function TermsOfServicePage() {
               We don&apos;t offer automatic refunds for partial months. If you believe you deserve a
               refund due to service issues, contact us at{" "}
               <a
-                href="mailto:hey@dharmikjagodana.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-primary-400 hover:text-primary-300 transition-colors"
               >
-                hey@dharmikjagodana.com
+                {CONTACT_EMAIL}
               </a>{" "}
               and we&apos;ll work it out.
             </p>
@@ -506,10 +506,10 @@ export default function TermsOfServicePage() {
               <p>
                 <strong className="text-neutral-100">Email:</strong>{" "}
                 <a
-                  href="mailto:hey@dharmikjagodana.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-primary-400 hover:text-primary-300 transition-colors"
                 >
-                  hey@dharmikjagodana.com
+                  {CONTACT_EMAIL}
                 </a>
               </p>
               <p>
