@@ -154,30 +154,35 @@ function SelfHostingThankYouContent() {
             {/* Success */}
             {!loading && !error && (
               <div className="mx-auto max-w-2xl text-center">
-                <ScrollReveal className="mb-8" staggerIndex={0}>
-                  <div className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-success-500/20 bg-success-500/10 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
-                    <CheckCircle size={40} className="text-success-500" aria-hidden="true" />
+                <ScrollReveal className="mb-6" staggerIndex={0}>
+                  <div className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-success-500/30 bg-success-500/10 shadow-[0_0_60px_rgba(34,197,94,0.2)]">
+                    <CheckCircle size={40} className="text-success-400" aria-hidden="true" />
                   </div>
                 </ScrollReveal>
 
                 <ScrollReveal staggerIndex={1}>
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-success-500/20 bg-success-500/10 px-3 py-1 text-xs font-medium text-success-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-success-400" />
+                    License confirmed
+                  </div>
                   <h1 className="mb-4 text-4xl font-bold tracking-tight text-neutral-100 sm:text-5xl">
                     Your Self-Hosting License Is Ready
                   </h1>
                 </ScrollReveal>
 
                 <ScrollReveal staggerIndex={2}>
-                  <p className="mx-auto mb-12 max-w-lg text-lg text-neutral-400">
-                    {displayAmount && (
+                  <p className="mx-auto mb-10 max-w-lg text-lg text-neutral-400">
+                    {displayAmount ? (
                       <>
-                        Your payment of{" "}
-                        <span className="font-medium text-neutral-100">
+                        Payment of{" "}
+                        <span className="font-semibold text-neutral-100">
                           {displayAmount}/{billingLabel}
                         </span>{" "}
-                        has been received.{" "}
+                        confirmed.{" "}
                       </>
+                    ) : (
+                      <>Payment confirmed. </>
                     )}
-                    {!displayAmount && <>Your payment has been received. </>}
                     Your activation key and Docker image details are on their way.
                   </p>
                 </ScrollReveal>
@@ -187,71 +192,78 @@ function SelfHostingThankYouContent() {
                   className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3"
                   staggerIndex={3}
                 >
-                  <div className="card-glow rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 text-left">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary-500/20 bg-primary-500/10">
-                        <Clock size={20} className="text-primary-400" aria-hidden="true" />
+                  {[
+                    {
+                      icon: Clock,
+                      title: "Within 24 Hours",
+                      body: "We'll generate your unique activation key and send everything you need to get started.",
+                    },
+                    {
+                      icon: Key,
+                      title: "Activation Key",
+                      body: "Enter it once on the app's activation page after first launch — no config files, no env vars.",
+                    },
+                    {
+                      icon: Mail,
+                      title: "Check Your Email",
+                      body: displayEmail
+                        ? `We'll send everything to ${displayEmail}. Check your spam folder too.`
+                        : "We'll send to the email you used at checkout. Check your spam folder too.",
+                      highlight: displayEmail ?? undefined,
+                    },
+                  ].map(({ icon: Icon, title, body, highlight }) => (
+                    <div
+                      key={title}
+                      className="flex flex-col gap-4 rounded-xl border border-neutral-700/60 bg-neutral-800/40 p-5 text-left"
+                    >
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-primary-500/30 bg-primary-500/10">
+                        <Icon size={20} className="text-primary-400" aria-hidden="true" />
                       </div>
-                      <h2 className="font-semibold text-neutral-100">Within 24 Hours</h2>
-                    </div>
-                    <p className="text-sm leading-relaxed text-neutral-400">
-                      We&apos;ll generate your unique activation key and send everything you need to
-                      get started.
-                    </p>
-                  </div>
-
-                  <div className="card-glow rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 text-left">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary-500/20 bg-primary-500/10">
-                        <Key size={20} className="text-primary-400" aria-hidden="true" />
+                      <div className="min-w-0">
+                        <h2 className="mb-1.5 font-semibold text-neutral-100">{title}</h2>
+                        <p className="text-sm leading-relaxed text-neutral-400 break-words">
+                          {highlight
+                            ? body.split(highlight).map((part, i, arr) =>
+                                i < arr.length - 1 ? (
+                                  <span key={i}>
+                                    {part}
+                                    <span className="break-all font-medium text-neutral-200">
+                                      {highlight}
+                                    </span>
+                                  </span>
+                                ) : (
+                                  part
+                                )
+                              )
+                            : body}
+                        </p>
                       </div>
-                      <h2 className="font-semibold text-neutral-100">Activation Key</h2>
                     </div>
-                    <p className="text-sm leading-relaxed text-neutral-400">
-                      A unique key tied to your license. After you start the app, open it in your
-                      browser and enter the key on the activation page — no config files needed.
-                    </p>
-                  </div>
-
-                  <div className="card-glow rounded-xl border border-neutral-800 bg-neutral-900/60 p-6 text-left">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary-500/20 bg-primary-500/10">
-                        <Mail size={20} className="text-primary-400" aria-hidden="true" />
-                      </div>
-                      <h2 className="font-semibold text-neutral-100">Check Your Email</h2>
-                    </div>
-                    <p className="text-sm leading-relaxed text-neutral-400">
-                      {displayEmail ? (
-                        <>
-                          We&apos;ll send everything to{" "}
-                          <span className="font-medium text-neutral-200">{displayEmail}</span>.
-                          Check your spam folder too.
-                        </>
-                      ) : (
-                        <>
-                          We&apos;ll send to the email you used at checkout. Check your spam folder
-                          too.
-                        </>
-                      )}
-                    </p>
-                  </div>
+                  ))}
                 </ScrollReveal>
 
                 {/* Next steps */}
                 <ScrollReveal
-                  className="mb-12 rounded-xl border border-neutral-800 bg-neutral-900/40 p-8 text-left"
+                  className="mb-12 rounded-xl border border-neutral-700/60 bg-neutral-800/30 p-8 text-left"
                   staggerIndex={4}
                 >
-                  <h3 className="mb-5 text-lg font-semibold text-neutral-100">
-                    What happens next?
+                  <h3 className="mb-6 text-base font-semibold uppercase tracking-wider text-neutral-500">
+                    What happens next
                   </h3>
-                  <ol className="space-y-4">
-                    {nextSteps.map((item) => (
+                  <ol className="space-y-5">
+                    {nextSteps.map((item, idx) => (
                       <li key={item.step} className="flex items-start gap-4">
-                        <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-primary-500/20 bg-primary-500/10 text-sm font-semibold text-primary-400">
+                        <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary-500/15 text-sm font-bold text-primary-400 ring-1 ring-primary-500/30">
                           {item.step}
                         </span>
-                        <span className="pt-0.5 text-neutral-300">{item.text}</span>
+                        <div className="flex-1">
+                          <span className="text-sm leading-relaxed text-neutral-300">
+                            {item.text}
+                          </span>
+                          {idx < nextSteps.length - 1 && (
+                            <div className="mt-5 h-px w-full bg-neutral-700/50" />
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ol>
