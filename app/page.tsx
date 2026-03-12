@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import UseCases from "@/components/sections/UseCases";
+import SocialProof from "@/components/sections/SocialProof";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
 import MidPageCTA from "@/components/sections/MidPageCTA";
 import Features from "@/components/sections/Features";
