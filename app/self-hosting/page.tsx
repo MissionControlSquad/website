@@ -57,7 +57,7 @@ const faqs = [
   {
     question: "What is the activation key for self-hosted AgentCenter?",
     answer:
-      "The activation key is a unique license key tied to your subscription. When you start the Docker container, it validates the key against our licensing server. If the key is valid and the subscription is active, AgentCenter runs normally. This is how we enforce the license without collecting your data.",
+      "The activation key is a unique license key tied to your subscription. After you run docker-compose up and open the app in your browser for the first time, you'll be prompted to enter it on the activation page. Once entered, the app validates it against our licensing server and starts normally. No environment variables, no config files — just paste it in the web UI.",
   },
   {
     question: "Where can I run the self-hosted AgentCenter Docker image?",
@@ -221,7 +221,7 @@ function buildHowToSchema() {
         "@type": "HowToStep",
         position: 3,
         name: "Set Your Activation Key and Start",
-        text: "Add the activation key as an environment variable in your docker-compose.yml, then run: docker-compose up -d. AgentCenter validates your license and starts.",
+        text: "Run docker-compose up -d, open the app in your browser, and enter your activation key on the activation page when prompted. AgentCenter validates it and starts.",
         url: `${PAGE_URL}#how-to-deploy`,
       },
     ],
@@ -353,7 +353,7 @@ export default function SelfHostingPage() {
               <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-neutral-500">
                 {[
                   "Docker image + docker-compose",
-                  "Unique activation key per license",
+                  "Activate via web UI — no env vars",
                   "Data stays on your machine",
                   "All future updates included",
                 ].map((item) => (

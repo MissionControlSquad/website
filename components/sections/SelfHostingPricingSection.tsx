@@ -45,7 +45,7 @@ const whatsIncluded = [
     icon: ShieldCheck,
     title: "Unique Activation Key",
     description:
-      "Each license comes with a unique activation key tied to your subscription. Validates on startup.",
+      "Each license comes with a unique activation key. Enter it once on the app's activation page after first launch — no config files, no environment variables.",
   },
   {
     icon: BookOpen,
@@ -89,7 +89,8 @@ const steps = [
   {
     number: "3",
     title: "Add Your Activation Key",
-    description: "Set the key as an environment variable, run docker-compose up, and you're live.",
+    description:
+      "Run docker-compose up, open the app in your browser, and enter your activation key when prompted. That's it.",
   },
 ];
 
