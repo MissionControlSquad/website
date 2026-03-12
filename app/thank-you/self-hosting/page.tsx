@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, AlertTriangle, Mail, Clock, ArrowRight, Key } from "@/components/icons";
@@ -293,7 +294,7 @@ function SelfHostingThankYouContent() {
                       Back to Home
                     </Button>
                   </Link>
-                  <a href="mailto:hey@dharmikjagodana.com">
+                  <a href={`mailto:${CONTACT_EMAIL}`}>
                     <Button variant="outline" size="lg">
                       <span className="flex items-center gap-2">
                         Questions? Contact Us
@@ -307,10 +308,10 @@ function SelfHostingThankYouContent() {
                   <p>
                     Need setup help? Reach us at{" "}
                     <a
-                      href="mailto:hey@dharmikjagodana.com"
+                      href={`mailto:${CONTACT_EMAIL}`}
                       className="text-primary-400 underline underline-offset-2 transition-colors hover:text-primary-300"
                     >
-                      hey@dharmikjagodana.com
+                      {CONTACT_EMAIL}
                     </a>{" "}
                     or message me on{" "}
                     <a

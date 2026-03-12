@@ -6,7 +6,13 @@ import Footer from "@/components/Footer";
 import SelfHostingPricingSection from "@/components/sections/SelfHostingPricingSection";
 import { Container } from "@/components/ui/Container";
 import { Shield, ShieldCheck, Activity, DollarSign, GitBranch, Monitor } from "@/components/icons";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG, SELFHOSTING_PRICING } from "@/lib/constants";
+import {
+  CONTACT_EMAIL,
+  OG_IMAGE,
+  TWITTER_IMAGE,
+  SITE_CONFIG,
+  SELFHOSTING_PRICING,
+} from "@/lib/constants";
 
 const PAGE_URL = `${SITE_CONFIG.url}/self-hosting`;
 const DATE_PUBLISHED = "2026-03-12";
@@ -584,7 +590,7 @@ export default function SelfHostingPage() {
               <p className="text-center text-sm text-neutral-500">
                 Need help sizing your server?{" "}
                 <a
-                  href="mailto:hey@dharmikjagodana.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors"
                 >
                   Email us
@@ -615,7 +621,7 @@ export default function SelfHostingPage() {
             <p className="text-center text-sm text-neutral-500 mt-10">
               More questions?{" "}
               <a
-                href="mailto:hey@dharmikjagodana.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors"
               >
                 Email us
