@@ -6,48 +6,56 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/api/*", "/_next/*", "/admin/*", "/thank-you", "/opengraph-image.png"],
+  exclude: [
+    "/api/*",
+    "/_next/*",
+    "/admin/*",
+    "/thank-you",
+    "/thank-you/*",
+    "/lifetime-deal",
+    "/opengraph-image.png",
+  ],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "GPTBot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "ChatGPT-User",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "Claude-Web",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "Anthropic-AI",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "Google-Extended",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "PerplexityBot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
       {
         userAgent: "cohere-ai",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
     ],
     additionalSitemaps: [],
@@ -78,7 +86,7 @@ module.exports = {
       changefreq = "weekly";
     }
     // Core product pages
-    else if (["/features", "/pricing", "/about"].includes(path)) {
+    else if (["/features", "/pricing", "/about", "/self-hosting"].includes(path)) {
       priority = 0.9;
       changefreq = "weekly";
     }

@@ -5,10 +5,15 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import UseCases from "@/components/sections/UseCases";
 import SocialProof from "@/components/sections/SocialProof";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
+import MidPageCTA from "@/components/sections/MidPageCTA";
 import Features from "@/components/sections/Features";
+import InsideAgentCenter from "@/components/sections/InsideAgentCenter";
+import LiveActivityFeed from "@/components/sections/LiveActivityFeed";
+import SocialProof from "@/components/sections/SocialProof";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
+import ActivityFeed from "@/components/sections/ActivityFeed";
 import FinalCTA from "@/components/sections/FinalCTA";
 import LatestPosts from "@/components/sections/LatestPosts";
 import Footer from "@/components/Footer";
@@ -52,8 +57,12 @@ export default function HomePage() {
         <DistributedByDesign />
         <HowItWorks />
         <UseCases />
-        <SocialProof />
+        <MidPageCTA />
         <Features />
+        <ActivityFeed />
+        <InsideAgentCenter />
+        <LiveActivityFeed />
+        <SocialProof />
         <PrivacyFirst />
         <Pricing />
         <FAQ />

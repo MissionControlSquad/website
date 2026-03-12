@@ -376,6 +376,17 @@ export function Search(props: IconProps) {
   );
 }
 
+export function ZoomIn(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+      <line x1="11" x2="11" y1="8" y2="14" />
+      <line x1="8" x2="14" y1="11" y2="11" />
+    </Icon>
+  );
+}
+
 export function Upload(props: IconProps) {
   return (
     <Icon {...props}>
@@ -479,6 +490,16 @@ export function AlertTriangle(props: IconProps) {
       <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
       <line x1="12" x2="12" y1="9" y2="13" />
       <line x1="12" x2="12.01" y1="17" y2="17" />
+    </Icon>
+  );
+}
+
+export function Key(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="7.5" cy="15.5" r="5.5" />
+      <path d="m21 2-9.6 9.6" />
+      <path d="m15.5 7.5 3 3L22 7l-3-3" />
     </Icon>
   );
 }

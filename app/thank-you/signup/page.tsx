@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
@@ -69,7 +70,7 @@ export default function ThankYouSignupPage() {
                     Back to Home
                   </Button>
                 </Link>
-                <a href="mailto:hey@dharmikjagodana.com">
+                <a href={`mailto:${CONTACT_EMAIL}`}>
                   <Button variant="outline" size="lg">
                     <span className="flex items-center gap-2">
                       Questions? Contact Us
