@@ -252,7 +252,7 @@ export default function SelfHostingPricingSection() {
       </section>
 
       {/* How it works */}
-      <section className="py-20 px-4 bg-neutral-950">
+      <section id="how-to-deploy" className="py-20 px-4 bg-neutral-950">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <h2 className="text-3xl font-bold text-neutral-100 mb-4">
