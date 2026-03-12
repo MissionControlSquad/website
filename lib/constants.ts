@@ -41,6 +41,7 @@ export const FOOTER_LINKS = {
   product: [
     { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Self-Hosting", href: "/self-hosting" },
     { label: "About", href: "/about" },
     { label: "Docs", href: "/docs" },
     { label: "Blog", href: "/blogs" },
@@ -68,6 +69,14 @@ export const DEFAULT_PLAN: BillingPlan = "monthly";
 export const PRICING = {
   monthly: 79,
   yearly: 799,
+  currency: "USD",
+} as const;
+
+/** Self-hosting pricing configuration */
+export const SELFHOSTING_PRICING = {
+  monthly: 99,
+  yearly: 999, // $99 × 12 = $1,188 − 16% = ~$999
+  yearlyDiscount: 16,
   currency: "USD",
 } as const;
 
