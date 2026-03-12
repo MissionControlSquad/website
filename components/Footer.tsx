@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, MessageCircle } from "@/components/icons";
+import { Twitter, MessageCircle, Github } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS, CAL_LINK } from "@/lib/constants";
 
 const iconMap: Record<string, React.ReactNode> = {
   Twitter: <Twitter size={20} />,
   MessageCircle: <MessageCircle size={20} />,
+  Github: <Github size={20} />,
 };
 
 const FOOTER_SECTIONS = [
