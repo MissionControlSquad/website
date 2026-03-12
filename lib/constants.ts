@@ -1,5 +1,7 @@
 // Site-wide constants
 
+export const CONTACT_EMAIL = "dharmendra@agentcenter.cloud";
+
 export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
 
 export const SITE_CONFIG = {
@@ -41,7 +43,12 @@ export const FOOTER_LINKS = {
   product: [
     { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Self-Hosting", href: "/self-hosting" },
     { label: "Lifetime Deal", href: "/lifetime-deal" },
+    { label: "About", href: "/about" },
+    { label: "Docs", href: "/docs" },
+    { label: "Blog", href: "/blogs" },
+    { label: "FAQ", href: "/faq" },
     { label: "Changelog", href: "/changelog" },
     { label: "Affiliate", href: "/affiliate" },
   ],
@@ -70,7 +77,7 @@ export const FOOTER_LINKS = {
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Service", href: "/legal/terms" },
-    { label: "Contact", href: "mailto:hey@dharmikjagodana.com" },
+    { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
   ],
 } as const;
 
@@ -87,6 +94,14 @@ export const DEFAULT_PLAN: BillingPlan = "monthly";
 export const PRICING = {
   monthly: 79,
   yearly: 799,
+  currency: "USD",
+} as const;
+
+/** Self-hosting pricing configuration */
+export const SELFHOSTING_PRICING = {
+  monthly: 99,
+  yearly: 999, // $99 × 12 = $1,188 − 16% = ~$999
+  yearlyDiscount: 16,
   currency: "USD",
 } as const;
 
@@ -285,6 +300,34 @@ export const FEATURE_CATEGORIES = [
         icon: "History",
       },
     ],
+  },
+] as const;
+
+export const USE_CASES = [
+  {
+    title: "AI Research Teams",
+    description:
+      "Agents collect, analyze, and synthesize information across sources automatically.",
+    icon: "Search",
+    href: "/blogs/complete-guide-ai-agent-management-2026",
+  },
+  {
+    title: "Autonomous Product Builders",
+    description: "Agents generate ideas, write code, run tests, and deploy — end to end.",
+    icon: "Bot",
+    href: "/blogs/ai-agent-deployment-prototype-to-production",
+  },
+  {
+    title: "Automated Business Operations",
+    description: "Agents handle repetitive workflows so your team focuses on what matters.",
+    icon: "Zap",
+    href: "/blogs/ai-agent-lifecycle-framework",
+  },
+  {
+    title: "Data Monitoring Systems",
+    description: "Agents track metrics, detect anomalies, and generate alerts in real time.",
+    icon: "Activity",
+    href: "/blogs/ai-agent-monitoring-best-practices-2026",
   },
 ] as const;
 
