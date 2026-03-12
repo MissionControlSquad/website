@@ -41,19 +41,20 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   product: [
+    { label: "Pricing", href: "/pricing" },
+    { label: "Self-Hosting", href: "/self-hosting" },
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "/blogs" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Changelog", href: "/changelog" },
+    { label: "Affiliate", href: "/affiliate" },
+  ],
+  features: [
     { label: "Features", href: "/features" },
     { label: "Agent Dashboard", href: "/features/agent-dashboard" },
     { label: "Task Orchestration", href: "/features/task-orchestration" },
     { label: "Agent Monitoring", href: "/features/agent-monitoring" },
     { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Self-Hosting", href: "/self-hosting" },
-    { label: "About", href: "/about" },
-    { label: "Docs", href: "/docs" },
-    { label: "Blog", href: "/blogs" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Changelog", href: "/changelog" },
-    { label: "Affiliate", href: "/affiliate" },
   ],
   useCases: [
     { label: "AI Research Teams", href: "/features#agent-management" },
@@ -66,16 +67,6 @@ export const FOOTER_LINKS = {
     { label: "vs CrewAI", href: "/compare/vs-crewai" },
     { label: "vs LangSmith", href: "/compare/vs-langsmith" },
     { label: "vs DIY Management", href: "/compare/vs-diy-agent-management" },
-    { label: "About", href: "/about" },
-    { label: "FAQ", href: "/faq" },
-  ],
-  resources: [
-    { label: "Documentation", href: "/docs" },
-    { label: "Getting Started", href: "/docs/getting-started" },
-    { label: "How Agents Work", href: "/docs/how-agents-work" },
-    { label: "API Reference", href: "/docs/api-reference" },
-    { label: "Roadmap", href: "/docs/roadmap" },
-    { label: "Blog", href: "/blogs" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
