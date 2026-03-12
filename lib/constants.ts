@@ -334,6 +334,41 @@ export const USE_CASES = [
   },
 ] as const;
 
+export const SOCIAL_PROOF = {
+  metrics: [
+    { value: "500+", label: "Agents managed" },
+    { value: "12k+", label: "Tasks completed" },
+    { value: "40+", label: "Teams onboarded" },
+    { value: "99.9%", label: "Uptime SLA" },
+  ],
+  testimonials: [
+    {
+      name: "Marcus R.",
+      handle: "@marcus_builds",
+      initials: "MR",
+      role: "Indie AI Builder",
+      quote:
+        "AgentCenter is the missing layer between my agents and my goals. I went from manually babysitting 3 agents to orchestrating 15 — autonomously. The kanban view alone saved me hours a week.",
+    },
+    {
+      name: "Priya S.",
+      handle: "@priyashipscode",
+      initials: "PS",
+      role: "Founder, AI-first Startup",
+      quote:
+        "We replaced Notion + Slack + custom scripts with AgentCenter. Our research agent, dev agent, and QA agent now handoff work automatically. It feels like running a real team.",
+    },
+    {
+      name: "Tom L.",
+      handle: "@tomlangchain",
+      initials: "TL",
+      role: "ML Engineer",
+      quote:
+        "The activity feed is a game changer. I can see exactly what each agent is doing, what it delivered, and where it got stuck. No more digging through logs to figure out what happened.",
+    },
+  ],
+} as const;
+
 export const HOW_IT_WORKS_STEPS = [
   {
     number: 1,
