@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Roadmap",
@@ -60,8 +60,8 @@ export default function RoadmapPage() {
 
       <p className="text-neutral-400 text-sm mt-8">
         Have a feature request? Email{" "}
-        <a href="mailto:hey@dharmikjagodana.com" className="text-primary-400 hover:underline">
-          hey@dharmikjagodana.com
+        <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-400 hover:underline">
+          {CONTACT_EMAIL}
         </a>
         .
       </p>

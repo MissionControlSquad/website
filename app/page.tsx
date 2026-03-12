@@ -4,7 +4,11 @@ import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import UseCases from "@/components/sections/UseCases";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
+import MidPageCTA from "@/components/sections/MidPageCTA";
 import Features from "@/components/sections/Features";
+import InsideAgentCenter from "@/components/sections/InsideAgentCenter";
+import LiveActivityFeed from "@/components/sections/LiveActivityFeed";
+import SocialProof from "@/components/sections/SocialProof";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
@@ -52,8 +56,12 @@ export default function HomePage() {
         <DistributedByDesign />
         <HowItWorks />
         <UseCases />
+        <MidPageCTA />
         <Features />
         <ActivityFeed />
+        <InsideAgentCenter />
+        <LiveActivityFeed />
+        <SocialProof />
         <PrivacyFirst />
         <Pricing />
         <FAQ />
