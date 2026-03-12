@@ -51,6 +51,28 @@ export const FOOTER_LINKS = {
     { label: "Changelog", href: "/changelog" },
     { label: "Affiliate", href: "/affiliate" },
   ],
+  useCases: [
+    { label: "AI Research Teams", href: "/features#agent-management" },
+    { label: "Autonomous Builders", href: "/features#deliverables-quality" },
+    { label: "Business Operations", href: "/features#project-management" },
+    { label: "Data Monitoring", href: "/features#monitoring-audit" },
+    { label: "Testimonials", href: "/testimonials" },
+  ],
+  comparisons: [
+    { label: "vs CrewAI", href: "/compare/vs-crewai" },
+    { label: "vs LangSmith", href: "/compare/vs-langsmith" },
+    { label: "vs DIY Management", href: "/compare/vs-diy-agent-management" },
+    { label: "About", href: "/about" },
+    { label: "FAQ", href: "/faq" },
+  ],
+  resources: [
+    { label: "Documentation", href: "/docs" },
+    { label: "Getting Started", href: "/docs/getting-started" },
+    { label: "How Agents Work", href: "/docs/how-agents-work" },
+    { label: "API Reference", href: "/docs/api-reference" },
+    { label: "Roadmap", href: "/docs/roadmap" },
+    { label: "Blog", href: "/blogs" },
+  ],
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Service", href: "/legal/terms" },
