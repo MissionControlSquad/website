@@ -1,4 +1,5 @@
 import { Mermaid } from "./Mermaid";
+import { JsonLd } from "./JsonLd";
 import type { ComponentPropsWithoutRef } from "react";
 
 function Pre(props: ComponentPropsWithoutRef<"pre">) {
@@ -26,4 +27,5 @@ function Pre(props: ComponentPropsWithoutRef<"pre">) {
 export const mdxComponents = {
   pre: Pre,
   Mermaid,
+  JsonLd,
 };
