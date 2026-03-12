@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
+import SocialProof from "@/components/sections/SocialProof";
 import HowItWorks from "@/components/sections/HowItWorks";
 import UseCases from "@/components/sections/UseCases";
 import SocialProof from "@/components/sections/SocialProof";
@@ -54,6 +55,7 @@ export default function HomePage() {
 
       <main id="main-content">
         <Hero />
+        <SocialProof />
         <DistributedByDesign />
         <HowItWorks />
         <UseCases />
