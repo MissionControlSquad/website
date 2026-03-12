@@ -85,8 +85,8 @@ export const FOOTER_LINKS = {
 } as const;
 
 export const SOCIAL_LINKS = [
-  { label: "Twitter", href: "https://x.com/dharmikjagodana", icon: "Twitter" },
-  { label: "Discord", href: "https://discord.gg/agentcenter", icon: "MessageCircle" },
+  { label: "Twitter", href: "https://x.com/AgentsCenter", icon: "Twitter" },
+  { label: "Discord", href: "https://discord.gg/rXpjytYr", icon: "MessageCircle" },
   { label: "GitHub", href: "https://github.com/MissionControlSquad", icon: "Github" },
 ] as const;
 

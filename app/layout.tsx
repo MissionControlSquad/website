@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: SITE_CONFIG.description,
-    creator: "@dharmikjagodana",
-    site: "@dharmikjagodana",
+    creator: "@AgentsCenter",
+    site: "@AgentsCenter",
     images: [TWITTER_IMAGE],
   },
   icons: {
@@ -166,7 +166,7 @@ const jsonLd = {
         contactType: "customer support",
         availableLanguage: "English",
       },
-      sameAs: ["https://x.com/dharmikjagodana"],
+      sameAs: ["https://x.com/AgentsCenter"],
     },
     // SoftwareApplication — app listing in search
     {
