@@ -6,6 +6,7 @@ import UseCases from "@/components/sections/UseCases";
 import DistributedByDesign from "@/components/sections/DistributedByDesign";
 import MidPageCTA from "@/components/sections/MidPageCTA";
 import Features from "@/components/sections/Features";
+import InsideAgentCenter from "@/components/sections/InsideAgentCenter";
 import LiveActivityFeed from "@/components/sections/LiveActivityFeed";
 import SocialProof from "@/components/sections/SocialProof";
 import PrivacyFirst from "@/components/sections/PrivacyFirst";
@@ -56,6 +57,7 @@ export default function HomePage() {
         <UseCases />
         <MidPageCTA />
         <Features />
+        <InsideAgentCenter />
         <LiveActivityFeed />
         <SocialProof />
         <PrivacyFirst />
