@@ -65,6 +65,13 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-neutral-950">
+      {post.schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
