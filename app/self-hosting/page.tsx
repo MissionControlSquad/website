@@ -350,6 +350,34 @@ export default function SelfHostingPage() {
                 One Docker image. Your infrastructure. Full data sovereignty. We ship a
                 production-ready container with every feature — you run it wherever Docker runs.
               </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a
+                  href="#pricing"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
+                >
+                  See Pricing
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 5v14M5 12l7 7 7-7" />
+                  </svg>
+                </a>
+                <a
+                  href="#compare"
+                  className="inline-flex items-center gap-2 px-8 py-4 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold rounded-xl transition-colors"
+                >
+                  Compare with Cloud Plan
+                </a>
+              </div>
               <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-neutral-500">
                 {[
                   "Docker image + docker-compose",
@@ -442,7 +470,7 @@ export default function SelfHostingPage() {
         </section>
 
         {/* Cloud vs Self-Hosted comparison */}
-        <section className="py-20 px-4 bg-neutral-900 border-t border-neutral-800">
+        <section id="compare" className="py-20 px-4 bg-neutral-900 border-t border-neutral-800">
           <Container>
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
