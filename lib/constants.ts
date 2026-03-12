@@ -44,7 +44,6 @@ export const FOOTER_LINKS = {
     { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
     { label: "Self-Hosting", href: "/self-hosting" },
-    { label: "Lifetime Deal", href: "/lifetime-deal" },
     { label: "About", href: "/about" },
     { label: "Docs", href: "/docs" },
     { label: "Blog", href: "/blogs" },
