@@ -515,12 +515,12 @@ export default function TermsOfServicePage() {
               <p>
                 <strong className="text-neutral-100">Twitter/X:</strong>{" "}
                 <a
-                  href="https://x.com/dharmikjagodana"
+                  href="https://x.com/AgentsCenter"
                   className="text-primary-400 hover:text-primary-300 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @dharmikjagodana
+                  @AgentsCenter
                 </a>
               </p>
             </div>

@@ -29,7 +29,7 @@ const content = `# Changelog
 
 All notable changes to AgentCenter are documented here. We ship frequently and update this page with every release.
 
-**Want updates?** Follow us on [Twitter](https://x.com/dharmikjagodana) for release notes.
+**Want updates?** Follow us on [Twitter](https://x.com/AgentsCenter) for release notes.
 
 ---
 
