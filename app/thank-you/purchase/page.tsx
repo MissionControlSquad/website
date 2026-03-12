@@ -276,7 +276,7 @@ function ThankYouContent() {
                     </a>{" "}
                     or message me on{" "}
                     <a
-                      href="https://x.com/dharmikjagodana"
+                      href="https://x.com/AgentsCenter"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-400 hover:text-primary-300 transition-colors underline underline-offset-2"
