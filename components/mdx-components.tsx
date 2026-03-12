@@ -1,6 +1,12 @@
 import { Mermaid } from "./Mermaid";
-import { JsonLd } from "./JsonLd";
 import type { ComponentPropsWithoutRef } from "react";
+
+// JsonLd schemas are extracted from MDX at build time (lib/blog.ts) and rendered
+// by the page server component. This no-op prevents MDX from treating <JsonLd>
+// as an unknown element while avoiding the RSC dangerouslySetInnerHTML issue.
+function JsonLd() {
+  return null;
+}
 
 function Pre(props: ComponentPropsWithoutRef<"pre">) {
   const child = props.children as

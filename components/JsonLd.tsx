@@ -2,6 +2,11 @@
 
 export function JsonLd({ data }: { data: object }) {
   return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+    <div
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{
+        __html: `<script type="application/ld+json">${JSON.stringify(data)}</script>`,
+      }}
+    />
   );
 }
