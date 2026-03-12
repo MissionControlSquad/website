@@ -43,7 +43,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       mode: "subscription",
       line_items: [{ price: priceMap[plan], quantity: 1 }],
       allow_promotion_codes: true,
-      success_url: `${origin}/thank-you/purchase?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/thank-you/self-hosting?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/self-hosting`,
       metadata: { plan, product: "self-hosting" },
     });

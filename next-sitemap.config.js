@@ -78,7 +78,7 @@ module.exports = {
       changefreq = "weekly";
     }
     // Core product pages
-    else if (["/features", "/pricing", "/about"].includes(path)) {
+    else if (["/features", "/pricing", "/about", "/self-hosting"].includes(path)) {
       priority = 0.9;
       changefreq = "weekly";
     }
