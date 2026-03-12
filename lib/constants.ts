@@ -1,5 +1,7 @@
 // Site-wide constants
 
+export const CONTACT_EMAIL = "dharmendra@agentcenter.cloud";
+
 export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
 
 export const SITE_CONFIG = {
@@ -40,7 +42,12 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = {
   product: [
     { label: "Features", href: "/features" },
+    { label: "Agent Dashboard", href: "/features/agent-dashboard" },
+    { label: "Task Orchestration", href: "/features/task-orchestration" },
+    { label: "Agent Monitoring", href: "/features/agent-monitoring" },
+    { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Self-Hosting", href: "/self-hosting" },
     { label: "About", href: "/about" },
     { label: "Docs", href: "/docs" },
     { label: "Blog", href: "/blogs" },
@@ -48,10 +55,32 @@ export const FOOTER_LINKS = {
     { label: "Changelog", href: "/changelog" },
     { label: "Affiliate", href: "/affiliate" },
   ],
+  useCases: [
+    { label: "AI Research Teams", href: "/features#agent-management" },
+    { label: "Autonomous Builders", href: "/features#deliverables-quality" },
+    { label: "Business Operations", href: "/features#project-management" },
+    { label: "Data Monitoring", href: "/features#monitoring-audit" },
+    { label: "Testimonials", href: "/testimonials" },
+  ],
+  comparisons: [
+    { label: "vs CrewAI", href: "/compare/vs-crewai" },
+    { label: "vs LangSmith", href: "/compare/vs-langsmith" },
+    { label: "vs DIY Management", href: "/compare/vs-diy-agent-management" },
+    { label: "About", href: "/about" },
+    { label: "FAQ", href: "/faq" },
+  ],
+  resources: [
+    { label: "Documentation", href: "/docs" },
+    { label: "Getting Started", href: "/docs/getting-started" },
+    { label: "How Agents Work", href: "/docs/how-agents-work" },
+    { label: "API Reference", href: "/docs/api-reference" },
+    { label: "Roadmap", href: "/docs/roadmap" },
+    { label: "Blog", href: "/blogs" },
+  ],
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Service", href: "/legal/terms" },
-    { label: "Contact", href: "mailto:hey@dharmikjagodana.com" },
+    { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
   ],
 } as const;
 
@@ -68,6 +97,14 @@ export const DEFAULT_PLAN: BillingPlan = "monthly";
 export const PRICING = {
   monthly: 79,
   yearly: 799,
+  currency: "USD",
+} as const;
+
+/** Self-hosting pricing configuration */
+export const SELFHOSTING_PRICING = {
+  monthly: 99,
+  yearly: 999, // $99 × 12 = $1,188 − 16% = ~$999
+  yearlyDiscount: 16,
   currency: "USD",
 } as const;
 
@@ -300,23 +337,23 @@ export const USE_CASES = [
 export const HOW_IT_WORKS_STEPS = [
   {
     number: 1,
-    title: "Create a Task",
+    title: "Connect Your Agents",
     description:
-      "Describe what needs to be done. The orchestrator assigns it to your OpenClaw agents.",
-    icon: "PlusCircle",
+      "Integrate via API or framework connectors. Bring your own agents — any stack, any language.",
+    icon: "Zap",
   },
   {
     number: 2,
-    title: "Agents Work",
+    title: "Assign Tasks",
     description:
-      "Your OpenClaw agents connect via API keys, work in their own environments, and report updates.",
-    icon: "Bot",
+      "Create workflows and assign tasks to your AI agents. Set priorities, deadlines, and dependencies.",
+    icon: "ListTodo",
   },
   {
     number: 3,
-    title: "Lead Verifies",
+    title: "Monitor Execution",
     description:
-      "The orchestrator agent reviews deliverables, checks quality, and moves tasks forward.",
-    icon: "CheckCircle",
+      "Track progress, logs, and outputs in real time. Review deliverables and ship with confidence.",
+    icon: "Activity",
   },
 ] as const;

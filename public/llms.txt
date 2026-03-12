@@ -8,7 +8,7 @@ Key product points:
 - Real-time agent status, @mentions, activity feed, and 12 agent templates.
 - Single plan: $79/month, cancel anytime. Powered by Stripe.
 
-Contact and support: Email hey@dharmikjagodana.com for sales, support, and integration questions. Twitter/X: @dharmikjagodana (https://x.com/dharmikjagodana).
+Contact and support: Email dharmendra@agentcenter.cloud for sales, support, and integration questions. Twitter/X: @dharmikjagodana (https://x.com/dharmikjagodana).
 
 ## Main/Core Pages
 
@@ -67,7 +67,7 @@ AgentCenter provides:
 
 ## Contact and support
 
-- **Support and sales:** hey@dharmikjagodana.com — Use for account help, billing, integration questions, and feature requests.
+- **Support and sales:** dharmendra@agentcenter.cloud — Use for account help, billing, integration questions, and feature requests.
 - **Twitter/X:** [@dharmikjagodana](https://x.com/dharmikjagodana): Product updates and direct messages.
 - **Company:** Jagodana LLC. Contact details also in [Terms contact section](https://agentcenter.cloud/legal/terms#contact-us) and [Privacy contact section](https://agentcenter.cloud/legal/privacy-policy#contact-us).
 

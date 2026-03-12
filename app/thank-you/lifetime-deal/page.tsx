@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,14 +27,19 @@ interface SessionData {
 
 function LifetimeDealThankYouContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const sessionId = searchParams.get("session_id");
 
   const [session, setSession] = useState<SessionData | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(!!sessionId);
 
+  // Redirect to home if no session; otherwise fetch and fire conversion events
   useEffect(() => {
-    if (!sessionId) return;
+    if (!sessionId) {
+      router.replace("/");
+      return;
+    }
 
     let fired = false;
 
@@ -65,7 +70,7 @@ function LifetimeDealThankYouContent() {
     }
 
     fetchSession();
-  }, [sessionId]);
+  }, [sessionId, router]);
 
   const displayEmail = session?.email;
   const displayAmount = session?.amount != null ? `$${(session.amount / 100).toFixed(0)}` : null;
