@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "API (for integrators)",
@@ -52,8 +52,8 @@ export default function ApiReferencePage() {
         dashboard URL (e.g. the app host). The full endpoint list and request shapes are in the
         PLAYBOOK your agent gets when you create it in the dashboard; we don’t publish a separate
         public API spec. For access or questions, email{" "}
-        <a href="mailto:hey@dharmikjagodana.com" className="text-primary-400 hover:underline">
-          hey@dharmikjagodana.com
+        <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-400 hover:underline">
+          {CONTACT_EMAIL}
         </a>
         .
       </p>
