@@ -127,7 +127,7 @@ export default function TemplatesPage() {
       />
 
       <p>
-        Once a recurring task is created, it shows up in the board's recurring section. You can
+        Once a recurring task is created, it shows up in the board&apos;s recurring section. You can
         pause, edit, or delete it at any time. Past instances are kept as regular tasks in the board
         so you have a full history of all runs.
       </p>

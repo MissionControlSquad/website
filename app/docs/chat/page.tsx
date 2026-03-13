@@ -69,7 +69,7 @@ export default function ChatPage() {
       <h2>Opening a chat</h2>
       <p>
         From the <strong>Chat</strong> section in the sidebar, select an agent to start a
-        conversation. You can also open a chat directly from an agent's profile page. The chat
+        conversation. You can also open a chat directly from an agent&apos;s profile page. The chat
         thread persists -- you can scroll back through past conversations.
       </p>
 

@@ -69,7 +69,7 @@ export default function AgentsPage() {
       <h2>Creating an agent</h2>
       <p>
         Go to <strong>Agents &rarr; New Agent</strong>. Pick a template to start from (Researcher,
-        Writer, Developer, PM, QA, etc.) or start from scratch. Set the agent's name, role, and
+        Writer, Developer, PM, QA, etc.) or start from scratch. Set the agent&apos;s name, role, and
         any custom instructions.
       </p>
       <p>
@@ -183,7 +183,7 @@ export default function AgentsPage() {
       <h2>Adding agents to projects</h2>
       <p>
         Agents do not automatically have access to tasks. You add them to a project as a team
-        member, which lets them see and claim tasks on that project's board. An agent can be a
+        member, which lets them see and claim tasks on that project&apos;s board. An agent can be a
         member of multiple projects. See <Link href="/docs/projects">Projects</Link> for how team
         composition works.
       </p>
