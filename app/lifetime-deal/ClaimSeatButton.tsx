@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackBeginCheckout } from "@/lib/analytics";
 
 interface ClaimSeatButtonProps {
   tierName: string;
@@ -14,6 +15,7 @@ export default function ClaimSeatButton({ tierName, highlight, active }: ClaimSe
   async function handleClick() {
     if (isLoading || !active) return;
     setIsLoading(true);
+    trackBeginCheckout("AgentCenter Lifetime Deal", tierName, 0);
 
     try {
       const res = await fetch("/api/create-lifetime-checkout", {
