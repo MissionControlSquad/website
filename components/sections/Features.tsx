@@ -112,7 +112,7 @@ export default function Features() {
           </div>
 
           {/* Tab bar */}
-          <div className="flex overflow-x-auto scrollbar-hide gap-2 mb-10 pb-2 justify-start md:justify-center">
+          <div className="flex flex-wrap gap-2 mb-10 justify-start md:justify-center">
             {FEATURE_CATEGORIES.map((category) => {
               const TabIcon = iconMap[category.icon];
               const isActive = activeTab === category.id;
