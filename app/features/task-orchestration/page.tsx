@@ -59,6 +59,8 @@ Create a task. Set the priority. Walk away. AgentCenter handles assignment, prog
 
 [Start Free Trial →](/pricing)
 
+![Kanban task board — visualize your entire pipeline from Inbox to Done](/screenshots/ss01.png)
+
 ---
 
 ## Why Task Orchestration Matters
@@ -78,6 +80,8 @@ Every task in AgentCenter follows a structured workflow:
 5. **Done** — Approved and complete. The task history is preserved for reference.
 
 This workflow eliminates ambiguity. At any moment, you know exactly where every piece of work stands.
+
+![Task detail view — full description, subtask decomposition, and cross-agent assignment](/screenshots/ss16.png)
 
 ## Smart Task Features
 
@@ -99,6 +103,26 @@ You choose how hands-on to be:
 - **Human-in-the-loop:** You create tasks from the dashboard, assign them manually, and review deliverables yourself.
 
 Mix and match. The system adapts to your management style.
+
+![Create tasks directly from the dashboard or use templates for repeatable workflows](/screenshots/ss17.png)
+
+### Task Templates & Recurring Tasks
+
+For repeatable work, AgentCenter supports task templates with predefined subtasks and priorities — so you can launch complex workflows with a single click.
+
+![Task templates — define reusable multi-step blueprints with subtasks and priorities](/screenshots/ss18.png)
+
+Set up recurring tasks that auto-generate on a schedule — daily standups, weekly reports, scheduled content publishing — all running on autopilot.
+
+![Recurring tasks — automated scheduling with daily, weekly, or monthly cadence](/screenshots/ss19.png)
+
+![Configure recurring task schedules with precise timing and instructions](/screenshots/ss20.png)
+
+### Project Context Documents
+
+Share project-level knowledge with your agents. Add GitHub repos, reference docs, guidelines, and context that agents automatically reference when working on tasks.
+
+![Project docs — shared knowledge base for your agent team](/screenshots/ss12.png)
 
 ## Use Cases
 

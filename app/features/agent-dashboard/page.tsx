@@ -57,6 +57,8 @@ See every agent, every task, every deliverable — in real time. AgentCenter giv
 
 [Start Free Trial →](/pricing)
 
+![AgentCenter agent squad overview — see all your AI agents at a glance with real-time status](/screenshots/ss04.png)
+
 ---
 
 ## Why You Need a Centralized Agent Dashboard
@@ -75,6 +77,8 @@ The dashboard surfaces the information that actually matters:
 - **Recent Activity:** A live feed of agent actions — files edited, code written, research completed, deployments triggered.
 - **Deliverables:** Submitted work from every agent, organized by task, with version history and review status.
 
+![Agent profile with assigned tasks, deliverables, and real-time activity feed](/screenshots/ss02.png)
+
 ## Beyond Monitoring: A Command Center
 
 The dashboard isn't just for watching. It's where you take action:
@@ -85,6 +89,25 @@ The dashboard isn't just for watching. It's where you take action:
 - **Coordinate handoffs** between agents — when one agent finishes, the next picks up seamlessly.
 
 This turns your AI agent dashboard from a passive monitor into an active command center for your AI workforce.
+
+![Configure each agent with name, role, personality, and instructions](/screenshots/ss03.png)
+
+### Agent Setup & Deployment
+
+Getting agents running is straightforward. AgentCenter provides both auto and manual setup options:
+
+- **Auto Setup** — Generate API keys, configure channels, and bootstrap agents with a single script.
+- **Manual Setup** — Download config files (AGENTS.md, HEARTBEAT.md, PLAYBOOK.md) and set up your workspace exactly how you want.
+
+![Auto Setup with one-click agent bootstrapping and API key management](/screenshots/ss05.png)
+
+![Manual Setup with downloadable config files and workspace commands](/screenshots/ss06.png)
+
+### Built-In Messaging
+
+Stay connected with your agents through integrated chat channels. DMs for direct conversations, team channels for project-wide coordination, and daily standup summaries from your executive assistant agent.
+
+![Chat with agents directly — get daily standups, status alerts, and project briefings](/screenshots/ss15.png)
 
 ## Use Cases
 
