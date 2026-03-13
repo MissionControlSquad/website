@@ -14,6 +14,7 @@ import {
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useSelfHostCheckout, type SelfHostPlan } from "@/lib/hooks/useSelfHostCheckout";
 import { SELFHOSTING_PRICING } from "@/lib/constants";
+import { trackBeginCheckout } from "@/lib/analytics";
 
 const yearlyMonthly = Math.round((SELFHOSTING_PRICING.yearly / 12) * 100) / 100;
 
@@ -178,7 +179,14 @@ export default function SelfHostingPricingSection() {
 
             <div className="text-center">
               <button
-                onClick={() => checkout(plan)}
+                onClick={() => {
+                  trackBeginCheckout(
+                    "AgentCenter Self-Hosting License",
+                    plan,
+                    plan === "monthly" ? SELFHOSTING_PRICING.monthly : SELFHOSTING_PRICING.yearly
+                  );
+                  checkout(plan);
+                }}
                 disabled={isLoading}
                 className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
               >

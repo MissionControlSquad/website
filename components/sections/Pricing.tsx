@@ -6,6 +6,7 @@ import { Check, ArrowRight, Monitor } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useCheckout } from "@/lib/hooks/useCheckout";
 import { PRICING, SELFHOSTING_PRICING, type BillingPlan, DEFAULT_PLAN } from "@/lib/constants";
+import { trackBeginCheckout } from "@/lib/analytics";
 
 const features = [
   "Unlimited AI agents",
@@ -113,7 +114,14 @@ export default function Pricing() {
               </p>
             )}
             <button
-              onClick={() => checkout(plan)}
+              onClick={() => {
+                trackBeginCheckout(
+                  "AgentCenter Cloud",
+                  plan,
+                  plan === "monthly" ? PRICING.monthly : PRICING.yearly
+                );
+                checkout(plan);
+              }}
               disabled={isLoading}
               className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
             >
