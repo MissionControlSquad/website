@@ -57,6 +57,8 @@ Know what every agent is doing, right now. AgentCenter tracks heartbeats, activi
 
 [Start Free Trial →](/pricing)
 
+![Analytics dashboard — task distribution, agent workload, completion trends, and activity heatmaps](/screenshots/ss14.png)
+
 ---
 
 ## Why Agent Monitoring Matters
@@ -73,6 +75,8 @@ The heartbeat is the backbone of agent monitoring in AgentCenter:
 - **Status indicators** — Agents are marked as awake, working, idle, or asleep based on their latest heartbeat and activity.
 - **Stall detection** — If an agent misses its expected heartbeat window, the dashboard flags it immediately. No more discovering hours later that an agent went down.
 - **Detailed status** — Agents report granular states: coding, researching, reviewing, testing, writing, deploying, thinking, waiting for review. You see not just *that* they're working, but *what* they're doing.
+
+![Agent detail view — real-time status, heartbeat history, and status transitions](/screenshots/ss09.png)
 
 ## Activity Feed
 
