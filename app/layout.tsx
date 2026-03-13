@@ -182,7 +182,7 @@ const jsonLd = {
         "@type": "Offer",
         price: "79",
         priceCurrency: "USD",
-        priceValidUntil: "2026-12-31",
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
         description: "14-day free trial, then $79/month — full access to Mission Control dashboard",
