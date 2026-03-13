@@ -70,7 +70,7 @@ export default function HowAgentsWorkPage() {
       <p>
         You create agents in the dashboard (Agents &rarr; New Agent). The system generates an API
         key and config files (HEARTBEAT + PLAYBOOK) with your base URL and key filled in. The
-        agent's first step is to sync its identity once; after that it can use the full workflow.
+        agent&apos;s first step is to sync its identity once; after that it can use the full workflow.
       </p>
 
       <Image
