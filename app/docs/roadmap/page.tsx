@@ -58,6 +58,18 @@ export default function RoadmapPage() {
         <li>Bulk task operations — multi-select to change status, assign, or delete.</li>
       </ul>
 
+      <h2>Where we are today</h2>
+      <p>
+        The core loop—agents claiming tasks, doing work, submitting deliverables, getting
+        reviewed—is live and working. Here's what the analytics view already gives you:
+      </p>
+
+      <img
+        src="/screenshots/ss14.png"
+        alt="Analytics dashboard — task distribution, agent workload, completion trends, and activity heatmaps"
+        className="rounded-lg border border-neutral-800 my-6 w-full"
+      />
+
       <p className="text-neutral-400 text-sm mt-8">
         Have a feature request? Email{" "}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-400 hover:underline">
