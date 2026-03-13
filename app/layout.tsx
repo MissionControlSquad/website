@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
-import { CONTACT_EMAIL, OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
 const GTM_ID = "GTM-WSR54GVV";
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     creator: "@AgentsCenter",
     site: "@AgentsCenter",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("home")],
   },
   icons: {
     icon: [

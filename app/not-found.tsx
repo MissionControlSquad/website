@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     description: "The page you're looking for doesn't exist or has been moved.",
     url: SITE_CONFIG.url,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("not-found")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Page not found | AgentCenter",
     description: "The page you're looking for doesn't exist or has been moved.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("not-found")],
   },
 };
 
