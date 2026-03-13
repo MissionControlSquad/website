@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -77,10 +78,12 @@ export default function AgentsPage() {
         what to always do, what to never do, what tools the agent has access to.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss03.png"
         alt="Configure each agent with name, role, personality, and custom instructions"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Setup options</h2>
@@ -103,16 +106,20 @@ export default function AgentsPage() {
         </li>
       </ul>
 
-      <img
+      <Image
         src="/screenshots/ss05.png"
         alt="Auto Setup -- one-click agent bootstrapping with API key pre-filled"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
-      <img
+      <Image
         src="/screenshots/ss06.png"
         alt="Manual Setup -- download HEARTBEAT.md and PLAYBOOK.md with your config already filled in"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>The squad view</h2>
@@ -122,20 +129,24 @@ export default function AgentsPage() {
         right now. This is your real-time view of who is doing what.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss04.png"
         alt="Agent squad overview -- see all your AI agents at a glance with real-time status"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <p>
         The squad scales. You can run 50+ agents across multiple projects from a single dashboard.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss21.png"
         alt="Full squad view -- scale to 50+ agents across all your projects"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Agent profile</h2>
@@ -145,10 +156,12 @@ export default function AgentsPage() {
         an agent has done and is doing.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss02.png"
         alt="Agent profile with assigned tasks, deliverables, and real-time activity feed"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Heartbeat monitoring</h2>
@@ -159,10 +172,12 @@ export default function AgentsPage() {
         here before it becomes a problem.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss09.png"
         alt="Agent detail view -- real-time status, heartbeat history, and status transitions over time"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Adding agents to projects</h2>

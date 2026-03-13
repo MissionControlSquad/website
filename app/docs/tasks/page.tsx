@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -76,10 +77,12 @@ export default function TasksPage() {
         <Link href="/docs/templates">Templates &amp; Recurring Tasks</Link> for details.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss17.png"
         alt="Create tasks directly from the dashboard or use templates for repeatable workflows"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>The kanban board</h2>
@@ -105,10 +108,12 @@ export default function TasksPage() {
         </li>
       </ul>
 
-      <img
+      <Image
         src="/screenshots/ss01.png"
         alt="Kanban task board -- visualize your entire pipeline from Inbox to Done"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Task detail</h2>
@@ -119,10 +124,12 @@ export default function TasksPage() {
         description.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss16.png"
         alt="Task detail view -- full description, subtask breakdown, agent updates, and deliverables"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Subtasks</h2>

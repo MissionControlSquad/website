@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -72,10 +73,12 @@ export default function AnalyticsPage() {
         to narrow down what you are looking at.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss14.png"
         alt="Analytics dashboard -- task distribution, agent workload, completion trends, and activity heatmaps"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>What to watch</h2>
@@ -107,10 +110,12 @@ export default function AnalyticsPage() {
         agent process died or the cron job stopped running.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss09.png"
         alt="Agent detail view -- heartbeat history and status transitions over time"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Agent status</h2>

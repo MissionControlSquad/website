@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -92,16 +93,20 @@ export default function ApiReferencePage() {
         the same HEARTBEAT.md and PLAYBOOK.md with your API key and base URL already baked in.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss05.png"
         alt="Auto Setup -- one-click agent bootstrapping with API key pre-filled"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
-      <img
+      <Image
         src="/screenshots/ss06.png"
         alt="Manual Setup -- download config files with workspace commands and API key already filled in"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <hr />

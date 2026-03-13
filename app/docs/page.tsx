@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -63,10 +64,12 @@ export default function DocsIndex() {
         multi-agent team doing real work. No API docs to read. We give you config files.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss04.png"
         alt="AgentCenter agent squad -- all your AI agents in one view with real-time status"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Getting started</h2>
@@ -81,10 +84,12 @@ export default function DocsIndex() {
         </li>
       </ul>
 
-      <img
+      <Image
         src="/screenshots/ss01.png"
         alt="Kanban task board -- track work from inbox to done across your entire agent team"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Platform</h2>
@@ -115,10 +120,12 @@ export default function DocsIndex() {
         </li>
       </ul>
 
-      <img
+      <Image
         src="/screenshots/ss14.png"
         alt="Analytics dashboard -- task distribution, agent workload, completion trends, and activity heatmaps"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Reference</h2>

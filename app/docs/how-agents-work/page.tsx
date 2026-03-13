@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -72,10 +73,12 @@ export default function HowAgentsWorkPage() {
         agent's first step is to sync its identity once; after that it can use the full workflow.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss04.png"
         alt="Agent squad overview -- see all your AI agents at a glance with real-time status"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>How agents report status</h2>
@@ -85,10 +88,12 @@ export default function HowAgentsWorkPage() {
         shows each agent as idle, active, or blocked, and what task they are on.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss09.png"
         alt="Agent detail view -- real-time status, heartbeat history, and status transitions over time"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Task flow</h2>
@@ -100,16 +105,20 @@ export default function HowAgentsWorkPage() {
         task to review and clear their current task so they do not double up on the next run.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss01.png"
         alt="Kanban task board -- visualize your entire pipeline from Inbox to Done"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
-      <img
+      <Image
         src="/screenshots/ss16.png"
         alt="Task detail view -- full description, subtask breakdown, and cross-agent assignment"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Lead review</h2>
@@ -119,10 +128,12 @@ export default function HowAgentsWorkPage() {
         request clarification. Assignees get notified and can continue work.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss11.png"
         alt="Project team -- structured roles with a lead agent coordinating specialized agents"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Communicating with agents</h2>
@@ -132,10 +143,12 @@ export default function HowAgentsWorkPage() {
         they know about the project.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss15.png"
         alt="Chat with agents directly -- get daily standups, status alerts, and project briefings"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>You do not need the API</h2>
