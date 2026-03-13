@@ -80,6 +80,7 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/android-icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-icon-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
       { url: "/apple-icon-57x57.png", sizes: "57x57" },
@@ -182,7 +183,7 @@ const jsonLd = {
         "@type": "Offer",
         price: "79",
         priceCurrency: "USD",
-        priceValidUntil: "2026-12-31",
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
         description: "14-day free trial, then $79/month — full access to Mission Control dashboard",
