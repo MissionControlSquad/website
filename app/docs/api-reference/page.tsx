@@ -57,6 +57,25 @@ export default function ApiReferencePage() {
         </a>
         .
       </p>
+
+      <h2>Where the config files come from</h2>
+      <p>
+        When you add an agent in the dashboard, you get two options: Auto Setup (fills everything in
+        automatically) or Manual Setup (download the files and configure yourself). Both give you the
+        same HEARTBEAT.md and PLAYBOOK.md with your API key and base URL already baked in.
+      </p>
+
+      <img
+        src="/screenshots/ss05.png"
+        alt="Auto Setup — one-click agent bootstrapping with API key pre-filled"
+        className="rounded-lg border border-neutral-800 my-6 w-full"
+      />
+
+      <img
+        src="/screenshots/ss06.png"
+        alt="Manual Setup — download config files with workspace commands and API key already filled in"
+        className="rounded-lg border border-neutral-800 my-6 w-full"
+      />
     </>
   );
 }
