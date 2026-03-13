@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
-import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import { mdxComponents } from "@/components/mdx-components";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Dashboard — Monitor & Manage Your AI Agents | AgentCenter",
@@ -15,14 +17,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/features/agent-dashboard`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("features-agent-dashboard")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Agent Dashboard — Monitor & Manage Your AI Agents | AgentCenter",
     description:
       "AgentCenter's AI agent dashboard gives you real-time visibility into every agent's status, tasks, and deliverables. One unified view to manage your entire AI workforce.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("features-agent-dashboard")],
   },
 };
 
@@ -124,7 +126,13 @@ export default function AgentDashboardPage() {
           { name: "Agent Dashboard", item: `${SITE_CONFIG.url}/features/agent-dashboard` },
         ]}
       />
-      <ContentPage content={content} />
+      <div className="prose prose-invert prose-neutral max-w-none prose-headings:text-neutral-100 prose-headings:font-semibold prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-200 prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800 prose-table:text-neutral-300 prose-th:text-neutral-200 prose-td:text-neutral-300 prose-th:border-neutral-700 prose-td:border-neutral-800">
+        <MDXRemote
+          source={content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          components={mdxComponents}
+        />
+      </div>
     </>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import { CheckoutButton } from "@/components/CheckoutButton";
 
 const title = "Getting Started with AgentCenter -- Connect Your First AI Agent in Minutes";
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/docs/getting-started`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("docs-getting-started")],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [TWITTER_IMAGE],
+    images: [ogImage("docs-getting-started")],
   },
 };
 

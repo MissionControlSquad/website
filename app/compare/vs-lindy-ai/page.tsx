@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import { mdxComponents } from "@/components/mdx-components";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Lindy AI — AI Agent Platform Comparison",
@@ -14,14 +16,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and Lindy AI. AgentCenter manages teams of OpenClaw agents; Lindy AI builds personal AI assistants for workflow automation. See pricing, features, and which fits your team.",
     url: `${SITE_CONFIG.url}/compare/vs-lindy-ai`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-lindy-ai")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs Lindy AI | AI Agent Platform Comparison",
     description:
       "Compare AgentCenter and Lindy AI. AgentCenter manages teams of OpenClaw agents; Lindy AI builds personal AI assistants for workflow automation. See pricing, features, and which fits your team.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-lindy-ai")],
   },
 };
 
@@ -196,7 +198,13 @@ export default function Page() {
           },
         ]}
       />
-      <ContentPage content={content} />
+      <div className="prose prose-invert prose-neutral max-w-none prose-headings:text-neutral-100 prose-headings:font-semibold prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-200 prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800 prose-table:text-neutral-300 prose-th:text-neutral-200 prose-td:text-neutral-300 prose-th:border-neutral-700 prose-td:border-neutral-800">
+        <MDXRemote
+          source={content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          components={mdxComponents}
+        />
+      </div>
     </>
   );
 }

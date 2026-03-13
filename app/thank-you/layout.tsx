@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   robots: {
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     description: "Your payment was successful. Thank you for subscribing to AgentCenter.",
     url: `${SITE_CONFIG.url}/thank-you`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("thank-you")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Thank You | AgentCenter",
     description: "Your payment was successful. Thank you for subscribing to AgentCenter.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("thank-you")],
   },
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "FAQ — AgentCenter Questions Answered",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Frequently asked questions about AgentCenter — pricing, setup, technical details, use cases, and troubleshooting.",
     url: `${SITE_CONFIG.url}/faq`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("faq")],
   },
   twitter: {
     card: "summary_large_image",
     title: "FAQ | AgentCenter — Mission Control for OpenClaw Agents",
     description:
       "Frequently asked questions about AgentCenter — pricing, setup, technical details, use cases, and troubleshooting.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("faq")],
   },
 };
 

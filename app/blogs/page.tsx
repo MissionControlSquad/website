@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getAllTags } from "@/lib/blog";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     type: "website",
     url: `${SITE_CONFIG.url}/blogs`,
     siteName: SITE_CONFIG.name,
-    images: [{ ...OG_IMAGE, alt: "AgentCenter Blog" }],
+    images: [ogImage("blog", "AgentCenter Blog")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog | AgentCenter — AI Agent Management Insights",
     description:
       "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("blog")],
   },
 };
 
@@ -76,7 +76,7 @@ export default function BlogsPage() {
       <JsonLdScript data={blogListJsonLd} scriptKey="blogs-collection-page" />
 
       {/* Header */}
-      <div className="pt-32 pb-16 border-b border-neutral-800">
+      <div className="pt-24 md:pt-32 pb-10 md:pb-16 border-b border-neutral-800">
         <Container>
           <Link
             href="/"
@@ -85,7 +85,7 @@ export default function BlogsPage() {
             <ArrowRight size={14} className="rotate-180" />
             Back to home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">Blog</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">Blog</h1>
           <p className="text-lg text-neutral-400 max-w-2xl">
             Insights on managing AI agent teams, Mission Control dashboards, and the future of
             multi-agent operations.

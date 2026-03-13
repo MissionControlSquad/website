@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Orchestration — Coordinate Multi-Agent Workflows | AgentCenter",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
       "A lead agent assigns work, reviews output, and keeps your multi-agent team moving. Orchestration without the framework overhead.",
     url: `${SITE_CONFIG.url}/ai-agent-orchestration`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("ai-agent-orchestration")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Agent Orchestration — Lead Agent Coordination",
     description:
       "A lead agent assigns work, reviews output, and keeps your multi-agent team moving. Orchestration without the framework overhead.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("ai-agent-orchestration")],
   },
 };
 

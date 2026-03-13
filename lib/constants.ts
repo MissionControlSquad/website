@@ -31,6 +31,21 @@ export const TWITTER_IMAGE = {
   type: "image/png",
 } as const;
 
+/**
+ * Per-page OG image. Pass the slug used in generate-all-og-images.mjs
+ * (e.g. "pricing", "compare-vs-crewai", "blog-some-slug").
+ * Compatible with both openGraph.images and twitter.images.
+ */
+export function ogImage(slug: string, alt = "AgentCenter") {
+  return {
+    url: `${SITE_CONFIG.url}/og/${slug}.png`,
+    width: 1200,
+    height: 630,
+    alt,
+    type: "image/png" as const,
+  };
+}
+
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
@@ -57,8 +72,16 @@ export const FOOTER_LINKS = {
     { label: "Multi-Agent Workflows", href: "/features/multi-agent-workflows" },
   ],
   comparisons: [
+    { label: "All Comparisons", href: "/compare" },
+    { label: "vs Mission Control HQ", href: "/compare/vs-mission-control-hq" },
     { label: "vs CrewAI", href: "/compare/vs-crewai" },
     { label: "vs LangSmith", href: "/compare/vs-langsmith" },
+    { label: "vs AgentOps", href: "/compare/vs-agentops" },
+    { label: "vs Relevance AI", href: "/compare/vs-relevance-ai" },
+    { label: "vs SuperAGI", href: "/compare/vs-superagi" },
+    { label: "vs Lindy AI", href: "/compare/vs-lindy-ai" },
+    { label: "vs MindStudio", href: "/compare/vs-mindstudio" },
+    { label: "vs Lyzr", href: "/compare/vs-lyzr" },
     { label: "vs DIY Management", href: "/compare/vs-diy-agent-management" },
   ],
   legal: [

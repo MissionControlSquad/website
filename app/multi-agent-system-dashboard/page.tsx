@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Multi-Agent System Dashboard — Monitor Every Agent in One View | AgentCenter",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
       "One dashboard for your entire multi-agent system. Live status, task progress, and deliverable tracking across every agent.",
     url: `${SITE_CONFIG.url}/multi-agent-system-dashboard`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("multi-agent-system-dashboard")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Multi-Agent System Dashboard — Real-Time Agent Visibility",
     description:
       "One dashboard for your entire multi-agent system. Live status, task progress, and deliverable tracking across every agent.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("multi-agent-system-dashboard")],
   },
 };
 

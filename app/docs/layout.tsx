@@ -3,7 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/docs`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("docs")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
     description:
       "Complete documentation for AgentCenter: get started, set up AI agents, manage projects and tasks, review deliverables, and monitor your agent team. No API docs required.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("docs")],
   },
 };
 
@@ -58,14 +58,32 @@ const DOC_SECTIONS = [
   },
 ] as const;
 
+const ALL_DOC_LINKS: { label: string; href: string }[] = DOC_SECTIONS.flatMap((s) => [...s.links]);
+
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
       <main id="main-content" className="min-h-screen pt-16">
-        <Container className="py-12">
-          <div className="flex flex-col md:flex-row gap-12">
-            <aside className="md:w-56 flex-shrink-0" aria-label="Documentation navigation">
+        <Container className="py-8 md:py-12">
+          {/* Mobile: horizontal scrollable pills */}
+          <div className="md:hidden flex overflow-x-auto gap-2 pb-1 -mx-4 px-4 mb-6">
+            {ALL_DOC_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="shrink-0 px-3 py-1.5 rounded-full text-xs font-medium border text-neutral-400 border-neutral-700 hover:text-neutral-100 hover:border-neutral-500 transition-colors whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12">
+            <aside
+              className="hidden md:block md:w-56 flex-shrink-0"
+              aria-label="Documentation navigation"
+            >
               <nav className="sticky top-24">
                 {DOC_SECTIONS.map((section) => (
                   <div key={section.title} className="mb-6">
