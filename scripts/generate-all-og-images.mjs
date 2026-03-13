@@ -290,6 +290,15 @@ const PAGES = [
     accentColor: BLUE,
   },
 
+  // Compare index
+  {
+    slug: "compare",
+    category: "COMPARISON",
+    title: "AgentCenter vs Competitors",
+    subtitle: "Side-by-side breakdowns of features, pricing, and use cases for every alternative.",
+    accentColor: PURPLE,
+  },
+
   // Comparisons
   {
     slug: "compare-vs-crewai",

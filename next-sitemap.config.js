@@ -70,6 +70,11 @@ module.exports = {
       priority = 1.0;
       changefreq = "daily";
     }
+    // Compare index
+    else if (path === "/compare") {
+      priority = 0.85;
+      changefreq = "monthly";
+    }
     // Comparison pages
     else if (path.startsWith("/compare/")) {
       priority = 0.8;
