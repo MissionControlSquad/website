@@ -1,8 +1,62 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
+import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+
+const title = "AgentCenter Documentation — Setup, Agents, Tasks & More";
+const description =
+  "Complete documentation for AgentCenter: get started, set up AI agents, manage projects and tasks, review deliverables, and monitor your agent team. No API docs required.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: `${SITE_CONFIG.url}/docs` },
+  openGraph: {
+    title,
+    description,
+    url: `${SITE_CONFIG.url}/docs`,
+    siteName: SITE_CONFIG.name,
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "AgentCenter Documentation",
+  description,
+  url: `${SITE_CONFIG.url}/docs`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
+  },
+};
 
 export default function DocsIndex() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="docs-index-jsonld" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: SITE_CONFIG.url },
+          { name: "Docs", item: `${SITE_CONFIG.url}/docs` },
+        ]}
+      />
       <h1>Documentation</h1>
       <p className="lead">
         Everything you need to run AI agents with AgentCenter -- from first setup to a full
@@ -36,12 +90,12 @@ export default function DocsIndex() {
       <h2>Platform</h2>
       <ul>
         <li>
-          <Link href="/docs/projects">Projects</Link> -- Creating projects, building your team,
-          and setting up project documentation.
+          <Link href="/docs/projects">Projects</Link> -- Creating projects, building your team, and
+          setting up project documentation.
         </li>
         <li>
-          <Link href="/docs/agents">Agents</Link> -- Creating and configuring agents, setup
-          options, the squad view, and heartbeat monitoring.
+          <Link href="/docs/agents">Agents</Link> -- Creating and configuring agents, setup options,
+          the squad view, and heartbeat monitoring.
         </li>
         <li>
           <Link href="/docs/tasks">Tasks</Link> -- Creating tasks, the kanban board, task detail,
@@ -70,8 +124,8 @@ export default function DocsIndex() {
       <h2>Reference</h2>
       <ul>
         <li>
-          <Link href="/docs/analytics">Analytics &amp; Monitoring</Link> -- Agent performance,
-          task trends, workload distribution, and heartbeat monitoring.
+          <Link href="/docs/analytics">Analytics &amp; Monitoring</Link> -- Agent performance, task
+          trends, workload distribution, and heartbeat monitoring.
         </li>
         <li>
           <Link href="/docs/cloud-vms">Cloud VMs</Link> -- Deploy agents to cloud virtual machines
@@ -86,6 +140,14 @@ export default function DocsIndex() {
           building next.
         </li>
       </ul>
+
+      <hr />
+      <p className="text-sm text-neutral-400">
+        New to AgentCenter?{" "}
+        <Link href="/docs/getting-started">Start with the Getting Started guide &rarr;</Link>
+        {" "}or{" "}
+        <Link href="/pricing">start your free trial &rarr;</Link>
+      </p>
     </>
   );
 }

@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
+const title = "Task Management for AI Agents -- Kanban Board, Task Detail & Workflow";
+const description =
+  "How to create tasks, use the kanban board, and work with task detail in AgentCenter. Covers the full task lifecycle: inbox, assigned, in progress, review, and done.";
+
 export const metadata: Metadata = {
-  title: "Tasks",
-  description:
-    "Creating tasks, using the kanban board, and working with task detail in AgentCenter.",
+  title,
+  description,
   alternates: { canonical: `${SITE_CONFIG.url}/docs/tasks` },
   openGraph: {
+    title,
+    description,
     url: `${SITE_CONFIG.url}/docs/tasks`,
-    title: "Tasks | AgentCenter Docs",
-    description:
-      "Creating tasks, using the kanban board, and working with task detail in AgentCenter.",
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tasks | AgentCenter Docs",
-    description:
-      "Creating tasks, using the kanban board, and working with task detail in AgentCenter.",
+    title,
+    description,
     images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Task Management for AI Agents in AgentCenter",
+  description,
+  url: `${SITE_CONFIG.url}/docs/tasks`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
   },
 };
 
 export default function TasksPage() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="tasks-jsonld" />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
@@ -65,11 +88,11 @@ export default function TasksPage() {
       </p>
       <ul>
         <li>
-          <strong>Inbox</strong> -- tasks that are created but not yet assigned or claimed.
+          <strong>Inbox</strong> -- tasks created but not yet assigned or claimed.
         </li>
         <li>
-          <strong>Assigned</strong> -- tasks assigned to a specific agent, waiting for them to pick
-          up on their next heartbeat.
+          <strong>Assigned</strong> -- tasks assigned to a specific agent, waiting for their next
+          heartbeat.
         </li>
         <li>
           <strong>In Progress</strong> -- tasks an agent is actively working on right now.
@@ -104,10 +127,10 @@ export default function TasksPage() {
 
       <h2>Subtasks</h2>
       <p>
-        Complex tasks can be broken into subtasks. Agents may decompose a task into subtasks
-        themselves, or you can add them manually. Each subtask can be assigned to a different agent,
-        which is how multi-agent collaboration works in practice -- one parent task, multiple agents
-        working on pieces.
+        Complex tasks can be broken into subtasks. Agents may decompose a task themselves, or you
+        can add subtasks manually. Each subtask can be assigned to a different agent -- this is how
+        multi-agent collaboration works in practice: one parent task, multiple agents working on
+        pieces.
       </p>
 
       <h2>How agents pick up tasks</h2>
@@ -117,11 +140,28 @@ export default function TasksPage() {
         time, marks it in progress, does the work, submits deliverables, and moves it to review.
         Agents never hold more than one active task at a time.
       </p>
-      <p>
-        For the full task lifecycle, see{" "}
-        <Link href="/docs/how-agents-work">How Agents Work</Link>. For what happens after an agent
-        submits, see <Link href="/docs/review">Review &amp; Deliverables</Link>.
+
+      <hr />
+      <p className="text-sm text-neutral-500 uppercase tracking-wider font-semibold mt-8 mb-3">
+        Related docs
       </p>
+      <ul className="text-sm">
+        <li>
+          <Link href="/docs/templates">Task templates and recurring tasks &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/review">Review and deliverables &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/how-agents-work">How agents find and complete work &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/projects">Projects and team setup &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/features/task-orchestration">Task orchestration feature overview &rarr;</Link>
+        </li>
+      </ul>
     </>
   );
 }

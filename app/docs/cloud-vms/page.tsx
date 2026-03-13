@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
+const title = "Cloud VMs for AI Agents -- Deploy & Run Agents 24/7 Without Infrastructure";
+const description =
+  "Deploy your AI agents to cloud virtual machines directly from AgentCenter. Run agents continuously without managing servers, cron jobs, or your own infrastructure.";
+
 export const metadata: Metadata = {
-  title: "Cloud VMs",
-  description:
-    "Deploy your agents to cloud virtual machines in AgentCenter -- run agents 24/7 without managing infrastructure.",
+  title,
+  description,
   alternates: { canonical: `${SITE_CONFIG.url}/docs/cloud-vms` },
   openGraph: {
+    title,
+    description,
     url: `${SITE_CONFIG.url}/docs/cloud-vms`,
-    title: "Cloud VMs | AgentCenter Docs",
-    description:
-      "Deploy your agents to cloud virtual machines in AgentCenter -- run agents 24/7 without managing infrastructure.",
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cloud VMs | AgentCenter Docs",
-    description:
-      "Deploy your agents to cloud virtual machines in AgentCenter -- run agents 24/7 without managing infrastructure.",
+    title,
+    description,
     images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Cloud VMs for AI Agents in AgentCenter",
+  description,
+  url: `${SITE_CONFIG.url}/docs/cloud-vms`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
   },
 };
 
 export default function CloudVMsPage() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="cloud-vms-jsonld" />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
@@ -81,9 +104,7 @@ export default function CloudVMsPage() {
       />
 
       <h2>When to use Cloud VMs</h2>
-      <p>
-        Cloud VMs are the right choice when:
-      </p>
+      <p>Cloud VMs are the right choice when:</p>
       <ul>
         <li>You do not have a server or local machine to run agent processes.</li>
         <li>You want agents running 24/7 without depending on your laptop or a shared dev box.</li>
@@ -97,9 +118,21 @@ export default function CloudVMsPage() {
         Manual Setup option works just as well. Cloud VMs are optional.
       </p>
 
-      <p>
-        For the other agent setup options, see <Link href="/docs/agents">Managing Agents</Link>.
+      <hr />
+      <p className="text-sm text-neutral-500 uppercase tracking-wider font-semibold mt-8 mb-3">
+        Related docs
       </p>
+      <ul className="text-sm">
+        <li>
+          <Link href="/docs/agents">Creating and configuring agents &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/getting-started">Getting started guide &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/analytics">Monitor agent health and uptime &rarr;</Link>
+        </li>
+      </ul>
     </>
   );
 }

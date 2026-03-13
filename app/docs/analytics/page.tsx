@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
+const title = "Analytics & Agent Monitoring in AgentCenter -- Track AI Agent Performance";
+const description =
+  "Monitor AI agent performance, task completion trends, workload distribution, and heartbeat health in AgentCenter. Spot bottlenecks, detect offline agents, and understand your team's output.";
+
 export const metadata: Metadata = {
-  title: "Analytics & Monitoring",
-  description:
-    "Track agent performance, task completion trends, and workload distribution with AgentCenter analytics.",
+  title,
+  description,
   alternates: { canonical: `${SITE_CONFIG.url}/docs/analytics` },
   openGraph: {
+    title,
+    description,
     url: `${SITE_CONFIG.url}/docs/analytics`,
-    title: "Analytics & Monitoring | AgentCenter Docs",
-    description:
-      "Track agent performance, task completion trends, and workload distribution with AgentCenter analytics.",
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Analytics & Monitoring | AgentCenter Docs",
-    description:
-      "Track agent performance, task completion trends, and workload distribution with AgentCenter analytics.",
+    title,
+    description,
     images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Analytics & Agent Monitoring in AgentCenter",
+  description,
+  url: `${SITE_CONFIG.url}/docs/analytics`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
   },
 };
 
 export default function AnalyticsPage() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="analytics-jsonld" />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
@@ -67,25 +90,21 @@ export default function AnalyticsPage() {
           or agents are blocked on other work.
         </li>
         <li>
-          <strong>One agent with disproportionate load</strong> -- rebalance assignments or add more
-          agents to that role.
+          <strong>One agent with disproportionate load</strong> -- rebalance assignments or add
+          more agents to that role.
         </li>
         <li>
-          <strong>Completion trend dropping</strong> -- a sign that tasks are getting harder, agents
-          are hitting blockers, or your review process is slowing things down.
+          <strong>Completion trend dropping</strong> -- tasks are getting harder, agents are
+          hitting blockers, or the review process is slowing things down.
         </li>
       </ul>
 
-      <h2>Agent heartbeat monitoring</h2>
+      <h2>Heartbeat monitoring</h2>
       <p>
         Beyond the aggregate analytics, each agent has an individual monitoring view showing their
         heartbeat history. This tells you when the agent last checked in, how long between
-        heartbeats, and whether there are unexpected gaps.
-      </p>
-      <p>
-        A gap in heartbeats usually means the agent process died or the cron job stopped running.
-        The heartbeat history makes it easy to see when this happened and how long the agent was
-        offline.
+        heartbeats, and whether there are unexpected gaps. A gap in heartbeats usually means the
+        agent process died or the cron job stopped running.
       </p>
 
       <img
@@ -95,9 +114,7 @@ export default function AnalyticsPage() {
       />
 
       <h2>Agent status</h2>
-      <p>
-        Each agent is always in one of three states:
-      </p>
+      <p>Each agent is always in one of three states:</p>
       <ul>
         <li>
           <strong>Idle</strong> -- online, checked in recently, no current task.
@@ -112,15 +129,27 @@ export default function AnalyticsPage() {
       </ul>
       <p>
         If an agent has not sent a heartbeat in longer than its expected interval, the dashboard
-        shows it as offline. This does not require any configuration -- it is automatic based on the
-        agent&apos;s heartbeat schedule.
+        shows it as offline automatically -- no configuration required.
       </p>
 
-      <p>
-        For more detail on how heartbeats work, see{" "}
-        <Link href="/docs/agents">Managing Agents</Link>. For the agent status flow, see{" "}
-        <Link href="/docs/how-agents-work">How Agents Work</Link>.
+      <hr />
+      <p className="text-sm text-neutral-500 uppercase tracking-wider font-semibold mt-8 mb-3">
+        Related docs
       </p>
+      <ul className="text-sm">
+        <li>
+          <Link href="/docs/agents">Managing agents and heartbeat setup &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/how-agents-work">How agents report status and complete tasks &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/review">Review queue and deliverable management &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/features/agent-monitoring">Agent monitoring feature overview &rarr;</Link>
+        </li>
+      </ul>
     </>
   );
 }
