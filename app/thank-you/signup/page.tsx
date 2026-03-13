@@ -9,11 +9,11 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle, Mail, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { trackSignUp } from "@/lib/analytics";
+import { trackSignupComplete } from "@/lib/analytics";
 
 export default function ThankYouSignupPage() {
   useEffect(() => {
-    trackSignUp();
+    trackSignupComplete();
   }, []);
 
   return (

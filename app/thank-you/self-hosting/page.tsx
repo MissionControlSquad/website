@@ -11,11 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { CheckCircle, AlertTriangle, Mail, Clock, ArrowRight, Key } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
+import { trackPlanUpgrade } from "@/lib/analytics";
 
 interface SessionData {
   email: string | null;
@@ -51,23 +47,30 @@ function SelfHostingThankYouContent() {
         const data: SessionData = await res.json();
         setSession(data);
 
-        if (!fired && data.paymentStatus === "paid" && window.dataLayer) {
+        if (!fired && data.paymentStatus === "paid") {
           fired = true;
-          window.dataLayer.push({
-            event: "purchase",
-            ecommerce: {
-              transaction_id: sessionId,
-              value: data.amount ? data.amount / 100 : 0,
-              currency: (data.currency || "usd").toUpperCase(),
-              items: [
-                {
-                  item_name: "AgentCenter Self-Hosting License",
-                  item_category: "self-hosting",
-                  item_variant: data.plan ?? "monthly",
-                },
-              ],
-            },
-          });
+          const value = data.amount ? data.amount / 100 : 0;
+          const planName = data.plan ?? "monthly";
+
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "purchase",
+              ecommerce: {
+                transaction_id: sessionId,
+                value,
+                currency: (data.currency || "usd").toUpperCase(),
+                items: [
+                  {
+                    item_name: "AgentCenter Self-Hosting License",
+                    item_category: "self-hosting",
+                    item_variant: planName,
+                  },
+                ],
+              },
+            });
+          }
+
+          await trackPlanUpgrade(`self-hosting-${planName}`, value, data.email);
         }
       } catch {
         setError(true);

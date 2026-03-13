@@ -10,11 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { CheckCircle, AlertTriangle, Mail, Clock, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
+import { trackPlanUpgrade } from "@/lib/analytics";
 
 interface SessionData {
   email: string | null;
@@ -50,17 +46,23 @@ function LifetimeDealThankYouContent() {
         const data: SessionData = await res.json();
         setSession(data);
 
-        if (!fired && data.paymentStatus === "paid" && window.dataLayer) {
+        if (!fired && data.paymentStatus === "paid") {
           fired = true;
-          window.dataLayer.push({
-            event: "purchase",
-            ecommerce: {
-              transaction_id: sessionId,
-              value: data.amount ? data.amount / 100 : 0,
-              currency: (data.currency || "usd").toUpperCase(),
-              items: [{ item_name: "Lifetime Deal", item_category: "one-time" }],
-            },
-          });
+          const value = data.amount ? data.amount / 100 : 0;
+
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "purchase",
+              ecommerce: {
+                transaction_id: sessionId,
+                value,
+                currency: (data.currency || "usd").toUpperCase(),
+                items: [{ item_name: "Lifetime Deal", item_category: "one-time" }],
+              },
+            });
+          }
+
+          await trackPlanUpgrade("lifetime", value, data.email);
         }
       } catch {
         setError(true);
