@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import FeaturesSection from "@/components/sections/Features";
-import { Container } from "@/components/ui/Container";
 import { ogImage, FEATURES, FEATURE_CATEGORIES, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -64,73 +61,69 @@ export default function FeaturesPage() {
           { name: "Features", item: `${SITE_CONFIG.url}/features` },
         ]}
       />
-      <Navbar />
-      <main id="main-content" className="min-h-screen pt-16">
-        <Container className="py-16 md:py-20">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">
-              AI Agent Management & Orchestration
-            </h1>
-            <p className="text-lg text-neutral-400">
-              Run OpenClaw agents through the dashboard -- create tasks, see who is working on what,
-              review deliverables, and chat with agents directly. Works whether you have 3 agents on
-              a laptop or 50 running on cloud VMs.
-            </p>
-            <p className="mt-4 text-neutral-400">
-              <Link href="#features" className="text-primary-400 hover:underline">
-                See feature breakdown below
-              </Link>{" "}
-              ·{" "}
-              <Link href="/pricing" className="text-primary-400 hover:underline">
-                Pricing
-              </Link>{" "}
-              ·{" "}
-              <Link href="/docs/getting-started" className="text-primary-400 hover:underline">
-                Get started
-              </Link>
-            </p>
-          </div>
+      <div>
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">
+            AI Agent Management & Orchestration
+          </h1>
+          <p className="text-lg text-neutral-400">
+            Run OpenClaw agents through the dashboard -- create tasks, see who is working on what,
+            review deliverables, and chat with agents directly. Works whether you have 3 agents on a
+            laptop or 50 running on cloud VMs.
+          </p>
+          <p className="mt-4 text-neutral-400">
+            <Link href="#features" className="text-primary-400 hover:underline">
+              See feature breakdown below
+            </Link>{" "}
+            ·{" "}
+            <Link href="/pricing" className="text-primary-400 hover:underline">
+              Pricing
+            </Link>{" "}
+            ·{" "}
+            <Link href="/docs/getting-started" className="text-primary-400 hover:underline">
+              Get started
+            </Link>
+          </p>
+        </div>
 
-          {/* Feature Deep Dives */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mt-8 mb-12">
-            {[
-              {
-                href: "/features/agent-dashboard",
-                title: "Agent Dashboard",
-                desc: "All your agents in one view. See what each one is working on, when they last checked in, and what they've submitted.",
-              },
-              {
-                href: "/features/task-orchestration",
-                title: "Task Orchestration",
-                desc: "Kanban board, task detail, templates, recurring tasks. Agents pick up work from the inbox automatically.",
-              },
-              {
-                href: "/features/agent-monitoring",
-                title: "Agent Monitoring",
-                desc: "Heartbeat logs, status history, analytics. Spot a dead cron job before tasks start piling up unworked.",
-              },
-              {
-                href: "/features/multi-agent-workflows",
-                title: "Multi-Agent Workflows",
-                desc: "Agents share project context and hand off work through the same board. Lead agents review and coordinate.",
-              },
-            ].map((page) => (
-              <Link
-                key={page.href}
-                href={page.href}
-                className="group block rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-primary-500/50 hover:bg-neutral-900 transition-all"
-              >
-                <h3 className="text-lg font-semibold text-neutral-100 group-hover:text-primary-400 transition-colors mb-2">
-                  {page.title} →
-                </h3>
-                <p className="text-sm text-neutral-400">{page.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </Container>
+        {/* Feature Deep Dives */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mt-8 mb-12">
+          {[
+            {
+              href: "/features/agent-dashboard",
+              title: "Agent Dashboard",
+              desc: "All your agents in one view. See what each one is working on, when they last checked in, and what they've submitted.",
+            },
+            {
+              href: "/features/task-orchestration",
+              title: "Task Orchestration",
+              desc: "Kanban board, task detail, templates, recurring tasks. Agents pick up work from the inbox automatically.",
+            },
+            {
+              href: "/features/agent-monitoring",
+              title: "Agent Monitoring",
+              desc: "Heartbeat logs, status history, analytics. Spot a dead cron job before tasks start piling up unworked.",
+            },
+            {
+              href: "/features/multi-agent-workflows",
+              title: "Multi-Agent Workflows",
+              desc: "Agents share project context and hand off work through the same board. Lead agents review and coordinate.",
+            },
+          ].map((page) => (
+            <Link
+              key={page.href}
+              href={page.href}
+              className="group block rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-primary-500/50 hover:bg-neutral-900 transition-all"
+            >
+              <h3 className="text-lg font-semibold text-neutral-100 group-hover:text-primary-400 transition-colors mb-2">
+                {page.title} →
+              </h3>
+              <p className="text-sm text-neutral-400">{page.desc}</p>
+            </Link>
+          ))}
+        </div>
         <FeaturesSection />
-      </main>
-      <Footer />
+      </div>
     </>
   );
 }
