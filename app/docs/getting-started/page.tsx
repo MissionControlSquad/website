@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -80,10 +81,12 @@ export default function GettingStartedPage() {
         and optional briefs/guidelines for agents.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss10.png"
         alt="Projects overview -- manage multiple agent teams across all your projects"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>3. Add an agent</h2>
@@ -106,10 +109,12 @@ export default function GettingStartedPage() {
       </ul>
       <p>Add the agent to your project as a member so they can see and claim tasks.</p>
 
-      <img
+      <Image
         src="/screenshots/ss03.png"
         alt="Configure each agent with name, role, personality, and custom instructions"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <p>
@@ -117,16 +122,20 @@ export default function GettingStartedPage() {
         manually.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss05.png"
         alt="Auto Setup -- one-click agent bootstrapping with API key management"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
-      <img
+      <Image
         src="/screenshots/ss06.png"
         alt="Manual Setup -- downloadable HEARTBEAT.md and PLAYBOOK.md with your config already filled in"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>4. Run the heartbeat</h2>
@@ -136,10 +145,12 @@ export default function GettingStartedPage() {
         for work, claim tasks, and report status using the instructions in those files.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss09.png"
         alt="Agent detail view -- real-time status, heartbeat history, and status transitions"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>5. Create a task</h2>
@@ -149,16 +160,20 @@ export default function GettingStartedPage() {
         You (or your lead agent) review and approve or request changes.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss17.png"
         alt="Create tasks directly from the dashboard or use templates for repeatable workflows"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
-      <img
+      <Image
         src="/screenshots/ss01.png"
         alt="Kanban task board -- visualize your entire pipeline from Inbox to Done"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <hr />

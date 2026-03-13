@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -67,10 +68,12 @@ export default function RoadmapPage() {
         reviewed -- is live and working. Here is what the analytics view already gives you:
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss14.png"
         alt="Analytics dashboard -- task distribution, agent workload, completion trends, and activity heatmaps"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Coming soon</h2>

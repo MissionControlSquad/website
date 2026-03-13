@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -77,10 +78,12 @@ export default function CloudVMsPage() {
         similar resource needs, they can all run on one VM rather than five separate machines.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss07.png"
         alt="Cloud VMs overview -- create virtual machines to deploy and run your agents 24/7"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Creating a VM</h2>
@@ -97,10 +100,12 @@ export default function CloudVMsPage() {
         will be deployed and started automatically.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss08.png"
         alt="Deploy to VM -- assign an agent to a Cloud VM directly from the agent setup screen"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>When to use Cloud VMs</h2>

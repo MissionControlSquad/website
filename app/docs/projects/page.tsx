@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -71,10 +72,12 @@ export default function ProjectsPage() {
         description. That is it -- you can start adding agents and tasks right away.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss10.png"
         alt="Projects overview -- manage multiple agent teams across all your projects"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <p>
@@ -91,10 +94,12 @@ export default function ProjectsPage() {
         workflow.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss11.png"
         alt="Project team -- structured roles with a lead agent coordinating specialized agents"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Composing your team</h2>
@@ -104,10 +109,12 @@ export default function ProjectsPage() {
         projects, for example.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss13.png"
         alt="Compose your team -- pick from a roster of specialized agents for each project"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Project documentation</h2>
@@ -123,10 +130,12 @@ export default function ProjectsPage() {
         one.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss12.png"
         alt="Project docs -- shared knowledge base your agents read before starting work"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <hr />

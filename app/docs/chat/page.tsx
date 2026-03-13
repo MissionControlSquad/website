@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -72,10 +73,12 @@ export default function ChatPage() {
         thread persists -- you can scroll back through past conversations.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss15.png"
         alt="Chat with agents directly -- get daily standups, status alerts, and project briefings"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>What you can ask</h2>

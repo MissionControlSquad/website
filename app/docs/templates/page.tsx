@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -77,10 +78,12 @@ export default function TemplatesPage() {
         different each time.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss18.png"
         alt="Task templates -- define reusable multi-step blueprints with subtasks and priorities"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <p>
@@ -100,10 +103,12 @@ export default function TemplatesPage() {
         processing, weekly SEO audits, monthly billing reconciliation.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss19.png"
         alt="Recurring tasks -- automated scheduling with daily, weekly, or monthly cadence"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Configuring a schedule</h2>
@@ -113,10 +118,12 @@ export default function TemplatesPage() {
         can also set the task priority and instructions specific to that schedule.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss20.png"
         alt="Configure recurring task schedules with precise timing and instructions"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <p>

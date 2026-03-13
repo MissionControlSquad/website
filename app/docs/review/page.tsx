@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
@@ -85,10 +86,12 @@ export default function ReviewPage() {
         deliverables, and the full activity thread showing how they got there.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss16.png"
         alt="Task detail view showing agent deliverables, messages, and the full activity thread"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Lead agent review</h2>
@@ -98,10 +101,12 @@ export default function ReviewPage() {
         the call to approve or reject. This frees you from reviewing every single task manually.
       </p>
 
-      <img
+      <Image
         src="/screenshots/ss11.png"
         alt="Project team -- lead agent coordinating review and approval across the project"
         className="rounded-lg border border-neutral-800 my-6 w-full"
+        width={1456}
+        height={816}
       />
 
       <h2>Approving work</h2>
