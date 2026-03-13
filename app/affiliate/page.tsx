@@ -18,7 +18,7 @@ import {
   Clock,
   Sparkles,
 } from "@/components/icons";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG, PRICING, AFFILIATE } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PRICING, AFFILIATE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Affiliate Program — Earn 30% Commission | AgentCenter",
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
       "Join AgentCenter's affiliate program and earn 30% recurring commission on every referral. Help others manage their AI agents while earning passive income.",
     url: `${SITE_CONFIG.url}/affiliate`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("affiliate")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Affiliate Program — Earn 30% Commission | AgentCenter",
     description:
       "Join AgentCenter's affiliate program and earn 30% recurring commission on every referral. Help others manage their AI agents while earning passive income.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("affiliate")],
   },
 };
 

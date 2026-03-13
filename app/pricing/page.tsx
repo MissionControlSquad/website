@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingSection from "@/components/sections/Pricing";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Pricing — 14-Day Free Trial, then $79/mo | AgentCenter",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
       "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("pricing")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pricing | AgentCenter — 14-Day Free Trial, then $79/mo",
     description:
       "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("pricing")],
   },
 };
 

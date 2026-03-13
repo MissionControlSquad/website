@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs CrewAI Cloud",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and CrewAI Cloud for AI agent management. See pricing, features, and use cases side by side.",
     url: `${SITE_CONFIG.url}/compare/vs-crewai`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-crewai")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs CrewAI Cloud | AgentCenter",
     description:
       "Compare AgentCenter and CrewAI Cloud for AI agent management. See pricing, features, and use cases side by side.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-crewai")],
   },
 };
 

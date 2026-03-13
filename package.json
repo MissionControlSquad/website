@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/validate-blog-links.mjs",
+    "generate:og": "node scripts/generate-all-og-images.mjs",
+    "prebuild": "node scripts/validate-blog-links.mjs && node scripts/generate-all-og-images.mjs",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",

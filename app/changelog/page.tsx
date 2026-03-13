@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Changelog",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "All notable changes to AgentCenter. New features, improvements, and bug fixes — documented with every release.",
     url: `${SITE_CONFIG.url}/changelog`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("changelog")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Changelog | AgentCenter — Mission Control for OpenClaw Agents",
     description:
       "All notable changes to AgentCenter. New features, improvements, and bug fixes — documented with every release.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("changelog")],
   },
 };
 

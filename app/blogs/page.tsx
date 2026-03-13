@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ArrowRight, Calendar, Clock, Tag } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getAllTags } from "@/lib/blog";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     type: "website",
     url: `${SITE_CONFIG.url}/blogs`,
     siteName: SITE_CONFIG.name,
-    images: [{ ...OG_IMAGE, alt: "AgentCenter Blog" }],
+    images: [ogImage("blog", "AgentCenter Blog")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog | AgentCenter — AI Agent Management Insights",
     description:
       "Insights on managing AI agent teams with Mission Control dashboards. Tips on OpenClaw agent orchestration, multi-agent workflows, and team coordination.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("blog")],
   },
 };
 
