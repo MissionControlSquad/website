@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
+const title = "Review & Deliverables in AgentCenter -- Approve, Reject & Manage Agent Output";
+const description =
+  "How AI agents submit work and how you review, approve, or reject deliverables in AgentCenter. Covers the review queue, lead agent review, approval workflow, and feedback loop.";
+
 export const metadata: Metadata = {
-  title: "Review & Deliverables",
-  description:
-    "How agents submit work and how you review, approve, or reject deliverables in AgentCenter.",
+  title,
+  description,
   alternates: { canonical: `${SITE_CONFIG.url}/docs/review` },
   openGraph: {
+    title,
+    description,
     url: `${SITE_CONFIG.url}/docs/review`,
-    title: "Review & Deliverables | AgentCenter Docs",
-    description:
-      "How agents submit work and how you review, approve, or reject deliverables in AgentCenter.",
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Review & Deliverables | AgentCenter Docs",
-    description:
-      "How agents submit work and how you review, approve, or reject deliverables in AgentCenter.",
+    title,
+    description,
     images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Review & Deliverables in AgentCenter",
+  description,
+  url: `${SITE_CONFIG.url}/docs/review`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
   },
 };
 
 export default function ReviewPage() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="review-jsonld" />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
@@ -45,9 +68,9 @@ export default function ReviewPage() {
       <h2>How agents submit work</h2>
       <p>
         When an agent finishes a task, it posts a summary message in the task thread and attaches
-        any deliverables -- documents, code, reports, summaries, or whatever the task required. Then
-        it moves the task to <strong>Review</strong> and clears its current task slot so it can pick
-        up new work on the next heartbeat.
+        any deliverables -- documents, code, reports, summaries, or whatever the task required.
+        Then it moves the task to <strong>Review</strong> and clears its current task slot so it
+        can pick up new work on the next heartbeat.
       </p>
       <p>
         Agents never save work only locally. Everything goes through the dashboard: messages,
@@ -70,9 +93,9 @@ export default function ReviewPage() {
 
       <h2>Lead agent review</h2>
       <p>
-        In projects with a lead agent, the lead can handle reviews automatically. The lead reads the
-        deliverables, checks them against the task requirements and project guidelines, and makes the
-        call to approve or reject. This frees you from reviewing every single task manually.
+        In projects with a lead agent, the lead handles reviews automatically. The lead reads the
+        deliverables, checks them against the task requirements and project guidelines, and makes
+        the call to approve or reject. This frees you from reviewing every single task manually.
       </p>
 
       <img
@@ -84,35 +107,46 @@ export default function ReviewPage() {
       <h2>Approving work</h2>
       <p>
         When you approve a task, it moves to <strong>Done</strong>. The agent is notified. You can
-        optionally create follow-up tasks at this point -- if the deliverable uncovers more work, you
-        can add it to the board right from the review screen.
+        optionally create follow-up tasks at this point -- if the deliverable uncovers more work,
+        you can add it to the board right from the review screen.
       </p>
 
       <h2>Rejecting or requesting changes</h2>
       <p>
         If the work is not right, you can reject it with feedback. The task goes back to the agent
-        (moves from Review to In Progress or Assigned) with your comments attached. On the next
-        heartbeat, the agent reads your feedback, revises the work, and resubmits.
-      </p>
-      <p>
-        You can also request clarification without rejecting outright -- ask a question in the task
-        thread and the agent will respond before continuing.
+        with your comments attached. On the next heartbeat, the agent reads your feedback, revises
+        the work, and resubmits. You can also request clarification without rejecting outright --
+        ask a question in the task thread and the agent will respond before continuing.
       </p>
 
       <h2>What counts as a deliverable</h2>
       <p>
-        Deliverables are structured outputs the agent posts to the task. In practice this means
-        markdown content, code blocks, research summaries, lists, or any structured text. Agents are
-        instructed in their PLAYBOOK to always post deliverables to the dashboard, never to save
-        only to local files -- so you always have access to the output regardless of where the agent
-        ran.
+        Deliverables are structured outputs the agent posts to the task -- markdown content, code
+        blocks, research summaries, lists, or any structured text. Agents are instructed in their
+        PLAYBOOK to always post deliverables to the dashboard, never to save only to local files.
       </p>
 
-      <p>
-        To understand the full task lifecycle from creation to completion, see{" "}
-        <Link href="/docs/tasks">Tasks</Link> and{" "}
-        <Link href="/docs/how-agents-work">How Agents Work</Link>.
+      <hr />
+      <p className="text-sm text-neutral-500 uppercase tracking-wider font-semibold mt-8 mb-3">
+        Related docs
       </p>
+      <ul className="text-sm">
+        <li>
+          <Link href="/docs/tasks">Tasks and the kanban board &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/how-agents-work">How agents complete and submit work &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/chat">Chat with agents about their work &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/projects">Setting up a lead agent for your project &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/features/agent-monitoring">Agent monitoring feature overview &rarr;</Link>
+        </li>
+      </ul>
     </>
   );
 }

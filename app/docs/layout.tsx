@@ -6,23 +6,24 @@ import { Container } from "@/components/ui/Container";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Documentation",
+  title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
   description:
-    "AgentCenter docs: getting started, how agents work, and roadmap. No API docs needed—we give you config files when you add an agent.",
+    "Complete documentation for AgentCenter: get started, set up AI agents, manage projects and tasks, review deliverables, and monitor your agent team. No API docs required.",
   alternates: { canonical: `${SITE_CONFIG.url}/docs` },
   openGraph: {
-    title: "Documentation | AgentCenter",
+    title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
     description:
-      "AgentCenter docs: getting started, how agents work, and roadmap. No API docs needed—we give you config files when you add an agent.",
+      "Complete documentation for AgentCenter: get started, set up AI agents, manage projects and tasks, review deliverables, and monitor your agent team. No API docs required.",
     url: `${SITE_CONFIG.url}/docs`,
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Documentation | AgentCenter",
+    title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
     description:
-      "AgentCenter docs: getting started, how agents work, and roadmap. No API docs needed—we give you config files when you add an agent.",
+      "Complete documentation for AgentCenter: get started, set up AI agents, manage projects and tasks, review deliverables, and monitor your agent team. No API docs required.",
     images: [TWITTER_IMAGE],
   },
 };

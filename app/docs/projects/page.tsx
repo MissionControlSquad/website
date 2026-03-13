@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
+const title = "Projects in AgentCenter -- Create & Manage AI Agent Workspaces";
+const description =
+  "Learn how to create and manage projects in AgentCenter: build your agent team, assign a lead agent, add project documentation, and run multi-agent workflows from one board.";
+
 export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "How to create and manage projects in AgentCenter — team composition, project documentation, and multi-agent task boards.",
+  title,
+  description,
   alternates: { canonical: `${SITE_CONFIG.url}/docs/projects` },
   openGraph: {
+    title,
+    description,
     url: `${SITE_CONFIG.url}/docs/projects`,
-    title: "Projects | AgentCenter Docs",
-    description:
-      "How to create and manage projects in AgentCenter — team composition, project documentation, and multi-agent task boards.",
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projects | AgentCenter Docs",
-    description:
-      "How to create and manage projects in AgentCenter — team composition, project documentation, and multi-agent task boards.",
+    title,
+    description,
     images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Projects in AgentCenter",
+  description,
+  url: `${SITE_CONFIG.url}/docs/projects`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
   },
 };
 
 export default function ProjectsPage() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="projects-jsonld" />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
@@ -106,12 +129,27 @@ export default function ProjectsPage() {
         className="rounded-lg border border-neutral-800 my-6 w-full"
       />
 
-      <h2>Next steps</h2>
-      <p>
-        Once your project is set up, add agents and start creating tasks.{" "}
-        <Link href="/docs/agents">Managing Agents</Link> covers how to create and configure agents.{" "}
-        <Link href="/docs/tasks">Tasks</Link> covers the kanban board and task workflow.
+      <hr />
+      <p className="text-sm text-neutral-500 uppercase tracking-wider font-semibold mt-8 mb-3">
+        Related docs
       </p>
+      <ul className="text-sm">
+        <li>
+          <Link href="/docs/agents">Managing agents and the squad view &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/tasks">Creating tasks and using the kanban board &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/review">Review and deliverables &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/chat">Chat directly with your agents &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/features/multi-agent-workflows">Multi-agent workflows feature overview &rarr;</Link>
+        </li>
+      </ul>
     </>
   );
 }

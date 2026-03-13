@@ -1,33 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "next-seo";
+import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
 
+const title = "Task Templates & Recurring Tasks -- Automate Repetitive Agent Workflows";
+const description =
+  "Create reusable task blueprints and schedule recurring tasks in AgentCenter. Define a task structure once, reuse it everywhere, and automate daily, weekly, or monthly work automatically.";
+
 export const metadata: Metadata = {
-  title: "Templates & Recurring Tasks",
-  description:
-    "Create reusable task blueprints and automate recurring work with scheduled tasks in AgentCenter.",
+  title,
+  description,
   alternates: { canonical: `${SITE_CONFIG.url}/docs/templates` },
   openGraph: {
+    title,
+    description,
     url: `${SITE_CONFIG.url}/docs/templates`,
-    title: "Templates & Recurring Tasks | AgentCenter Docs",
-    description:
-      "Create reusable task blueprints and automate recurring work with scheduled tasks in AgentCenter.",
+    siteName: SITE_CONFIG.name,
     type: "website",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Templates & Recurring Tasks | AgentCenter Docs",
-    description:
-      "Create reusable task blueprints and automate recurring work with scheduled tasks in AgentCenter.",
+    title,
+    description,
     images: [TWITTER_IMAGE],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Task Templates & Recurring Tasks in AgentCenter",
+  description,
+  url: `${SITE_CONFIG.url}/docs/templates`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "AgentCenter",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
   },
 };
 
 export default function TemplatesPage() {
   return (
     <>
+      <JsonLdScript data={jsonLd} scriptKey="templates-jsonld" />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: SITE_CONFIG.url },
@@ -38,8 +61,8 @@ export default function TemplatesPage() {
       <h1>Templates &amp; Recurring Tasks</h1>
       <p className="lead">
         Task templates let you define a task structure once and reuse it. Recurring tasks let you
-        schedule work to happen automatically on a cadence -- daily standups, weekly reports, monthly
-        audits. Both save you from typing the same thing over and over.
+        schedule work to happen automatically on a cadence -- daily standups, weekly reports,
+        monthly audits. Both save you from typing the same thing over and over.
       </p>
 
       <h2>Task templates</h2>
@@ -97,14 +120,29 @@ export default function TemplatesPage() {
       />
 
       <p>
-        Once a recurring task is created, it shows up in the board&apos;s recurring section. You can
+        Once a recurring task is created, it shows up in the board's recurring section. You can
         pause, edit, or delete it at any time. Past instances are kept as regular tasks in the board
-        so you have a history of all runs.
+        so you have a full history of all runs.
       </p>
 
-      <p>
-        For the base task workflow, see <Link href="/docs/tasks">Tasks</Link>.
+      <hr />
+      <p className="text-sm text-neutral-500 uppercase tracking-wider font-semibold mt-8 mb-3">
+        Related docs
       </p>
+      <ul className="text-sm">
+        <li>
+          <Link href="/docs/tasks">Tasks and the kanban board &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/review">Review and deliverables &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/docs/how-agents-work">How agents pick up and complete tasks &rarr;</Link>
+        </li>
+        <li>
+          <Link href="/features/task-orchestration">Task orchestration feature overview &rarr;</Link>
+        </li>
+      </ul>
     </>
   );
 }
