@@ -76,7 +76,7 @@ export default function BlogsPage() {
       <JsonLdScript data={blogListJsonLd} scriptKey="blogs-collection-page" />
 
       {/* Header */}
-      <div className="pt-32 pb-16 border-b border-neutral-800">
+      <div className="pt-24 md:pt-32 pb-10 md:pb-16 border-b border-neutral-800">
         <Container>
           <Link
             href="/"
@@ -85,7 +85,7 @@ export default function BlogsPage() {
             <ArrowRight size={14} className="rotate-180" />
             Back to home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">Blog</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">Blog</h1>
           <p className="text-lg text-neutral-400 max-w-2xl">
             Insights on managing AI agent teams, Mission Control dashboards, and the future of
             multi-agent operations.

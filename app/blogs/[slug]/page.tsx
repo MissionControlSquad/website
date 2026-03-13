@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       {/* Header */}
-      <div className="pt-32 pb-12 border-b border-neutral-800">
+      <div className="pt-24 md:pt-32 pb-8 md:pb-12 border-b border-neutral-800">
         <Container>
           <div className="max-w-3xl mx-auto">
             <Link

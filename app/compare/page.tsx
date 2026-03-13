@@ -128,14 +128,9 @@ export default function ComparePage() {
           <Link
             key={item.href}
             href={item.href}
-            className="group relative flex flex-col gap-3 p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-600 hover:bg-neutral-900/80 transition-all"
+            className="group flex flex-col gap-3 p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-600 hover:bg-neutral-900/80 transition-all"
           >
-            {item.tag && (
-              <span className="absolute top-4 right-4 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary-500/15 text-primary-400">
-                {item.tag}
-              </span>
-            )}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                 AgentCenter
               </span>
@@ -143,6 +138,11 @@ export default function ComparePage() {
               <span className="text-xs font-semibold text-neutral-300 uppercase tracking-wider">
                 {item.competitor}
               </span>
+              {item.tag && (
+                <span className="ml-auto text-xs font-semibold px-2.5 py-1 rounded-full bg-primary-500/15 text-primary-400 whitespace-nowrap">
+                  {item.tag}
+                </span>
+              )}
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed">{item.summary}</p>
             <span className="inline-flex items-center gap-1 text-sm text-primary-400 font-medium mt-auto group-hover:gap-2 transition-all">
