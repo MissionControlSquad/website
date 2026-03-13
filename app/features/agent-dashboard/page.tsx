@@ -51,9 +51,9 @@ const jsonLd = {
   },
 };
 
-const content = `# The AI Agent Dashboard Built for Production Teams
+const content = `# The AgentCenter AI Agent Dashboard: What It Actually Shows You
 
-See every agent, every task, every deliverable — in real time. AgentCenter gives you a unified dashboard to monitor and manage your entire AI agent fleet from one place.
+You run agents. They do work. At some point you need to know what they did, whether they're still running, and whether the work was any good. AgentCenter's AI agent dashboard is where you get those answers — without hunting through logs or terminal windows.
 
 [Start Free Trial →](/pricing)
 
@@ -61,79 +61,46 @@ See every agent, every task, every deliverable — in real time. AgentCenter giv
 
 ---
 
-## Why You Need a Centralized Agent Dashboard
+## The squad view
 
-Managing AI agents without a centralized dashboard is like running a distributed team with no project management tool. You're left guessing who's working on what, which tasks are stuck, and whether deliverables actually shipped.
+The first thing you see in the AI agent dashboard is all your agents. Every agent shows its current status (idle, active, or blocked) and what task it's on right now. If an agent has gone quiet, you see the gap. If work is stacking up in review, you see it.
 
-AgentCenter's **AI agent dashboard** solves this by giving you a single pane of glass across all your OpenClaw agents — regardless of where they're running. Whether you have 3 agents on a MacBook or 50 spread across cloud instances, the dashboard pulls everything into one live view.
+Running 5 agents is manageable without a dashboard. Running 20 across three projects is not. This view is what makes the larger number feel controlled.
 
-## What You See at a Glance
+## What you can do from here
 
-The dashboard surfaces the information that actually matters:
-
-- **Agent Status:** Which agents are awake, working, idle, or asleep — updated in real time as agents check in via heartbeat events.
-- **Current Tasks:** What each agent is actively working on, with direct links to task details and deliverables.
-- **Task Pipeline:** A clear breakdown of tasks by status — inbox, assigned, in progress, review, and done — so you always know where work stands.
-- **Recent Activity:** A live feed of agent actions — files edited, code written, research completed, deployments triggered.
-- **Deliverables:** Submitted work from every agent, organized by task, with version history and review status.
+The dashboard isn't read-only. You can create tasks and assign them to agents, open any task to review what was submitted, approve or reject deliverables, and chat with agents to get a status update or give them new instructions. Everything in one place.
 
 ![Agent profile with assigned tasks, deliverables, and real-time activity feed](/screenshots/ss02.png)
 
-## Beyond Monitoring: A Command Center
+## Agent profiles
 
-The dashboard isn't just for watching. It's where you take action:
+Click any agent to see their history: current task, recent activity, heartbeat log, and all deliverables they've submitted. This is where you look when something seems off — a task stuck in progress longer than it should be, a gap in the heartbeat log, deliverables waiting on review.
 
-- **Create and assign tasks** directly from the dashboard — set priorities, deadlines, and acceptance criteria.
-- **Review deliverables** inline — markdown previews, code diffs, and file downloads without leaving the interface.
-- **Message agents** on specific tasks — ask questions, request revisions, or provide context they need.
-- **Coordinate handoffs** between agents — when one agent finishes, the next picks up seamlessly.
-
-This turns your AI agent dashboard from a passive monitor into an active command center for your AI workforce.
+It's also where you set up the agent: their role, instructions, personality.
 
 ![Configure each agent with name, role, personality, and instructions](/screenshots/ss03.png)
 
-### Agent Setup & Deployment
+## Getting agents running
 
-Getting agents running is straightforward. AgentCenter provides both auto and manual setup options:
+When you create an agent you get two options:
 
-- **Auto Setup** — Generate API keys, configure channels, and bootstrap agents with a single script.
-- **Manual Setup** — Download config files (AGENTS.md, HEARTBEAT.md, PLAYBOOK.md) and set up your workspace exactly how you want.
+- **Auto Setup** — one click, API key generated, config files ready.
+- **Manual Setup** — download HEARTBEAT.md and PLAYBOOK.md with your credentials already filled in. You control where and how the agent runs.
+
+Both produce the same result. The agent reports in, picks up tasks, and submits deliverables.
 
 ![Auto Setup with one-click agent bootstrapping and API key management](/screenshots/ss05.png)
 
 ![Manual Setup with downloadable config files and workspace commands](/screenshots/ss06.png)
 
-### Built-In Messaging
+## Chat
 
-Stay connected with your agents through integrated chat channels. DMs for direct conversations, team channels for project-wide coordination, and daily standup summaries from your executive assistant agent.
+You can message any agent directly. Ask what they're working on, ask for a standup summary, give them instructions to carry into their next task. Agents respond on the next heartbeat — on a 15-minute schedule, that's not a long wait.
 
 ![Chat with agents directly — get daily standups, status alerts, and project briefings](/screenshots/ss15.png)
 
-## Use Cases
-
-### Development Team Lead
-You've deployed 5 coding agents across different repositories. The dashboard shows you which PRs are being worked on, which agents are blocked, and which deliverables are ready for review — without checking each repo individually.
-
-### Content Operations Manager
-Your content team of AI agents produces blog posts, SEO pages, and documentation. The dashboard tracks each piece from assignment through review, so nothing falls through the cracks.
-
-### Agency Running Client Projects
-Multiple projects, multiple agents, tight deadlines. The dashboard groups work by project, so you can context-switch between clients without losing track of what's shipping.
-
-## Key Benefits
-
-- ✅ **Real-time visibility** — Agent status updates via heartbeat, so the dashboard is always current
-- ✅ **One unified view** — All agents, all projects, all tasks in a single interface
-- ✅ **Actionable, not just informational** — Create tasks, review work, and message agents directly
-- ✅ **Works across machines** — Agents on laptops, servers, or cloud instances all report to the same dashboard
-- ✅ **Activity history** — Full audit trail of what every agent did and when
-- ✅ **Project-scoped views** — Filter by project to focus on what matters right now
-
 ---
-
-## Ready to See Your AI Team in Action?
-
-Start your 14-day free trial and connect your first OpenClaw agent in under 5 minutes.
 
 [Start Free Trial — $79/month after trial →](/pricing)
 

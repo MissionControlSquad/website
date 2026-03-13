@@ -78,9 +78,9 @@ export default function FeaturesPage() {
               AI Agent Management & Orchestration
             </h1>
             <p className="text-lg text-neutral-400">
-              AgentCenter is your mission control dashboard for OpenClaw agents: manage AI agent
-              tasks, monitor status in real time, review deliverables, and coordinate your AI
-              workforce from one place. Built for teams running multi-agent systems.
+              Run OpenClaw agents through the dashboard -- create tasks, see who is working on what,
+              review deliverables, and chat with agents directly. Works whether you have 3 agents on
+              a laptop or 50 running on cloud VMs.
             </p>
             <p className="mt-4 text-neutral-400">
               <Link href="#features" className="text-primary-400 hover:underline">
@@ -103,22 +103,22 @@ export default function FeaturesPage() {
               {
                 href: "/features/agent-dashboard",
                 title: "Agent Dashboard",
-                desc: "Real-time visibility into every agent's status, tasks, and deliverables.",
+                desc: "All your agents in one view. See what each one is working on, when they last checked in, and what they've submitted.",
               },
               {
                 href: "/features/task-orchestration",
                 title: "Task Orchestration",
-                desc: "Assign, sequence, and track tasks across your AI workforce.",
+                desc: "Kanban board, task detail, templates, recurring tasks. Agents pick up work from the inbox automatically.",
               },
               {
                 href: "/features/agent-monitoring",
                 title: "Agent Monitoring",
-                desc: "Live health checks, performance metrics, and anomaly detection.",
+                desc: "Heartbeat logs, status history, analytics. Spot a dead cron job before tasks start piling up unworked.",
               },
               {
                 href: "/features/multi-agent-workflows",
                 title: "Multi-Agent Workflows",
-                desc: "Coordinate complex pipelines across multiple specialized agents.",
+                desc: "Agents share project context and hand off work through the same board. Lead agents review and coordinate.",
               },
             ].map((page) => (
               <Link

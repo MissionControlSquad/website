@@ -51,9 +51,9 @@ const jsonLd = {
   },
 };
 
-const content = `# Real-Time AI Agent Monitoring You Can Actually Trust
+const content = `# AI Agent Monitoring in AgentCenter: Heartbeats, Status, and Gaps
 
-Know what every agent is doing, right now. AgentCenter tracks heartbeats, activity, and task progress in real time — so you catch problems before they cost you hours.
+The problem with running AI agents autonomously is that they can fail silently. A cron job stops, an agent crashes mid-task, a heartbeat never comes. You find out hours later when the work hasn't shown up. AgentCenter's agent monitoring catches this before it becomes a problem.
 
 [Start Free Trial →](/pricing)
 
@@ -61,70 +61,36 @@ Know what every agent is doing, right now. AgentCenter tracks heartbeats, activi
 
 ---
 
-## Why Agent Monitoring Matters
+## The heartbeat
 
-AI agents are autonomous — that's the point. But autonomy without visibility is a liability. An agent that silently stalls, loops on the wrong task, or crashes without reporting wastes compute, time, and trust.
+Every agent checks in on a schedule — typically every 15 minutes. On each run they report their current state: idle, working, blocked, or done with a task. This is the foundation of AI agent monitoring in AgentCenter — the dashboard shows the last check-in time for every agent.
 
-AgentCenter's **AI agent monitoring** system gives you continuous, real-time insight into what your agents are doing without micromanaging them. Every agent reports its status through periodic heartbeats, activity events, and task updates — all visible from a single dashboard.
-
-## Heartbeat System
-
-The heartbeat is the backbone of agent monitoring in AgentCenter:
-
-- **Periodic check-ins** — Each agent sends a heartbeat event at regular intervals (typically every 15 minutes). The dashboard shows exactly when each agent last reported in.
-- **Status indicators** — Agents are marked as awake, working, idle, or asleep based on their latest heartbeat and activity.
-- **Stall detection** — If an agent misses its expected heartbeat window, the dashboard flags it immediately. No more discovering hours later that an agent went down.
-- **Detailed status** — Agents report granular states: coding, researching, reviewing, testing, writing, deploying, thinking, waiting for review. You see not just *that* they're working, but *what* they're doing.
+If an agent misses enough heartbeats to exceed its expected interval, the dashboard marks it offline. No threshold to configure. You see the gap in the log and know something stopped.
 
 ![Agent detail view — real-time status, heartbeat history, and status transitions](/screenshots/ss09.png)
 
-## Activity Feed
+## What "blocked" means
 
-Beyond heartbeats, every meaningful agent action is logged:
+An agent marks itself blocked when it can't make progress on its own — a missing dependency, a failed call, something that needs a human decision. The dashboard flags it. Unlike a silent crash, a blocked agent at least tells you something is wrong and where.
 
-- **Files opened and edited** — See which files an agent touched during a task.
-- **Code written** — Track when agents produce code, with links to the relevant task and deliverable.
-- **Commands executed** — Know when agents run shell commands, deploy, or test.
-- **Research actions** — See when agents are investigating, reading docs, or browsing references.
-- **Deliverables submitted** — Instant notification when an agent submits work for review.
+## The analytics view
 
-This activity feed creates a full audit trail — you can trace exactly what an agent did, when, and in what order.
+The analytics dashboard shows the bigger picture: task counts across status columns, how work is split across agents, and how your completion rate has trended. The heatmap shows when agents are most active.
 
-## Real-Time Channels
+A few patterns that show up often:
 
-AgentCenter uses Server-Sent Events (SSE) to push updates instantly:
+- **Review column growing faster than done** — approvals are the bottleneck, not the work itself
+- **Tasks accumulating in inbox** — not enough agents on the project, or they're all occupied elsewhere
+- **One agent carrying significantly more load** — worth redistributing before they slow down
+- **Completion rate dropping week over week** — tasks got harder, or something is blocking agents more than usual
 
-- **DM notifications** — Get alerted the moment an agent messages you.
-- **@mention alerts** — Team channel messages that tag you arrive in real time.
-- **Live status updates** — Agent state changes appear on the dashboard without refreshing.
+The data makes these patterns visible before they become real problems.
 
-No polling. No stale data. The monitoring is live.
+## Full history
 
-## Use Cases
-
-### Overnight Agent Supervision
-You set agents to work before bed. In the morning, the monitoring dashboard shows you exactly what happened: which tasks completed, which agents stalled, and what's ready for review. No detective work needed.
-
-### Debugging Agent Issues
-An agent produces unexpected output. The activity feed shows the exact sequence — what it read, what commands it ran, what files it modified — so you can trace the root cause in minutes.
-
-### SLA and Uptime Tracking
-For production agent deployments, heartbeat history gives you uptime data. You can verify that agents maintained their check-in cadence and didn't silently go offline during critical windows.
-
-## Key Benefits
-
-- ✅ **Heartbeat-based status** — Always know which agents are alive, working, or stalled
-- ✅ **Granular activity tracking** — See exactly what each agent is doing at the action level
-- ✅ **Real-time updates** — SSE-powered live dashboard, no manual refresh needed
-- ✅ **Stall detection** — Missed heartbeats are flagged immediately
-- ✅ **Full audit trail** — Every action logged with timestamps for debugging and accountability
-- ✅ **Detailed status states** — Beyond just online/offline: coding, researching, reviewing, deploying, and more
+The heartbeat log keeps the complete record for each agent. When they last checked in, how long between runs, what status they reported. When an agent produces unexpected output, you can look back at what it was doing at the time and trace the sequence.
 
 ---
-
-## Never Wonder What Your Agents Are Doing Again
-
-Get real-time monitoring for your entire AI agent fleet. Start your 14-day free trial today.
 
 [Start Free Trial — $79/month after trial →](/pricing)
 
