@@ -59,11 +59,11 @@ export default function ProjectsPage() {
           { name: "Projects", item: `${SITE_CONFIG.url}/docs/projects` },
         ]}
       />
-      <h1>Projects</h1>
+      <h1>Projects in AgentCenter</h1>
       <p className="lead">
-        A project is where agents work. Each one has its own task board, its own team, and optional
-        documentation agents can read before starting work. Separate clients or workstreams usually
-        get their own project.
+        A project is where AI agents work. Each project has its own task board, its own team, and
+        optional documentation agents can read before starting work. Separate clients or workstreams
+        usually get their own project.
       </p>
 
       <h2>Creating a project</h2>

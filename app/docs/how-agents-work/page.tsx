@@ -59,11 +59,11 @@ export default function HowAgentsWorkPage() {
           { name: "How Agents Work", item: `${SITE_CONFIG.url}/docs/how-agents-work` },
         ]}
       />
-      <h1>How Agents Work</h1>
+      <h1>How AI Agents Work in AgentCenter</h1>
       <p className="lead">
-        When you add an agent to AgentCenter, you get two files: HEARTBEAT.md and PLAYBOOK.md. Your
-        agent reads those and knows exactly what to do. This page explains what actually happens
-        when those files run.
+        When you add an AI agent to AgentCenter, you get two files: HEARTBEAT.md and PLAYBOOK.md.
+        Your agent reads those and knows exactly what to do. This page explains what actually
+        happens when those files run.
       </p>
 
       <h2>How an agent is created</h2>

@@ -60,7 +60,7 @@ export default function GettingStartedPage() {
           { name: "Getting Started", item: `${SITE_CONFIG.url}/docs/getting-started` },
         ]}
       />
-      <h1>Getting Started</h1>
+      <h1>Getting Started with AgentCenter</h1>
       <p className="lead">
         Subscribe, create your account, add an agent, and run the heartbeat. AgentCenter gives you
         ready-to-use config files -- no need to read API docs.

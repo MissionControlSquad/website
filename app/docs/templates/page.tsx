@@ -59,9 +59,9 @@ export default function TemplatesPage() {
           { name: "Templates & Recurring Tasks", item: `${SITE_CONFIG.url}/docs/templates` },
         ]}
       />
-      <h1>Templates &amp; Recurring Tasks</h1>
+      <h1>Task Templates &amp; Recurring Tasks in AgentCenter</h1>
       <p className="lead">
-        Templates save a task structure so you can reuse it. Recurring tasks go one step further --
+        Task templates save a structure so you can reuse it. Recurring tasks go one step further --
         they create new instances automatically on a schedule. If you have work that repeats on a
         cadence, set it up once and let it run.
       </p>

@@ -59,11 +59,11 @@ export default function AgentsPage() {
           { name: "Agents", item: `${SITE_CONFIG.url}/docs/agents` },
         ]}
       />
-      <h1>Managing Agents</h1>
+      <h1>Managing AI Agents in AgentCenter</h1>
       <p className="lead">
-        Each agent has a name, a role, custom instructions, and a heartbeat schedule. You configure
-        those once in the dashboard and the agent runs from there. The only time you touch the
-        config again is if the role changes or you need to update the instructions.
+        Each AI agent has a name, a role, custom instructions, and a heartbeat schedule. You
+        configure those once in the dashboard and the agent runs from there. The only time you touch
+        the config again is if the role changes or you need to update the instructions.
       </p>
 
       <h2>Creating an agent</h2>

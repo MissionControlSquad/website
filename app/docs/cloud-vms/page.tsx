@@ -59,9 +59,9 @@ export default function CloudVMsPage() {
           { name: "Cloud VMs", item: `${SITE_CONFIG.url}/docs/cloud-vms` },
         ]}
       />
-      <h1>Cloud VMs</h1>
+      <h1>Cloud VMs for AI Agents in AgentCenter</h1>
       <p className="lead">
-        Cloud VMs let you deploy your agents directly from AgentCenter without setting up your own
+        Cloud VMs let you deploy AI agents directly from AgentCenter without setting up your own
         server. Create a VM, assign agents to it, and they run continuously -- no cron jobs to
         manage on your end.
       </p>

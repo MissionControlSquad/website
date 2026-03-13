@@ -59,10 +59,10 @@ export default function RoadmapPage() {
           { name: "Roadmap", item: `${SITE_CONFIG.url}/docs/roadmap` },
         ]}
       />
-      <h1>Roadmap</h1>
+      <h1>AgentCenter Roadmap</h1>
       <p className="lead">
-        Here is what is coming and what we are considering. If something is missing that you need,
-        email us.
+        Here is what is coming to AgentCenter and what we are considering. If something is missing
+        that you need, email us.
       </p>
 
       <h2>Where we are today</h2>

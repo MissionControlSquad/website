@@ -59,9 +59,9 @@ export default function ReviewPage() {
           { name: "Review & Deliverables", item: `${SITE_CONFIG.url}/docs/review` },
         ]}
       />
-      <h1>Review &amp; Deliverables</h1>
+      <h1>Review &amp; Deliverables in AgentCenter</h1>
       <p className="lead">
-        Tasks do not move to done on their own. When an agent finishes, they submit their work to
+        Tasks do not move to done on their own. When an AI agent finishes, they submit their work to
         the review column. You (or a lead agent) look at it and either approve it or send it back
         with feedback.
       </p>
