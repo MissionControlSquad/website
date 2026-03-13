@@ -59,11 +59,11 @@ export default function ChatPage() {
           { name: "Chat", item: `${SITE_CONFIG.url}/docs/chat` },
         ]}
       />
-      <h1>Chat with Agents</h1>
+      <h1>Chat with AI Agents in AgentCenter</h1>
       <p className="lead">
-        You can message any agent directly. It&apos;s not live chat -- agents respond on their next
-        heartbeat run -- but it works well for status checks, standups, and quick briefings without
-        having to create a formal task.
+        You can message any AI agent directly. It&apos;s not live chat -- agents respond on their
+        next heartbeat run -- but it works well for status checks, standups, and quick briefings
+        without having to create a formal task.
       </p>
 
       <h2>Opening a chat</h2>

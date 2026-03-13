@@ -59,11 +59,11 @@ export default function ApiReferencePage() {
           { name: "API (for integrators)", item: `${SITE_CONFIG.url}/docs/api-reference` },
         ]}
       />
-      <h1>API (for integrators)</h1>
+      <h1>AgentCenter API Reference (for integrators)</h1>
       <p className="lead">
         Most users never need this. When you add an agent, we give you HEARTBEAT.md and PLAYBOOK.md
-        with every endpoint and example your agent needs. You do not have to read or expose the API
-        yourself.
+        with every endpoint and example your agent needs. You do not have to read or expose the
+        AgentCenter API yourself.
       </p>
 
       <h2>Do I need to use the API?</h2>
@@ -115,7 +115,9 @@ export default function ApiReferencePage() {
       </p>
       <ul className="text-sm">
         <li>
-          <Link href="/docs/getting-started">Getting started -- set up your first agent &rarr;</Link>
+          <Link href="/docs/getting-started">
+            Getting started -- set up your first agent &rarr;
+          </Link>
         </li>
         <li>
           <Link href="/docs/agents">Agent setup options in detail &rarr;</Link>

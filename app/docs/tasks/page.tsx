@@ -59,11 +59,11 @@ export default function TasksPage() {
           { name: "Tasks", item: `${SITE_CONFIG.url}/docs/tasks` },
         ]}
       />
-      <h1>Tasks</h1>
+      <h1>AI Agent Task Management in AgentCenter</h1>
       <p className="lead">
-        Tasks are what agents work on. You create one, an agent picks it up and works through it,
-        and you review what they submit. That cycle -- create, work, review -- is how everything
-        gets done in AgentCenter.
+        Tasks are how agents get work done. You create one, an AI agent picks it up and works
+        through it, and you review what they submit. That cycle -- create, work, review -- is how
+        everything gets done in AgentCenter.
       </p>
 
       <h2>Creating a task</h2>

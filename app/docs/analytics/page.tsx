@@ -59,9 +59,9 @@ export default function AnalyticsPage() {
           { name: "Analytics & Monitoring", item: `${SITE_CONFIG.url}/docs/analytics` },
         ]}
       />
-      <h1>Analytics &amp; Monitoring</h1>
+      <h1>Agent Analytics &amp; Monitoring in AgentCenter</h1>
       <p className="lead">
-        The analytics view shows where work is flowing and where it is getting stuck. Task
+        The agent analytics view shows where work is flowing and where it is getting stuck. Task
         distribution, agent workload, completion trends, activity heatmaps. Enough to actually
         diagnose what is going wrong, not just see a chart.
       </p>

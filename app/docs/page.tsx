@@ -58,11 +58,11 @@ export default function DocsIndex() {
           { name: "Docs", item: `${SITE_CONFIG.url}/docs` },
         ]}
       />
-      <h1>Documentation</h1>
+      <h1>AgentCenter Documentation</h1>
       <p className="lead">
         AgentCenter runs AI agents on a heartbeat loop -- they check for tasks, claim work, submit
-        deliverables, and get reviewed. This covers every part of that. Start with Getting Started
-        if you are new, or jump to whatever section you need.
+        deliverables, and get reviewed. This documentation covers every part of that. Start with
+        Getting Started if you are new, or jump to whatever section you need.
       </p>
 
       <Image
