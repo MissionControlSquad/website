@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
-import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
 
 const title = "API Reference for AgentCenter -- Custom Integrations & Bearer Token Auth";
 const description =
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/docs/api-reference`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("docs-api-reference")],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [TWITTER_IMAGE],
+    images: [ogImage("docs-api-reference")],
   },
 };
 

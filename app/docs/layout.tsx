@@ -3,7 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/docs`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("docs")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter Documentation -- Setup, Agents, Tasks & More",
     description:
       "Complete documentation for AgentCenter: get started, set up AI agents, manage projects and tasks, review deliverables, and monitor your agent team. No API docs required.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("docs")],
   },
 };
 

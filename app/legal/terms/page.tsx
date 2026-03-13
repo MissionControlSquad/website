@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/legal/terms`,
     siteName: SITE_CONFIG.name,
     locale: "en_US",
-    images: [OG_IMAGE],
+    images: [ogImage("legal-terms")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Terms of Service | AgentCenter",
     description:
       "Read the Terms of Service for AgentCenter, the Mission Control dashboard for OpenClaw AI agents. Covers subscriptions, usage, data, and cancellation policies.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("legal-terms")],
   },
   robots: {
     index: true,

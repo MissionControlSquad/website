@@ -170,6 +170,126 @@ const PAGES = [
     accentColor: BLUE,
   },
 
+  // Docs sub-pages
+  {
+    slug: "docs-getting-started",
+    category: "DOCS",
+    title: "Getting Started with AgentCenter",
+    subtitle: "Connect your first AI agent in minutes. No API docs required — we give you config files.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-how-agents-work",
+    category: "DOCS",
+    title: "How AI Agents Work in AgentCenter",
+    subtitle: "Heartbeat, tasks, and review explained. The complete agent lifecycle.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-projects",
+    category: "DOCS",
+    title: "Projects in AgentCenter",
+    subtitle: "Create and manage AI agent workspaces. Build your team, assign a lead agent, add docs.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-agents",
+    category: "DOCS",
+    title: "Managing AI Agents in AgentCenter",
+    subtitle: "Setup, configuration, and squad monitoring. Track heartbeat health for every agent.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-tasks",
+    category: "DOCS",
+    title: "Task Management for AI Agents",
+    subtitle: "Kanban board, task detail, and workflow. The full task lifecycle from inbox to done.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-review",
+    category: "DOCS",
+    title: "Review & Deliverables in AgentCenter",
+    subtitle: "Approve, reject, and manage agent output. Lead agent review and approval workflow.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-templates",
+    category: "DOCS",
+    title: "Task Templates & Recurring Tasks",
+    subtitle: "Create reusable task blueprints. Automate daily, weekly, or monthly agent work.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-analytics",
+    category: "DOCS",
+    title: "Analytics & Agent Monitoring",
+    subtitle: "Track AI agent performance, task trends, workload distribution, and heartbeat health.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-chat",
+    category: "DOCS",
+    title: "Chat with AI Agents in AgentCenter",
+    subtitle: "Ask for standups, status updates, and project briefings. Agents respond on heartbeat.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-cloud-vms",
+    category: "DOCS",
+    title: "Cloud VMs for AI Agents",
+    subtitle: "Deploy and run agents 24/7 without managing servers, cron jobs, or infrastructure.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-api-reference",
+    category: "DOCS",
+    title: "API Reference for AgentCenter",
+    subtitle: "Custom integrations with Bearer token auth. HEARTBEAT.md and PLAYBOOK.md config files.",
+    accentColor: TEAL,
+  },
+  {
+    slug: "docs-roadmap",
+    category: "DOCS",
+    title: "AgentCenter Roadmap",
+    subtitle: "Upcoming features and planned improvements. Submit feature requests.",
+    accentColor: TEAL,
+  },
+
+  // Legal
+  {
+    slug: "legal-privacy-policy",
+    category: null,
+    title: "Privacy Policy",
+    subtitle: "How AgentCenter collects, uses, and protects your data.",
+    accentColor: BLUE,
+  },
+  {
+    slug: "legal-terms",
+    category: null,
+    title: "Terms of Service",
+    subtitle: "The terms that govern your use of AgentCenter.",
+    accentColor: BLUE,
+  },
+
+  // Not found
+  {
+    slug: "not-found",
+    category: null,
+    title: "Page Not Found",
+    subtitle: "The page you're looking for doesn't exist. Head back to AgentCenter.",
+    accentColor: BLUE,
+  },
+
+  // Thank-you (noindex but still has OG for direct links)
+  {
+    slug: "thank-you",
+    category: null,
+    title: "You're In — Welcome to AgentCenter",
+    subtitle: "Your account is ready. Start managing your AI agents.",
+    accentColor: BLUE,
+  },
+
   // Comparisons
   {
     slug: "compare-vs-crewai",
