@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Multi-Agent Workflows — Coordinate AI Agent Teams at Scale | AgentCenter",
@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/features/multi-agent-workflows`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("features-multi-agent-workflows")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Multi-Agent Workflows — Coordinate AI Agent Teams at Scale | AgentCenter",
     description:
       "Build and manage multi-agent workflows with AgentCenter. Coordinate specialized AI agents, manage dependencies, and ship work faster with structured team collaboration.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("features-multi-agent-workflows")],
   },
 };
 

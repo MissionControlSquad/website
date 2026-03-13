@@ -31,6 +31,21 @@ export const TWITTER_IMAGE = {
   type: "image/png",
 } as const;
 
+/**
+ * Per-page OG image. Pass the slug used in generate-all-og-images.mjs
+ * (e.g. "pricing", "compare-vs-crewai", "blog-some-slug").
+ * Compatible with both openGraph.images and twitter.images.
+ */
+export function ogImage(slug: string, alt = "AgentCenter") {
+  return {
+    url: `${SITE_CONFIG.url}/og/${slug}.png`,
+    width: 1200,
+    height: 630,
+    alt,
+    type: "image/png" as const,
+  };
+}
+
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },

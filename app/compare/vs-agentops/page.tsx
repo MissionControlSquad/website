@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs AgentOps — AI Agent Platform Comparison",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and AgentOps. Understand the difference between agent management and agent observability/monitoring.",
     url: `${SITE_CONFIG.url}/compare/vs-agentops`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-agentops")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs AgentOps | AI Agent Platform Comparison",
     description:
       "Compare AgentCenter and AgentOps. Understand the difference between agent management and agent observability/monitoring.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-agentops")],
   },
 };
 

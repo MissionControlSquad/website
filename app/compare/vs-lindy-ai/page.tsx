@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Lindy AI — AI Agent Platform Comparison",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and Lindy AI. AgentCenter manages teams of OpenClaw agents; Lindy AI builds personal AI assistants for workflow automation. See pricing, features, and which fits your team.",
     url: `${SITE_CONFIG.url}/compare/vs-lindy-ai`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-lindy-ai")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs Lindy AI | AI Agent Platform Comparison",
     description:
       "Compare AgentCenter and Lindy AI. AgentCenter manages teams of OpenClaw agents; Lindy AI builds personal AI assistants for workflow automation. See pricing, features, and which fits your team.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-lindy-ai")],
   },
 };
 

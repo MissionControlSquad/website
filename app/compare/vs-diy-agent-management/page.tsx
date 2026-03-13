@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Building Your Own Dashboard",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Should you build your own AI agent dashboard or use AgentCenter? Compare costs, timelines, and trade-offs.",
     url: `${SITE_CONFIG.url}/compare/vs-diy-agent-management`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-diy-agent-management")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs DIY Agent Dashboard | AgentCenter",
     description:
       "Should you build your own AI agent dashboard or use AgentCenter? Compare costs, timelines, and trade-offs.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-diy-agent-management")],
   },
 };
 

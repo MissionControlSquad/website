@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs SuperAGI",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and SuperAGI for AI agent management. See how a team management dashboard stacks up against an autonomous agent execution platform.",
     url: `${SITE_CONFIG.url}/compare/vs-superagi`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-superagi")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs SuperAGI | AgentCenter",
     description:
       "Compare AgentCenter and SuperAGI for AI agent management. See how a team management dashboard stacks up against an autonomous agent execution platform.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-superagi")],
   },
 };
 

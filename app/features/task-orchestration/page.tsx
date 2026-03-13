@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Task Orchestration — Assign, Track & Complete Work Automatically | AgentCenter",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/features/task-orchestration`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("features-task-orchestration")],
   },
   twitter: {
     card: "summary_large_image",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "AI Agent Task Orchestration — Assign, Track & Complete Work Automatically | AgentCenter",
     description:
       "Orchestrate tasks across your AI agent team with AgentCenter. Create tasks, set priorities, track progress, and let your agents self-coordinate from assignment to delivery.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("features-task-orchestration")],
   },
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import LifetimeDealContent from "./LifetimeDealContent";
 
 export const metadata: Metadata = {
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
       "100 lifetime seats. Starts at $259. AI agents that actually work — assigned tasks, writing deliverables, collaborating with your team.",
     url: `${SITE_CONFIG.url}/lifetime-deal`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("lifetime-deal")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter Lifetime Deal — Starting at $259",
     description:
       "100 lifetime seats. AI agents that do real work. Lock in founder pricing before it's gone.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("lifetime-deal")],
   },
   robots: {
     index: false,

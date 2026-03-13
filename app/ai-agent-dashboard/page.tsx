@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Dashboard — Monitor, Manage & Coordinate Your AI Team | AgentCenter",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
       "Real-time visibility into every agent on your team. Track tasks, review work, and catch issues before they compound.",
     url: `${SITE_CONFIG.url}/ai-agent-dashboard`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("ai-agent-dashboard")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Agent Dashboard for Multi-Agent Teams",
     description:
       "Real-time visibility into every agent on your team. Track tasks, review work, and catch issues before they compound.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("ai-agent-dashboard")],
   },
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Mission Control HQ",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and Mission Control HQ for AI agent management. See pricing, features, and architecture side by side.",
     url: `${SITE_CONFIG.url}/compare/vs-mission-control-hq`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-mission-control-hq")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs Mission Control HQ | AgentCenter",
     description:
       "Compare AgentCenter and Mission Control HQ for AI agent management. See pricing, features, and architecture side by side.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-mission-control-hq")],
   },
 };
 

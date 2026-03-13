@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Monitoring — Real-Time Status, Heartbeats & Activity Tracking | AgentCenter",
@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/features/agent-monitoring`,
     siteName: SITE_CONFIG.name,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("features-agent-monitoring")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Agent Monitoring — Real-Time Status, Heartbeats & Activity Tracking | AgentCenter",
     description:
       "Monitor your AI agents in real time with AgentCenter. Track heartbeats, detect stalled agents, review activity logs, and ensure your AI workforce stays productive 24/7.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("features-agent-monitoring")],
   },
 };
 

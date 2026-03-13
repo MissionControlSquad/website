@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Lyzr Agent Studio — AI Agent Platform Comparison",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and Lyzr Agent Studio. AgentCenter manages teams of OpenClaw agents; Lyzr builds enterprise AI agents with pre-built templates. See features, pricing, and use cases.",
     url: `${SITE_CONFIG.url}/compare/vs-lyzr`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-lyzr")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs Lyzr Agent Studio | AI Agent Platform Comparison",
     description:
       "Compare AgentCenter and Lyzr Agent Studio. AgentCenter manages teams of OpenClaw agents; Lyzr builds enterprise AI agents with pre-built templates. See features, pricing, and use cases.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-lyzr")],
   },
 };
 
