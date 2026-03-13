@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "next-seo";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Container } from "@/components/ui/Container";
 import { ArrowRight } from "@/components/icons";
 import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
@@ -31,11 +28,18 @@ export const metadata: Metadata = {
 
 const COMPARISONS = [
   {
+    href: "/compare/vs-mission-control-hq",
+    competitor: "Mission Control HQ",
+    summary:
+      "Side-by-side comparison of pricing, features, and architecture for teams running AI agents.",
+    tag: "Most popular",
+  },
+  {
     href: "/compare/vs-crewai",
     competitor: "CrewAI Cloud",
     summary:
       "Framework runtime vs. management dashboard. AgentCenter works with your existing agents — no rewrites, no lock-in.",
-    tag: "Most popular",
+    tag: null,
   },
   {
     href: "/compare/vs-langsmith",
@@ -87,13 +91,6 @@ const COMPARISONS = [
     tag: null,
   },
   {
-    href: "/compare/vs-mission-control-hq",
-    competitor: "Mission Control HQ",
-    summary:
-      "Side-by-side comparison of pricing, features, and architecture for teams running AI agents.",
-    tag: null,
-  },
-  {
     href: "/compare/vs-diy-agent-management",
     competitor: "Building Your Own Dashboard",
     summary:
@@ -111,59 +108,49 @@ export default function ComparePage() {
           { name: "Compare", item: `${SITE_CONFIG.url}/compare` },
         ]}
       />
-      <Navbar />
-      <main id="main-content" className="min-h-screen bg-neutral-950">
-        {/* Header */}
-        <div className="pt-32 pb-16 border-b border-neutral-800">
-          <Container>
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-primary-400 tracking-wider uppercase mb-4">
-                Comparisons
-              </p>
-              <h1 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
-                AgentCenter vs the alternatives
-              </h1>
-              <p className="text-xl text-neutral-400">
-                Side-by-side breakdowns of features, pricing, and use cases. See where AgentCenter
-                fits — and where it doesn&apos;t.
-              </p>
-            </div>
-          </Container>
-        </div>
+      {/* Header */}
+      <div className="pb-10 border-b border-neutral-800">
+        <p className="text-sm font-semibold text-primary-400 tracking-wider uppercase mb-3">
+          Comparisons
+        </p>
+        <h1 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-3">
+          AgentCenter vs the alternatives
+        </h1>
+        <p className="text-lg text-neutral-400">
+          Side-by-side breakdowns of features, pricing, and use cases. See where AgentCenter fits —
+          and where it doesn&apos;t.
+        </p>
+      </div>
 
-        {/* Comparison grid */}
-        <Container className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
-            {COMPARISONS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group relative flex flex-col gap-3 p-6 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-600 hover:bg-neutral-900/80 transition-all"
-              >
-                {item.tag && (
-                  <span className="absolute top-4 right-4 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary-500/15 text-primary-400">
-                    {item.tag}
-                  </span>
-                )}
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-                    AgentCenter
-                  </span>
-                  <span className="text-neutral-600 text-xs">vs</span>
-                  <span className="text-xs font-semibold text-neutral-300 uppercase tracking-wider">
-                    {item.competitor}
-                  </span>
-                </div>
-                <p className="text-neutral-400 text-sm leading-relaxed">{item.summary}</p>
-                <span className="inline-flex items-center gap-1 text-sm text-primary-400 font-medium mt-auto group-hover:gap-2 transition-all">
-                  Read comparison <ArrowRight size={14} />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </main>
-      <Footer />
+      {/* Comparison grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+        {COMPARISONS.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="group relative flex flex-col gap-3 p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-600 hover:bg-neutral-900/80 transition-all"
+          >
+            {item.tag && (
+              <span className="absolute top-4 right-4 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary-500/15 text-primary-400">
+                {item.tag}
+              </span>
+            )}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">
+                AgentCenter
+              </span>
+              <span className="text-neutral-600 text-xs">vs</span>
+              <span className="text-xs font-semibold text-neutral-300 uppercase tracking-wider">
+                {item.competitor}
+              </span>
+            </div>
+            <p className="text-neutral-400 text-sm leading-relaxed">{item.summary}</p>
+            <span className="inline-flex items-center gap-1 text-sm text-primary-400 font-medium mt-auto group-hover:gap-2 transition-all">
+              Read comparison <ArrowRight size={14} />
+            </span>
+          </Link>
+        ))}
+      </div>
     </>
   );
 }
