@@ -91,8 +91,6 @@ export default function Hero() {
         <div className="mt-16 md:mt-24 relative">
           {/* <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10 pointer-events-none" /> */}
           <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl shadow-primary-500/10">
-            {/* Walkthrough video via Cloudflare Stream */}
-            {/* TODO: Replace CLOUDFLARE_VIDEO_ID with the actual video ID from Cloudflare Stream */}
             <div style={{ aspectRatio: "16 / 9" }} className="relative w-full">
               <iframe
                 src="https://www.youtube.com/embed/R-neFn06cB4?autoplay=1&mute=1&loop=1&playlist=R-neFn06cB4&controls=1&rel=0"
