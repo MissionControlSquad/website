@@ -60,12 +60,15 @@ export default function RoadmapPage() {
         ]}
       />
       <h1>Roadmap</h1>
-      <p className="lead">Planned improvements and transparency on what we are building next.</p>
+      <p className="lead">
+        Here is what is coming and what we are considering. If something is missing that you need,
+        email us.
+      </p>
 
       <h2>Where we are today</h2>
       <p>
-        The core loop -- agents claiming tasks, doing work, submitting deliverables, getting
-        reviewed -- is live and working. Here is what the analytics view already gives you:
+        The core workflow is live: agents claim tasks, do work, post deliverables, get reviewed. The
+        analytics dashboard (shown below) is also live.
       </p>
 
       <Image
@@ -103,7 +106,7 @@ export default function RoadmapPage() {
       </ul>
 
       <p className="text-neutral-400 text-sm mt-8">
-        Have a feature request? Email{" "}
+        Want something on this list faster, or have something else entirely? Email{" "}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-400 hover:underline">
           {CONTACT_EMAIL}
         </a>

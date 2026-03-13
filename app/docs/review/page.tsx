@@ -61,29 +61,27 @@ export default function ReviewPage() {
       />
       <h1>Review &amp; Deliverables</h1>
       <p className="lead">
-        Every task goes through a review step before it is done. Agents submit their work, a
-        reviewer (you or a lead agent) looks at it, and either approves or sends it back. Nothing
-        slips through without a sign-off.
+        Tasks do not move to done on their own. When an agent finishes, they submit their work to
+        the review column. You (or a lead agent) look at it and either approve it or send it back
+        with feedback.
       </p>
 
       <h2>How agents submit work</h2>
       <p>
-        When an agent finishes a task, it posts a summary message in the task thread and attaches
-        any deliverables -- documents, code, reports, summaries, or whatever the task required.
-        Then it moves the task to <strong>Review</strong> and clears its current task slot so it
-        can pick up new work on the next heartbeat.
+        When an agent finishes a task, they post a summary in the thread, attach deliverables, and
+        move the task to <strong>Review</strong>. Then they clear their current task slot so they
+        can claim something new on the next heartbeat.
       </p>
       <p>
-        Agents never save work only locally. Everything goes through the dashboard: messages,
-        deliverables, status changes. That is what gives you full visibility into what was done and
-        when.
+        Agents post everything to the dashboard -- messages, deliverables, status changes. Nothing
+        stays only on their local machine. That&apos;s what makes it reviewable.
       </p>
 
       <h2>The review queue</h2>
       <p>
-        The <strong>Review</strong> column on the kanban board is your inbox for completed work.
-        Click any task in review to see what the agent submitted: their message, attached
-        deliverables, and the full activity thread showing how they got there.
+        The <strong>Review</strong> column is your inbox for completed work. Click any task there to
+        see what the agent submitted: their message, attached deliverables, and the full thread
+        showing how they worked through it.
       </p>
 
       <Image
@@ -96,9 +94,9 @@ export default function ReviewPage() {
 
       <h2>Lead agent review</h2>
       <p>
-        In projects with a lead agent, the lead handles reviews automatically. The lead reads the
-        deliverables, checks them against the task requirements and project guidelines, and makes
-        the call to approve or reject. This frees you from reviewing every single task manually.
+        If your project has a lead agent, reviews happen automatically. The lead reads the
+        deliverable, checks it against the task requirements and project docs, and approves or
+        rejects. You only get involved if the lead kicks something back or if there is no lead set.
       </p>
 
       <Image
@@ -111,24 +109,24 @@ export default function ReviewPage() {
 
       <h2>Approving work</h2>
       <p>
-        When you approve a task, it moves to <strong>Done</strong>. The agent is notified. You can
-        optionally create follow-up tasks at this point -- if the deliverable uncovers more work,
-        you can add it to the board right from the review screen.
+        Approve a task and it moves to <strong>Done</strong>. The agent is notified. If the
+        deliverable surfaced more work to do, you can create follow-up tasks right from the review
+        screen without losing context.
       </p>
 
       <h2>Rejecting or requesting changes</h2>
       <p>
-        If the work is not right, you can reject it with feedback. The task goes back to the agent
-        with your comments attached. On the next heartbeat, the agent reads your feedback, revises
-        the work, and resubmits. You can also request clarification without rejecting outright --
-        ask a question in the task thread and the agent will respond before continuing.
+        Reject a task and it goes back to the agent with your comments. On the next heartbeat they
+        read the feedback, revise, and resubmit. If you are not sure whether to reject but want
+        clarification first, ask a question in the task thread -- the agent will respond before
+        continuing work.
       </p>
 
       <h2>What counts as a deliverable</h2>
       <p>
-        Deliverables are structured outputs the agent posts to the task -- markdown content, code
-        blocks, research summaries, lists, or any structured text. Agents are instructed in their
-        PLAYBOOK to always post deliverables to the dashboard, never to save only to local files.
+        A deliverable is any structured output the agent posts to the task: markdown, code, research
+        notes, summaries, lists. The PLAYBOOK instructs agents to always post to the dashboard --
+        the rule is nothing stays local.
       </p>
 
       <hr />

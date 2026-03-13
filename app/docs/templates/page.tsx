@@ -61,21 +61,21 @@ export default function TemplatesPage() {
       />
       <h1>Templates &amp; Recurring Tasks</h1>
       <p className="lead">
-        Task templates let you define a task structure once and reuse it. Recurring tasks let you
-        schedule work to happen automatically on a cadence -- daily standups, weekly reports,
-        monthly audits. Both save you from typing the same thing over and over.
+        Templates save a task structure so you can reuse it. Recurring tasks go one step further --
+        they create new instances automatically on a schedule. If you have work that repeats on a
+        cadence, set it up once and let it run.
       </p>
 
       <h2>Task templates</h2>
       <p>
-        A template is a saved task definition: title pattern, description, subtasks, priority, and
-        default assignee. When you create a task from a template, all those fields are pre-filled.
-        You just review and hit create.
+        A template saves the structure: title, description, subtasks, priority, default assignee.
+        Create a task from a template and those fields are pre-filled. Change what needs to change,
+        hit create.
       </p>
       <p>
-        Templates are especially useful for work that repeats with slight variation -- code reviews,
-        content drafts, research briefs, QA checks. Define the structure once; change only what is
-        different each time.
+        Most useful for work that repeats with slight variation. A weekly content draft is always
+        the same shape -- same subtasks, same priority, usually the same assignee -- but the subject
+        changes each time. Define the structure once. Only change what&apos;s different.
       </p>
 
       <Image
@@ -87,20 +87,20 @@ export default function TemplatesPage() {
       />
 
       <p>
-        Templates can include subtasks. If your standard code review always involves three subtasks
-        (read the diff, check tests, write feedback), put all three in the template. Every new task
-        from that template comes with those subtasks pre-created.
+        Include subtasks in the template and they come pre-created every time. A code review
+        template might always have three subtasks: read the diff, check test coverage, write
+        feedback. Build that once and never think about it again.
       </p>
 
       <h2>Recurring tasks</h2>
       <p>
-        Recurring tasks are tasks that get created automatically on a schedule. You configure them
-        once -- title, description, assignee, cadence -- and the system generates a new task
-        instance at the right time. The agent picks it up on their next heartbeat after it appears.
+        A recurring task creates itself on a schedule -- daily, weekly, monthly. Configure it once:
+        title, description, assignee, timing. After that, new instances appear automatically and the
+        agent picks one up on the next heartbeat after it appears.
       </p>
       <p>
-        Common use cases: daily standup reports, weekly project status summaries, nightly data
-        processing, weekly SEO audits, monthly billing reconciliation.
+        Good candidates: daily standup reports, weekly status summaries, nightly data jobs, monthly
+        billing reconciliation. Anything you currently create manually on a schedule.
       </p>
 
       <Image
@@ -113,9 +113,9 @@ export default function TemplatesPage() {
 
       <h2>Configuring a schedule</h2>
       <p>
-        When creating a recurring task, you set the frequency (daily, weekly, monthly), the day or
-        time, and whether it should repeat indefinitely or stop after a set number of instances. You
-        can also set the task priority and instructions specific to that schedule.
+        Set the frequency (daily, weekly, monthly), the day or time, and whether it runs
+        indefinitely or stops after N instances. You can also set a priority and write instructions
+        specific to that recurring run.
       </p>
 
       <Image
@@ -127,9 +127,9 @@ export default function TemplatesPage() {
       />
 
       <p>
-        Once a recurring task is created, it shows up in the board&apos;s recurring section. You can
-        pause, edit, or delete it at any time. Past instances are kept as regular tasks in the board
-        so you have a full history of all runs.
+        Created recurring tasks show in the board under a recurring section. You can pause, edit, or
+        delete at any time. Past instances stay on the board as regular tasks -- full run history
+        right there alongside your other work.
       </p>
 
       <hr />
@@ -147,7 +147,9 @@ export default function TemplatesPage() {
           <Link href="/docs/how-agents-work">How agents pick up and complete tasks &rarr;</Link>
         </li>
         <li>
-          <Link href="/features/task-orchestration">Task orchestration feature overview &rarr;</Link>
+          <Link href="/features/task-orchestration">
+            Task orchestration feature overview &rarr;
+          </Link>
         </li>
       </ul>
     </>

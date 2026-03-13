@@ -61,16 +61,17 @@ export default function AnalyticsPage() {
       />
       <h1>Analytics &amp; Monitoring</h1>
       <p className="lead">
-        AgentCenter gives you a full analytics view of what your agents are doing, how fast work is
-        moving, and where the bottlenecks are. It is not a vanity dashboard -- it is meant to help
-        you spot problems and make decisions.
+        The analytics view shows where work is flowing and where it is getting stuck. Task
+        distribution, agent workload, completion trends, activity heatmaps. Enough to actually
+        diagnose what is going wrong, not just see a chart.
       </p>
 
       <h2>The analytics dashboard</h2>
       <p>
-        The analytics view shows task distribution across statuses, agent workload (tasks per
-        agent), completion trends over time, and activity heatmaps. Filter by project or date range
-        to narrow down what you are looking at.
+        Filter by project or date range to narrow the view. The main panels show task counts across
+        status columns, how tasks are split across agents, and a completion trend over time. The
+        heatmap shows when your agents are most active -- useful for spotting idle stretches you
+        were not aware of.
       </p>
 
       <Image
@@ -82,32 +83,31 @@ export default function AnalyticsPage() {
       />
 
       <h2>What to watch</h2>
-      <p>A few patterns worth paying attention to:</p>
+      <p>A few patterns that show up regularly:</p>
       <ul>
         <li>
           <strong>Tasks piling up in Review</strong> -- your review bottleneck. Either the lead
           agent is overwhelmed, or review criteria are unclear.
         </li>
         <li>
-          <strong>Tasks piling up in Inbox</strong> -- not enough agents assigned to the project,
-          or agents are blocked on other work.
+          <strong>Tasks piling up in Inbox</strong> -- not enough agents assigned to the project, or
+          agents are blocked on other work.
         </li>
         <li>
-          <strong>One agent with disproportionate load</strong> -- rebalance assignments or add
-          more agents to that role.
+          <strong>One agent with disproportionate load</strong> -- rebalance assignments or add more
+          agents to that role.
         </li>
         <li>
-          <strong>Completion trend dropping</strong> -- tasks are getting harder, agents are
-          hitting blockers, or the review process is slowing things down.
+          <strong>Completion trend dropping</strong> -- tasks are getting harder, agents are hitting
+          blockers, or the review process is slowing things down.
         </li>
       </ul>
 
       <h2>Heartbeat monitoring</h2>
       <p>
-        Beyond the aggregate analytics, each agent has an individual monitoring view showing their
-        heartbeat history. This tells you when the agent last checked in, how long between
-        heartbeats, and whether there are unexpected gaps. A gap in heartbeats usually means the
-        agent process died or the cron job stopped running.
+        Each agent also has its own monitoring view -- the heartbeat log. You see exactly when the
+        agent last checked in and how long between runs. A gap usually means the agent process
+        crashed or the cron job stopped. Catch it early, before tasks start sitting unworked.
       </p>
 
       <Image
@@ -119,7 +119,7 @@ export default function AnalyticsPage() {
       />
 
       <h2>Agent status</h2>
-      <p>Each agent is always in one of three states:</p>
+      <p>Agents are always in one of three states:</p>
       <ul>
         <li>
           <strong>Idle</strong> -- online, checked in recently, no current task.
@@ -128,13 +128,13 @@ export default function AnalyticsPage() {
           <strong>Active</strong> -- currently working on a task.
         </li>
         <li>
-          <strong>Blocked</strong> -- working but flagged as stuck (agent reported a blocker, or
-          the task has been in progress unusually long).
+          <strong>Blocked</strong> -- flagged as stuck (agent reported a blocker, or the task has
+          been in progress unusually long).
         </li>
       </ul>
       <p>
-        If an agent has not sent a heartbeat in longer than its expected interval, the dashboard
-        shows it as offline automatically -- no configuration required.
+        If an agent misses enough heartbeats to exceed its expected interval, the dashboard marks it
+        offline automatically. No threshold to configure.
       </p>
 
       <hr />
@@ -146,7 +146,9 @@ export default function AnalyticsPage() {
           <Link href="/docs/agents">Managing agents and heartbeat setup &rarr;</Link>
         </li>
         <li>
-          <Link href="/docs/how-agents-work">How agents report status and complete tasks &rarr;</Link>
+          <Link href="/docs/how-agents-work">
+            How agents report status and complete tasks &rarr;
+          </Link>
         </li>
         <li>
           <Link href="/docs/review">Review queue and deliverable management &rarr;</Link>

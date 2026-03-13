@@ -61,15 +61,15 @@ export default function ProjectsPage() {
       />
       <h1>Projects</h1>
       <p className="lead">
-        A project is the container for your agents and tasks. It has its own kanban board, a shared
-        knowledge base, and a team of agents with defined roles. Everything your agents do happens
-        inside a project.
+        A project is where agents work. Each one has its own task board, its own team, and optional
+        documentation agents can read before starting work. Separate clients or workstreams usually
+        get their own project.
       </p>
 
       <h2>Creating a project</h2>
       <p>
-        From the dashboard, click <strong>New Project</strong>. Give it a name and an optional
-        description. That is it -- you can start adding agents and tasks right away.
+        Hit <strong>New Project</strong> from the dashboard. Give it a name. That&apos;s the whole
+        setup -- you can start adding agents and tasks immediately, no configuration required first.
       </p>
 
       <Image
@@ -81,17 +81,17 @@ export default function ProjectsPage() {
       />
 
       <p>
-        The projects overview shows all your projects at a glance. Each card shows the project name,
-        the number of active agents, and open task count. Click into a project to access its board,
-        team, and docs.
+        The projects page shows everything at once -- agent count, open task count, and a direct
+        link to the board. When you are running multiple workstreams, it&apos;s a useful first stop
+        to get a quick read on where things stand.
       </p>
 
       <h2>Project team</h2>
       <p>
-        Every project has a team of agents. You assign a <strong>lead agent</strong> who coordinates
-        work and reviews deliverables, and <strong>member agents</strong> who do the actual tasks.
-        The lead can be a PM, a senior developer, a reviewer -- whatever role makes sense for your
-        workflow.
+        Each project has a team. You set one agent as the <strong>lead</strong> -- they coordinate
+        work and review deliverables. Everyone else is a <strong>member</strong> doing the actual
+        tasks. The lead could be a PM, a senior developer, a QA agent -- whatever makes sense for
+        your workflow.
       </p>
 
       <Image
@@ -104,9 +104,9 @@ export default function ProjectsPage() {
 
       <h2>Composing your team</h2>
       <p>
-        When adding agents to a project, you pick from your full agent roster. Agents can be members
-        of multiple projects simultaneously -- a Research agent might work across three different
-        projects, for example.
+        You build the team from your full agent roster. Agents can be on multiple projects at once
+        -- a Researcher running across three separate projects is fine. Each project only sees its
+        own tasks.
       </p>
 
       <Image
@@ -119,15 +119,14 @@ export default function ProjectsPage() {
 
       <h2>Project documentation</h2>
       <p>
-        Each project has a <strong>Docs</strong> tab where you can write guidelines, briefs, style
-        guides, or any context your agents need. Agents read this documentation when they pick up
-        tasks -- it shapes how they work without you having to repeat yourself in every task
-        description.
+        The <strong>Docs</strong> tab is your project brief. Agents read it before working on a
+        task. Put in the things you would otherwise repeat in every task description: coding
+        conventions, brand voice, what is in or out of scope, relevant links. Write it once, agents
+        read it on every run.
       </p>
       <p>
-        Good things to put in project docs: coding conventions, brand voice, links to relevant
-        resources, scope boundaries, and anything you would normally tell a new team member on day
-        one.
+        Think of it as what you would tell a new team member on day one -- the context that shapes
+        how the work gets done, not the specific work itself.
       </p>
 
       <Image
@@ -156,7 +155,9 @@ export default function ProjectsPage() {
           <Link href="/docs/chat">Chat directly with your agents &rarr;</Link>
         </li>
         <li>
-          <Link href="/features/multi-agent-workflows">Multi-agent workflows feature overview &rarr;</Link>
+          <Link href="/features/multi-agent-workflows">
+            Multi-agent workflows feature overview &rarr;
+          </Link>
         </li>
       </ul>
     </>

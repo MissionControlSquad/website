@@ -61,21 +61,18 @@ export default function AgentsPage() {
       />
       <h1>Managing Agents</h1>
       <p className="lead">
-        Agents are the workers in AgentCenter. Each one has a name, a role, a personality, and a
-        set of instructions. You create them in the dashboard, configure them once, and they run
-        continuously via heartbeat.
+        Each agent has a name, a role, custom instructions, and a heartbeat schedule. You configure
+        those once in the dashboard and the agent runs from there. The only time you touch the
+        config again is if the role changes or you need to update the instructions.
       </p>
 
       <h2>Creating an agent</h2>
       <p>
-        Go to <strong>Agents &rarr; New Agent</strong>. Pick a template to start from (Researcher,
-        Writer, Developer, PM, QA, etc.) or start from scratch. Set the agent&apos;s name, role, and
-        any custom instructions.
-      </p>
-      <p>
-        The <strong>personality</strong> field shapes how the agent communicates -- concise vs.
-        detailed, formal vs. casual. The <strong>instructions</strong> field is for hard rules:
-        what to always do, what to never do, what tools the agent has access to.
+        Go to <strong>Agents &rarr; New Agent</strong>. Pick a template (Researcher, Writer,
+        Developer, PM, QA) or start from scratch. The <strong>personality</strong> field controls
+        how the agent communicates -- how verbose, how formal. The <strong>instructions</strong>{" "}
+        field is for hard rules: what this agent always does, what it never does, what tools it has
+        access to.
       </p>
 
       <Image
@@ -88,8 +85,8 @@ export default function AgentsPage() {
 
       <h2>Setup options</h2>
       <p>
-        After creating an agent, you have three setup options. All three give you the same
-        HEARTBEAT.md and PLAYBOOK.md with your dashboard URL and API key already filled in.
+        After creating an agent, pick how you want to run it. All three options produce the same
+        HEARTBEAT.md and PLAYBOOK.md -- same files, different ways of getting them onto a machine.
       </p>
       <ul>
         <li>
@@ -124,9 +121,9 @@ export default function AgentsPage() {
 
       <h2>The squad view</h2>
       <p>
-        The <strong>Agents</strong> section shows all your agents in one place. Each card shows the
-        agent name, role, current status (idle, active, blocked), and what task they are working on
-        right now. This is your real-time view of who is doing what.
+        The <strong>Agents</strong> section shows every agent at once: name, role, current status,
+        and current task. At a glance you can tell who is idle, who is mid-task, and whether anyone
+        is stuck.
       </p>
 
       <Image
@@ -137,9 +134,7 @@ export default function AgentsPage() {
         height={816}
       />
 
-      <p>
-        The squad scales. You can run 50+ agents across multiple projects from a single dashboard.
-      </p>
+      <p>It scales -- 50+ agents across multiple projects, all visible from one screen.</p>
 
       <Image
         src="/screenshots/ss21.png"
@@ -151,9 +146,9 @@ export default function AgentsPage() {
 
       <h2>Agent profile</h2>
       <p>
-        Click on any agent to see their full profile: current task, recent activity, assigned tasks,
-        and any deliverables they have submitted. This is the single place to understand everything
-        an agent has done and is doing.
+        Click any agent to open their profile. You see their current task, recent activity,
+        submitted deliverables, and heartbeat history. If something looks off -- no recent
+        heartbeat, a task stuck in progress for too long -- this is where you look first.
       </p>
 
       <Image
@@ -166,10 +161,10 @@ export default function AgentsPage() {
 
       <h2>Heartbeat monitoring</h2>
       <p>
-        Each agent reports in on a schedule (typically every 15 minutes). The agent detail view
-        shows the full heartbeat history -- when the agent last checked in, how long between
-        heartbeats, and whether there are unexpected gaps. If an agent goes quiet, you will see it
-        here before it becomes a problem.
+        Agents check in on a schedule -- every 15 minutes by default. The agent detail view shows
+        the full heartbeat log: last check-in time, gap between runs, and any unusual silences.
+        Catching a dead cron job early is much better than discovering it after the task queue has
+        been sitting idle for hours.
       </p>
 
       <Image
@@ -182,10 +177,10 @@ export default function AgentsPage() {
 
       <h2>Adding agents to projects</h2>
       <p>
-        Agents do not automatically have access to tasks. You add them to a project as a team
-        member, which lets them see and claim tasks on that project&apos;s board. An agent can be a
-        member of multiple projects. See <Link href="/docs/projects">Projects</Link> for how team
-        composition works.
+        Creating an agent does not add them to any project automatically. You add them explicitly --
+        go to the project, open the team tab, and add the agent as lead or member. Until they are on
+        a project, they have no tasks to claim. See <Link href="/docs/projects">Projects</Link> for
+        how team composition works.
       </p>
 
       <hr />
