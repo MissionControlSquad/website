@@ -19,6 +19,7 @@ import {
   Sparkles,
 } from "@/components/icons";
 import { ogImage, SITE_CONFIG, PRICING, AFFILIATE } from "@/lib/constants";
+import AffiliateJoinButton from "@/components/AffiliateJoinButton";
 
 export const metadata: Metadata = {
   title: "Affiliate Program — Earn 30% Commission | AgentCenter",
@@ -180,10 +181,8 @@ export default function AffiliatePage() {
                   </span>
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
+                  <AffiliateJoinButton
                     href={AFFILIATE.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-all hover:scale-105"
                   >
                     Join Now — It&apos;s Free
@@ -191,7 +190,7 @@ export default function AffiliatePage() {
                       size={18}
                       className="group-hover:translate-x-1 transition-transform"
                     />
-                  </a>
+                  </AffiliateJoinButton>
                   <a
                     href="#earnings"
                     className="text-neutral-400 hover:text-neutral-100 transition-colors underline underline-offset-4"
@@ -277,10 +276,8 @@ export default function AffiliatePage() {
               </div>
 
               <ScrollReveal staggerIndex={3} className="mt-12 text-center">
-                <a
+                <AffiliateJoinButton
                   href={AFFILIATE.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-all hover:scale-105"
                 >
                   Sign Up Now
@@ -288,7 +285,7 @@ export default function AffiliatePage() {
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"
                   />
-                </a>
+                </AffiliateJoinButton>
               </ScrollReveal>
             </div>
           </Container>
@@ -434,10 +431,8 @@ export default function AffiliatePage() {
                   Join our affiliate program today and start earning $
                   {AFFILIATE.monthlyCommission.toFixed(2)} per referral, every month.
                 </p>
-                <a
+                <AffiliateJoinButton
                   href={AFFILIATE.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-all hover:scale-105"
                 >
                   Join the Affiliate Program
@@ -445,7 +440,7 @@ export default function AffiliatePage() {
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"
                   />
-                </a>
+                </AffiliateJoinButton>
                 <p className="text-sm text-neutral-500 mt-4">
                   Sign up takes less than 60 seconds. No credit card required.
                 </p>

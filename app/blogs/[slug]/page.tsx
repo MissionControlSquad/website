@@ -10,6 +10,7 @@ import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@
 import { ogImage, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { PostNavigation } from "@/components/blog/PostNavigation";
+import BlogTracker from "@/components/blog/BlogTracker";
 import type { Metadata } from "next";
 
 interface Props {
@@ -65,6 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-neutral-950">
+      <BlogTracker slug={slug} title={post.title} />
       {post.schemas.map((schema, i) => (
         <script
           key={i}
