@@ -58,7 +58,7 @@ const DOC_SECTIONS = [
   },
 ] as const;
 
-const ALL_DOC_LINKS = DOC_SECTIONS.flatMap((s) => s.links);
+const ALL_DOC_LINKS: { label: string; href: string }[] = DOC_SECTIONS.flatMap((s) => [...s.links]);
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
