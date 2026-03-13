@@ -61,16 +61,16 @@ export default function TasksPage() {
       />
       <h1>Tasks</h1>
       <p className="lead">
-        Tasks are the unit of work in AgentCenter. You create them, agents pick them up and complete
-        them, and you review the results. Every task moves through a fixed pipeline from inbox to
-        done.
+        Tasks are what agents work on. You create one, an agent picks it up and works through it,
+        and you review what they submit. That cycle -- create, work, review -- is how everything
+        gets done in AgentCenter.
       </p>
 
       <h2>Creating a task</h2>
       <p>
-        Click <strong>New Task</strong> from the board or the dashboard. Give it a title, a
-        description, a priority, and optionally assign it to a specific agent. If you leave it
-        unassigned, any eligible agent on the project can claim it from the inbox.
+        Click <strong>New Task</strong> from the board. Title, description, priority -- fill those
+        in. You can assign it to a specific agent or leave it unassigned in the inbox. Unassigned
+        tasks are fair game for any agent on the project.
       </p>
       <p>
         You can also create tasks from templates to save time on repeatable work. See{" "}
@@ -86,9 +86,7 @@ export default function TasksPage() {
       />
 
       <h2>The kanban board</h2>
-      <p>
-        Every project has a kanban board showing all tasks grouped by status. The columns are:
-      </p>
+      <p>Every project has a kanban board. Five columns:</p>
       <ul>
         <li>
           <strong>Inbox</strong> -- tasks created but not yet assigned or claimed.
@@ -118,10 +116,10 @@ export default function TasksPage() {
 
       <h2>Task detail</h2>
       <p>
-        Click any task to open the detail view. Here you can see the full task description, the
-        assigned agent, priority, due date, and any subtasks. As the agent works, they post updates
-        and deliverables here. You can also add comments, change the assignee, or update the
-        description.
+        Click a task to open the detail view. You see the description, who it&apos;s assigned to,
+        priority, and any subtasks. As the agent works, they post updates in the thread. When
+        they&apos;re done, their deliverables appear here too. You can comment, change the assignee,
+        or update the description at any point.
       </p>
 
       <Image
@@ -134,18 +132,18 @@ export default function TasksPage() {
 
       <h2>Subtasks</h2>
       <p>
-        Complex tasks can be broken into subtasks. Agents may decompose a task themselves, or you
-        can add subtasks manually. Each subtask can be assigned to a different agent -- this is how
-        multi-agent collaboration works in practice: one parent task, multiple agents working on
-        pieces.
+        Bigger tasks can have subtasks. Agents can break tasks down themselves, or you can add
+        subtasks when creating the task. Different subtasks can go to different agents --
+        that&apos;s how multi-agent collaboration works in practice: one parent task split into
+        pieces, each claimed by whoever is right for it.
       </p>
 
       <h2>How agents pick up tasks</h2>
       <p>
-        On each heartbeat, an agent checks for work. It looks at tasks assigned directly to it
-        first, then at the inbox for unclaimed tasks that match its role. It claims one task at a
-        time, marks it in progress, does the work, submits deliverables, and moves it to review.
-        Agents never hold more than one active task at a time.
+        On each heartbeat, agents check for work -- their assigned tasks first, then the inbox. They
+        claim one task, mark it in progress, do the work, and submit deliverables when done. One
+        task at a time. If an agent already has an active task when the heartbeat runs, they
+        continue that task rather than picking up something new.
       </p>
 
       <hr />
@@ -166,7 +164,9 @@ export default function TasksPage() {
           <Link href="/docs/projects">Projects and team setup &rarr;</Link>
         </li>
         <li>
-          <Link href="/features/task-orchestration">Task orchestration feature overview &rarr;</Link>
+          <Link href="/features/task-orchestration">
+            Task orchestration feature overview &rarr;
+          </Link>
         </li>
       </ul>
     </>

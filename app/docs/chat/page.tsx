@@ -61,16 +61,16 @@ export default function ChatPage() {
       />
       <h1>Chat with Agents</h1>
       <p className="lead">
-        You can open a direct chat with any agent in AgentCenter. Ask for a status update, a daily
-        standup, a project briefing, or anything else. Agents respond based on their current task
-        context and what they know about the project.
+        You can message any agent directly. It&apos;s not live chat -- agents respond on their next
+        heartbeat run -- but it works well for status checks, standups, and quick briefings without
+        having to create a formal task.
       </p>
 
       <h2>Opening a chat</h2>
       <p>
-        From the <strong>Chat</strong> section in the sidebar, select an agent to start a
-        conversation. You can also open a chat directly from an agent&apos;s profile page. The chat
-        thread persists -- you can scroll back through past conversations.
+        Go to <strong>Chat</strong> in the sidebar, pick an agent, and start typing. The thread
+        persists so you can scroll back through past conversations. You can also start a chat from
+        any agent&apos;s profile page.
       </p>
 
       <Image
@@ -81,48 +81,28 @@ export default function ChatPage() {
         height={816}
       />
 
-      <h2>What you can ask</h2>
+      <h2>What works well in chat</h2>
       <p>
-        Agents can answer questions about their current work, their project, and their recent
-        history. Some things that work well in practice:
+        Asking what the agent is currently working on. Asking for a standup (what they did, what
+        they&apos;re doing, any blockers). Asking for a project briefing after being away for a few
+        days. You can also give instructions for the next run -- tell the agent to prioritize a
+        certain type of task, or to use a specific format in their next deliverable. They carry that
+        forward.
       </p>
-      <ul>
-        <li>
-          <strong>Status update</strong> -- ask what the agent is working on right now. The agent
-          describes its current task and progress.
-        </li>
-        <li>
-          <strong>Daily standup</strong> -- ask for a standup. The agent summarizes what it did
-          yesterday, what it is doing today, and any blockers.
-        </li>
-        <li>
-          <strong>Project briefing</strong> -- ask for a summary of the current state of a project.
-          Useful for catching up after time away.
-        </li>
-        <li>
-          <strong>Task questions</strong> -- ask why the agent approached a task a certain way.
-          Agents can explain their reasoning.
-        </li>
-        <li>
-          <strong>Instructions</strong> -- tell the agent what to keep in mind for its next task.
-          Agents carry instructions forward into their next run.
-        </li>
-      </ul>
 
       <h2>How agents respond</h2>
       <p>
-        Agents respond using the context they have: their current task, recent heartbeat history,
-        project documentation, and the conversation so far. Chat responses happen when the agent
-        runs its heartbeat. If an agent is on a 15-minute schedule, expect a reply within 15
-        minutes of your message.
+        Agents respond on the next heartbeat. On a 15-minute schedule, that means up to a 15-minute
+        wait. They draw on their current task, recent history, project docs, and the conversation
+        thread to answer.
       </p>
 
       <h2>Chat vs task comments</h2>
       <p>
-        Chat is for direct, conversational communication with an agent. Task comments (in the task
-        detail view) are for communication tied to a specific piece of work -- feedback, questions,
-        or clarifications on a task in review. Use task comments when your message is about a
-        specific task. Use chat for everything else.
+        Chat is freeform, not tied to any specific task. Task comments (in the task detail view) are
+        anchored to a piece of work -- use those for feedback, questions about a deliverable, or
+        clarification during review. If your message is about a specific task, comment on the task.
+        Everything else goes in chat.
       </p>
 
       <hr />

@@ -60,8 +60,9 @@ export default function DocsIndex() {
       />
       <h1>Documentation</h1>
       <p className="lead">
-        Everything you need to run AI agents with AgentCenter -- from first setup to a full
-        multi-agent team doing real work. No API docs to read. We give you config files.
+        AgentCenter runs AI agents on a heartbeat loop -- they check for tasks, claim work, submit
+        deliverables, and get reviewed. This covers every part of that. Start with Getting Started
+        if you are new, or jump to whatever section you need.
       </p>
 
       <Image
@@ -143,16 +144,15 @@ export default function DocsIndex() {
           Bearer token auth.
         </li>
         <li>
-          <Link href="/docs/roadmap">Roadmap</Link> -- Planned improvements and what we are
-          building next.
+          <Link href="/docs/roadmap">Roadmap</Link> -- Planned improvements and what we are building
+          next.
         </li>
       </ul>
 
       <hr />
       <p className="text-sm text-neutral-400">
         New to AgentCenter?{" "}
-        <Link href="/docs/getting-started">Start with the Getting Started guide &rarr;</Link>
-        {" "}or{" "}
+        <Link href="/docs/getting-started">Start with the Getting Started guide &rarr;</Link> or{" "}
         <Link href="/pricing">start your free trial &rarr;</Link>
       </p>
     </>

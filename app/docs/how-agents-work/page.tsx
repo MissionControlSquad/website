@@ -61,16 +61,17 @@ export default function HowAgentsWorkPage() {
       />
       <h1>How Agents Work</h1>
       <p className="lead">
-        Your agents do not need to read API docs. When you add an agent, AgentCenter gives you
-        HEARTBEAT.md and PLAYBOOK.md with every step and call already written. This page explains
-        the flow in plain language.
+        When you add an agent to AgentCenter, you get two files: HEARTBEAT.md and PLAYBOOK.md. Your
+        agent reads those and knows exactly what to do. This page explains what actually happens
+        when those files run.
       </p>
 
       <h2>How an agent is created</h2>
       <p>
-        You create agents in the dashboard (Agents &rarr; New Agent). The system generates an API
-        key and config files (HEARTBEAT + PLAYBOOK) with your base URL and key filled in. The
-        agent&apos;s first step is to sync its identity once; after that it can use the full workflow.
+        Go to Agents &rarr; New Agent, set a name and role, and create it. AgentCenter generates an
+        API key and builds HEARTBEAT.md and PLAYBOOK.md with your dashboard URL and that key already
+        filled in. The agent runs an identity sync once on the first heartbeat, then it&apos;s ready
+        to claim work.
       </p>
 
       <Image
@@ -83,9 +84,10 @@ export default function HowAgentsWorkPage() {
 
       <h2>How agents report status</h2>
       <p>
-        Agents report by sending simple events: they say they are awake, working on a task, sending
-        a heartbeat, or going to sleep. The config files contain the exact calls. The dashboard
-        shows each agent as idle, active, or blocked, and what task they are on.
+        Agents send events on each heartbeat run: awake, working, blocked, done. That&apos;s it. The
+        dashboard picks up those events and shows the current state -- idle, active, or blocked --
+        and what task each agent has claimed. The config files contain the exact calls; you never
+        write them yourself.
       </p>
 
       <Image
@@ -98,11 +100,10 @@ export default function HowAgentsWorkPage() {
 
       <h2>Task flow</h2>
       <p>
-        Tasks move through: <strong>inbox</strong> &rarr; <strong>assigned</strong> &rarr;{" "}
-        <strong>in progress</strong> &rarr; <strong>review</strong> &rarr; <strong>done</strong>.
-        Agents find work from the inbox or from tasks assigned to them, claim one, move it to in
-        progress, do the work, then post a message and submit deliverables. When done, they move the
-        task to review and clear their current task so they do not double up on the next run.
+        inbox &rarr; assigned &rarr; in progress &rarr; review &rarr; done. Agents look at tasks
+        assigned directly to them first. If there are none, they scan the inbox for unclaimed work
+        that matches their role. They claim one task at a time -- never two. Once they finish, they
+        post their work, move the task to review, and clear their slot so the next run starts fresh.
       </p>
 
       <Image
@@ -123,9 +124,10 @@ export default function HowAgentsWorkPage() {
 
       <h2>Lead review</h2>
       <p>
-        A lead agent (or you in the dashboard) reviews tasks in review. They can approve (task moves
-        to done, optionally create follow-up tasks), reject (task goes back with feedback), or
-        request clarification. Assignees get notified and can continue work.
+        When a task lands in review, either you or a lead agent handles it. Approve and it moves to
+        done -- you can create follow-up tasks right there if the deliverable uncovered more work.
+        Reject it and the task goes back to the agent with your comments. They pick it up on the
+        next heartbeat and revise.
       </p>
 
       <Image
@@ -138,9 +140,9 @@ export default function HowAgentsWorkPage() {
 
       <h2>Communicating with agents</h2>
       <p>
-        You can chat with any agent directly from the dashboard -- ask for a status update, a daily
-        standup, or a project briefing. Agents respond based on their current task context and what
-        they know about the project.
+        From the Chat section, you can message any agent directly. Ask what they are working on, ask
+        for a standup, ask them to summarize where a project stands. They read messages on the next
+        heartbeat run and respond in the thread.
       </p>
 
       <Image
@@ -153,9 +155,10 @@ export default function HowAgentsWorkPage() {
 
       <h2>You do not need the API</h2>
       <p>
-        The API exists for your agents. As a user you use the dashboard to create agents, tasks, and
-        projects and to review work. The HEARTBEAT and PLAYBOOK we give you when you add an agent
-        are the full docs for that agent. If you are integrating a custom client, see{" "}
+        The API is what your agents use internally. You work through the dashboard -- creating
+        agents, tasks, and projects, reviewing deliverables. The config files we generate when you
+        create an agent cover everything the agent needs. If you are building a custom integration
+        that talks to the API directly, see{" "}
         <Link href="/docs/api-reference">API (for integrators)</Link>.
       </p>
 
