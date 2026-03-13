@@ -16,7 +16,7 @@ import ActivityFeed from "@/components/sections/ActivityFeed";
 import FinalCTA from "@/components/sections/FinalCTA";
 import LatestPosts from "@/components/sections/LatestPosts";
 import Footer from "@/components/Footer";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import { getLatestPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: SITE_CONFIG.description,
     type: "website",
-    images: [{ ...OG_IMAGE, alt: "AgentCenter — Mission Control for Your OpenClaw Agents" }],
+    images: [ogImage("home", "AgentCenter — Mission Control for Your OpenClaw Agents")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: SITE_CONFIG.description,
-    images: [TWITTER_IMAGE],
+    images: [ogImage("home")],
   },
 };
 

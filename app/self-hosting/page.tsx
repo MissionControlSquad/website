@@ -6,13 +6,7 @@ import Footer from "@/components/Footer";
 import SelfHostingPricingSection from "@/components/sections/SelfHostingPricingSection";
 import { Container } from "@/components/ui/Container";
 import { Shield, ShieldCheck, Activity, DollarSign, GitBranch, Monitor } from "@/components/icons";
-import {
-  CONTACT_EMAIL,
-  OG_IMAGE,
-  TWITTER_IMAGE,
-  SITE_CONFIG,
-  SELFHOSTING_PRICING,
-} from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, SELFHOSTING_PRICING } from "@/lib/constants";
 
 const PAGE_URL = `${SITE_CONFIG.url}/self-hosting`;
 const DATE_PUBLISHED = "2026-03-12";
@@ -43,10 +37,10 @@ export const metadata: Metadata = {
     url: PAGE_URL,
     type: "website",
     images: [
-      {
-        ...OG_IMAGE,
-        alt: "AgentCenter Self-Hosted — AI Agent Dashboard Running on Your Own Server",
-      },
+      ogImage(
+        "self-hosting",
+        "AgentCenter Self-Hosted — AI Agent Dashboard Running on Your Own Server"
+      ),
     ],
   },
   twitter: {
@@ -55,7 +49,7 @@ export const metadata: Metadata = {
     description: `Run AgentCenter on your own server. Docker image + activation key + docker-compose. From $${SELFHOSTING_PRICING.monthly}/month.`,
     creator: "@dharmikjagodana",
     site: "@dharmikjagodana",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("self-hosting")],
   },
 };
 

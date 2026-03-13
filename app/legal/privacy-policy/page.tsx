@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { CONTACT_EMAIL, OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/legal/privacy-policy`,
     siteName: SITE_CONFIG.name,
     locale: "en_US",
-    images: [OG_IMAGE],
+    images: [ogImage("legal-privacy-policy")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy | AgentCenter",
     description:
       "Learn how AgentCenter collects, uses, and protects your personal information. We cover data collection, cookies, third-party services, and your privacy rights.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("legal-privacy-policy")],
   },
   robots: {
     index: true,

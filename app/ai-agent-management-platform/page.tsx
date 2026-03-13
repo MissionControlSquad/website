@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Management Platform — Task Assignment, Review & Coordination | AgentCenter",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
       "Stop babysitting agents. AgentCenter manages the full lifecycle — from task creation to deliverable review.",
     url: `${SITE_CONFIG.url}/ai-agent-management-platform`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("ai-agent-management-platform")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Agent Management Platform for Production Teams",
     description:
       "Stop babysitting agents. AgentCenter manages the full lifecycle — from task creation to deliverable review.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("ai-agent-management-platform")],
   },
 };
 

@@ -76,7 +76,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -89,7 +89,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="sm" variant="secondary">
                 Book a Demo
@@ -109,8 +109,8 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile CTA + Menu Button */}
-          <div className="flex md:hidden items-center gap-4">
+          {/* Mobile/Tablet CTA + Menu Button */}
+          <div className="flex lg:hidden items-center gap-4">
             <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="sm" variant="secondary">
                 Book a Demo
@@ -133,7 +133,7 @@ export default function Navbar() {
       <div
         ref={mobileMenuRef}
         className={cn(
-          "md:hidden grid transition-[grid-template-rows,opacity] duration-200 ease-out",
+          "lg:hidden grid transition-[grid-template-rows,opacity] duration-200 ease-out",
           isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         )}
         role={isOpen ? "dialog" : undefined}

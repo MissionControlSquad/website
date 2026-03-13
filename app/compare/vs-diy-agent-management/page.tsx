@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import { mdxComponents } from "@/components/mdx-components";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Building Your Own Dashboard",
@@ -14,14 +16,14 @@ export const metadata: Metadata = {
       "Should you build your own AI agent dashboard or use AgentCenter? Compare costs, timelines, and trade-offs.",
     url: `${SITE_CONFIG.url}/compare/vs-diy-agent-management`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-diy-agent-management")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs DIY Agent Dashboard | AgentCenter",
     description:
       "Should you build your own AI agent dashboard or use AgentCenter? Compare costs, timelines, and trade-offs.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-diy-agent-management")],
   },
 };
 
@@ -188,7 +190,13 @@ export default function Page() {
           { name: "vs DIY", item: `${SITE_CONFIG.url}/compare/vs-diy-agent-management` },
         ]}
       />
-      <ContentPage content={content} />
+      <div className="prose prose-invert prose-neutral max-w-none prose-headings:text-neutral-100 prose-headings:font-semibold prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-200 prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800 prose-table:text-neutral-300 prose-th:text-neutral-200 prose-td:text-neutral-300 prose-th:border-neutral-700 prose-td:border-neutral-800">
+        <MDXRemote
+          source={content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          components={mdxComponents}
+        />
+      </div>
     </>
   );
 }

@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@/lib/blog";
-import { OG_IMAGE, OG_IMAGE_URL, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, OG_IMAGE_URL, SITE_CONFIG } from "@/lib/constants";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { PostNavigation } from "@/components/blog/PostNavigation";
 import type { Metadata } from "next";
@@ -43,13 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.dateModified,
       authors: [post.author],
       tags: post.tags,
-      images: [{ ...OG_IMAGE, alt: post.title }],
+      images: [ogImage(`blog-${slug}`, post.title)],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [TWITTER_IMAGE],
+      images: [ogImage(`blog-${slug}`, post.title)],
     },
   };
 }
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       {/* Header */}
-      <div className="pt-32 pb-12 border-b border-neutral-800">
+      <div className="pt-24 md:pt-32 pb-8 md:pb-12 border-b border-neutral-800">
         <Container>
           <div className="max-w-3xl mx-auto">
             <Link

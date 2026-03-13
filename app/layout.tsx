@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
-import { CONTACT_EMAIL, OG_IMAGE, OG_IMAGE_URL, SITE_CONFIG, TWITTER_IMAGE } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, OG_IMAGE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const GTM_ID = "GTM-WSR54GVV";
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     title: "AgentCenter — Mission Control for Your OpenClaw Agents",
     description: SITE_CONFIG.description,
-    images: [{ ...OG_IMAGE, alt: "AgentCenter — Mission Control for Your OpenClaw Agents" }],
+    images: [ogImage("home", "AgentCenter — Mission Control for Your OpenClaw Agents")],
   },
   twitter: {
     card: "summary_large_image",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     creator: "@AgentsCenter",
     site: "@AgentsCenter",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("home")],
   },
   icons: {
     icon: [

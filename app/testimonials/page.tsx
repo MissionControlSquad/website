@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 import { ArrowRight } from "@/components/icons";
 import { CheckoutButton } from "@/components/CheckoutButton";
 
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
       "See how developers, founders, and agencies use AgentCenter to coordinate their OpenClaw AI agent teams.",
     url: `${SITE_CONFIG.url}/testimonials`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("testimonials")],
   },
   twitter: {
     card: "summary_large_image",
     title: "Testimonials | AgentCenter — Mission Control for OpenClaw Agents",
     description:
       "See how developers, founders, and agencies use AgentCenter to coordinate their OpenClaw AI agent teams.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("testimonials")],
   },
 };
 

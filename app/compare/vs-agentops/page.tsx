@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { ContentPage } from "@/components/ContentPage";
-import { OG_IMAGE, TWITTER_IMAGE, SITE_CONFIG } from "@/lib/constants";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import { mdxComponents } from "@/components/mdx-components";
+import { ogImage, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs AgentOps — AI Agent Platform Comparison",
@@ -14,14 +16,14 @@ export const metadata: Metadata = {
       "Compare AgentCenter and AgentOps. Understand the difference between agent management and agent observability/monitoring.",
     url: `${SITE_CONFIG.url}/compare/vs-agentops`,
     type: "website",
-    images: [OG_IMAGE],
+    images: [ogImage("compare-vs-agentops")],
   },
   twitter: {
     card: "summary_large_image",
     title: "AgentCenter vs AgentOps | AI Agent Platform Comparison",
     description:
       "Compare AgentCenter and AgentOps. Understand the difference between agent management and agent observability/monitoring.",
-    images: [TWITTER_IMAGE],
+    images: [ogImage("compare-vs-agentops")],
   },
 };
 
@@ -208,7 +210,13 @@ export default function Page() {
           { name: "vs AgentOps", item: `${SITE_CONFIG.url}/compare/vs-agentops` },
         ]}
       />
-      <ContentPage content={content} />
+      <div className="prose prose-invert prose-neutral max-w-none prose-headings:text-neutral-100 prose-headings:font-semibold prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-200 prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800 prose-table:text-neutral-300 prose-th:text-neutral-200 prose-td:text-neutral-300 prose-th:border-neutral-700 prose-td:border-neutral-800">
+        <MDXRemote
+          source={content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          components={mdxComponents}
+        />
+      </div>
     </>
   );
 }
