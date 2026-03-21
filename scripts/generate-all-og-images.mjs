@@ -84,6 +84,13 @@ const PAGES = [
     subtitle: "Limited to 100 seats. Starting at $259, price increases every 25 seats.",
     accentColor: BLUE,
   },
+  {
+    slug: "pricing-drop",
+    category: null,
+    title: "People Said AgentCenter Is Too Expensive.",
+    subtitle: "A live pricing experiment. The more people join, the lower the price drops. Join before the timer ends.",
+    accentColor: BLUE,
+  },
 
   // Blog listing
   {
