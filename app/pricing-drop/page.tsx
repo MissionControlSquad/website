@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     images: [ogImage("pricing-drop")],
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
