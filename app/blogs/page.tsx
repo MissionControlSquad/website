@@ -90,6 +90,12 @@ export default function BlogsPage() {
             Insights on managing AI agent teams, Mission Control dashboards, and the future of
             multi-agent operations.
           </p>
+          <p className="text-base text-neutral-500 max-w-2xl mt-3">
+            We write about what we learn running OpenClaw agents in production — task assignment,
+            deliverable review, heartbeat monitoring, multi-agent coordination, and the places where
+            things break. No theory. Just what actually works (and what doesn&apos;t) when you have
+            real agents doing real work.
+          </p>
         </Container>
       </div>
 

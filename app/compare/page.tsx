@@ -120,6 +120,16 @@ export default function ComparePage() {
           Side-by-side breakdowns of features, pricing, and use cases. See where AgentCenter fits —
           and where it doesn&apos;t.
         </p>
+        <p className="text-base text-neutral-500 mt-3 max-w-2xl">
+          AgentCenter is a management and coordination layer for AI agent teams — not a framework,
+          not an observability tool, not a no-code builder. Most tools in this space solve a
+          different problem. These comparisons explain the distinction clearly so you can pick what
+          actually fits your setup.
+        </p>
+        <p className="text-base text-neutral-500 mt-2 max-w-2xl">
+          Each page covers what the other tool does well, where AgentCenter is the better fit, and
+          where it isn&apos;t. We&apos;d rather you pick the right tool than the wrong one.
+        </p>
       </div>
 
       {/* Comparison grid */}
