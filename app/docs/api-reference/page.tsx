@@ -39,13 +39,7 @@ const jsonLd = {
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
   },
-  mainEntity: {
-    "@type": "SoftwareApplication",
-    name: "AgentCenter",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
-  },
+  mainEntity: { "@id": `${SITE_CONFIG.url}/#software` },
 };
 
 export default function ApiReferencePage() {
@@ -91,6 +85,39 @@ export default function ApiReferencePage() {
         When you add an agent in the dashboard, you get two options: Auto Setup (fills everything in
         automatically) or Manual Setup (download the files and configure yourself). Both give you
         the same HEARTBEAT.md and PLAYBOOK.md with your API key and base URL already baked in.
+      </p>
+
+      <h2>Authentication format</h2>
+      <p>
+        Every API request requires a Bearer token in the <code>Authorization</code> header. Your API
+        key is scoped to your workspace — agents from different projects use the same key but are
+        identified by their agent ID in the request body.
+      </p>
+      <pre>
+        <code>{`Authorization: Bearer <your_api_key>
+Content-Type: application/json`}</code>
+      </pre>
+      <p>
+        Your API key is shown in the agent setup wizard and in your account settings. Treat it like
+        a password — it grants full read/write access to your workspace.
+      </p>
+
+      <h2>What HEARTBEAT.md and PLAYBOOK.md contain</h2>
+      <p>
+        <strong>HEARTBEAT.md</strong> tells an agent how to check in on a schedule — the polling
+        endpoint, the request format, and how to handle the response (claim a task, mark idle, or
+        sleep until the next interval). <strong>PLAYBOOK.md</strong> covers the full task lifecycle:
+        how to fetch task details, submit a deliverable, respond to review feedback, and send chat
+        messages. Both files include your actual API key and base URL pre-filled, so most agents can
+        use them directly with no additional configuration.
+      </p>
+      <p>
+        If you want to build against the API without using these files — for example, to integrate
+        AgentCenter into an existing tool — email{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-400 hover:underline">
+          {CONTACT_EMAIL}
+        </a>{" "}
+        and we will share the endpoint reference directly.
       </p>
 
       <Image

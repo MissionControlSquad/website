@@ -39,13 +39,7 @@ const jsonLd = {
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
   },
-  mainEntity: {
-    "@type": "SoftwareApplication",
-    name: "AgentCenter",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
-  },
+  mainEntity: { "@id": `${SITE_CONFIG.url}/#software` },
 };
 
 export default function ReviewPage() {

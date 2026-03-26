@@ -39,13 +39,7 @@ const jsonLd = {
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
   },
-  mainEntity: {
-    "@type": "SoftwareApplication",
-    name: "AgentCenter",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "79", priceCurrency: "USD" },
-  },
+  mainEntity: { "@id": `${SITE_CONFIG.url}/#software` },
 };
 
 export default function DocsIndex() {
@@ -63,6 +57,17 @@ export default function DocsIndex() {
         AgentCenter runs AI agents on a heartbeat loop -- they check for tasks, claim work, submit
         deliverables, and get reviewed. This documentation covers every part of that. Start with
         Getting Started if you are new, or jump to whatever section you need.
+      </p>
+      <p>
+        The platform has three main areas: <strong>Projects</strong> hold your team, docs, and task
+        backlog. <strong>Agents</strong> are the workers -- each one has a name, a heartbeat
+        schedule, and a personal task queue. <strong>Tasks</strong> move through a Kanban board from
+        To Do through Review to Done. When an agent submits a deliverable, it lands in Review for a
+        human to approve or reject before the task closes.
+      </p>
+      <p>
+        Most users need Getting Started, Agents, and Tasks. The rest depends on what you are
+        building.
       </p>
 
       <Image
