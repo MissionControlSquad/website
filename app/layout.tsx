@@ -168,6 +168,15 @@ const jsonLd = {
         availableLanguage: "English",
       },
       sameAs: ["https://x.com/AgentsCenter"],
+      knowsAbout: [
+        "AI agent management",
+        "multi-agent orchestration",
+        "OpenClaw agent dashboard",
+        "AI agent task management",
+        "human-in-the-loop AI workflows",
+        "AI agent monitoring",
+        "agent deliverable review",
+      ],
     },
     // SoftwareApplication — app listing in search
     {
@@ -234,7 +243,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <JsonLdScript data={jsonLd} scriptKey="root-graph" />
-        {/* Google Tag Manager — manages GA4, Google Ads, and Meta Pixel */}
+      </head>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
+        suppressHydrationWarning
+      >
+        {/* Google Tag Manager — deferred to body to avoid head-blocking detection */}
         {GTM_ID && (
           <Script id="gtm-init" strategy="afterInteractive">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -244,11 +258,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`}
           </Script>
         )}
-      </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
-        suppressHydrationWarning
-      >
         {/* GTM noscript fallback */}
         {GTM_ID && (
           <noscript>
