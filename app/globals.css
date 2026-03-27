@@ -449,6 +449,14 @@ body {
   }
 }
 
+/* Hide scrollbar while keeping scroll functionality */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Utility classes */
 .gradient-text {
   background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
