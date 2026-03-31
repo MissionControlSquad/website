@@ -57,8 +57,28 @@ module.exports = {
         allow: "/",
         disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
       },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
+      },
+      {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
+      },
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
+      },
+      {
+        userAgent: "GoogleOther",
+        allow: "/",
+        disallow: ["/api/", "/_next/", "/admin/", "/thank-you/", "/lifetime-deal"],
+      },
     ],
-    additionalSitemaps: [],
+    additionalSitemaps: ["https://agentcenter.cloud/llms.txt"],
   },
   transform: async (config, path) => {
     // Custom priority and changefreq per page type
