@@ -63,7 +63,7 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <button
               onClick={() => {
-                trackCTA("bottom", "start_trial");
+                trackCTA("bottom", "get_started");
                 checkout({ tier: DEFAULT_TIER });
               }}
               disabled={isLoading}
