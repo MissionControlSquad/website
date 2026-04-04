@@ -43,9 +43,9 @@ This isn't a question of which is "better." It's a question of where your engine
 
 | Factor | AgentCenter | Build Your Own |
 |---|---|---|
-| **Year 1 cost** | from $168 ($${PLANS.starter.monthly}/mo × 12) | $50,000–$80,000+ |
-| **Year 2 cost** | from $168 | $20,000–$40,000 (maintenance) |
-| **3-year total** | from $504 | $90,000–$160,000 |
+| **Year 1 cost** | from $${PLANS.starter.monthly * 12} ($${PLANS.starter.monthly}/mo × 12) | $50,000–$80,000+ |
+| **Year 2 cost** | from $${PLANS.starter.monthly * 12} | $20,000–$40,000 (maintenance) |
+| **3-year total** | from $${PLANS.starter.monthly * 36} | $90,000–$160,000 |
 | **Time to launch** | 10-15 minutes | 3-6 months minimum |
 | **Engineering headcount** | 0 (API integration only) | 1-3 engineers |
 | **Maintenance burden** | None (managed service) | Ongoing — bugs, updates, infrastructure |
@@ -144,10 +144,10 @@ For everyone else, the math strongly favors buying.
 
 | | AgentCenter | Build Your Own |
 |---|---|---|
-| Year 1 | from $168 | $65,000 (build) + $5,000 (infra) |
-| Year 2 | from $168 | $18,000 (maintenance) + $5,000 (infra) |
-| Year 3 | from $168 | $18,000 (maintenance) + $5,000 (infra) |
-| **3-Year Total** | **from $504** | **$116,000** |
+| Year 1 | from $${PLANS.starter.monthly * 12} | $65,000 (build) + $5,000 (infra) |
+| Year 2 | from $${PLANS.starter.monthly * 12} | $18,000 (maintenance) + $5,000 (infra) |
+| Year 3 | from $${PLANS.starter.monthly * 12} | $18,000 (maintenance) + $5,000 (infra) |
+| **3-Year Total** | **from $${PLANS.starter.monthly * 36}** | **$116,000** |
 | **Savings with AgentCenter** | — | **Over $115,000** |
 
 Even conservative estimates show a 40x cost difference over three years.

@@ -12,6 +12,11 @@ import { generateOgImage } from "./og-image-generator.mjs";
 const OUT_DIR = path.join(process.cwd(), "public/og");
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
+// ─── Pricing — keep in sync with lib/constants.ts PLANS ─────────────────────
+const PLAN_STARTER_MONTHLY = 14;
+const PLAN_PRO_MONTHLY     = 29;
+const PLAN_SCALE_MONTHLY   = 79;
+
 // ─── Accent colours ──────────────────────────────────────────────────────────
 const BLUE   = "#0ea5e9"; // brand default
 const PURPLE = "#a855f7"; // comparisons
@@ -32,7 +37,7 @@ const PAGES = [
     slug: "pricing",
     category: null,
     title: "Simple, Transparent Pricing",
-    subtitle: "Starter $14/mo · Pro $29/mo · Scale $79/mo. Cancel anytime.",
+    subtitle: `Starter $${PLAN_STARTER_MONTHLY}/mo · Pro $${PLAN_PRO_MONTHLY}/mo · Scale $${PLAN_SCALE_MONTHLY}/mo. Cancel anytime.`,
     accentColor: BLUE,
   },
   {
