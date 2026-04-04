@@ -254,7 +254,7 @@ const comparisonRows = [
   { feature: "Compliance / air-gap support", cloud: "Limited", self: "Yes" },
   { feature: "All features included", cloud: "Yes", self: "Yes" },
   { feature: "Updates", cloud: "Automatic", self: "docker-compose pull" },
-  { feature: "Free trial", cloud: "Cancel anytime", self: "No trial" },
+  { feature: "Commitment", cloud: "Cancel anytime", self: "Monthly or yearly" },
 ];
 
 const useCases = [

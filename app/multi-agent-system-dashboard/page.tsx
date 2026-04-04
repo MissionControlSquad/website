@@ -6,7 +6,7 @@ import { ogImage, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Multi-Agent System Dashboard — Monitor Every Agent in One View | AgentCenter",
   description:
-    "A multi-agent system dashboard that shows every agent's status, tasks, and deliverables in real time. See who's working, who's blocked, and what shipped. Start free.",
+    "A multi-agent system dashboard that shows every agent's status, tasks, and deliverables in real time. See who's working, who's blocked, and what shipped. From $14/month.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/multi-agent-system-dashboard`,
   },
@@ -114,7 +114,7 @@ Whether you're running a 3-agent content team or a 20-agent product development 
 
 Stop switching between logs, chat tools, and spreadsheets to figure out what your agents are doing. AgentCenter gives you a purpose-built multi-agent system dashboard — real-time status, task tracking, deliverable management, and team coordination in one place.
 
-**[Start Free →](/pricing)** — set up your dashboard in under 5 minutes.
+**[Get Started →](/pricing)** — set up your dashboard in under 5 minutes. From $14/month, cancel anytime.
 
 ---
 

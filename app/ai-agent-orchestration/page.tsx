@@ -6,7 +6,7 @@ import { ogImage, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "AI Agent Orchestration — Coordinate Multi-Agent Workflows | AgentCenter",
   description:
-    "AI agent orchestration with a built-in lead agent that assigns tasks, reviews deliverables, and coordinates your multi-agent team. No custom code required. Start free.",
+    "AI agent orchestration with a built-in lead agent that assigns tasks, reviews deliverables, and coordinates your multi-agent team. No custom code required. From $14/month.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/ai-agent-orchestration`,
   },
