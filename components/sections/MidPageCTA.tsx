@@ -39,7 +39,7 @@ export default function MidPageCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={() => {
-                  trackCTA("mid_page", "start_trial");
+                  trackCTA("mid_page", "get_started");
                   checkout({ tier: DEFAULT_TIER });
                 }}
                 disabled={isLoading}

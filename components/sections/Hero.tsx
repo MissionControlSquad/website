@@ -52,7 +52,7 @@ export default function Hero() {
             </a>
             <button
               onClick={() => {
-                trackCTA("hero", "start_trial");
+                trackCTA("hero", "get_started");
                 checkout({ tier: DEFAULT_TIER });
               }}
               disabled={isLoading}

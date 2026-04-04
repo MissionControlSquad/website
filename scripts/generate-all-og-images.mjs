@@ -32,7 +32,7 @@ const PAGES = [
     slug: "pricing",
     category: null,
     title: "Simple, Transparent Pricing",
-    subtitle: "14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks.",
+    subtitle: "Starter $14/mo · Pro $29/mo · Scale $79/mo. Cancel anytime.",
     accentColor: BLUE,
   },
   {
