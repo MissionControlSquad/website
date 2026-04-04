@@ -66,7 +66,7 @@ export default function Pricing() {
             Yearly
             {savingsPercent > 0 && (
               <span className="ml-2 text-xs bg-success-500/20 text-success-400 px-2 py-0.5 rounded-full">
-                Save {savingsPercent}%
+                Save ~{savingsPercent}%
               </span>
             )}
           </button>
@@ -77,7 +77,9 @@ export default function Pricing() {
           {PLAN_KEYS.map((key, idx) => {
             const plan = PLANS[key];
             const features = PLAN_FEATURES[key];
-            const price = billing === "monthly" ? plan.monthly : Math.round(plan.yearly / 12);
+            const isYearly = billing === "yearly";
+            const priceDisplay = isYearly ? (plan.yearly / 12).toFixed(2) : String(plan.monthly);
+            const isApprox = isYearly && plan.yearly % 12 !== 0;
             const isRecommended = plan.recommended;
             const isThisLoading = isLoading && loadingTier === key;
 
@@ -107,12 +109,22 @@ export default function Pricing() {
 
                 {/* Price */}
                 <div className="mb-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-neutral-100">${price}</span>
+                  <div className="flex items-baseline gap-0.5">
+                    {isApprox && (
+                      <span
+                        className="text-xl text-neutral-500 mr-0.5"
+                        title="Approximate per-month equivalent"
+                      >
+                        ~
+                      </span>
+                    )}
+                    <span className="text-4xl font-bold text-neutral-100">${priceDisplay}</span>
                     <span className="text-neutral-400">/mo</span>
                   </div>
-                  {billing === "yearly" && (
-                    <p className="text-xs text-neutral-500 mt-1">Billed as ${plan.yearly}/year</p>
+                  {isYearly && (
+                    <p className="text-xs text-neutral-500 mt-1">
+                      Billed as ${plan.yearly}.00/year
+                    </p>
                   )}
                 </div>
 
