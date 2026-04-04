@@ -4,26 +4,23 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingSection from "@/components/sections/Pricing";
 import { Container } from "@/components/ui/Container";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pricing — 14-Day Free Trial, then $79/mo | AgentCenter",
-  description:
-    "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime. Powered by Stripe.",
+  title: `Pricing — Plans from $${PLANS.starter.monthly}/mo | AgentCenter`,
+  description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. No hidden fees. Cancel anytime. Powered by Stripe.`,
   alternates: { canonical: `${SITE_CONFIG.url}/pricing` },
   openGraph: {
-    title: "Pricing | AgentCenter — 14-Day Free Trial, then $79/mo",
-    description:
-      "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
+    title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
     images: [ogImage("pricing")],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing | AgentCenter — 14-Day Free Trial, then $79/mo",
-    description:
-      "AgentCenter pricing: 14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks. Cancel anytime.",
+    title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
     images: [ogImage("pricing")],
   },
 };
@@ -32,42 +29,46 @@ const faqs = [
   {
     question: "Is there a free trial?",
     answer:
-      "Yes — monthly plans come with a 14-day free trial. You enter your payment details at checkout, but nothing is charged until day 15. Cancel before then and you pay nothing. The trial gives you full access to every feature from day one.",
+      "We don't offer a free trial — but you can cancel anytime with no penalty. If AgentCenter isn't the right fit, cancel before your next billing date and you won't be charged again. We'd rather earn your business every month than hook you with a trial.",
   },
   {
-    question: "How much does AgentCenter cost?",
+    question: "What are the differences between plans?",
     answer:
-      "AgentCenter is $79/month after the 14-day free trial. One plan, everything included. No tiers, no feature gates, no per-agent charges. You get the full platform from day one.",
+      "All plans include the core product: Kanban management, real-time agent status, channels, analytics, deliverable review, notifications, and approval workflows. Plans differ in agent limits (5 / 15 / 50), project limits, and access to recurring tasks (Pro+) and Cloud VM provisioning (Scale only).",
   },
   {
-    question: "Is there an annual plan or discount?",
+    question: "Can I upgrade or downgrade anytime?",
     answer:
-      "We keep it simple — monthly billing only. No annual contracts, no lock-in. You pay month-to-month and can cancel anytime. We'd rather earn your business every month than trap you in a contract.",
+      "Yes — you can switch plans at any time from your billing portal. Upgrades take effect immediately and are prorated. Downgrades take effect at the next billing cycle.",
+  },
+  {
+    question: "Is there an annual discount?",
+    answer: `Yes — paying yearly saves you 2 months (roughly 17% off). Starter drops to $${PLANS.starter.yearly}/yr, Pro to $${PLANS.pro.yearly}/yr, and Scale to $${PLANS.scale.yearly}/yr.`,
   },
   {
     question: "Do I need anything else besides AgentCenter?",
     answer:
-      "Yes — you'll need a Claude subscription (Pro at $20/mo or Max at $100/mo) since AgentCenter is built for OpenClaw agents powered by Claude. Think of AgentCenter as the dashboard and Claude as the engine. Total cost: $99–179/month for a full AI agent team.",
+      "Yes — you'll need a subscription or API key for the AI provider your OpenClaw agents use. AgentCenter works with any OpenClaw-compatible provider: Anthropic Claude (Pro at $20/mo or Max at $100/mo), OpenAI GPT-4, Google Gemini, and others. Think of AgentCenter as the dashboard and your chosen AI as the engine.",
   },
   {
-    question: "How many agents can I run?",
+    question: "What counts as an agent?",
     answer:
-      "Unlimited. Whether you're running 3 agents or 30, the price stays the same. Add as many agents as your workflow needs.",
+      "An agent is any AI worker you create and manage inside AgentCenter. Your agent limit is based on the number of active agents in your workspace — 5 on Starter, 15 on Pro, 50 on Scale.",
+  },
+  {
+    question: "What happens if I hit my agent limit?",
+    answer:
+      "You'll be prompted to upgrade your plan before creating new agents. Existing agents and all your data remain untouched. You can also archive inactive agents to free up slots.",
   },
   {
     question: "What happens if I cancel?",
     answer:
-      "You keep access through the end of your billing period. No data is deleted immediately — you'll have time to export anything you need. No cancellation fees, no guilt trips.",
+      "You keep access through the end of your billing period. No data is deleted immediately — you'll have time to export anything you need. No cancellation fees.",
   },
   {
-    question: "Can my whole team use it?",
+    question: "Is this for solo users or teams?",
     answer:
-      "Absolutely. AgentCenter supports multiple human users alongside your AI agents. Your team can assign tasks, review deliverables, and coordinate agents together. All included — no per-seat charges for humans.",
-  },
-  {
-    question: "Is my data secure?",
-    answer:
-      "Yes. All data is stored on Hetzner Cloud infrastructure. Communications are encrypted at rest and in transit. Agents connect via secure, authenticated API keys.",
+      "AgentCenter is currently designed for a single user managing their AI agents. You get the full dashboard — tasks, Kanban, channels, analytics, deliverable review — for one login. Multi-user team access is on the roadmap.",
   },
   {
     question: "How do payments work?",

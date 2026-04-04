@@ -1,15 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, Zap } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CAL_LINK } from "@/lib/constants";
-import { useCheckout } from "@/lib/hooks/useCheckout";
 import { trackCTA } from "@/lib/analytics";
 
 export default function MidPageCTA() {
-  const { checkout, isLoading } = useCheckout();
-
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background */}
@@ -24,7 +22,7 @@ export default function MidPageCTA() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary-500/15 text-primary-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
               <Zap className="w-4 h-4" aria-hidden="true" />
-              <span>14-day free trial — no credit card required</span>
+              <span>Cancel anytime — no lock-in</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
@@ -37,23 +35,18 @@ export default function MidPageCTA() {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={() => {
-                  trackCTA("mid_page", "start_trial");
-                  checkout();
-                }}
-                disabled={isLoading}
-                className="group inline-flex items-center gap-2 px-8 py-3.5 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none text-white font-semibold text-base"
+              <Link
+                href="/pricing"
+                onClick={() => trackCTA("mid_page", "get_started")}
+                className="group inline-flex items-center gap-2 px-8 py-3.5 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-white font-semibold text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
               >
-                {isLoading ? "Loading…" : "Start Free Trial"}
-                {!isLoading && (
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform"
-                    aria-hidden="true"
-                  />
-                )}
-              </button>
+                Get Started
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
+              </Link>
 
               <a
                 href={CAL_LINK}

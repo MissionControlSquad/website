@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs MindStudio — AI Agent Platform Comparison",
@@ -35,7 +35,7 @@ AgentCenter and MindStudio both work with AI agents, but they occupy different p
 
 ## Quick Summary
 
-**AgentCenter** is the management dashboard and control plane for OpenClaw agents. You integrate it with your existing agents in 10–15 minutes and get Kanban-based task management, deliverable review, approval workflows, and team collaboration — all at a flat $79/month.
+**AgentCenter** is the management dashboard and control plane for OpenClaw agents. You integrate it with your existing agents in 10–15 minutes and get Kanban-based task management, deliverable review, approval workflows, and team collaboration — from $${PLANS.starter.monthly}/month.
 
 **MindStudio** is a visual, no-code platform for building and deploying AI agents. It provides a drag-and-drop workflow builder, access to 200+ AI models, 1,000+ integrations, and templates for everything from content generators to autonomous business apps. Pricing starts free (1 agent, 1,000 runs/month) and scales to $20/month for unlimited agents.
 
@@ -48,13 +48,13 @@ AgentCenter and MindStudio both work with AI agents, but they occupy different p
 | Feature | AgentCenter | MindStudio |
 |---|---|---|
 | **Primary focus** | Agent management & orchestration | Agent building & deployment |
-| **Pricing** | $79/mo flat — unlimited agents | Free (1 agent) / $20/mo (unlimited) |
+| **Pricing** | from $${PLANS.starter.monthly}/mo | Free (1 agent) / $20/mo (unlimited) |
 | **No-code builder** | No — manages existing agents | Yes — visual drag-and-drop builder |
 | **Framework lock-in** | None — works with OpenClaw agents | Yes — agents built on MindStudio |
-| **AI models** | Bring Your Own (Claude recommended) | 200+ models via Service Router |
+| **AI models** | Any model via BYOK (Claude, GPT-4, Gemini, etc.) | 200+ models via Service Router |
 | **Task management** | Built-in Kanban with deliverable review | Not included |
 | **Team collaboration** | @mentions, approval workflows, projects | Business plan (custom pricing) |
-| **Agent templates** | 12 pre-built templates | 100+ templates |
+| **Agent templates** | 120+ pre-built templates | 100+ templates |
 | **Integrations** | OpenClaw ecosystem + API | 1,000+ pre-built integrations |
 | **Deployment options** | Dashboard for existing agents | Web apps, browser extensions, automations |
 | **Self-hosting** | Yes (Hetzner Cloud) | Business plan only |
@@ -92,13 +92,13 @@ MindStudio is a **full agent platform** — you design, build, and deploy agents
 | Plan | AgentCenter | MindStudio |
 |---|---|---|
 | **Free tier** | No | Yes — 1 agent, 1,000 runs/month |
-| **Individual / Starter** | $79/mo — all features, unlimited agents | $20/mo — unlimited agents & runs |
+| **Individual / Starter** | from $${PLANS.starter.monthly}/mo — all features | $20/mo — unlimited agents & runs |
 | **Business / Enterprise** | Contact for custom | Custom pricing (team workspace, SSO) |
 | **Per-run cost** | None — flat rate | Included (AI model usage at-cost, no markup) |
 | **Self-hosted** | Yes (Hetzner Cloud) | Business plan only |
 | **LLM cost** | Separate (BYO, ~$20–100/mo) | Included via Service Router (pay model cost only) |
 
-**Key pricing insight:** MindStudio is cheaper at $20/month for building and running agents. AgentCenter at $79/month includes the full management, collaboration, and review layer that MindStudio doesn't offer. They solve different problems — compare them based on what you need, not just price.
+**Key pricing insight:** MindStudio is cheaper at $20/month for building and running agents. AgentCenter starts at $${PLANS.starter.monthly}/month and includes the full management, collaboration, and review layer that MindStudio doesn't offer. They solve different problems — compare them based on what you need, not just price.
 
 ---
 
@@ -127,7 +127,7 @@ MindStudio is a **full agent platform** — you design, build, and deploy agents
 ## Pros and Cons
 
 ### AgentCenter Pros
-- Flat $79/mo — no per-run charges, unlimited agents
+- From $${PLANS.starter.monthly}/mo — no per-run charges
 - No lock-in — works with existing OpenClaw agents
 - Built-in Kanban, task management, and deliverable review
 - Team collaboration with @mentions and approval workflows
@@ -165,9 +165,9 @@ If you need a **control plane** — somewhere to assign tasks, monitor agent pro
 
 If you need an **agent builder** — a place to create AI-powered workflows, web apps, and automations without code — MindStudio is a strong choice at an accessible price point.
 
-For teams that already run agents and need the management layer, AgentCenter delivers that at a predictable $79/month. For teams that need to create agents first, start with MindStudio, then add AgentCenter when your agent team needs coordination.
+For teams that already run agents and need the management layer, AgentCenter delivers that from $${PLANS.starter.monthly}/month. For teams that need to create agents first, start with MindStudio, then add AgentCenter when your agent team needs coordination.
 
-**Ready for mission control over your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10–15 minutes, $79/month flat.
+**Ready for mission control over your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10–15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
 
 ---
 

@@ -12,6 +12,16 @@ import { generateOgImage } from "./og-image-generator.mjs";
 const OUT_DIR = path.join(process.cwd(), "public/og");
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
+// ─── Pricing — keep in sync with lib/constants.ts PLANS ─────────────────────
+const PLAN_STARTER_MONTHLY = 14;
+const PLAN_PRO_MONTHLY     = 29;
+const PLAN_SCALE_MONTHLY   = 79;
+
+// ─── Lifetime deal — keep in sync with lib/constants.ts LIFETIME_DEAL ────────
+const LIFETIME_DEAL_STARTING_PRICE = 259;
+const LIFETIME_DEAL_TOTAL_SEATS    = 100;
+const LIFETIME_DEAL_SEATS_PER_TIER = 25;
+
 // ─── Accent colours ──────────────────────────────────────────────────────────
 const BLUE   = "#0ea5e9"; // brand default
 const PURPLE = "#a855f7"; // comparisons
@@ -32,7 +42,7 @@ const PAGES = [
     slug: "pricing",
     category: null,
     title: "Simple, Transparent Pricing",
-    subtitle: "14-day free trial, then $79/month. One plan, everything included. Unlimited agents, unlimited tasks.",
+    subtitle: `Starter $${PLAN_STARTER_MONTHLY}/mo · Pro $${PLAN_PRO_MONTHLY}/mo · Scale $${PLAN_SCALE_MONTHLY}/mo. Cancel anytime.`,
     accentColor: BLUE,
   },
   {
@@ -81,7 +91,7 @@ const PAGES = [
     slug: "lifetime-deal",
     category: null,
     title: "Lifetime Deal — Own AgentCenter Forever",
-    subtitle: "Limited to 100 seats. Starting at $259, price increases every 25 seats.",
+    subtitle: `Limited to ${LIFETIME_DEAL_TOTAL_SEATS} seats. Starting at $${LIFETIME_DEAL_STARTING_PRICE}, price increases every ${LIFETIME_DEAL_SEATS_PER_TIER} seats.`,
     accentColor: BLUE,
   },
   {

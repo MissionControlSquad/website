@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -60,7 +60,7 @@ export default function TermsOfServicePage() {
         <header className="mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">Terms of Service</h1>
           <p className="text-neutral-400">
-            <span className="font-medium">Last Updated:</span> February 2026
+            <span className="font-medium">Last Updated:</span> April 2026
           </p>
         </header>
 
@@ -249,8 +249,13 @@ export default function TermsOfServicePage() {
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.1 Pricing</h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
-              AgentCenter costs <strong className="text-neutral-100">$79 per month</strong>. One
-              plan, everything included — unlimited agents, all features, no tiers.
+              AgentCenter plans start at{" "}
+              <strong className="text-neutral-100">${PLANS.starter.monthly}/month</strong> (Starter
+              — {PLANS.starter.agents} agents),{" "}
+              <strong className="text-neutral-100">${PLANS.pro.monthly}/month</strong> (Pro —{" "}
+              {PLANS.pro.agents} agents), and{" "}
+              <strong className="text-neutral-100">${PLANS.scale.monthly}/month</strong> (Scale —{" "}
+              {PLANS.scale.agents} agents). All plans include the full product — cancel anytime.
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.2 Billing</h3>
@@ -263,13 +268,14 @@ export default function TermsOfServicePage() {
             </ul>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
-              5.3 Claude Requirement
+              5.3 AI Provider Requirement
             </h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
               AgentCenter requires you to{" "}
-              <strong className="text-neutral-100">Bring Your Own Claude</strong> — a Claude Pro or
-              Max subscription ($20–$100/month) from Anthropic. This is a separate subscription and
-              cost not included in the AgentCenter fee.
+              <strong className="text-neutral-100">Bring Your Own AI</strong> — a subscription or
+              API key for an AI provider compatible with OpenClaw (e.g., Anthropic Claude Pro/Max at
+              $20–$100/month, OpenAI, Google Gemini, or another supported provider). This is a
+              separate subscription and cost not included in the AgentCenter fee.
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.4 Cancellation</h3>
@@ -529,8 +535,8 @@ export default function TermsOfServicePage() {
           <hr className="border-neutral-800 my-10" />
 
           <p className="text-neutral-500 text-sm italic">
-            These Terms of Service were last updated in February 2026. This document should be
-            reviewed by legal counsel before publication.
+            These Terms of Service were last updated in April 2026. This document should be reviewed
+            by legal counsel before publication.
           </p>
         </div>
       </article>

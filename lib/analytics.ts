@@ -16,7 +16,7 @@ function push(payload: Record<string, unknown>) {
 }
 
 type CTAPlacement = "hero" | "mid_page" | "bottom";
-type CTAAction = "start_trial" | "book_demo" | "subscribe";
+type CTAAction = "get_started" | "book_demo" | "subscribe";
 
 export function trackCTA(placement: CTAPlacement, action: CTAAction) {
   push({ event: "cta_click", cta_placement: placement, cta_action: action });

@@ -158,7 +158,7 @@ export default function DocsIndex() {
       <p className="text-sm text-neutral-400">
         New to AgentCenter?{" "}
         <Link href="/docs/getting-started">Start with the Getting Started guide &rarr;</Link> or{" "}
-        <Link href="/pricing">start your free trial &rarr;</Link>
+        <Link href="/pricing">view pricing &rarr;</Link>
       </p>
     </>
   );

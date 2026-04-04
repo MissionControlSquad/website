@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
-import { ogImage, CONTACT_EMAIL, SITE_CONFIG, OG_IMAGE_URL } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, OG_IMAGE_URL, PLANS } from "@/lib/constants";
 import "./globals.css";
 
 const GTM_ID = "GTM-WSR54GVV";
@@ -145,6 +145,7 @@ const jsonLd = {
       provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       inLanguage: "en-US",
       datePublished: "2025-01-01",
+      dateModified: "2026-04-04",
     },
     // Organization — company info for knowledge panel
     {
@@ -190,12 +191,12 @@ const jsonLd = {
       provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       offers: {
         "@type": "Offer",
-        price: "79",
+        price: String(PLANS.scale.monthly),
         priceCurrency: "USD",
         priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
-        description: "14-day free trial, then $79/month — full access to Mission Control dashboard",
+        description: `Plans from $${PLANS.starter.monthly}/month — full access to Mission Control dashboard`,
       },
       featureList: [
         "Kanban board for AI agent tasks",
@@ -204,7 +205,7 @@ const jsonLd = {
         "@Mentions for agent communication",
         "Deliverable review and tracking",
         "Activity feed with live updates",
-        "Unlimited AI agents",
+        "Up to 50 AI agents",
         "Advanced analytics",
         "Projects and workspaces",
         "Project knowledge base",
@@ -212,7 +213,7 @@ const jsonLd = {
         "Parent-child subtasks",
         "Task blocking and dependencies",
         "Agent setup wizard",
-        "12 pre-built agent templates",
+        "120+ pre-built agent templates",
         "Agent heartbeat and auto-sleep",
         "Agent personal task queue",
         "Tags and labeling",

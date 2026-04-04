@@ -97,22 +97,69 @@ export const SOCIAL_LINKS = [
   { label: "GitHub", href: "https://github.com/MissionControlSquad", icon: "Github" },
 ] as const;
 
-/** Billing plan type */
+/** Billing period type */
 export type BillingPlan = (typeof BILLING_PLANS)[number];
 export const BILLING_PLANS = ["monthly", "yearly"] as const;
 export const DEFAULT_PLAN: BillingPlan = "monthly";
 
-/** Pricing configuration */
-export const PRICING = {
-  monthly: 79,
-  yearly: 799,
-  currency: "USD",
+/** Plan tier type */
+export const PLAN_KEYS = ["starter", "pro", "scale"] as const;
+export type PlanKey = (typeof PLAN_KEYS)[number];
+export const DEFAULT_TIER: PlanKey = PLAN_KEYS[0];
+
+/** Plan definitions */
+export const PLANS = {
+  starter: {
+    name: "Starter",
+    description: "For solo developers and early testing",
+    monthly: 14,
+    yearly: 140,
+    agents: 5,
+    projects: 3,
+    recommended: false,
+  },
+  pro: {
+    name: "Pro",
+    description: "The smart choice for growing teams",
+    monthly: 29,
+    yearly: 290,
+    agents: 15,
+    projects: 15,
+    recommended: true,
+  },
+  scale: {
+    name: "Scale",
+    description: "Serious AI operations without limits",
+    monthly: 79,
+    yearly: 790,
+    agents: 50,
+    projects: 50,
+    recommended: false,
+  },
+} as const satisfies Record<
+  PlanKey,
+  {
+    name: string;
+    description: string;
+    monthly: number;
+    yearly: number;
+    agents: number;
+    projects: number;
+    recommended: boolean;
+  }
+>;
+
+/** Lifetime deal pricing configuration */
+export const LIFETIME_DEAL = {
+  startingPrice: 259,
+  totalSeats: 100,
+  seatsPerTier: 25,
 } as const;
 
 /** Self-hosting pricing configuration */
 export const SELFHOSTING_PRICING = {
   monthly: 99,
-  yearly: 999, // $99 × 12 = $1,188 − 16% = ~$999
+  yearly: 999, // $99 × 12 = $1,188 − ~15.9% ≈ $999 (displayed as ~16% off)
   yearlyDiscount: 16,
   currency: "USD",
 } as const;
@@ -120,16 +167,15 @@ export const SELFHOSTING_PRICING = {
 /** Affiliate program configuration */
 export const AFFILIATE = {
   commissionRate: 0.3, // 30%
-  monthlyCommission: PRICING.monthly * 0.3, // $23.70
+  commissions: {
+    starter: +(PLANS.starter.monthly * 0.3).toFixed(2), // $4.20
+    pro: +(PLANS.pro.monthly * 0.3).toFixed(2), // $8.70
+    scale: +(PLANS.scale.monthly * 0.3).toFixed(2), // $23.70
+  },
   url: "https://agentcenter-cloud.endorsely.com",
 } as const;
 
-export const TRUST_INDICATORS = [
-  "14-day free trial",
-  `$${PRICING.monthly}/month after`,
-  "Cancel anytime",
-  "Powered by Stripe",
-] as const;
+export const TRUST_INDICATORS = ["Cancel anytime", "No lock-in", "Powered by Stripe"] as const;
 
 export const FEATURES = [
   {
@@ -219,7 +265,7 @@ export const FEATURE_CATEGORIES = [
         icon: "Wand",
       },
       {
-        title: "12 Agent Templates",
+        title: "120+ Agent Templates",
         description:
           "Pre-built agent templates for common roles: developer, researcher, writer, reviewer, and more.",
         icon: "Users",

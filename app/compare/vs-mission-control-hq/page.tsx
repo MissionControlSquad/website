@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Mission Control HQ — AI Agent Management Comparison",
@@ -33,7 +33,7 @@ Both AgentCenter and Mission Control HQ aim to give teams centralized control ov
 
 ## Quick Summary
 
-**AgentCenter** is a management and orchestration dashboard for OpenClaw-based AI agents. It provides real-time monitoring, task management, deliverable review, and team collaboration through a no-code interface. Teams connect their existing agents via API in minutes. It ships as both a cloud product ($79/mo) and a self-hosted Docker image ($99/mo on your own infrastructure).
+**AgentCenter** is a management and orchestration dashboard for OpenClaw-based AI agents. It provides real-time monitoring, task management, deliverable review, and team collaboration through a no-code interface. Teams connect their existing agents via API in minutes. It ships as both a cloud product (from $${PLANS.starter.monthly}/mo) and a self-hosted Docker image ($${SELFHOSTING_PRICING.monthly}/mo on your own infrastructure).
 
 **Mission Control HQ** is a project and workflow management platform designed for AI-powered teams. It focuses on coordinating human-AI collaboration workflows, tracking projects, and managing work across AI agents and team members. Cloud-only.
 
@@ -44,8 +44,8 @@ The core difference: AgentCenter is built as a **dedicated AI agent control plan
 | Feature | AgentCenter | Mission Control HQ |
 |---|---|---|
 | **Primary use case** | AI agent control plane | AI-enhanced project management |
-| **Cloud pricing** | $79/mo flat | Varies by plan |
-| **Self-hosted option** | ✅ $99/mo (your infrastructure) | ❌ Cloud only |
+| **Cloud pricing** | from $${PLANS.starter.monthly}/mo | Varies by plan |
+| **Self-hosted option** | ✅ $${SELFHOSTING_PRICING.monthly}/mo (your infrastructure) | ❌ Cloud only |
 | **Real-time agent monitoring** | ✅ Built-in | ⚠️ Limited |
 | **Agent task assignment** | ✅ Direct agent tasking | ⚠️ Project-task model |
 | **Deliverable review workflow** | ✅ Built-in approval pipeline | ❌ Not native |
@@ -55,7 +55,7 @@ The core difference: AgentCenter is built as a **dedicated AI agent control plan
 | **API integration** | ✅ 10-15 min setup | ⚠️ Varies |
 | **Agent observability** | ✅ Real-time status + logs | ⚠️ Project-level only |
 | **Non-technical team access** | ✅ No-code UI | ✅ No-code UI |
-| **Agent templates** | ✅ 12 pre-built | ⚠️ Limited |
+| **Agent templates** | ✅ 120+ pre-built | ⚠️ Limited |
 | **Data residency control** | ✅ Self-host on your infra | ❌ Shared cloud |
 
 ## Architecture Differences
@@ -94,7 +94,7 @@ AgentCenter ships a full self-hosted version — Docker image, docker-compose se
 Why this matters for some teams:
 
 - **Data sovereignty**: Healthcare, finance, and regulated industries often can't push agent work product to a third-party SaaS
-- **Cost at scale**: At high agent volumes, $99/month on your own infra beats per-seat or usage-based cloud pricing
+- **Cost at scale**: At high agent volumes, $${SELFHOSTING_PRICING.monthly}/month on your own infra beats usage-based cloud pricing
 - **Security posture**: Some teams simply don't want agent activity logs in someone else's database
 - **Network isolation**: Self-hosted AgentCenter can run on a private network with no public internet exposure
 
@@ -105,14 +105,14 @@ Mission Control HQ doesn't offer self-hosting. If your compliance requirements, 
 | Plan | AgentCenter Cloud | AgentCenter Self-Hosted | Mission Control HQ |
 |---|---|---|---|
 | **Free tier** | Available | — | Available |
-| **Monthly** | $79/mo flat | $99/mo flat | Per-seat or per-project |
-| **Yearly** | $799/yr | $999/yr | Varies |
+| **Monthly** | from $${PLANS.starter.monthly}/mo | $${SELFHOSTING_PRICING.monthly}/mo flat | Varies by plan |
+| **Yearly** | from $${PLANS.starter.yearly}/yr | $${SELFHOSTING_PRICING.yearly}/yr | Varies |
 | **Agent limits** | Unlimited | Unlimited | May vary by plan |
 | **Execution pricing** | None | None | None |
 | **Enterprise** | Contact us | Contact us | Available |
 | **Data residency** | AgentCenter cloud | Your infrastructure | Third-party cloud |
 
-AgentCenter's flat pricing model is deliberate — no per-seat surprises as your agent count grows, no per-execution fees when agents run hot. You know exactly what you're paying.
+AgentCenter's tiered pricing model is simple — pick the plan that matches your agent count, no per-execution fees when agents run hot. You know exactly what you're paying.
 
 ## Deliverable Review: Designed vs. Bolted On
 
@@ -122,7 +122,7 @@ In AgentCenter, deliverable review is a first-class concept. When an agent compl
 
 Mission Control HQ handles task completion, but it wasn't designed specifically around AI agent output review. You can mark tasks complete, add comments, and attach files — but there's no native concept of an agent submitting work for structured human approval before it ships.
 
-For teams where agent output quality matters (content that goes live, code that gets committed, reports that go to clients), this distinction is significant.
+For operators where agent output quality matters (content that goes live, code that gets committed, reports that go to clients), this distinction is significant.
 
 ## Agent Health Monitoring
 
@@ -132,7 +132,7 @@ You get a notification. You can inspect the last known state. You can wake the a
 
 Mission Control HQ doesn't have an equivalent. If an AI agent stalls or disconnects, you'd notice when a task sits overdue — not proactively when the agent first went quiet.
 
-When you're running 10+ agents in parallel, reactive detection is too slow.
+When running 10+ agents in parallel, reactive detection is too slow.
 
 ## Use Cases
 
@@ -164,7 +164,7 @@ Mission Control HQ fits better when:
 ### AgentCenter
 
 **Pros:**
-- Flat pricing — $79/mo cloud, $99/mo self-hosted, no seat or usage surprises
+- Simple pricing — from $${PLANS.starter.monthly}/mo cloud, $${SELFHOSTING_PRICING.monthly}/mo self-hosted, no usage surprises
 - Self-hosted option for data sovereignty and compliance requirements
 - Purpose-built for AI agent control, not retrofitted project management
 - Real-time agent monitoring with heartbeat and auto-sleep
@@ -174,7 +174,7 @@ Mission Control HQ fits better when:
 
 **Cons:**
 - Only works with OpenClaw-based agents
-- Not a general project management tool for human teams
+- Not a general project management tool for human-centric workflows
 - Self-hosting requires you to manage your own infrastructure
 - Requires agents to be built on the OpenClaw platform
 
@@ -184,7 +184,7 @@ Mission Control HQ fits better when:
 - Familiar project management paradigm — low adoption friction
 - Handles mixed human/AI team workflows naturally
 - Good for gradual AI adoption in traditional teams
-- Strong collaboration features for human team members
+- Strong collaboration features for mixed human/AI workflows
 
 **Cons:**
 - No self-hosting option — all data goes to their cloud
@@ -212,10 +212,10 @@ Mission Control HQ is the better fit if your team is **transitioning toward AI-a
 An AI agent control plane is a centralized system for managing, monitoring, and orchestrating AI agents. It gives teams visibility into what every agent is doing, lets them assign tasks and review outputs, and provides tools to debug and improve agent performance. AgentCenter is built specifically as an AI agent control plane.
 
 ### Does AgentCenter offer self-hosting?
-Yes. AgentCenter ships a self-hosted version via Docker image with docker-compose support. You run it on your own infrastructure — your server, VPC, or on-prem. Licensing is $99/month or $999/year. Mission Control HQ doesn't offer a self-hosted option.
+Yes. AgentCenter ships a self-hosted version via Docker image with docker-compose support. You run it on your own infrastructure — your server, VPC, or on-prem. Licensing is $${SELFHOSTING_PRICING.monthly}/month or $${SELFHOSTING_PRICING.yearly}/year. Mission Control HQ doesn't offer a self-hosted option.
 
 ### How does AgentCenter pricing compare to Mission Control HQ?
-AgentCenter is flat-rate: $79/month for cloud, $99/month for self-hosted (your infrastructure). Both plans include unlimited agents. Mission Control HQ uses per-seat or per-project pricing that varies by plan. For teams running many agents, AgentCenter's flat pricing tends to be more predictable.
+AgentCenter starts at $${PLANS.starter.monthly}/month for cloud (Starter — 5 agents), up to $${PLANS.scale.monthly}/month for Scale (${PLANS.scale.agents} agents). Self-hosted is $${SELFHOSTING_PRICING.monthly}/month on your infrastructure. Mission Control HQ pricing varies by plan. For operators running many agents, AgentCenter's straightforward tiers tend to be more predictable.
 
 ### Is AgentCenter an alternative to Mission Control HQ?
 Yes, but for different use cases. AgentCenter focuses on deeply managing AI agents — monitoring their state, reviewing their work, and orchestrating multi-agent pipelines. Mission Control HQ is better for teams that want project management features alongside AI agent capabilities.

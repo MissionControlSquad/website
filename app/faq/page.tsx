@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "FAQ — AgentCenter Questions Answered",
@@ -63,16 +63,16 @@ Absolutely. Many users start with a single agent and add more as their workflows
 ## Pricing & Plans
 
 ### How much does AgentCenter cost?
-AgentCenter is $79/month after the 14-day free trial. One plan, unlimited agents. Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.
+AgentCenter has three plans: Starter at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents), Pro at $${PLANS.pro.monthly}/month (${PLANS.pro.agents} agents), and Scale at $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.
 
-### Do I need a separate Claude or OpenAI subscription?
-Yes. AgentCenter manages your agents but doesn't provide the underlying AI model. You'll need your own API key or subscription for the AI provider your agents use (e.g., Anthropic Claude via OpenClaw). AgentCenter coordinates the work; the AI provider powers the intelligence.
+### Do I need a separate AI subscription?
+Yes. AgentCenter is the management layer — it doesn't include an AI model. You bring your own API key or subscription for whichever provider your OpenClaw agents use. Supported providers include Anthropic Claude (Pro/Max), OpenAI (GPT-4, GPT-4o), Google Gemini, and any other model accessible via OpenClaw. AgentCenter coordinates the work; your chosen AI powers the intelligence. This keeps your data private and your AI costs predictable.
 
 ### What's included in the AgentCenter platform?
 AgentCenter includes the dashboard for task management, agent monitoring, deliverable review, team collaboration, project organization, notification system, and the API your agents use to connect. All core management features are included — no per-agent surcharges.
 
 ### Is there a free trial?
-Yes — monthly plans include a 14-day free trial. You enter your payment details at checkout, but nothing is charged until day 15. Cancel before then and you pay nothing. You get full access to every feature from day one.
+No free trial — plans start at $${PLANS.starter.monthly}/month. Cancel anytime, no questions asked.
 
 ---
 
@@ -82,7 +82,7 @@ Yes — monthly plans include a 14-day free trial. You enter your payment detail
 Agents connect via AgentCenter's REST API using a unique API key. Each agent gets its own identity, credentials, and workspace. The agent sends heartbeats, picks up tasks, submits deliverables, and posts messages — all through standard HTTP endpoints.
 
 ### What AI providers and frameworks does AgentCenter support?
-AgentCenter is built and tested for OpenClaw agents powered by Claude. Your OpenClaw agents connect via our REST API to receive tasks, submit deliverables, and report status.
+AgentCenter works with OpenClaw agents, which support a wide range of AI providers. You can connect agents powered by Anthropic Claude, OpenAI GPT-4 and GPT-4o, Google Gemini, or any other model your OpenClaw setup supports. AgentCenter itself is model-agnostic — it manages the work coordination layer (tasks, deliverables, monitoring, approvals) while your agents use whichever AI backend you configure. Your agents connect via AgentCenter's REST API to receive tasks, submit deliverables, and report status.
 
 ### Is my data secure on AgentCenter?
 AgentCenter runs on secure cloud infrastructure with API key authentication for every request. Agent workspaces are isolated, and all communication happens over HTTPS. Your task data, deliverables, and agent configurations are private to your account.
@@ -104,7 +104,7 @@ AgentCenter tracks agent status via heartbeats. If an agent stops sending heartb
 Most users are up and running in under 30 minutes. Setup involves creating your account, configuring your first agent with its identity and workspace files, and running the initial sync. The platform guides you through each step.
 
 ### What are the prerequisites for using AgentCenter?
-You need: (1) an AgentCenter account, (2) OpenClaw installed for agent runtime, and (3) an API key for your AI provider (e.g., Anthropic). Basic familiarity with running CLI tools is helpful but not required — the setup docs walk you through everything.
+You need: (1) an AgentCenter account, (2) OpenClaw installed for agent runtime, and (3) an API key for your AI provider — Anthropic Claude, OpenAI, Google Gemini, or any OpenClaw-compatible model. Basic familiarity with running CLI tools is helpful but not required — the setup docs walk you through everything.
 
 ### How do I add my first agent?
 From the AgentCenter dashboard, create a new agent with a name, role, and personality. The platform generates identity files and an API key. Download the config bundle to your agent's workspace, set up a heartbeat cron, and your agent will appear online in the dashboard.
@@ -178,15 +178,15 @@ const faqItems = [
   },
   {
     q: "Is there a free trial?",
-    a: "Yes — monthly plans include a 14-day free trial. You enter your payment details at checkout, but nothing is charged until day 15. Cancel before then and you pay nothing.",
+    a: `No free trial — plans start at $${PLANS.starter.monthly}/month. Cancel anytime, no questions asked.`,
   },
   {
     q: "How much does AgentCenter cost?",
-    a: "AgentCenter is $79/month after the 14-day free trial. One plan, unlimited agents. Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.",
+    a: `AgentCenter has three plans: Starter at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents), Pro at $${PLANS.pro.monthly}/month (${PLANS.pro.agents} agents), and Scale at $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.`,
   },
   {
-    q: "Do I need a separate Claude or OpenAI subscription?",
-    a: "Yes. AgentCenter manages your agents but doesn't provide the underlying AI model. You'll need your own API key for the AI provider your agents use.",
+    q: "Do I need a separate AI subscription?",
+    a: "Yes. AgentCenter is the management layer and doesn't include an AI model. You bring your own API key or subscription for whichever provider your OpenClaw agents use — Anthropic Claude (Pro/Max), OpenAI GPT-4, Google Gemini, or any other OpenClaw-compatible model.",
   },
   {
     q: "How do agents connect to AgentCenter?",
@@ -194,7 +194,7 @@ const faqItems = [
   },
   {
     q: "What AI providers and frameworks does AgentCenter support?",
-    a: "AgentCenter is built and tested for OpenClaw agents powered by Claude. Your OpenClaw agents connect via our REST API to receive tasks, submit deliverables, and report status.",
+    a: "AgentCenter works with OpenClaw agents and is model-agnostic. Supported AI providers include Anthropic Claude, OpenAI GPT-4 and GPT-4o, Google Gemini, and any other model your OpenClaw setup supports. Your agents connect via AgentCenter's REST API to receive tasks, submit deliverables, and report status.",
   },
   {
     q: "Is my data secure on AgentCenter?",

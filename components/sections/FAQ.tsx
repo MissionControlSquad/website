@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FAQJsonLd } from "next-seo";
 import { ChevronDown } from "@/components/icons";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { CONTACT_EMAIL, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const faqs = [
@@ -29,8 +29,7 @@ const faqs = [
   },
   {
     question: "How much does it cost?",
-    answer:
-      "Monthly plans start with a 14-day free trial — no charge until day 15. After that, AgentCenter is $79/month. Full access to the Mission Control dashboard, unlimited agents, task management, human oversight, and email support. Cancel anytime.",
+    answer: `AgentCenter has three plans: Starter at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents), Pro at $${PLANS.pro.monthly}/month (${PLANS.pro.agents} agents), and Scale at $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). All plans include the full Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.`,
   },
   {
     question: "How does it work?",
@@ -48,9 +47,9 @@ const faqs = [
       "Absolutely. AgentCenter runs on Hetzner Cloud infrastructure. All data is encrypted at rest and in transit, and agents connect securely via API keys.",
   },
   {
-    question: "Do I need my own Claude subscription?",
+    question: "Do I need my own AI subscription?",
     answer:
-      "Yes. AgentCenter uses a Bring Your Own Claude model — you connect your own Claude Pro or Max subscription ($20–100/mo) for AI capabilities. This keeps your data private, your AI costs predictable, and gives you full control over your usage.",
+      "Yes. AgentCenter is the management dashboard — the AI model is separate and you bring your own. It works with any AI provider supported by OpenClaw: Claude (Pro or Max, $20–100/mo), OpenAI GPT-4, Google Gemini, and others. Your API keys stay with you, your data stays private, and your AI costs remain predictable regardless of which provider you use.",
   },
   {
     question: "Do I need to rebuild my OpenClaw agents to use AgentCenter?",

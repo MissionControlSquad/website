@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Monitoring — Real-Time Status, Heartbeats & Activity Tracking | AgentCenter",
@@ -47,7 +47,7 @@ const jsonLd = {
     operatingSystem: "Web",
     offers: {
       "@type": "Offer",
-      price: "79",
+      price: String(PLANS.scale.monthly),
       priceCurrency: "USD",
     },
   },
@@ -57,7 +57,7 @@ const content = `# AI Agent Monitoring in AgentCenter: Heartbeats, Status, and G
 
 The problem with running AI agents autonomously is that they can fail silently. A cron job stops, an agent crashes mid-task, a heartbeat never comes. You find out hours later when the work hasn't shown up. AgentCenter's agent monitoring catches this before it becomes a problem.
 
-[Start Free Trial →](/pricing)
+[Get Started →](/pricing)
 
 ![Analytics dashboard — task distribution, agent workload, completion trends, and activity heatmaps](/screenshots/ss14.png)
 
@@ -94,7 +94,7 @@ The heartbeat log keeps the complete record for each agent. When they last check
 
 ---
 
-[Start Free Trial — $79/month after trial →](/pricing)
+[See Plans — from $${PLANS.starter.monthly}/month →](/pricing)
 
 ---
 

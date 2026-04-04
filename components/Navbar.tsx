@@ -6,8 +6,8 @@ import Image from "next/image";
 import { Menu, X } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG, CAL_LINK } from "@/lib/constants";
-import { useCheckout } from "@/lib/hooks/useCheckout";
+import { NAV_LINKS, SITE_CONFIG, CAL_LINK, PLANS } from "@/lib/constants";
+import { GetStartedButton } from "@/components/ui/GetStartedButton";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 
@@ -15,7 +15,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const mobileMenuRef = useFocusTrap(isOpen);
-  const { checkout, isLoading: isCheckoutLoading } = useCheckout();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,18 +94,7 @@ export default function Navbar() {
                 Book a Demo
               </Button>
             </a>
-            <Button size="sm" onClick={() => checkout()} disabled={isCheckoutLoading}>
-              {isCheckoutLoading ? (
-                "Loading…"
-              ) : (
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                    14 days free
-                  </span>
-                  Start Free Trial
-                </span>
-              )}
-            </Button>
+            <GetStartedButton size="sm" />
           </div>
 
           {/* Mobile/Tablet CTA + Menu Button */}
@@ -168,27 +156,21 @@ export default function Navbar() {
                     Book a Demo
                   </Button>
                 </a>
-                <Button
+                <Link
+                  href="/pricing"
                   className="w-full"
-                  size="md"
-                  onClick={() => {
-                    setIsOpen(false);
-                    checkout();
-                  }}
-                  disabled={isCheckoutLoading}
+                  onClick={() => setIsOpen(false)}
                   tabIndex={isOpen ? 0 : -1}
                 >
-                  {isCheckoutLoading ? (
-                    "Loading…"
-                  ) : (
+                  <Button className="w-full" size="md">
                     <span className="flex items-center gap-1.5">
                       <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                        14 days free
+                        {`from $${PLANS.starter.monthly}/mo`}
                       </span>
-                      Start Free Trial
+                      Get Started
                     </span>
-                  )}
-                </Button>
+                  </Button>
+                </Link>
               </div>
             </nav>
           </Container>
