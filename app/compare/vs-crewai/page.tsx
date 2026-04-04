@@ -53,7 +53,7 @@ The core difference: AgentCenter is a **management layer** you add on top of exi
 | **Team collaboration** | @mentions, approval workflows | Developer-focused |
 | **Templates** | 120+ pre-built agent templates | Framework-specific templates |
 | **Infrastructure** | Hetzner Cloud, encrypted | CrewAI managed |
-| **LLM provider** | Bring Your Own Claude ($20-100/mo) | Multiple providers supported |
+| **LLM provider** | BYO AI — Claude, GPT-4, Gemini, or any OpenClaw-compatible model | Multiple providers supported |
 
 ## Key Differentiators
 
@@ -128,7 +128,7 @@ CrewAI Cloud is primarily a hosted runtime for executing CrewAI agents. It inclu
 Everything: Kanban board, real-time status monitoring, task management, deliverable review, @mentions, approval workflows, 120+ pre-built templates, projects and workspaces, and analytics. Plans start at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents) and scale to $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). No per-execution charges.
 
 ### Do I need to pay for an LLM separately with AgentCenter?
-Yes. AgentCenter uses a Bring Your Own Claude model, which typically costs $20-100/month depending on usage. This keeps AgentCenter's pricing simple while giving you control over your LLM costs.
+Yes. AgentCenter is the management dashboard — the AI model is separate. You bring your own API key or subscription for whichever provider your OpenClaw agents use: Anthropic Claude ($20-100/mo), OpenAI GPT-4, Google Gemini, or any other OpenClaw-compatible model. This keeps AgentCenter's pricing simple and gives you full control over your AI costs and provider choice.
 
 ---
 

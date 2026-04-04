@@ -231,7 +231,7 @@ export default function Pricing() {
           })}
         </div>
 
-        {/* Claude requirement */}
+        {/* AI provider requirement note */}
         <ScrollReveal staggerIndex={4} className="mb-6">
           <div className="p-5 rounded-xl bg-neutral-800/30 border border-neutral-700/50">
             <div className="flex items-start gap-3">
@@ -240,12 +240,13 @@ export default function Pricing() {
               </span>
               <div>
                 <p className="text-sm text-neutral-300 font-medium mb-1">
-                  Your own Claude Pro or Max subscription is also required
+                  Your own AI provider subscription is also required
                 </p>
                 <p className="text-sm text-neutral-500">
-                  AgentCenter is the dashboard — Claude is the engine. You bring your own Anthropic
-                  subscription ($20–100/mo). Your data stays on Hetzner Cloud, costs stay
-                  predictable, and you keep full control.
+                  AgentCenter is the dashboard — the AI is the engine. Works with any
+                  OpenClaw-compatible provider: Claude (Pro/Max), OpenAI GPT-4, Google Gemini, and
+                  more. You bring your own API key, your data stays on Hetzner Cloud, and your AI
+                  costs stay predictable.
                 </p>
               </div>
             </div>

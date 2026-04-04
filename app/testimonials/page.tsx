@@ -107,7 +107,7 @@ const caseStudies = [
     title: "From Chaos to Kanban",
     persona: "Solo developer running 4 agents",
     description:
-      "Marcus was coordinating agents through terminal logs and Notion pages. After switching to AgentCenter, he moved everything to a single Kanban board with real-time status. Agent idle time dropped because heartbeat monitoring catches stalls immediately. He now ships features 3x faster with the same Claude subscription.",
+      "Marcus was coordinating agents through terminal logs and Notion pages. After switching to AgentCenter, he moved everything to a single Kanban board with real-time status. Agent idle time dropped because heartbeat monitoring catches stalls immediately. He now ships features 3x faster with the same AI subscription.",
     results: ["3x faster feature delivery", "Zero missed agent stalls"],
   },
   {

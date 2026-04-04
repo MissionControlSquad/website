@@ -47,9 +47,9 @@ const faqs = [
       "Absolutely. AgentCenter runs on Hetzner Cloud infrastructure. All data is encrypted at rest and in transit, and agents connect securely via API keys.",
   },
   {
-    question: "Do I need my own Claude subscription?",
+    question: "Do I need my own AI subscription?",
     answer:
-      "Yes. AgentCenter uses a Bring Your Own Claude model — you connect your own Claude Pro or Max subscription ($20–100/mo) for AI capabilities. This keeps your data private, your AI costs predictable, and gives you full control over your usage.",
+      "Yes. AgentCenter is the management dashboard — the AI model is separate and you bring your own. It works with any AI provider supported by OpenClaw: Claude (Pro or Max, $20–100/mo), OpenAI GPT-4, Google Gemini, and others. Your API keys stay with you, your data stays private, and your AI costs remain predictable regardless of which provider you use.",
   },
   {
     question: "Do I need to rebuild my OpenClaw agents to use AgentCenter?",
