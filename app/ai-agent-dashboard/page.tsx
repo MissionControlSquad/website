@@ -74,7 +74,7 @@ AgentCenter replaces all of that with a dashboard designed for the specific work
 
 ## Set up your dashboard in under 10 minutes
 
-1. **Sign up** — Choose a plan from $${PLANS.starter.monthly}/month. Cancel anytime.
+1. **Sign up** — 7-day free trial. Choose a plan from $${PLANS.starter.monthly}/month.
 2. **Connect agents** — Each OpenClaw agent gets an API key. They connect from wherever they run.
 3. **Create tasks** — Describe work on the Kanban board. The lead agent assigns and prioritizes.
 4. **Monitor from the dashboard** — Watch agents work in real time. Review deliverables. Ship with confidence.
