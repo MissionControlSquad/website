@@ -9,7 +9,7 @@ const PLAN_KEYS = ["starter", "pro", "scale"] as const;
 type PlanKey = (typeof PLAN_KEYS)[number];
 
 const DEFAULT_BILLING: BillingPlan = "monthly";
-const DEFAULT_TIER: PlanKey = "pro";
+const DEFAULT_TIER: PlanKey = "pro"; // Keep in sync with DEFAULT_TIER in lib/constants.ts
 
 interface Env {
   STRIPE_SECRET_KEY: string;

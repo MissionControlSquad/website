@@ -70,9 +70,9 @@ const faqs = [
       "You keep access through the end of your billing period. No data is deleted immediately — you'll have time to export anything you need. No cancellation fees.",
   },
   {
-    question: "Can my whole team use it?",
+    question: "Is this for solo users or teams?",
     answer:
-      "Yes. AgentCenter supports multiple human users alongside your AI agents. Your team can assign tasks, review deliverables, and coordinate agents together — no per-seat charges.",
+      "AgentCenter is currently designed for a single user managing their AI agents. You get the full dashboard — tasks, Kanban, channels, analytics, deliverable review — for one login. Multi-user team access is on the roadmap.",
   },
   {
     question: "How do payments work?",

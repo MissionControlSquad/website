@@ -3,7 +3,7 @@
 import { ArrowRight, Zap } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CAL_LINK } from "@/lib/constants";
+import { CAL_LINK, DEFAULT_TIER } from "@/lib/constants";
 import { useCheckout } from "@/lib/hooks/useCheckout";
 import { trackCTA } from "@/lib/analytics";
 
@@ -40,7 +40,7 @@ export default function MidPageCTA() {
               <button
                 onClick={() => {
                   trackCTA("mid_page", "start_trial");
-                  checkout({ tier: "pro" });
+                  checkout({ tier: DEFAULT_TIER });
                 }}
                 disabled={isLoading}
                 className="group inline-flex items-center gap-2 px-8 py-3.5 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none text-white font-semibold text-base"
