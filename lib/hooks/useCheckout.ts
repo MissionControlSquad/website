@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { type BillingPlan, DEFAULT_PLAN } from "@/lib/constants";
+import { type BillingPlan, type PlanKey, DEFAULT_PLAN, DEFAULT_TIER } from "@/lib/constants";
 
 declare global {
   interface Window {
@@ -43,6 +43,7 @@ function readReferral(): string | null {
 
 export function useCheckout() {
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingTier, setLoadingTier] = useState<PlanKey | null>(null);
   const [referral, setReferral] = useState<string | null>(null);
 
   // Load Endorsely script
@@ -87,15 +88,19 @@ export function useCheckout() {
   }, []);
 
   const checkout = useCallback(
-    async (plan: BillingPlan = DEFAULT_PLAN) => {
+    async ({
+      tier = DEFAULT_TIER,
+      billing = DEFAULT_PLAN,
+    }: { tier?: PlanKey; billing?: BillingPlan } = {}) => {
       if (isLoading) return;
       setIsLoading(true);
+      setLoadingTier(tier);
 
       try {
         const res = await fetch("/api/create-checkout-session", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ plan, referral: referral || undefined }),
+          body: JSON.stringify({ tier, billing, referral: referral || undefined }),
         });
 
         if (!res.ok) {
@@ -111,15 +116,16 @@ export function useCheckout() {
           return;
         }
 
-        // No URL returned — treat as error
         setIsLoading(false);
+        setLoadingTier(null);
       } catch (err) {
         console.error("Checkout error:", err);
         setIsLoading(false);
+        setLoadingTier(null);
       }
     },
     [isLoading, referral]
   );
 
-  return { checkout, isLoading };
+  return { checkout, isLoading, loadingTier };
 }

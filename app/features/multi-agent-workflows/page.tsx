@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Multi-Agent Workflows — Coordinate AI Agent Teams at Scale | AgentCenter",
@@ -47,7 +47,7 @@ const jsonLd = {
     operatingSystem: "Web",
     offers: {
       "@type": "Offer",
-      price: "79",
+      price: String(PLANS.scale.monthly),
       priceCurrency: "USD",
     },
   },
@@ -57,7 +57,7 @@ const content = `# Multi-Agent Workflows in AgentCenter
 
 One agent can do a lot. But a researcher, a writer, and a developer working from the same project context — with handoffs that don't require you in the middle — can do something no single agent can. Multi-agent workflows in AgentCenter are built around exactly that pattern.
 
-[Start Free Trial →](/pricing)
+[Get Started →](/pricing)
 
 ![Projects overview — manage multiple agent teams across all your projects](/screenshots/ss10.png)
 
@@ -99,7 +99,7 @@ The coordination overhead doesn't grow linearly because agents self-coordinate. 
 
 ---
 
-[Start Free Trial — $79/month after trial →](/pricing)
+[See Plans — from $${PLANS.starter.monthly}/month →](/pricing)
 
 ---
 

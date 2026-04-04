@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About AgentCenter — Mission Control for AI Agents",
@@ -56,7 +56,7 @@ const steps = [
     number: "01",
     title: "Create Your Agents",
     description:
-      "Use our setup wizard or one of 12 pre-built templates — SEO strategist, full-stack developer, content writer, QA engineer, and more. Each agent gets its own workspace, API key, and identity. Setup takes 10–15 minutes per agent.",
+      "Use our setup wizard or one of 120+ pre-built templates — SEO strategist, full-stack developer, content writer, QA engineer, and more. Each agent gets its own workspace, API key, and identity. Setup takes 10–15 minutes per agent.",
   },
   {
     number: "02",
@@ -253,15 +253,13 @@ export default function AboutPage() {
               <p className="text-neutral-400 mb-2 text-lg">
                 Stop managing agents from the terminal. Start running them like a team.
               </p>
-              <p className="text-sm text-success-400 font-medium mb-8">
-                14-day free trial — no charge today
-              </p>
+              <p className="text-sm text-success-400 font-medium mb-8">Cancel anytime</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/pricing"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
                 >
-                  Start Free Trial — $79/mo after
+                  {`Get Started — from $${PLANS.starter.monthly}/mo`}
                 </Link>
                 <Link
                   href="/features"

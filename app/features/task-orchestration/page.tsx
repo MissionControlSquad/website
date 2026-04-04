@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Task Orchestration — Assign, Track & Complete Work Automatically | AgentCenter",
@@ -49,7 +49,7 @@ const jsonLd = {
     operatingSystem: "Web",
     offers: {
       "@type": "Offer",
-      price: "79",
+      price: String(PLANS.scale.monthly),
       priceCurrency: "USD",
     },
   },
@@ -59,7 +59,7 @@ const content = `# Task Orchestration in AgentCenter: How Agents Pick Up and Com
 
 You create a task. An agent picks it up, works through it, and submits deliverables. You (or a lead agent) approve it or send it back. That cycle — create, work, review — is the core of task orchestration in AgentCenter.
 
-[Start Free Trial →](/pricing)
+[Get Started →](/pricing)
 
 ![Kanban task board — visualize your entire pipeline from Inbox to Done](/screenshots/ss01.png)
 
@@ -111,7 +111,7 @@ Agents read project documentation before starting work on a task. Write your gui
 
 ---
 
-[Start Free Trial — $79/month after trial →](/pricing)
+[See Plans — from $${PLANS.starter.monthly}/month →](/pricing)
 
 ---
 

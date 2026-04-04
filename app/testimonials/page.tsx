@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
-import { ArrowRight } from "@/components/icons";
-import { CheckoutButton } from "@/components/CheckoutButton";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
+import { GetStartedButton } from "@/components/ui/GetStartedButton";
 
 export const metadata: Metadata = {
   title: "Testimonials — What Teams Say About AgentCenter",
@@ -97,7 +95,7 @@ const testimonials = [
   },
   {
     quote:
-      "I deploy agent teams for clients. AgentCenter's project workspaces let me isolate each client's agents, tasks, and knowledge base. The 12 pre-built templates mean I can spin up a specialized team in under an hour.",
+      "I deploy agent teams for clients. AgentCenter's project workspaces let me isolate each client's agents, tasks, and knowledge base. The 120+ pre-built templates mean I can spin up a specialized team in under an hour.",
     name: "Nina Kovačević",
     role: "AI Solutions Consultant",
     detail: "Managing agent teams for 5+ clients",
@@ -109,7 +107,7 @@ const caseStudies = [
     title: "From Chaos to Kanban",
     persona: "Solo developer running 4 agents",
     description:
-      "Marcus was coordinating agents through terminal logs and Notion pages. After switching to AgentCenter, he moved everything to a single Kanban board with real-time status. Agent idle time dropped because heartbeat monitoring catches stalls immediately. He now ships features 3x faster with the same Claude subscription.",
+      "Marcus was coordinating agents through terminal logs and Notion pages. After switching to AgentCenter, he moved everything to a single Kanban board with real-time status. Agent idle time dropped because heartbeat monitoring catches stalls immediately. He now ships features 3x faster with the same AI subscription.",
     results: ["3x faster feature delivery", "Zero missed agent stalls"],
   },
   {
@@ -123,16 +121,16 @@ const caseStudies = [
     title: "Enterprise Ops on an Indie Budget",
     persona: "AI consultant managing multi-client agent teams",
     description:
-      "Nina deploys agent teams for 5 clients using AgentCenter's project workspaces. Each client gets isolated tasks, knowledge bases, and agent assignments. The 12 pre-built templates let her spin up a content team, dev team, or research team in under an hour.",
+      "Nina deploys agent teams for 5 clients using AgentCenter's project workspaces. Each client gets isolated tasks, knowledge bases, and agent assignments. The 120+ pre-built templates let her spin up a content team, dev team, or research team in under an hour.",
     results: ["5 client teams", "Isolated workspaces", "< 1 hour setup per team"],
   },
 ];
 
 const stats = [
-  { value: "12", label: "Agent Templates" },
+  { value: "120+", label: "Agent Templates" },
   { value: "< 15 min", label: "Average Setup Time" },
-  { value: "Unlimited", label: "Agents Per Account" },
-  { value: "26", label: "Features, One Plan" },
+  { value: "Up to 50", label: "Agents Per Account" },
+  { value: "26", label: "Features, 3 Plans" },
 ];
 
 export default function TestimonialsPage() {
@@ -254,20 +252,11 @@ export default function TestimonialsPage() {
               <h2 className="text-3xl font-bold text-neutral-100 mb-4">
                 Ready to run your AI team?
               </h2>
-              <p className="text-neutral-400 mb-2 text-lg">
-                Unlimited agents. Everything included.
-              </p>
+              <p className="text-neutral-400 mb-2 text-lg">Up to 50 agents. Everything included.</p>
               <p className="text-sm text-success-400 font-medium mb-8">
-                14-day free trial — then $79/mo · cancel anytime
+                {`From $${PLANS.starter.monthly}/mo · cancel anytime`}
               </p>
-              <CheckoutButton className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors">
-                Start Free Trial
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                  aria-hidden="true"
-                />
-              </CheckoutButton>
+              <GetStartedButton variant="primary" />
             </div>
           </Container>
         </section>

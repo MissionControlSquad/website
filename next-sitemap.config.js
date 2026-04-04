@@ -2,7 +2,7 @@
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://agentcenter.cloud";
 
-const disallow = ["/api/", "/admin/", "/thank-you", "/lifetime-deal"];
+const disallow = ["/api/", "/admin/", "/thank-you", "/lifetime-deal", "/pricing-drop"];
 
 const exclude = [...disallow, "/**/opengraph-image", "/**/twitter-image"];
 

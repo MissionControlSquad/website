@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Orchestration — Coordinate Multi-Agent Workflows | AgentCenter",
-  description:
-    "AI agent orchestration with a built-in lead agent that assigns tasks, reviews deliverables, and coordinates your multi-agent team. No custom code required. Start free.",
+  description: `AI agent orchestration with a built-in lead agent that assigns tasks, reviews deliverables, and coordinates your multi-agent team. No custom code required. From $${PLANS.starter.monthly}/month.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/ai-agent-orchestration`,
   },
@@ -118,9 +117,9 @@ Each pattern runs on the same platform. No custom wiring per workflow.
 
 Skip the framework. Start with built-in orchestration.
 
-14-day free trial. Unlimited agents. $79/month.
+Plans from $${PLANS.starter.monthly}/month. Up to ${PLANS.scale.agents} agents. Cancel anytime.
 
-**[Start Free Trial →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
+**[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
 
 ---
 
@@ -154,7 +153,7 @@ export default function AiAgentOrchestrationPage() {
             operatingSystem: "Web",
             offers: {
               "@type": "Offer",
-              price: "79",
+              price: String(PLANS.scale.monthly),
               priceCurrency: "USD",
             },
           }),
