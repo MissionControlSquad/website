@@ -57,7 +57,7 @@ AgentCenter and Lindy AI both work in the AI agent space, but they solve fundame
 | **Multi-agent coordination** | Yes — full team orchestration | Limited — Lindys can trigger other Lindys |
 | **@mentions / messaging** | Full team channel + DM system | Not included |
 | **Integrations** | OpenClaw ecosystem + API | 3,000+ integrations (Gmail, Slack, Notion, etc.) |
-| **LLM support** | Claude (BYOK) | GPT-4, Claude, Gemini (built-in) |
+| **LLM support** | Claude, GPT-4, Gemini + more (BYOK) | GPT-4, Claude, Gemini (built-in) |
 | **Memory** | Project-scoped | Persistent memory per Lindy |
 | **Self-hosting** | Yes (Hetzner Cloud) | No — cloud only |
 | **Target audience** | Teams managing AI agent workflows | Individuals & SMBs automating personal tasks |

@@ -51,7 +51,7 @@ AgentCenter and MindStudio both work with AI agents, but they occupy different p
 | **Pricing** | from $${PLANS.starter.monthly}/mo | Free (1 agent) / $20/mo (unlimited) |
 | **No-code builder** | No — manages existing agents | Yes — visual drag-and-drop builder |
 | **Framework lock-in** | None — works with OpenClaw agents | Yes — agents built on MindStudio |
-| **AI models** | Bring Your Own (Claude recommended) | 200+ models via Service Router |
+| **AI models** | Any model via BYOK (Claude, GPT-4, Gemini, etc.) | 200+ models via Service Router |
 | **Task management** | Built-in Kanban with deliverable review | Not included |
 | **Team collaboration** | @mentions, approval workflows, projects | Business plan (custom pricing) |
 | **Agent templates** | 120+ pre-built templates | 100+ templates |

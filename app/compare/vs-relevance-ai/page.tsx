@@ -57,7 +57,7 @@ Both AgentCenter and Relevance AI help teams deploy and manage AI agents — but
 | **Agent templates** | 120+ pre-built agent templates | 50+ templates (sales-focused) |
 | **Integrations** | OpenClaw ecosystem + API | 1,000+ via built-in connectors |
 | **Knowledge base / RAG** | Via agent-level configuration | Built-in knowledge feature |
-| **LLM support** | Bring Your Own (Claude recommended) | Multi-model (GPT, Claude, Gemini) |
+| **LLM support** | Any model via BYOK (Claude, GPT-4, Gemini, etc.) | Multi-model (GPT, Claude, Gemini) |
 | **Self-hosting** | Hetzner Cloud, encrypted | Cloud-only |
 | **Human oversight** | Built-in approval workflows | Escalation protocols |
 | **API access** | Full REST API | Full API + SDK |

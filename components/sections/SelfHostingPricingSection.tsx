@@ -204,7 +204,7 @@ export default function SelfHostingPricingSection() {
               </p>
             </div>
 
-            {/* Claude requirement note */}
+            {/* AI provider requirement note */}
             <div className="mt-8 pt-6 border-t border-primary-500/20">
               <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-3">
                 Also required
@@ -215,12 +215,12 @@ export default function SelfHostingPricingSection() {
                 </span>
                 <div>
                   <p className="text-sm text-neutral-300 font-medium mb-1">
-                    Your own Claude Pro or Max subscription
+                    Your own AI provider subscription
                   </p>
                   <p className="text-sm text-neutral-500">
-                    AgentCenter is the dashboard — Claude is the engine. You bring your own
-                    Anthropic subscription ($20–100/mo). With self-hosting your data never leaves
-                    your machine.
+                    AgentCenter is the dashboard — the AI is the engine. Works with any
+                    OpenClaw-compatible provider: Claude (Pro/Max), OpenAI GPT-4, Google Gemini, and
+                    more. With self-hosting, your data never leaves your machine.
                   </p>
                 </div>
               </div>

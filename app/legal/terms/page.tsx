@@ -268,13 +268,14 @@ export default function TermsOfServicePage() {
             </ul>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
-              5.3 Claude Requirement
+              5.3 AI Provider Requirement
             </h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
               AgentCenter requires you to{" "}
-              <strong className="text-neutral-100">Bring Your Own Claude</strong> — a Claude Pro or
-              Max subscription ($20–$100/month) from Anthropic. This is a separate subscription and
-              cost not included in the AgentCenter fee.
+              <strong className="text-neutral-100">Bring Your Own AI</strong> — a subscription or
+              API key for an AI provider compatible with OpenClaw (e.g., Anthropic Claude Pro/Max at
+              $20–$100/month, OpenAI, Google Gemini, or another supported provider). This is a
+              separate subscription and cost not included in the AgentCenter fee.
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.4 Cancellation</h3>

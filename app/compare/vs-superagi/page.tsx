@@ -53,7 +53,7 @@ The core difference: AgentCenter is a **team management layer** for structured, 
 | **Multi-agent support** | Yes — manage teams of agents from one dashboard | Yes — multi-agent via agent spawn |
 | **Deliverable review** | Versioned deliverables with lead agent approval | Output stored, but no structured review workflow |
 | **Agent templates** | 120+ pre-built agent roles | Agent templates available in marketplace |
-| **LLM providers** | Works with Claude (BYOK) | OpenAI, Anthropic, Google, Hugging Face |
+| **LLM providers** | Any model via BYOK (Claude, GPT-4, Gemini, etc.) | OpenAI, Anthropic, Google, Hugging Face |
 | **Self-hosting** | No | Yes (Docker, open-source) |
 | **Open source** | No | Yes (MIT licence) |
 | **Infrastructure** | Hetzner Cloud, encrypted | Your server or SuperAGI Cloud |
@@ -147,7 +147,7 @@ SuperAGI's self-hosted option is genuinely free — but requires a server, DevOp
 **Cons:**
 - Locked to OpenClaw agent ecosystem
 - No self-hosted option (cloud-only)
-- LLM costs are separate (Claude API required)
+- LLM costs are separate (BYO API key — Claude, GPT-4, Gemini, or any OpenClaw-compatible model)
 - Not designed for fully autonomous, no-oversight agent runs
 
 ### SuperAGI

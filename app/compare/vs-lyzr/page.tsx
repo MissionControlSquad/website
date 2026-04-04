@@ -54,7 +54,7 @@ AgentCenter and Lyzr Agent Studio both work with AI agents — but they occupy c
 | **Task management** | Built-in Kanban with deliverable review | Not a core feature |
 | **Team collaboration** | @mentions, DMs, approval workflows | Role-based access, team workspaces |
 | **Human oversight** | Core — approval gates on all work | Optional — can run autonomously |
-| **LLM support** | Claude (BYOK) | GPT-4, Claude, Gemini, Mistral, Llama |
+| **LLM support** | Any model via BYOK (Claude, GPT-4, Gemini, etc.) | GPT-4, Claude, Gemini, Mistral, Llama |
 | **Self-hosting / Private cloud** | Yes (Hetzner Cloud) | Yes — private cloud + on-premise |
 | **Compliance** | Standard cloud security | SOC 2, GDPR, HIPAA-ready |
 | **RAG / Knowledge base** | Via agent design | Built-in RAG pipeline |

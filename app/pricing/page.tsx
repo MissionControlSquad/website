@@ -48,7 +48,7 @@ const faqs = [
   {
     question: "Do I need anything else besides AgentCenter?",
     answer:
-      "Yes — you'll need a Claude subscription (Pro at $20/mo or Max at $100/mo) since AgentCenter is built for OpenClaw agents powered by Claude. Think of AgentCenter as the dashboard and Claude as the engine.",
+      "Yes — you'll need a subscription or API key for the AI provider your OpenClaw agents use. AgentCenter works with any OpenClaw-compatible provider: Anthropic Claude (Pro at $20/mo or Max at $100/mo), OpenAI GPT-4, Google Gemini, and others. Think of AgentCenter as the dashboard and your chosen AI as the engine.",
   },
   {
     question: "What counts as an agent?",
