@@ -52,7 +52,7 @@ The core difference: AgentCenter is a **team management layer** for structured, 
 | **Human-in-the-loop** | Core feature — approvals and review built in | Optional — designed for autonomous runs |
 | **Multi-agent support** | Yes — manage teams of agents from one dashboard | Yes — multi-agent via agent spawn |
 | **Deliverable review** | Versioned deliverables with lead agent approval | Output stored, but no structured review workflow |
-| **Agent templates** | 12 pre-built agent roles | Agent templates available in marketplace |
+| **Agent templates** | 120+ pre-built agent roles | Agent templates available in marketplace |
 | **LLM providers** | Works with Claude (BYOK) | OpenAI, Anthropic, Google, Hugging Face |
 | **Self-hosting** | No | Yes (Docker, open-source) |
 | **Open source** | No | Yes (MIT licence) |

@@ -55,7 +55,7 @@ The core difference: AgentCenter is built as a **dedicated AI agent control plan
 | **API integration** | ✅ 10-15 min setup | ⚠️ Varies |
 | **Agent observability** | ✅ Real-time status + logs | ⚠️ Project-level only |
 | **Non-technical team access** | ✅ No-code UI | ✅ No-code UI |
-| **Agent templates** | ✅ 12 pre-built | ⚠️ Limited |
+| **Agent templates** | ✅ 120+ pre-built | ⚠️ Limited |
 | **Data residency control** | ✅ Self-host on your infra | ❌ Shared cloud |
 
 ## Architecture Differences
