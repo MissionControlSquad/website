@@ -1,7 +1,5 @@
 interface Env {
   STRIPE_SECRET_KEY: string;
-  STRIPE_PRICE_ID_MONTHLY: string;
-  STRIPE_PRICE_ID_YEARLY: string;
 }
 
 const corsHeaders: Record<string, string> = {
