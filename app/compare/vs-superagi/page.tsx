@@ -33,7 +33,7 @@ Both AgentCenter and SuperAGI promise to give you control over AI agents — but
 
 ## Quick Overview
 
-**AgentCenter** is a mission control dashboard for teams running OpenClaw agents. It answers: *"Who is doing what, has it been done right, and is my team unblocked?"* It provides task assignment, Kanban boards, deliverable review, approval workflows, and @mention messaging — all for a flat $79/month.
+**AgentCenter** is a mission control dashboard for teams running OpenClaw agents. It answers: *"Who is doing what, has it been done right, and is my team unblocked?"* It provides task assignment, Kanban boards, deliverable review, approval workflows, and @mention messaging — from $14/month.
 
 **SuperAGI** is an open-source autonomous agent framework with a GUI control room. It answers: *"Can I run a self-directed AI agent that executes goals end-to-end without human hand-holding?"* It's built for autonomous execution — give it a goal, it figures out the steps.
 
@@ -43,7 +43,7 @@ The core difference: AgentCenter is a **team management layer** for structured, 
 
 | Feature | AgentCenter | SuperAGI |
 |---|---|---|
-| **Pricing** | $79/month flat | Self-hosted free; cloud pricing on request |
+| **Pricing** | from $14/month | Self-hosted free; cloud pricing on request |
 | **Setup** | 10–15 min via API | Docker self-host (hours) or cloud signup |
 | **Framework lock-in** | None — built for OpenClaw agents | Yes — SuperAGI framework |
 | **Dashboard** | Full Kanban, analytics, deliverable review | Agent Control Room UI |
@@ -70,7 +70,7 @@ If your work requires consistent quality, compliance, or review gates — AgentC
 
 ### 2. Predictable Cost vs. Self-Host Complexity
 
-AgentCenter charges $79/month, period. No setup, no server maintenance, no Docker troubleshooting at 2am. Your agents connect via API in minutes.
+AgentCenter starts at $14/month. No setup, no server maintenance, no Docker troubleshooting at 2am. Your agents connect via API in minutes.
 
 SuperAGI is free if you self-host — but "free" has hidden costs. You need a server, Docker skills, and time to maintain it. The cloud version exists but pricing isn't public. For teams where engineering time costs money, AgentCenter's simplicity is the better deal.
 
@@ -105,12 +105,12 @@ Designed for: **autonomous goal execution without external dependencies**.
 | Scenario | AgentCenter | SuperAGI |
 |---|---|---|
 | **Self-hosted option** | ❌ No | ✅ Free |
-| **Cloud — small team** | $79/month flat | Custom pricing |
-| **Cloud — as you scale** | $79/month (same price) | Unknown — not public |
+| **Cloud — small team** | from $14/month | Custom pricing |
+| **Cloud — as you scale** | from $14/month | Unknown — not public |
 | **Hidden costs** | LLM API costs ($20–100/mo) | Server + LLM API costs |
 | **Setup time cost** | ~15 minutes | Hours to days |
 
-SuperAGI's self-hosted option is genuinely free — but requires a server, DevOps work, and ongoing maintenance. AgentCenter's cloud-only model costs $79/month but saves setup time and operational overhead.
+SuperAGI's self-hosted option is genuinely free — but requires a server, DevOps work, and ongoing maintenance. AgentCenter's cloud model starts at $14/month but saves setup time and operational overhead.
 
 ## Use Cases
 
@@ -193,7 +193,7 @@ SuperAGI is a compelling open-source platform if you want autonomous agent execu
 
 AgentCenter is the better choice if you're running a team of agents on OpenClaw and need structured coordination, deliverable review, and predictable costs. It's designed for work that matters — where outputs need to be reviewed, quality needs to be maintained, and teammates (human or AI) need to stay in sync.
 
-**Want mission control for your AI agent team?** [Start your free trial at AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, $79/month flat.
+**Want mission control for your AI agent team?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $14/month, cancel anytime.
 `;
 
 export default function Page() {

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pricing | AgentCenter — Plans from $14/mo",
     description:
-      "AgentCenter pricing: Starter $14/mo (5 agents), Pro $29/mo (15 agents), Scale $79/mo (50 agents). 14-day free trial. Cancel anytime.",
+      "AgentCenter pricing: Starter $14/mo (5 agents), Pro $29/mo (15 agents), Scale $79/mo (50 agents). Cancel anytime. No lock-in.",
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
     images: [ogImage("pricing")],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pricing | AgentCenter — Plans from $14/mo",
     description:
-      "AgentCenter pricing: Starter $14/mo (5 agents), Pro $29/mo (15 agents), Scale $79/mo (50 agents). 14-day free trial. Cancel anytime.",
+      "AgentCenter pricing: Starter $14/mo (5 agents), Pro $29/mo (15 agents), Scale $79/mo (50 agents). Cancel anytime. No lock-in.",
     images: [ogImage("pricing")],
   },
 };

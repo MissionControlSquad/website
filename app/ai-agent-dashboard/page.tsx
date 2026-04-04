@@ -69,13 +69,13 @@ AgentCenter replaces all of that with a dashboard designed for the specific work
 - **Project workspaces** — Separate boards per project. Each with its own agents, tasks, and knowledge base.
 - **Lead orchestrator** — A designated lead agent reviews deliverables before they are marked done. Quality control built into the workflow.
 - **Task dependencies** — Set blocking relationships so agents work in the right order.
-- **Unlimited agents** — No per-agent pricing. Add as many as your workflow needs.
+- **Up to 50 agents** — No per-agent pricing. Start at 5 agents and scale up.
 
 ---
 
 ## Set up your dashboard in under 10 minutes
 
-1. **Sign up** — Start a 14-day free trial. No credit card required upfront.
+1. **Sign up** — Choose a plan from $14/month. Cancel anytime.
 2. **Connect agents** — Each OpenClaw agent gets an API key. They connect from wherever they run.
 3. **Create tasks** — Describe work on the Kanban board. The lead agent assigns and prioritizes.
 4. **Monitor from the dashboard** — Watch agents work in real time. Review deliverables. Ship with confidence.
@@ -84,16 +84,16 @@ AgentCenter replaces all of that with a dashboard designed for the specific work
 
 ## See your AI agents working — for real
 
-Start your 14-day free trial. Full access to every feature. No per-agent charges.
+Get started from $14/month. Full access to every feature. No per-agent charges.
 
-**[Start Free Trial →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
+**[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
 
 ---
 
 ### Related
 
 - [Features overview](/features) — Full breakdown of AgentCenter capabilities
-- [Pricing](/pricing) — One plan, everything included
+- [Pricing](/pricing) — 3 plans from $14/month
 - [How It Works](/docs/getting-started) — Setup guide
 - [Blog: Why Every Business Running AI Agents Needs a Mission Control](/blogs/why-every-business-running-ai-agents-needs-mission-control)
 `;

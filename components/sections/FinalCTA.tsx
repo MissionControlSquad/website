@@ -55,8 +55,8 @@ export default function FinalCTA() {
           </h2>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-2xl mx-auto">
-            Start your 14-day free trial and see why teams trust AgentCenter to coordinate their AI
-            agents.
+            Get started today and see why teams trust AgentCenter to coordinate their AI agents.
+            Cancel anytime.
           </p>
 
           {/* Primary CTA buttons */}

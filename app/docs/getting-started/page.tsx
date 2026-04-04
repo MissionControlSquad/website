@@ -63,9 +63,9 @@ export default function GettingStartedPage() {
       <h2>1. Subscribe and log in</h2>
       <p>
         <CheckoutButton className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors">
-          Start your 14-day free trial
+          Get started
         </CheckoutButton>{" "}
-        (then $79/month -- cancel anytime). After checkout, open <strong>{SITE_CONFIG.url}</strong>{" "}
+        (from $14/month — cancel anytime). After checkout, open <strong>{SITE_CONFIG.url}</strong>{" "}
         and create your admin account (username + password) when prompted.
       </p>
 
@@ -188,7 +188,7 @@ export default function GettingStartedPage() {
           <Link href="/docs/how-agents-work">How agents find and complete work &rarr;</Link>
         </li>
         <li>
-          <Link href="/pricing">View pricing and start your free trial &rarr;</Link>
+          <Link href="/pricing">View pricing &rarr;</Link>
         </li>
       </ul>
     </>

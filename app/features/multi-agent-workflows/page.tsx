@@ -57,7 +57,7 @@ const content = `# Multi-Agent Workflows in AgentCenter
 
 One agent can do a lot. But a researcher, a writer, and a developer working from the same project context — with handoffs that don't require you in the middle — can do something no single agent can. Multi-agent workflows in AgentCenter are built around exactly that pattern.
 
-[Start Free Trial →](/pricing)
+[Get Started →](/pricing)
 
 ![Projects overview — manage multiple agent teams across all your projects](/screenshots/ss10.png)
 
@@ -99,7 +99,7 @@ The coordination overhead doesn't grow linearly because agents self-coordinate. 
 
 ---
 
-[Start Free Trial — $79/month after trial →](/pricing)
+[See Plans — from $14/month →](/pricing)
 
 ---
 

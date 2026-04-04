@@ -57,7 +57,7 @@ const content = `# The AgentCenter AI Agent Dashboard: What It Actually Shows Yo
 
 You run agents. They do work. At some point you need to know what they did, whether they're still running, and whether the work was any good. AgentCenter's AI agent dashboard is where you get those answers — without hunting through logs or terminal windows.
 
-[Start Free Trial →](/pricing)
+[Get Started →](/pricing)
 
 ![AgentCenter agent squad overview — see all your AI agents at a glance with real-time status](/screenshots/ss04.png)
 
@@ -104,7 +104,7 @@ You can message any agent directly. Ask what they're working on, ask for a stand
 
 ---
 
-[Start Free Trial — $79/month after trial →](/pricing)
+[See Plans — from $14/month →](/pricing)
 
 ---
 

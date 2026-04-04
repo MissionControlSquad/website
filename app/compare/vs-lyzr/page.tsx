@@ -35,7 +35,7 @@ AgentCenter and Lyzr Agent Studio both work with AI agents — but they occupy c
 
 ## Quick Summary
 
-**AgentCenter** is the mission control dashboard for teams running OpenClaw agents. It provides Kanban-based task management, deliverable review, approval workflows, @mention messaging, and real-time monitoring — all at a flat $79/month. It sits above your agents as the coordination and oversight layer.
+**AgentCenter** is the mission control dashboard for teams running OpenClaw agents. It provides Kanban-based task management, deliverable review, approval workflows, @mention messaging, and real-time monitoring — from $14/month. It sits above your agents as the coordination and oversight layer.
 
 **Lyzr Agent Studio** is an enterprise AI agent building platform with pre-built agent templates for business use cases: sales intelligence, legal review, HR automation, IT support, and more. It offers a drag-and-drop agent builder, multi-LLM support, private cloud deployment, and SOC 2 compliance for regulated industries.
 
@@ -48,7 +48,7 @@ AgentCenter and Lyzr Agent Studio both work with AI agents — but they occupy c
 | Feature | AgentCenter | Lyzr Agent Studio |
 |---|---|---|
 | **Primary focus** | Agent management & orchestration | Enterprise agent building & deployment |
-| **Pricing** | $79/mo flat | Starter free / Pro $299/mo / Enterprise custom |
+| **Pricing** | from $14/mo | Starter free / Pro $299/mo / Enterprise custom |
 | **Agent builder** | No — manages existing agents | Yes — visual and code-based builder |
 | **Pre-built agents** | 12 templates (roles) | 100+ enterprise templates |
 | **Task management** | Built-in Kanban with deliverable review | Not a core feature |
@@ -93,12 +93,12 @@ Lyzr Agent Studio is a **full-stack agent platform** — you build agents inside
 | Plan | AgentCenter | Lyzr Agent Studio |
 |---|---|---|
 | **Free tier** | No | Yes — 1 agent, limited usage |
-| **Pro / Standard** | $79/mo — all features, unlimited agents | $299/mo — up to 10 agents, 10k API calls |
+| **Pro / Standard** | from $14/mo — all features | $299/mo — up to 10 agents, 10k API calls |
 | **Enterprise** | Contact for custom | Custom pricing — unlimited agents, private cloud |
 | **LLM costs** | Separate (BYO API key) | Separate (your LLM API keys or Lyzr credits) |
 | **Compliance add-ons** | Standard | SOC 2, HIPAA, GDPR included on Enterprise |
 
-**Key insight:** Lyzr's $299/month Pro plan is significantly more expensive than AgentCenter's $79/month — but it includes agent-building capabilities, enterprise templates, and RAG pipelines. AgentCenter's $79/month is for teams that already have agents and need the management layer. Compare based on whether you need to build agents or manage them.
+**Key insight:** Lyzr's $299/month Pro plan is significantly more expensive than AgentCenter's plans from $14/month — but it includes agent-building capabilities, enterprise templates, and RAG pipelines. AgentCenter is for teams that already have agents and need the management layer. Compare based on whether you need to build agents or manage them.
 
 ---
 
@@ -127,7 +127,7 @@ Lyzr Agent Studio is a **full-stack agent platform** — you build agents inside
 ## Pros and Cons
 
 ### AgentCenter Pros
-- Flat $79/mo — no per-run charges, unlimited agents
+- From $14/mo — no per-run charges
 - Built-in Kanban, task management, and deliverable review
 - Multi-agent team coordination with @mentions and approval gates
 - 10–15 minute setup with no code changes to existing agents
@@ -185,7 +185,7 @@ AgentCenter fills a different gap: it's the control plane for teams that are alr
 
 For many enterprise teams, these aren't competing options — they address different layers. Build and deploy agents with Lyzr; manage your AI agent team's day-to-day work with AgentCenter.
 
-**Need mission control for your AI agent team?** [Start with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, $79/month flat.
+**Need mission control for your AI agent team?** [Start with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $14/month, cancel anytime.
 `;
 
 export default function Page() {

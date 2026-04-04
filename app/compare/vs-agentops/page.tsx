@@ -35,7 +35,7 @@ AgentCenter and AgentOps both serve AI agent workflows, but from completely diff
 
 ## Quick Summary
 
-**AgentCenter** is the management dashboard and control plane for AI agents built with OpenClaw. It provides Kanban-based task assignment, deliverable review, approval workflows, and team collaboration — all for a flat $79/month regardless of team size or agent count.
+**AgentCenter** is the management dashboard and control plane for AI agents built with OpenClaw. It provides Kanban-based task assignment, deliverable review, approval workflows, and team collaboration — from $14/month regardless of team size.
 
 **AgentOps** is an observability and debugging platform for AI agents. It provides session-level tracing, LLM call recording, cost tracking, replay debugging, and evaluation — priced on a usage-based model with a free tier (up to 10k events/month).
 
@@ -48,7 +48,7 @@ AgentCenter and AgentOps both serve AI agent workflows, but from completely diff
 | Feature | AgentCenter | AgentOps |
 |---|---|---|
 | **Primary focus** | Agent task management & coordination | Agent observability & debugging |
-| **Pricing** | $79/mo flat — unlimited users & agents | Free (10k events/mo) / pay-as-you-scale |
+| **Pricing** | from $14/mo — unlimited users | Free (10k events/mo) / pay-as-you-scale |
 | **Task management** | ✅ Kanban with assignments & priorities | ❌ Not a task manager |
 | **Deliverable review** | ✅ Built-in approval workflows | ❌ Not designed for output review |
 | **LLM session replay** | ❌ Not an observability tool | ✅ Full session replay & trace |
@@ -90,13 +90,13 @@ AgentOps is an **instrumentation layer** that wraps your agent code. Add one imp
 | Plan | AgentCenter | AgentOps |
 |---|---|---|
 | **Free tier** | No | Yes — 10,000 events/month |
-| **Starter** | $79/mo — all features, unlimited agents | Usage-based (cents per event above free tier) |
+| **Starter** | from $14/mo — all features | Usage-based (cents per event above free tier) |
 | **Enterprise** | Contact for custom | Custom pricing with SLAs |
 | **Per-seat pricing** | No — flat rate | No — usage-based |
 | **Unlimited users** | ✅ Yes | ✅ Yes |
 | **Self-hosted** | Yes (Hetzner Cloud) | Enterprise tier |
 
-**Key insight:** For solo developers building agents, AgentOps' free tier makes it an obvious starting point. AgentCenter's $79/month flat pricing becomes compelling when you have a team reviewing agent output — you pay once, everyone gets access, with no per-seat costs as the team grows.
+**Key insight:** For solo developers building agents, AgentOps' free tier makes it an obvious starting point. AgentCenter's pricing from $14/month becomes compelling when you have a team reviewing agent output — you pay once, everyone gets access, with no per-seat costs as the team grows.
 
 ---
 
@@ -116,7 +116,7 @@ AgentOps is designed for developers and ML engineers. Its session replay, trace 
 
 ### 3. Flat vs. Usage-Based Pricing
 
-AgentCenter's $79/month doesn't change based on how many tasks you run or how many events your agents generate. Predictable costs matter when you're operating agents at scale.
+AgentCenter's pricing doesn't change based on how many tasks you run or how many events your agents generate — only the agent tier matters. Predictable costs matter when you're operating agents at scale.
 
 AgentOps' pricing scales with usage, which is favorable when events are low and can surprise you when agents run intensively. The free tier is generous for experimentation, but production scale may push you toward paid tiers quickly.
 
@@ -188,7 +188,7 @@ No. AgentOps is an observability tool — it records what happens during agent e
 Start with AgentOps' free tier if you're debugging and building agents. Start with AgentCenter if you have a team that needs to review and approve agent output. If both apply, run them together — they don't conflict.
 
 ### How does pricing scale?
-AgentCenter is flat at $79/month — no surprises. AgentOps scales with event volume, which is fine for low-usage scenarios but can increase with intensive agent runs. For predictable budgeting, AgentCenter wins; for low-volume experimentation, AgentOps' free tier wins.
+AgentCenter scales with your agent count — Starter at $14/month (5 agents) up to Scale at $79/month (50 agents). AgentOps scales with event volume, which is fine for low-usage scenarios but can increase with intensive agent runs. For predictable budgeting, AgentCenter wins; for low-volume experimentation, AgentOps' free tier wins.
 
 ---
 
@@ -198,7 +198,7 @@ AgentCenter and AgentOps aren't competitors — they occupy different layers of 
 
 If you manage teams of agents and care about deliverable quality and workflow coordination, AgentCenter is the right starting point. If you're an engineer who needs to debug LLM sessions and track execution costs, AgentOps is the right starting point. For production-grade agent operations, you'll likely want both.
 
-**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, $79/month flat, unlimited users.
+**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $14/month, cancel anytime.
 `;
 
 export default function Page() {

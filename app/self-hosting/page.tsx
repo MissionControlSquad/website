@@ -67,7 +67,7 @@ const faqs = [
   {
     question: "Is there a free trial for self-hosting?",
     answer:
-      "No free trial for self-hosting. The setup has real complexity (Docker, server, environment config) that makes a trial impractical. If you're unsure, start with the cloud version at $79/month — same features, no setup required. You can switch to self-hosting later.",
+      "No free trial for self-hosting. The setup has real complexity (Docker, server, environment config) that makes a trial impractical. If you're unsure, start with the cloud version from $14/month — same features, no setup required. You can switch to self-hosting later.",
   },
   {
     question: "Can I run multiple instances on one self-hosting license?",
@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     question: "What is the difference between self-hosted and cloud AgentCenter?",
-    answer: `Self-hosted runs entirely on your own infrastructure — you control the server, the data, and the environment. The cloud version ($79/month) is hosted by us on Hetzner Cloud, requires no setup, and is ready in minutes. Self-hosting costs $${SELFHOSTING_PRICING.monthly}/month and gives you full data sovereignty.`,
+    answer: `Self-hosted runs entirely on your own infrastructure — you control the server, the data, and the environment. The cloud version (from $14/month) is hosted by us on Hetzner Cloud, requires no setup, and is ready in minutes. Self-hosting costs $${SELFHOSTING_PRICING.monthly}/month and gives you full data sovereignty.`,
   },
   {
     question: "What are the server requirements for self-hosted AgentCenter?",
@@ -166,7 +166,7 @@ function buildProductSchema() {
     ],
     featureList: [
       "Full AgentCenter AI agent dashboard",
-      "Unlimited AI agents",
+      "Up to 50 AI agents (cloud) or unlimited (self-hosted)",
       "Kanban task management for AI agents",
       "Real-time agent status monitoring",
       "Lead/Orchestrator verification",
@@ -241,8 +241,12 @@ function buildFaqSchema() {
 }
 
 const comparisonRows = [
-  { feature: "Monthly price", cloud: "$79/month", self: `$${SELFHOSTING_PRICING.monthly}/month` },
-  { feature: "Annual price", cloud: "$799/year", self: `$${SELFHOSTING_PRICING.yearly}/year` },
+  {
+    feature: "Monthly price",
+    cloud: "from $14/month",
+    self: `$${SELFHOSTING_PRICING.monthly}/month`,
+  },
+  { feature: "Annual price", cloud: "from $140/year", self: `$${SELFHOSTING_PRICING.yearly}/year` },
   { feature: "Setup time", cloud: "Instant", self: "~15 min (Docker)" },
   { feature: "Data location", cloud: "Hetzner Cloud (EU)", self: "Your infrastructure" },
   { feature: "Data sovereignty", cloud: "Our servers", self: "100% your control" },
@@ -250,7 +254,7 @@ const comparisonRows = [
   { feature: "Compliance / air-gap support", cloud: "Limited", self: "Yes" },
   { feature: "All features included", cloud: "Yes", self: "Yes" },
   { feature: "Updates", cloud: "Automatic", self: "docker-compose pull" },
-  { feature: "Free trial", cloud: "14-day trial", self: "No trial" },
+  { feature: "Free trial", cloud: "Cancel anytime", self: "No trial" },
 ];
 
 const useCases = [
@@ -461,7 +465,7 @@ export default function SelfHostingPage() {
                   href="/pricing"
                   className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors"
                 >
-                  See the cloud plan at $79/month
+                  See cloud plans from $14/month
                 </Link>{" "}
                 — same features, zero setup.
               </p>

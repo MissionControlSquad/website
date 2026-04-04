@@ -253,15 +253,13 @@ export default function AboutPage() {
               <p className="text-neutral-400 mb-2 text-lg">
                 Stop managing agents from the terminal. Start running them like a team.
               </p>
-              <p className="text-sm text-success-400 font-medium mb-8">
-                14-day free trial — no charge today
-              </p>
+              <p className="text-sm text-success-400 font-medium mb-8">Cancel anytime</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/pricing"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
                 >
-                  Start Free Trial — $79/mo after
+                  Get Started — from $14/mo
                 </Link>
                 <Link
                   href="/features"

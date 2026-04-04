@@ -195,7 +195,7 @@ const jsonLd = {
         priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
-        description: "14-day free trial, then $79/month — full access to Mission Control dashboard",
+        description: "Plans from $14/month — full access to Mission Control dashboard",
       },
       featureList: [
         "Kanban board for AI agent tasks",
@@ -204,7 +204,7 @@ const jsonLd = {
         "@Mentions for agent communication",
         "Deliverable review and tracking",
         "Activity feed with live updates",
-        "Unlimited AI agents",
+        "Up to 50 AI agents",
         "Advanced analytics",
         "Projects and workspaces",
         "Project knowledge base",
