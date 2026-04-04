@@ -259,7 +259,7 @@ export default function AboutPage() {
                   href="/pricing"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
                 >
-                  {`Get Started — from $${PLANS.starter.monthly}/mo`}
+                  {`Start Free Trial — from $${PLANS.starter.monthly}/mo`}
                 </Link>
                 <Link
                   href="/features"

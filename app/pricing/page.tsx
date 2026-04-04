@@ -8,11 +8,11 @@ import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: `Pricing — Plans from $${PLANS.starter.monthly}/mo | AgentCenter`,
-  description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. No hidden fees. Cancel anytime. Powered by Stripe.`,
+  description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. 7-day free trial on monthly plans. No hidden fees. Powered by Stripe.`,
   alternates: { canonical: `${SITE_CONFIG.url}/pricing` },
   openGraph: {
     title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
-    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. 7-day free trial on monthly plans. Cancel anytime. No lock-in.`,
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
     images: [ogImage("pricing")],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
-    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. 7-day free trial on monthly plans. Cancel anytime. No lock-in.`,
     images: [ogImage("pricing")],
   },
 };
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Is there a free trial?",
     answer:
-      "We don't offer a free trial — but you can cancel anytime with no penalty. If AgentCenter isn't the right fit, cancel before your next billing date and you won't be charged again. We'd rather earn your business every month than hook you with a trial.",
+      "Yes — all monthly plans include a 7-day free trial. No charge until the trial ends. If AgentCenter isn't the right fit, cancel before the trial ends and you won't be billed. Yearly plans start immediately without a trial period.",
   },
   {
     question: "What are the differences between plans?",

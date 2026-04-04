@@ -193,7 +193,7 @@ SuperAGI is a compelling open-source platform if you want autonomous agent execu
 
 AgentCenter is the better choice if you're running a team of agents on OpenClaw and need structured coordination, deliverable review, and predictable costs. It's designed for work that matters — where outputs need to be reviewed, quality needs to be maintained, and teammates (human or AI) need to stay in sync.
 
-**Want mission control for your AI agent team?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Want mission control for your AI agent team?** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, set up in 15 minutes, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

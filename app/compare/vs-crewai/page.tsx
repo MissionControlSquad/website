@@ -136,7 +136,7 @@ Yes. AgentCenter is the management dashboard — the AI model is separate. You b
 
 If you're running OpenClaw agents and need a management dashboard, AgentCenter gives you everything from $${PLANS.starter.monthly}/month. If you're starting fresh and want to build agents using a specific Python framework, CrewAI Cloud offers that structure — but be prepared for framework lock-in and escalating costs as you scale.
 
-**Ready to manage your agents without the lock-in?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10-15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Ready to manage your agents without the lock-in?** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, set up in 10-15 minutes, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

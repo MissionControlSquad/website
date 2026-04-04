@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "How much does it cost?",
-    answer: `AgentCenter has three plans: Starter at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents), Pro at $${PLANS.pro.monthly}/month (${PLANS.pro.agents} agents), and Scale at $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). All plans include the full Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.`,
+    answer: `AgentCenter has three plans: Starter at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents), Pro at $${PLANS.pro.monthly}/month (${PLANS.pro.agents} agents), and Scale at $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). All monthly plans include a 7-day free trial. Cancel anytime.`,
   },
   {
     question: "How does it work?",

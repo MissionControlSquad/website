@@ -196,7 +196,7 @@ const jsonLd = {
         priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
-        description: `Plans from $${PLANS.starter.monthly}/month — full access to Mission Control dashboard`,
+        description: `Plans from $${PLANS.starter.monthly}/month — 7-day free trial on monthly plans. Full access to Mission Control dashboard.`,
       },
       featureList: [
         "Kanban board for AI agent tasks",

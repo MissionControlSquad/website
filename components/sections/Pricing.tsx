@@ -139,13 +139,17 @@ export default function Pricing() {
                     checkout({ tier: key, billing });
                   }}
                   disabled={isLoading}
-                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-colors mb-8 ${
+                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-colors mb-2 ${
                     isRecommended
                       ? "bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/30"
                       : "bg-neutral-700 hover:bg-neutral-600 text-neutral-100"
                   } disabled:opacity-50`}
                 >
-                  {isThisLoading ? "Loading…" : "Get Started"}
+                  {isThisLoading
+                    ? "Loading…"
+                    : billing === "monthly"
+                      ? "Start 7-Day Free Trial"
+                      : "Get Started"}
                   {!isThisLoading && (
                     <ArrowRight
                       size={16}
@@ -155,7 +159,13 @@ export default function Pricing() {
                   )}
                 </button>
 
-                <p className="text-xs text-center text-neutral-500 -mt-6 mb-6">
+                {billing === "monthly" && (
+                  <p className="text-xs text-center text-success-400 mb-2 font-medium">
+                    7 days free — no charge until trial ends
+                  </p>
+                )}
+
+                <p className="text-xs text-center text-neutral-500 mb-6">
                   Cancel anytime. Powered by Stripe.
                 </p>
 

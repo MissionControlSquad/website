@@ -183,7 +183,7 @@ Lindy AI is one of the best platforms for building personal AI assistants that a
 
 AgentCenter is the right choice when you need more than automation — when you need a team of specialized AI agents doing structured, reviewable work. Task management, deliverable review, approval gates, and multi-agent coordination are what AgentCenter is built for.
 
-**Ready to put your AI agent team on a control plane?** [Start with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Ready to put your AI agent team on a control plane?** [Start with AgentCenter](https://agentcenter.cloud) — 7-day free trial, set up in 15 minutes, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

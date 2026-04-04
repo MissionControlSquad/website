@@ -117,7 +117,7 @@ Each pattern runs on the same platform. No custom wiring per workflow.
 
 Skip the framework. Start with built-in orchestration.
 
-Plans from $${PLANS.starter.monthly}/month. Up to ${PLANS.scale.agents} agents. Cancel anytime.
+7-day free trial. Plans from $${PLANS.starter.monthly}/month. Up to ${PLANS.scale.agents} agents.
 
 **[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
 
