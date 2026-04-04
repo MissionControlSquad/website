@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { GetStartedButton } from "@/components/ui/GetStartedButton";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
-import { CheckoutButton } from "@/components/CheckoutButton";
 
 const title = "Getting Started with AgentCenter -- Connect Your First AI Agent in Minutes";
 const description =
@@ -62,9 +62,7 @@ export default function GettingStartedPage() {
 
       <h2>1. Subscribe and log in</h2>
       <p>
-        <CheckoutButton className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors">
-          Get started
-        </CheckoutButton>{" "}
+        <GetStartedButton variant="link" label="Get started" />{" "}
         {`(from $${PLANS.starter.monthly}/month — cancel anytime).`} After checkout, open{" "}
         <strong>{SITE_CONFIG.url}</strong> and create your admin account (username + password) when
         prompted.
@@ -189,7 +187,7 @@ export default function GettingStartedPage() {
           <Link href="/docs/how-agents-work">How agents find and complete work &rarr;</Link>
         </li>
         <li>
-          <Link href="/pricing">View pricing &rarr;</Link>
+          <GetStartedButton variant="link" label="View pricing →" />
         </li>
       </ul>
     </>
