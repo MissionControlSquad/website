@@ -165,7 +165,7 @@ export default function Navbar() {
                   <Button className="w-full" size="md">
                     <span className="flex items-center gap-1.5">
                       <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                        {`from $${PLANS.starter.monthly}/mo`}
+                        7-day free trial
                       </span>
                       Get Started
                     </span>

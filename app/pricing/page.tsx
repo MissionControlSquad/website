@@ -8,11 +8,11 @@ import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: `Pricing — Plans from $${PLANS.starter.monthly}/mo | AgentCenter`,
-  description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. No hidden fees. Cancel anytime. Powered by Stripe.`,
+  description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. 7-day free trial on monthly plans. No hidden fees. Powered by Stripe.`,
   alternates: { canonical: `${SITE_CONFIG.url}/pricing` },
   openGraph: {
     title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
-    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. 7-day free trial on monthly plans. Cancel anytime. No lock-in.`,
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
     images: [ogImage("pricing")],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
-    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. 7-day free trial on monthly plans. Cancel anytime. No lock-in.`,
     images: [ogImage("pricing")],
   },
 };
