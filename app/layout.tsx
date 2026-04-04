@@ -145,6 +145,7 @@ const jsonLd = {
       provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       inLanguage: "en-US",
       datePublished: "2025-01-01",
+      dateModified: "2026-04-04",
     },
     // Organization — company info for knowledge panel
     {
