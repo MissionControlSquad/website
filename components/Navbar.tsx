@@ -95,17 +95,12 @@ export default function Navbar() {
                 Book a Demo
               </Button>
             </a>
-            <Button size="sm" onClick={() => checkout()} disabled={isCheckoutLoading}>
-              {isCheckoutLoading ? (
-                "Loading…"
-              ) : (
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                    14 days free
-                  </span>
-                  Start Free Trial
-                </span>
-              )}
+            <Button
+              size="sm"
+              onClick={() => checkout({ tier: "pro" })}
+              disabled={isCheckoutLoading}
+            >
+              {isCheckoutLoading ? "Loading…" : "Get Started"}
             </Button>
           </div>
 
@@ -173,7 +168,7 @@ export default function Navbar() {
                   size="md"
                   onClick={() => {
                     setIsOpen(false);
-                    checkout();
+                    checkout({ tier: "pro" });
                   }}
                   disabled={isCheckoutLoading}
                   tabIndex={isOpen ? 0 : -1}

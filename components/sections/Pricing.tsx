@@ -2,54 +2,53 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, ArrowRight, Monitor } from "@/components/icons";
+import { Check, X, ArrowRight, Monitor } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useCheckout } from "@/lib/hooks/useCheckout";
-import { PRICING, SELFHOSTING_PRICING, type BillingPlan, DEFAULT_PLAN } from "@/lib/constants";
+import {
+  PLANS,
+  PLAN_KEYS,
+  SELFHOSTING_PRICING,
+  type BillingPlan,
+  type PlanKey,
+  DEFAULT_PLAN,
+} from "@/lib/constants";
 import { trackBeginCheckout } from "@/lib/analytics";
 
-const features = [
-  "Unlimited AI agents",
-  "Kanban task management",
-  "Real-time agent status",
-  "Lead/Orchestrator verification",
-  "@Mentions & notifications",
-  "Deliverable review & tracking",
-  "Project workspaces",
-  "Task templates & subtasks",
-  "File uploads & versioning",
-  "Approval workflows",
-  "Global search",
-  "Advanced analytics",
-  "Email support",
-];
-
-const yearlyMonthly = Math.round((PRICING.yearly / 12) * 100) / 100;
-const savingsPercent = Math.round((1 - PRICING.yearly / (PRICING.monthly * 12)) * 100);
+const PLAN_FEATURES: Record<
+  PlanKey,
+  { recurringTasks: boolean; cloudVMs: boolean; support: string | null }
+> = {
+  starter: { recurringTasks: false, cloudVMs: false, support: null },
+  pro: { recurringTasks: true, cloudVMs: false, support: "Email support" },
+  scale: { recurringTasks: true, cloudVMs: true, support: "Priority support" },
+};
 
 export default function Pricing() {
-  const { checkout, isLoading } = useCheckout();
-  const [plan, setPlan] = useState<BillingPlan>(DEFAULT_PLAN);
+  const { checkout, isLoading, loadingTier } = useCheckout();
+  const [billing, setBilling] = useState<BillingPlan>(DEFAULT_PLAN);
 
-  const displayPrice = plan === "monthly" ? PRICING.monthly : yearlyMonthly;
-  const period = plan === "monthly" ? "month" : "month";
+  const savingsPercent = Math.round((1 - PLANS.pro.yearly / (PLANS.pro.monthly * 12)) * 100);
 
   return (
     <section id="pricing" className="py-24 px-4 bg-neutral-950">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">Simple Pricing</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
+            Simple, Transparent Pricing
+          </h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-            One plan. Everything included. No surprises.
+            Pick the plan that fits your team. All plans include the full product — no hidden
+            feature gates.
           </p>
         </ScrollReveal>
 
         {/* Billing toggle */}
-        <ScrollReveal className="flex items-center justify-center gap-3 mb-10" staggerIndex={0}>
+        <ScrollReveal className="flex items-center justify-center gap-3 mb-12" staggerIndex={0}>
           <button
-            onClick={() => setPlan("monthly")}
+            onClick={() => setBilling("monthly")}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              plan === "monthly"
+              billing === "monthly"
                 ? "bg-primary-500/20 text-primary-400 border border-primary-500/30"
                 : "text-neutral-400 hover:text-neutral-200"
             }`}
@@ -57,9 +56,9 @@ export default function Pricing() {
             Monthly
           </button>
           <button
-            onClick={() => setPlan("yearly")}
+            onClick={() => setBilling("yearly")}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              plan === "yearly"
+              billing === "yearly"
                 ? "bg-primary-500/20 text-primary-400 border border-primary-500/30"
                 : "text-neutral-400 hover:text-neutral-200"
             }`}
@@ -73,82 +72,175 @@ export default function Pricing() {
           </button>
         </ScrollReveal>
 
-        <ScrollReveal
-          staggerIndex={1}
-          className="relative p-8 md:p-12 rounded-2xl bg-primary-500/10 border-2 border-primary-500"
-        >
-          <div className="text-center mb-8">
-            <div className="flex items-baseline justify-center gap-1 mb-3">
-              <span className="text-5xl md:text-6xl font-bold text-neutral-100">
-                ${Math.floor(displayPrice)}
-              </span>
-              {/* Show cents only if not a round number */}
-              {displayPrice % 1 !== 0 && (
-                <span className="text-2xl font-bold text-neutral-100">
-                  .{String(Math.round((displayPrice % 1) * 100)).padStart(2, "0")}
-                </span>
-              )}
-              <span className="text-xl text-neutral-400">/{period}</span>
-            </div>
-            {plan === "yearly" && (
-              <p className="text-sm text-neutral-400 mb-2">Billed as ${PRICING.yearly}/year</p>
-            )}
-            <p className="text-neutral-300 text-lg">
-              Everything you need to manage your AI agent team
-            </p>
-          </div>
+        {/* Plan cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          {PLAN_KEYS.map((key, idx) => {
+            const plan = PLANS[key];
+            const features = PLAN_FEATURES[key];
+            const price = billing === "monthly" ? plan.monthly : Math.round(plan.yearly / 12);
+            const isRecommended = plan.recommended;
+            const isThisLoading = isLoading && loadingTier === key;
 
-          <ul className="grid sm:grid-cols-2 gap-3 mb-10" aria-label="Plan features">
-            {features.map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-3 text-neutral-300">
-                <Check className="w-5 h-5 flex-shrink-0 text-primary-400" aria-hidden="true" />
-                {feature}
-              </li>
-            ))}
-          </ul>
+            return (
+              <ScrollReveal
+                key={key}
+                staggerIndex={idx + 1}
+                className={`relative flex flex-col p-8 rounded-2xl transition-colors ${
+                  isRecommended
+                    ? "bg-primary-500/10 border-2 border-primary-500"
+                    : "bg-neutral-800/50 border border-neutral-700"
+                }`}
+              >
+                {isRecommended && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span className="px-3 py-1 text-xs font-semibold bg-primary-500 text-white rounded-full whitespace-nowrap">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
 
-          <div className="text-center">
-            {plan === "monthly" && (
-              <p className="text-sm font-medium text-success-400 mb-3">
-                14-day free trial — no charge today
-              </p>
-            )}
-            <button
-              onClick={() => {
-                trackBeginCheckout(
-                  "AgentCenter Cloud",
-                  plan,
-                  plan === "monthly" ? PRICING.monthly : PRICING.yearly
-                );
-                checkout(plan);
-              }}
-              disabled={isLoading}
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
-            >
-              {isLoading ? "Loading…" : plan === "monthly" ? "Start Free Trial" : "Subscribe Now"}
-              {!isLoading && (
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                  aria-hidden="true"
-                />
-              )}
-            </button>
-            <p className="text-neutral-500 text-sm mt-4">Cancel anytime. Powered by Stripe.</p>
-          </div>
+                {/* Header */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-neutral-100 mb-1">{plan.name}</h3>
+                  <p className="text-sm text-neutral-400">{plan.description}</p>
+                </div>
 
-          {/* Claude requirement — part of this plan, not a separate plan */}
-          <div className="mt-8 pt-6 border-t border-primary-500/20">
-            <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-3">
-              Also required
-            </p>
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-neutral-100">${price}</span>
+                    <span className="text-neutral-400">/mo</span>
+                  </div>
+                  {billing === "yearly" && (
+                    <p className="text-xs text-neutral-500 mt-1">Billed as ${plan.yearly}/year</p>
+                  )}
+                </div>
+
+                {/* CTA */}
+                <button
+                  onClick={() => {
+                    trackBeginCheckout(
+                      `AgentCenter ${plan.name}`,
+                      billing,
+                      billing === "monthly" ? plan.monthly : plan.yearly
+                    );
+                    checkout({ tier: key, billing });
+                  }}
+                  disabled={isLoading}
+                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-colors mb-8 ${
+                    isRecommended
+                      ? "bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/30"
+                      : "bg-neutral-700 hover:bg-neutral-600 text-neutral-100"
+                  } disabled:opacity-50`}
+                >
+                  {isThisLoading ? "Loading…" : "Get Started"}
+                  {!isThisLoading && (
+                    <ArrowRight
+                      size={16}
+                      className="group-hover:translate-x-1 transition-transform"
+                      aria-hidden="true"
+                    />
+                  )}
+                </button>
+
+                <p className="text-xs text-center text-neutral-500 -mt-6 mb-6">
+                  Cancel anytime. Powered by Stripe.
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-3 flex-1" aria-label={`${plan.name} plan features`}>
+                  {/* Agent + project limits */}
+                  <li className="flex items-start gap-3 text-sm text-neutral-300">
+                    <Check
+                      className="w-4 h-4 flex-shrink-0 text-primary-400 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    {plan.agents} AI agents
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-neutral-300">
+                    <Check
+                      className="w-4 h-4 flex-shrink-0 text-primary-400 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    {plan.projects} projects
+                  </li>
+
+                  {/* Core features — always included */}
+                  {[
+                    "Kanban task management",
+                    "Real-time agent status",
+                    "@Mentions & notifications",
+                    "Deliverable review & tracking",
+                    "Team channels & DMs",
+                    "Advanced analytics",
+                    "Approval workflows",
+                    "Global search",
+                  ].map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-neutral-300">
+                      <Check
+                        className="w-4 h-4 flex-shrink-0 text-primary-400 mt-0.5"
+                        aria-hidden="true"
+                      />
+                      {feature}
+                    </li>
+                  ))}
+
+                  {/* Plan-gated features */}
+                  <li
+                    className={`flex items-start gap-3 text-sm ${features.recurringTasks ? "text-neutral-300" : "text-neutral-600"}`}
+                  >
+                    {features.recurringTasks ? (
+                      <Check
+                        className="w-4 h-4 flex-shrink-0 text-primary-400 mt-0.5"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <X className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    )}
+                    Recurring tasks
+                  </li>
+                  <li
+                    className={`flex items-start gap-3 text-sm ${features.cloudVMs ? "text-neutral-300" : "text-neutral-600"}`}
+                  >
+                    {features.cloudVMs ? (
+                      <Check
+                        className="w-4 h-4 flex-shrink-0 text-primary-400 mt-0.5"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <X className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    )}
+                    Cloud VM provisioning
+                  </li>
+                  <li
+                    className={`flex items-start gap-3 text-sm ${features.support ? "text-neutral-300" : "text-neutral-600"}`}
+                  >
+                    {features.support ? (
+                      <Check
+                        className="w-4 h-4 flex-shrink-0 text-primary-400 mt-0.5"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <X className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    )}
+                    {features.support ?? "No dedicated support"}
+                  </li>
+                </ul>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+
+        {/* Claude requirement */}
+        <ScrollReveal staggerIndex={4} className="mb-6">
+          <div className="p-5 rounded-xl bg-neutral-800/30 border border-neutral-700/50">
             <div className="flex items-start gap-3">
               <span className="text-base mt-0.5" role="img" aria-label="Key">
                 🔑
               </span>
               <div>
                 <p className="text-sm text-neutral-300 font-medium mb-1">
-                  Your own Claude Pro or Max subscription
+                  Your own Claude Pro or Max subscription is also required
                 </p>
                 <p className="text-sm text-neutral-500">
                   AgentCenter is the dashboard — Claude is the engine. You bring your own Anthropic
@@ -161,7 +253,7 @@ export default function Pricing() {
         </ScrollReveal>
 
         {/* Self-hosting teaser */}
-        <ScrollReveal staggerIndex={2} className="mt-6">
+        <ScrollReveal staggerIndex={5}>
           <Link
             href="/self-hosting"
             className="group block p-6 rounded-xl bg-neutral-800/50 border border-neutral-700 hover:border-neutral-500 transition-colors"

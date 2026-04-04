@@ -4,12 +4,14 @@ import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ArrowRight, Users } from "@/components/icons";
-import { AFFILIATE } from "@/lib/constants";
+import { AFFILIATE, PLANS, PLAN_KEYS, type PlanKey } from "@/lib/constants";
 
 const EarningsCalculator = () => {
   const [referrals, setReferrals] = useState(10);
+  const [selectedPlan, setSelectedPlan] = useState<PlanKey>("pro");
 
-  const monthlyEarnings = AFFILIATE.monthlyCommission * referrals;
+  const commissionPerReferral = AFFILIATE.commissions[selectedPlan];
+  const monthlyEarnings = commissionPerReferral * referrals;
   const yearlyEarnings = monthlyEarnings * 12;
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,17 +27,40 @@ const EarningsCalculator = () => {
               Your Earning Potential
             </h2>
             <p className="text-lg text-neutral-400">
-              With{" "}
+              Earn{" "}
               <span className="text-primary-400 font-semibold">
-                ${AFFILIATE.monthlyCommission.toFixed(2)}
+                ${AFFILIATE.commissions.starter}–${AFFILIATE.commissions.scale}
               </span>{" "}
-              per referral per month, your earnings scale with every new customer you bring.
+              per referral per month depending on their plan.
             </p>
           </ScrollReveal>
 
-          {/* Slider Section */}
           <ScrollReveal staggerIndex={0} className="mb-12">
             <div className="p-6 md:p-8 rounded-2xl bg-neutral-800/50 border border-neutral-700">
+              {/* Plan selector */}
+              <div className="mb-6">
+                <p className="text-sm font-semibold text-neutral-400 mb-3">Referral&apos;s plan</p>
+                <div className="grid grid-cols-3 gap-2">
+                  {PLAN_KEYS.map((key) => (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedPlan(key)}
+                      className={`flex flex-col items-center py-3 px-2 rounded-xl border text-sm font-medium transition-colors ${
+                        selectedPlan === key
+                          ? "bg-primary-500/20 border-primary-500 text-primary-400"
+                          : "bg-neutral-900/50 border-neutral-700 text-neutral-400 hover:border-neutral-500"
+                      }`}
+                    >
+                      <span className="font-semibold">{PLANS[key].name}</span>
+                      <span className="text-xs mt-0.5 opacity-70">
+                        ${PLANS[key].monthly}/mo → ${AFFILIATE.commissions[key]}/mo
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Slider */}
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-4">
                   <label
@@ -70,14 +95,16 @@ const EarningsCalculator = () => {
                 </div>
               </div>
 
-              {/* Earnings Display */}
+              {/* Earnings display */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-5 rounded-xl bg-neutral-900/50 border border-neutral-700">
                   <div className="text-sm text-neutral-400 mb-2">Monthly Earnings</div>
                   <div className="text-2xl md:text-3xl font-bold text-neutral-100 mb-1">
                     ${monthlyEarnings.toFixed(2)}
                   </div>
-                  <div className="text-xs text-neutral-500">per month</div>
+                  <div className="text-xs text-neutral-500">
+                    {referrals} × ${commissionPerReferral}/mo ({PLANS[selectedPlan].name} plan)
+                  </div>
                 </div>
                 <div className="p-5 rounded-xl bg-primary-500/10 border-2 border-primary-500">
                   <div className="text-sm text-primary-400 mb-2">Yearly Earnings</div>

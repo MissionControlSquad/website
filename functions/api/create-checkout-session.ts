@@ -1,43 +1,83 @@
 import Stripe from "stripe";
 
-// Must mirror BILLING_PLANS and DEFAULT_PLAN from lib/constants.ts
+// Must mirror constants from lib/constants.ts
 // (Pages Functions can't import from the Next.js app bundle)
 const BILLING_PLANS = ["monthly", "yearly"] as const;
 type BillingPlan = (typeof BILLING_PLANS)[number];
-const DEFAULT_PLAN: BillingPlan = "monthly";
+
+const PLAN_KEYS = ["starter", "pro", "scale"] as const;
+type PlanKey = (typeof PLAN_KEYS)[number];
+
+const DEFAULT_BILLING: BillingPlan = "monthly";
+const DEFAULT_TIER: PlanKey = "pro";
 
 interface Env {
   STRIPE_SECRET_KEY: string;
-  STRIPE_PRICE_ID_MONTHLY: string;
-  STRIPE_PRICE_ID_YEARLY: string;
+  STRIPE_PRICE_ID_STARTER_MONTHLY: string;
+  STRIPE_PRICE_ID_STARTER_YEARLY: string;
+  STRIPE_PRICE_ID_PRO_MONTHLY: string;
+  STRIPE_PRICE_ID_PRO_YEARLY: string;
+  STRIPE_PRICE_ID_SCALE_MONTHLY: string;
+  STRIPE_PRICE_ID_SCALE_YEARLY: string;
 }
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
-  const { STRIPE_SECRET_KEY, STRIPE_PRICE_ID_MONTHLY, STRIPE_PRICE_ID_YEARLY } = context.env;
+  const {
+    STRIPE_SECRET_KEY,
+    STRIPE_PRICE_ID_STARTER_MONTHLY,
+    STRIPE_PRICE_ID_STARTER_YEARLY,
+    STRIPE_PRICE_ID_PRO_MONTHLY,
+    STRIPE_PRICE_ID_PRO_YEARLY,
+    STRIPE_PRICE_ID_SCALE_MONTHLY,
+    STRIPE_PRICE_ID_SCALE_YEARLY,
+  } = context.env;
 
-  if (!STRIPE_SECRET_KEY || !STRIPE_PRICE_ID_MONTHLY || !STRIPE_PRICE_ID_YEARLY) {
+  if (
+    !STRIPE_SECRET_KEY ||
+    !STRIPE_PRICE_ID_STARTER_MONTHLY ||
+    !STRIPE_PRICE_ID_STARTER_YEARLY ||
+    !STRIPE_PRICE_ID_PRO_MONTHLY ||
+    !STRIPE_PRICE_ID_PRO_YEARLY ||
+    !STRIPE_PRICE_ID_SCALE_MONTHLY ||
+    !STRIPE_PRICE_ID_SCALE_YEARLY
+  ) {
     return Response.json({ error: "Server misconfigured" }, { status: 500 });
   }
 
   const stripe = new Stripe(STRIPE_SECRET_KEY);
 
-  const priceMap: Record<BillingPlan, string> = {
-    monthly: STRIPE_PRICE_ID_MONTHLY,
-    yearly: STRIPE_PRICE_ID_YEARLY,
+  const priceMap: Record<PlanKey, Record<BillingPlan, string>> = {
+    starter: {
+      monthly: STRIPE_PRICE_ID_STARTER_MONTHLY,
+      yearly: STRIPE_PRICE_ID_STARTER_YEARLY,
+    },
+    pro: {
+      monthly: STRIPE_PRICE_ID_PRO_MONTHLY,
+      yearly: STRIPE_PRICE_ID_PRO_YEARLY,
+    },
+    scale: {
+      monthly: STRIPE_PRICE_ID_SCALE_MONTHLY,
+      yearly: STRIPE_PRICE_ID_SCALE_YEARLY,
+    },
   };
 
-  let plan: BillingPlan = DEFAULT_PLAN;
+  let tier: PlanKey = DEFAULT_TIER;
+  let billing: BillingPlan = DEFAULT_BILLING;
   let referral: string | undefined;
 
   try {
     const body = (await context.request.json()) as {
-      plan?: string;
+      tier?: string;
+      billing?: string;
       referral?: string;
     };
 
-    // Validate plan against allowlist
-    if (body.plan && BILLING_PLANS.includes(body.plan as BillingPlan)) {
-      plan = body.plan as BillingPlan;
+    if (body.tier && PLAN_KEYS.includes(body.tier as PlanKey)) {
+      tier = body.tier as PlanKey;
+    }
+
+    if (body.billing && BILLING_PLANS.includes(body.billing as BillingPlan)) {
+      billing = body.billing as BillingPlan;
     }
 
     // Validate referral UUID format
@@ -50,19 +90,20 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     // No body or invalid JSON — defaults apply
   }
 
+  const priceId = priceMap[tier][billing];
   const url = new URL(context.request.url);
   const origin = url.origin;
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
-      line_items: [{ price: priceMap[plan], quantity: 1 }],
+      line_items: [{ price: priceId, quantity: 1 }],
       allow_promotion_codes: true,
       success_url: `${origin}/thank-you/purchase?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/pricing`,
-      ...(plan === "monthly" ? { subscription_data: { trial_period_days: 14 } } : {}),
       metadata: {
-        plan,
+        tier,
+        billing,
         ...(referral ? { endorsely_referral: referral } : {}),
       },
     });
