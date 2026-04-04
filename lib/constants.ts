@@ -159,7 +159,7 @@ export const LIFETIME_DEAL = {
 /** Self-hosting pricing configuration */
 export const SELFHOSTING_PRICING = {
   monthly: 99,
-  yearly: 999, // $99 × 12 = $1,188 − 16% = ~$999
+  yearly: 999, // $99 × 12 = $1,188 − ~15.9% ≈ $999 (displayed as ~16% off)
   yearlyDiscount: 16,
   currency: "USD",
 } as const;
