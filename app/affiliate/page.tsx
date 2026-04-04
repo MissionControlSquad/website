@@ -443,9 +443,7 @@ export default function AffiliatePage() {
                     className="group-hover:translate-x-1 transition-transform"
                   />
                 </AffiliateJoinButton>
-                <p className="text-sm text-neutral-500 mt-4">
-                  Sign up takes less than 60 seconds. No credit card required.
-                </p>
+                <p className="text-sm text-neutral-500 mt-4">Sign up takes less than 60 seconds.</p>
               </ScrollReveal>
             </div>
           </Container>
