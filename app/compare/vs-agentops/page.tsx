@@ -35,7 +35,7 @@ AgentCenter and AgentOps both serve AI agent workflows, but from completely diff
 
 ## Quick Summary
 
-**AgentCenter** is the management dashboard and control plane for AI agents built with OpenClaw. It provides Kanban-based task assignment, deliverable review, approval workflows, and team collaboration — from $14/month regardless of team size.
+**AgentCenter** is the management dashboard and control plane for AI agents built with OpenClaw. It provides Kanban-based task assignment, deliverable review, approval workflows, and agent coordination — from $14/month.
 
 **AgentOps** is an observability and debugging platform for AI agents. It provides session-level tracing, LLM call recording, cost tracking, replay debugging, and evaluation — priced on a usage-based model with a free tier (up to 10k events/month).
 
@@ -48,7 +48,7 @@ AgentCenter and AgentOps both serve AI agent workflows, but from completely diff
 | Feature | AgentCenter | AgentOps |
 |---|---|---|
 | **Primary focus** | Agent task management & coordination | Agent observability & debugging |
-| **Pricing** | from $14/mo — unlimited users | Free (10k events/mo) / pay-as-you-scale |
+| **Pricing** | from $14/mo | Free (10k events/mo) / pay-as-you-scale |
 | **Task management** | ✅ Kanban with assignments & priorities | ❌ Not a task manager |
 | **Deliverable review** | ✅ Built-in approval workflows | ❌ Not designed for output review |
 | **LLM session replay** | ❌ Not an observability tool | ✅ Full session replay & trace |
@@ -92,11 +92,10 @@ AgentOps is an **instrumentation layer** that wraps your agent code. Add one imp
 | **Free tier** | No | Yes — 10,000 events/month |
 | **Starter** | from $14/mo — all features | Usage-based (cents per event above free tier) |
 | **Enterprise** | Contact for custom | Custom pricing with SLAs |
-| **Per-seat pricing** | No — flat rate | No — usage-based |
-| **Unlimited users** | ✅ Yes | ✅ Yes |
+| **Pricing model** | Flat rate by agent count | Usage-based |
 | **Self-hosted** | Yes (Hetzner Cloud) | Enterprise tier |
 
-**Key insight:** For solo developers building agents, AgentOps' free tier makes it an obvious starting point. AgentCenter's pricing from $14/month becomes compelling when you have a team reviewing agent output — you pay once, everyone gets access, with no per-seat costs as the team grows.
+**Key insight:** For solo developers building agents, AgentOps' free tier makes it an obvious starting point. AgentCenter's pricing from $14/month becomes compelling when you need to manage, review, and track agent deliverables — flat plans based on how many agents you run.
 
 ---
 
@@ -110,7 +109,7 @@ AgentOps' core workflow is: *Agent executes → Every step is recorded → Devel
 
 ### 2. Stakeholder Audiences Are Different
 
-AgentCenter is designed so that anyone on the team can use it — a product manager reviewing a content brief, an account manager checking task status, an engineer approving a code snippet. The interface is intentionally non-technical.
+AgentCenter is designed so that anyone can use it without technical knowledge — review a content brief, check task status, approve a code snippet. The interface is intentionally non-technical.
 
 AgentOps is designed for developers and ML engineers. Its session replay, trace trees, and token-level metrics are most useful when you understand agent architecture and LLM internals.
 
@@ -124,7 +123,7 @@ AgentOps' pricing scales with usage, which is favorable when events are low and 
 
 This is where it gets strategic: you'll often want both.
 
-Use AgentCenter to manage the business loop — assign tasks, review deliverables, coordinate teams. Use AgentOps to manage the technical loop — debug failures, optimize token usage, monitor costs.
+Use AgentCenter to manage the business loop — assign tasks, review deliverables, coordinate agents. Use AgentOps to manage the technical loop — debug failures, optimize token usage, monitor costs.
 
 The two tools rarely overlap because they measure different things at different layers of the same system.
 
@@ -150,10 +149,10 @@ The two tools rarely overlap because they measure different things at different 
 
 Choose AgentCenter if your primary need is:
 - Organizing agent work through task assignment and Kanban workflows
-- Giving non-technical team members visibility into agent output
+- Getting visibility into agent output without technical tooling
 - Reviewing and approving agent deliverables before they ship
 - Managing multiple agents across projects with consistent processes
-- Predictable flat pricing as your team and agent count grows
+- Predictable flat pricing based on agent count
 
 ## When to Choose AgentOps
 
