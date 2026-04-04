@@ -2,8 +2,15 @@
 # .dev.vars is loaded automatically by `wrangler pages dev`
 
 STRIPE_SECRET_KEY=sk_test_xxx
-STRIPE_PRICE_ID_MONTHLY=price_xxx
-STRIPE_PRICE_ID_YEARLY=price_xxx
+
+# Cloud plans — 3 tiers × monthly/yearly
+STRIPE_PRICE_ID_STARTER_MONTHLY=price_xxx
+STRIPE_PRICE_ID_STARTER_YEARLY=price_xxx
+STRIPE_PRICE_ID_PRO_MONTHLY=price_xxx
+STRIPE_PRICE_ID_PRO_YEARLY=price_xxx
+STRIPE_PRICE_ID_SCALE_MONTHLY=price_xxx
+STRIPE_PRICE_ID_SCALE_YEARLY=price_xxx
+
 STRIPE_PRODUCT_ID_LIFETIME=prod_xxx
 
 STRIPE_PRICE_ID_SELFHOST_MONTHLY=price_xxx

@@ -18,7 +18,7 @@ import {
   Clock,
   Sparkles,
 } from "@/components/icons";
-import { ogImage, SITE_CONFIG, PRICING, AFFILIATE } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS, AFFILIATE } from "@/lib/constants";
 import AffiliateJoinButton from "@/components/AffiliateJoinButton";
 
 export const metadata: Metadata = {
@@ -103,7 +103,7 @@ const howItWorks = [
 const faqs = [
   {
     question: "How much can I earn?",
-    answer: `You earn ${(AFFILIATE.commissionRate * 100).toFixed(0)}% of every subscription payment. Since AgentCenter costs $${PRICING.monthly}/month, you'll earn $${AFFILIATE.monthlyCommission.toFixed(2)} per referral per month. With 10 active referrals, that's $${(AFFILIATE.monthlyCommission * 10).toFixed(2)}/month or $${(AFFILIATE.monthlyCommission * 10 * 12).toFixed(2)}/year in passive income.`,
+    answer: `You earn ${(AFFILIATE.commissionRate * 100).toFixed(0)}% of every subscription payment — the exact amount depends on which plan your referral is on. Starter ($${PLANS.starter.monthly}/mo) earns you $${AFFILIATE.commissions.starter}/mo per referral. Pro ($${PLANS.pro.monthly}/mo) earns $${AFFILIATE.commissions.pro}/mo. Scale ($${PLANS.scale.monthly}/mo) earns $${AFFILIATE.commissions.scale}/mo. With 10 active Pro referrals that's $${(AFFILIATE.commissions.pro * 10).toFixed(2)}/month — $${(AFFILIATE.commissions.pro * 10 * 12).toFixed(2)}/year.`,
   },
   {
     question: "When do I get paid?",
@@ -177,8 +177,9 @@ export default function AffiliatePage() {
                   Help others discover AgentCenter and earn recurring passive income. Every active
                   referral pays you{" "}
                   <span className="text-primary-400 font-semibold">
-                    ${AFFILIATE.monthlyCommission.toFixed(2)}/month.
-                  </span>
+                    ${AFFILIATE.commissions.starter}–${AFFILIATE.commissions.scale}/month
+                  </span>{" "}
+                  depending on their plan.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <AffiliateJoinButton
@@ -319,8 +320,8 @@ export default function AffiliatePage() {
                         High-Value Product
                       </h3>
                       <p className="text-neutral-400 text-sm">
-                        AgentCenter provides real value at ${PRICING.monthly}/month, making it easy
-                        to justify and recommend.
+                        AgentCenter provides real value from ${PLANS.starter.monthly}/month, making
+                        it easy to justify and recommend.
                       </p>
                     </div>
                   </div>
@@ -429,7 +430,8 @@ export default function AffiliatePage() {
                 </h2>
                 <p className="text-lg text-neutral-400 mb-8">
                   Join our affiliate program today and start earning $
-                  {AFFILIATE.monthlyCommission.toFixed(2)} per referral, every month.
+                  {AFFILIATE.commissions.starter}–${AFFILIATE.commissions.scale} per referral, every
+                  month.
                 </p>
                 <AffiliateJoinButton
                   href={AFFILIATE.url}
