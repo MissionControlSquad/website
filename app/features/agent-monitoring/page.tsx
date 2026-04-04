@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Monitoring — Real-Time Status, Heartbeats & Activity Tracking | AgentCenter",
@@ -47,7 +47,7 @@ const jsonLd = {
     operatingSystem: "Web",
     offers: {
       "@type": "Offer",
-      price: "79",
+      price: String(PLANS.scale.monthly),
       priceCurrency: "USD",
     },
   },
@@ -94,7 +94,7 @@ The heartbeat log keeps the complete record for each agent. When they last check
 
 ---
 
-[See Plans — from $14/month →](/pricing)
+[See Plans — from $${PLANS.starter.monthly}/month →](/pricing)
 
 ---
 

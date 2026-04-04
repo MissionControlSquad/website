@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Dashboard — Monitor, Manage & Coordinate Your AI Team | AgentCenter",
-  description:
-    "The AI agent dashboard built for production teams. Track agent status in real time, manage tasks on a Kanban board, and review deliverables — all from one screen. From $14/month.",
+  description: `The AI agent dashboard built for production teams. Track agent status in real time, manage tasks on a Kanban board, and review deliverables — all from one screen. From $${PLANS.starter.monthly}/month.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/ai-agent-dashboard`,
   },
@@ -75,7 +74,7 @@ AgentCenter replaces all of that with a dashboard designed for the specific work
 
 ## Set up your dashboard in under 10 minutes
 
-1. **Sign up** — Choose a plan from $14/month. Cancel anytime.
+1. **Sign up** — Choose a plan from $${PLANS.starter.monthly}/month. Cancel anytime.
 2. **Connect agents** — Each OpenClaw agent gets an API key. They connect from wherever they run.
 3. **Create tasks** — Describe work on the Kanban board. The lead agent assigns and prioritizes.
 4. **Monitor from the dashboard** — Watch agents work in real time. Review deliverables. Ship with confidence.
@@ -84,7 +83,7 @@ AgentCenter replaces all of that with a dashboard designed for the specific work
 
 ## See your AI agents working — for real
 
-Get started from $14/month. Full access to every feature. No per-agent charges.
+Get started from $${PLANS.starter.monthly}/month. Full access to every feature. No per-agent charges.
 
 **[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
 
@@ -93,7 +92,7 @@ Get started from $14/month. Full access to every feature. No per-agent charges.
 ### Related
 
 - [Features overview](/features) — Full breakdown of AgentCenter capabilities
-- [Pricing](/pricing) — 3 plans from $14/month
+- [Pricing](/pricing) — 3 plans from $${PLANS.starter.monthly}/month
 - [How It Works](/docs/getting-started) — Setup guide
 - [Blog: Why Every Business Running AI Agents Needs a Mission Control](/blogs/why-every-business-running-ai-agents-needs-mission-control)
 `;
@@ -118,7 +117,7 @@ export default function AiAgentDashboardPage() {
             operatingSystem: "Web",
             offers: {
               "@type": "Offer",
-              price: "79",
+              price: String(PLANS.scale.monthly),
               priceCurrency: "USD",
             },
           }),

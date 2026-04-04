@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
-import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -249,10 +249,13 @@ export default function TermsOfServicePage() {
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.1 Pricing</h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
-              AgentCenter plans start at <strong className="text-neutral-100">$14/month</strong>{" "}
-              (Starter — 5 agents), <strong className="text-neutral-100">$29/month</strong> (Pro —
-              15 agents), and <strong className="text-neutral-100">$79/month</strong> (Scale — 50
-              agents). All plans include the full product — cancel anytime.
+              AgentCenter plans start at{" "}
+              <strong className="text-neutral-100">${PLANS.starter.monthly}/month</strong> (Starter
+              — {PLANS.starter.agents} agents),{" "}
+              <strong className="text-neutral-100">${PLANS.pro.monthly}/month</strong> (Pro —{" "}
+              {PLANS.pro.agents} agents), and{" "}
+              <strong className="text-neutral-100">${PLANS.scale.monthly}/month</strong> (Scale —{" "}
+              {PLANS.scale.agents} agents). All plans include the full product — cancel anytime.
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.2 Billing</h3>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, Zap, CheckCircle } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CAL_LINK, DEFAULT_TIER } from "@/lib/constants";
+import { CAL_LINK, DEFAULT_TIER, PLANS } from "@/lib/constants";
 import { useCheckout } from "@/lib/hooks/useCheckout";
 import { trackCTA } from "@/lib/analytics";
 
@@ -81,7 +81,7 @@ export default function FinalCTA() {
               </span>
               {!isLoading && (
                 <span className="text-xs text-primary-200/70 mt-1">
-                  from $14/mo · cancel anytime
+                  {`from $${PLANS.starter.monthly}/mo · cancel anytime`}
                 </span>
               )}
             </button>

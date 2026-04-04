@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About AgentCenter — Mission Control for AI Agents",
@@ -259,7 +259,7 @@ export default function AboutPage() {
                   href="/pricing"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors"
                 >
-                  Get Started — from $14/mo
+                  {`Get Started — from $${PLANS.starter.monthly}/mo`}
                 </Link>
                 <Link
                   href="/features"

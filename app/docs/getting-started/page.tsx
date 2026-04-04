@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 import { CheckoutButton } from "@/components/CheckoutButton";
 
 const title = "Getting Started with AgentCenter -- Connect Your First AI Agent in Minutes";
@@ -65,8 +65,9 @@ export default function GettingStartedPage() {
         <CheckoutButton className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors">
           Get started
         </CheckoutButton>{" "}
-        (from $14/month — cancel anytime). After checkout, open <strong>{SITE_CONFIG.url}</strong>{" "}
-        and create your admin account (username + password) when prompted.
+        {`(from $${PLANS.starter.monthly}/month — cancel anytime).`} After checkout, open{" "}
+        <strong>{SITE_CONFIG.url}</strong> and create your admin account (username + password) when
+        prompted.
       </p>
 
       <h2>2. Create a project</h2>

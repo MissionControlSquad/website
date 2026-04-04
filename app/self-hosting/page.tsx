@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import SelfHostingPricingSection from "@/components/sections/SelfHostingPricingSection";
 import { Container } from "@/components/ui/Container";
 import { Shield, ShieldCheck, Activity, DollarSign, GitBranch, Monitor } from "@/components/icons";
-import { ogImage, CONTACT_EMAIL, SITE_CONFIG, SELFHOSTING_PRICING } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, SELFHOSTING_PRICING, PLANS } from "@/lib/constants";
 
 const PAGE_URL = `${SITE_CONFIG.url}/self-hosting`;
 const DATE_PUBLISHED = "2026-03-12";
@@ -67,8 +67,7 @@ const faqs = [
   },
   {
     question: "Is there a free trial for self-hosting?",
-    answer:
-      "No free trial for self-hosting. The setup has real complexity (Docker, server, environment config) that makes a trial impractical. If you're unsure, start with the cloud version from $14/month — same features, no setup required. You can switch to self-hosting later.",
+    answer: `No free trial for self-hosting. The setup has real complexity (Docker, server, environment config) that makes a trial impractical. If you're unsure, start with the cloud version from $${PLANS.starter.monthly}/month — same features, no setup required. You can switch to self-hosting later.`,
   },
   {
     question: "Can I run multiple instances on one self-hosting license?",
@@ -92,7 +91,7 @@ const faqs = [
   },
   {
     question: "What is the difference between self-hosted and cloud AgentCenter?",
-    answer: `Self-hosted runs entirely on your own infrastructure — you control the server, the data, and the environment. The cloud version (from $14/month) is hosted by us on Hetzner Cloud, requires no setup, and is ready in minutes. Self-hosting costs $${SELFHOSTING_PRICING.monthly}/month and gives you full data sovereignty.`,
+    answer: `Self-hosted runs entirely on your own infrastructure — you control the server, the data, and the environment. The cloud version (from $${PLANS.starter.monthly}/month) is hosted by us on Hetzner Cloud, requires no setup, and is ready in minutes. Self-hosting costs $${SELFHOSTING_PRICING.monthly}/month and gives you full data sovereignty.`,
   },
   {
     question: "What are the server requirements for self-hosted AgentCenter?",
@@ -244,10 +243,14 @@ function buildFaqSchema() {
 const comparisonRows = [
   {
     feature: "Monthly price",
-    cloud: "from $14/month",
+    cloud: `from $${PLANS.starter.monthly}/month`,
     self: `$${SELFHOSTING_PRICING.monthly}/month`,
   },
-  { feature: "Annual price", cloud: "from $140/year", self: `$${SELFHOSTING_PRICING.yearly}/year` },
+  {
+    feature: "Annual price",
+    cloud: `from $${PLANS.starter.yearly}/year`,
+    self: `$${SELFHOSTING_PRICING.yearly}/year`,
+  },
   { feature: "Setup time", cloud: "Instant", self: "~15 min (Docker)" },
   { feature: "Data location", cloud: "Hetzner Cloud (EU)", self: "Your infrastructure" },
   { feature: "Data sovereignty", cloud: "Our servers", self: "100% your control" },
@@ -300,7 +303,7 @@ const benefits = [
   {
     icon: DollarSign,
     title: "Fixed Cost, No Matter How Many Agents",
-    body: "$99/month whether you run 3 agents or 30. No per-agent pricing, no execution caps, no surprise overage bills mid-sprint. As your agent team grows, your license cost doesn't move.",
+    body: `$${SELFHOSTING_PRICING.monthly}/month whether you run 3 agents or 30. No per-agent pricing, no execution caps, no surprise overage bills mid-sprint. As your agent team grows, your license cost doesn't move.`,
   },
   {
     icon: GitBranch,
@@ -466,7 +469,7 @@ export default function SelfHostingPage() {
                   href="/pricing"
                   className="text-primary-400 hover:text-primary-300 underline underline-offset-2 transition-colors"
                 >
-                  See cloud plans from $14/month
+                  {`See cloud plans from $${PLANS.starter.monthly}/month`}
                 </Link>{" "}
                 — same features, zero setup.
               </p>

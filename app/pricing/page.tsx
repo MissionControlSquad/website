@@ -4,26 +4,23 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingSection from "@/components/sections/Pricing";
 import { Container } from "@/components/ui/Container";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pricing — Plans from $14/mo | AgentCenter",
-  description:
-    "AgentCenter pricing: Starter $14/mo, Pro $29/mo, Scale $79/mo. No hidden fees. Cancel anytime. Powered by Stripe.",
+  title: `Pricing — Plans from $${PLANS.starter.monthly}/mo | AgentCenter`,
+  description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo, Pro $${PLANS.pro.monthly}/mo, Scale $${PLANS.scale.monthly}/mo. No hidden fees. Cancel anytime. Powered by Stripe.`,
   alternates: { canonical: `${SITE_CONFIG.url}/pricing` },
   openGraph: {
-    title: "Pricing | AgentCenter — Plans from $14/mo",
-    description:
-      "AgentCenter pricing: Starter $14/mo (5 agents), Pro $29/mo (15 agents), Scale $79/mo (50 agents). Cancel anytime. No lock-in.",
+    title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
     url: `${SITE_CONFIG.url}/pricing`,
     type: "website",
     images: [ogImage("pricing")],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing | AgentCenter — Plans from $14/mo",
-    description:
-      "AgentCenter pricing: Starter $14/mo (5 agents), Pro $29/mo (15 agents), Scale $79/mo (50 agents). Cancel anytime. No lock-in.",
+    title: `Pricing | AgentCenter — Plans from $${PLANS.starter.monthly}/mo`,
+    description: `AgentCenter pricing: Starter $${PLANS.starter.monthly}/mo (${PLANS.starter.agents} agents), Pro $${PLANS.pro.monthly}/mo (${PLANS.pro.agents} agents), Scale $${PLANS.scale.monthly}/mo (${PLANS.scale.agents} agents). Cancel anytime. No lock-in.`,
     images: [ogImage("pricing")],
   },
 };
@@ -46,8 +43,7 @@ const faqs = [
   },
   {
     question: "Is there an annual discount?",
-    answer:
-      "Yes — paying yearly saves you 2 months (roughly 17% off). Starter drops to $140/yr, Pro to $290/yr, and Scale to $790/yr.",
+    answer: `Yes — paying yearly saves you 2 months (roughly 17% off). Starter drops to $${PLANS.starter.yearly}/yr, Pro to $${PLANS.pro.yearly}/yr, and Scale to $${PLANS.scale.yearly}/yr.`,
   },
   {
     question: "Do I need anything else besides AgentCenter?",

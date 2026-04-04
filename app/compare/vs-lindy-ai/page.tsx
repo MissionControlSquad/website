@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Lindy AI — AI Agent Platform Comparison",
@@ -35,7 +35,7 @@ AgentCenter and Lindy AI both work in the AI agent space, but they solve fundame
 
 ## Quick Summary
 
-**AgentCenter** is a mission control dashboard for teams running OpenClaw agents. You get Kanban-based task management, deliverable review, approval workflows, @mention messaging, and real-time agent monitoring — from $14/month. It's built for teams that need structured, human-supervised agent work at scale.
+**AgentCenter** is a mission control dashboard for teams running OpenClaw agents. You get Kanban-based task management, deliverable review, approval workflows, @mention messaging, and real-time agent monitoring — from $${PLANS.starter.monthly}/month. It's built for teams that need structured, human-supervised agent work at scale.
 
 **Lindy AI** is a no-code platform for building personal AI assistants called "Lindys." Each Lindy connects to your apps (Gmail, Slack, Salesforce, Notion) and automates workflows: triaging emails, scheduling meetings, updating CRM records, routing customer queries. Lindys are triggered by events and run automatically without ongoing supervision.
 
@@ -48,7 +48,7 @@ AgentCenter and Lindy AI both work in the AI agent space, but they solve fundame
 | Feature | AgentCenter | Lindy AI |
 |---|---|---|
 | **Primary focus** | Agent team management & control | Personal AI workflow automation |
-| **Pricing** | from $14/mo | Free (limited) / $49/mo Pro / custom |
+| **Pricing** | from $${PLANS.starter.monthly}/mo | Free (limited) / $49/mo Pro / custom |
 | **Agent type** | Structured team agents (OpenClaw) | Personal assistants ("Lindys") |
 | **No-code builder** | No — manages existing agents | Yes — visual trigger/action builder |
 | **Task management** | Kanban boards with parent-child tasks | Not a core feature |
@@ -93,12 +93,12 @@ Lindy AI is an **event-driven automation platform** that lives inside your exist
 | Plan | AgentCenter | Lindy AI |
 |---|---|---|
 | **Free tier** | No | Yes — limited Lindy runs |
-| **Starter / Pro** | from $14/mo — all features | $49/mo — unlimited Lindys, 5,000 tasks/mo |
+| **Starter / Pro** | from $${PLANS.starter.monthly}/mo — all features | $49/mo — unlimited Lindys, 5,000 tasks/mo |
 | **Team / Business** | Contact for custom | Team plans (custom) |
 | **LLM costs** | Separate (BYO API key) | Included (built-in model access) |
 | **Per-task charges** | None | Task credits (unlimited on Pro) |
 
-**Key insight:** Lindy AI is $49/month and includes LLM costs. AgentCenter starts at $14/month and adds structured team management, deliverable review, and multi-agent coordination. If you need automation in your inbox and calendar, Lindy wins on speed. If you need a team of AI agents doing reviewable work, AgentCenter is the right layer.
+**Key insight:** Lindy AI is $49/month and includes LLM costs. AgentCenter starts at $${PLANS.starter.monthly}/month and adds structured team management, deliverable review, and multi-agent coordination. If you need automation in your inbox and calendar, Lindy wins on speed. If you need a team of AI agents doing reviewable work, AgentCenter is the right layer.
 
 ---
 
@@ -127,7 +127,7 @@ Lindy AI is an **event-driven automation platform** that lives inside your exist
 ## Pros and Cons
 
 ### AgentCenter Pros
-- From $14/mo with no per-execution charges
+- From $${PLANS.starter.monthly}/mo with no per-execution charges
 - Built-in Kanban, task management, and deliverable review
 - Multi-agent team coordination with @mentions
 - Approval workflows for human oversight
@@ -183,7 +183,7 @@ Lindy AI is one of the best platforms for building personal AI assistants that a
 
 AgentCenter is the right choice when you need more than automation — when you need a team of specialized AI agents doing structured, reviewable work. Task management, deliverable review, approval gates, and multi-agent coordination are what AgentCenter is built for.
 
-**Ready to put your AI agent team on a control plane?** [Start with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $14/month, cancel anytime.
+**Ready to put your AI agent team on a control plane?** [Start with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
 `;
 
 export default function Page() {
