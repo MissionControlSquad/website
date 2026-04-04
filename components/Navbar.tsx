@@ -178,9 +178,9 @@ export default function Navbar() {
                   ) : (
                     <span className="flex items-center gap-1.5">
                       <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                        14 days free
+                        from $14/mo
                       </span>
-                      Start Free Trial
+                      Get Started
                     </span>
                   )}
                 </Button>

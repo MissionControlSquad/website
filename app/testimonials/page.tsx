@@ -131,8 +131,8 @@ const caseStudies = [
 const stats = [
   { value: "12", label: "Agent Templates" },
   { value: "< 15 min", label: "Average Setup Time" },
-  { value: "Unlimited", label: "Agents Per Account" },
-  { value: "26", label: "Features, One Plan" },
+  { value: "Up to 50", label: "Agents Per Account" },
+  { value: "26", label: "Features, 3 Plans" },
 ];
 
 export default function TestimonialsPage() {
@@ -254,14 +254,12 @@ export default function TestimonialsPage() {
               <h2 className="text-3xl font-bold text-neutral-100 mb-4">
                 Ready to run your AI team?
               </h2>
-              <p className="text-neutral-400 mb-2 text-lg">
-                Unlimited agents. Everything included.
-              </p>
+              <p className="text-neutral-400 mb-2 text-lg">Up to 50 agents. Everything included.</p>
               <p className="text-sm text-success-400 font-medium mb-8">
-                14-day free trial — then $79/mo · cancel anytime
+                From $14/mo · cancel anytime
               </p>
               <CheckoutButton className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors">
-                Start Free Trial
+                Get Started
                 <ArrowRight
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"

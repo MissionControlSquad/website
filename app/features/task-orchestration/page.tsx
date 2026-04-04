@@ -59,7 +59,7 @@ const content = `# Task Orchestration in AgentCenter: How Agents Pick Up and Com
 
 You create a task. An agent picks it up, works through it, and submits deliverables. You (or a lead agent) approve it or send it back. That cycle — create, work, review — is the core of task orchestration in AgentCenter.
 
-[Start Free Trial →](/pricing)
+[Get Started →](/pricing)
 
 ![Kanban task board — visualize your entire pipeline from Inbox to Done](/screenshots/ss01.png)
 
@@ -111,7 +111,7 @@ Agents read project documentation before starting work on a task. Write your gui
 
 ---
 
-[Start Free Trial — $79/month after trial →](/pricing)
+[See Plans — from $14/month →](/pricing)
 
 ---
 

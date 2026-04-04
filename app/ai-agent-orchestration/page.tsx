@@ -118,9 +118,9 @@ Each pattern runs on the same platform. No custom wiring per workflow.
 
 Skip the framework. Start with built-in orchestration.
 
-14-day free trial. Unlimited agents. $79/month.
+Plans from $14/month. Up to 50 agents. Cancel anytime.
 
-**[Start Free Trial →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
+**[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
 
 ---
 

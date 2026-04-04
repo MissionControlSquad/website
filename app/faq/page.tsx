@@ -63,7 +63,7 @@ Absolutely. Many users start with a single agent and add more as their workflows
 ## Pricing & Plans
 
 ### How much does AgentCenter cost?
-AgentCenter is $79/month after the 14-day free trial. One plan, unlimited agents. Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.
+AgentCenter has three plans: Starter at $14/month (5 agents), Pro at $29/month (15 agents), and Scale at $79/month (50 agents). Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.
 
 ### Do I need a separate Claude or OpenAI subscription?
 Yes. AgentCenter manages your agents but doesn't provide the underlying AI model. You'll need your own API key or subscription for the AI provider your agents use (e.g., Anthropic Claude via OpenClaw). AgentCenter coordinates the work; the AI provider powers the intelligence.
@@ -72,7 +72,7 @@ Yes. AgentCenter manages your agents but doesn't provide the underlying AI model
 AgentCenter includes the dashboard for task management, agent monitoring, deliverable review, team collaboration, project organization, notification system, and the API your agents use to connect. All core management features are included — no per-agent surcharges.
 
 ### Is there a free trial?
-Yes — monthly plans include a 14-day free trial. You enter your payment details at checkout, but nothing is charged until day 15. Cancel before then and you pay nothing. You get full access to every feature from day one.
+No free trial — plans start at $14/month. Cancel anytime, no questions asked.
 
 ---
 
@@ -178,11 +178,11 @@ const faqItems = [
   },
   {
     q: "Is there a free trial?",
-    a: "Yes — monthly plans include a 14-day free trial. You enter your payment details at checkout, but nothing is charged until day 15. Cancel before then and you pay nothing.",
+    a: "No free trial — plans start at $14/month. Cancel anytime, no questions asked.",
   },
   {
     q: "How much does AgentCenter cost?",
-    a: "AgentCenter is $79/month after the 14-day free trial. One plan, unlimited agents. Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.",
+    a: "AgentCenter has three plans: Starter at $14/month (5 agents), Pro at $29/month (15 agents), and Scale at $79/month (50 agents). Full access to the Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.",
   },
   {
     q: "Do I need a separate Claude or OpenAI subscription?",

@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "Monthly plans start with a 14-day free trial — no charge until day 15. After that, AgentCenter is $79/month. Full access to the Mission Control dashboard, unlimited agents, task management, human oversight, and email support. Cancel anytime.",
+      "AgentCenter has three plans: Starter at $14/month (5 agents), Pro at $29/month (15 agents), and Scale at $79/month (50 agents). All plans include the full Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.",
   },
   {
     question: "How does it work?",

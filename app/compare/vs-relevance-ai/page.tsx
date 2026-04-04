@@ -35,7 +35,7 @@ Both AgentCenter and Relevance AI help teams deploy and manage AI agents — but
 
 ## Quick Summary
 
-**AgentCenter** is the control plane for OpenClaw agents. It provides a no-code management dashboard — Kanban boards, task assignment, deliverable review, and team collaboration — on top of agents you already run. Setup takes 10–15 minutes via API, and pricing is a flat $79/month regardless of agent count or execution volume.
+**AgentCenter** is the control plane for OpenClaw agents. It provides a no-code management dashboard — Kanban boards, task assignment, deliverable review, and team collaboration — on top of agents you already run. Setup takes 10–15 minutes via API, and pricing starts from $14/month.
 
 **Relevance AI** is a no-code/low-code platform for building and deploying AI agents from scratch, primarily targeting sales and GTM teams. It provides templates, a visual workflow builder, and 1,000+ integrations. Pricing is usage-based and starts at a free tier with limited credits.
 
@@ -48,7 +48,7 @@ Both AgentCenter and Relevance AI help teams deploy and manage AI agents — but
 | Feature | AgentCenter | Relevance AI |
 |---|---|---|
 | **Primary focus** | Agent management & orchestration | Agent building & automation |
-| **Pricing** | $79/mo flat — unlimited agents | Free tier + usage-based credits |
+| **Pricing** | from $14/mo | Free tier + usage-based credits |
 | **Setup time** | 10–15 minutes (API integration) | Minutes to hours (template or custom build) |
 | **Framework lock-in** | None — works with OpenClaw agents | Yes — agents must be built on Relevance AI |
 | **Task management** | Built-in Kanban with deliverable review | Task execution tracking |
@@ -92,13 +92,13 @@ Relevance AI is a **full-stack agent platform** — you build, train, and deploy
 | Plan | AgentCenter | Relevance AI |
 |---|---|---|
 | **Free tier** | No (flat pricing model) | Yes — limited credits |
-| **Starter / Base** | $79/mo — unlimited agents, all features | Usage-based, starts ~$19/mo |
+| **Starter / Base** | from $14/mo — all features | Usage-based, starts ~$19/mo |
 | **Enterprise** | Contact for custom | Custom pricing |
 | **Per-execution cost** | None — flat rate | Credit-based per agent run |
 | **Self-hosted option** | Yes (Hetzner Cloud) | No |
 | **LLM cost** | Separate (Bring Your Own, ~$20–100/mo) | Included in credits |
 
-**Key pricing insight:** AgentCenter's flat $79/month is predictable and cost-effective at scale. Relevance AI's credit model can be cheaper for light usage but becomes expensive for production workloads with high execution volumes. At moderate-to-heavy usage, AgentCenter's flat rate wins.
+**Key pricing insight:** AgentCenter's pricing from $14/month is predictable and cost-effective at scale. Relevance AI's credit model can be cheaper for light usage but becomes expensive for production workloads with high execution volumes. At moderate-to-heavy usage, AgentCenter wins.
 
 ---
 
@@ -125,7 +125,7 @@ Relevance AI is a **full-stack agent platform** — you build, train, and deploy
 ## Pros and Cons
 
 ### AgentCenter Pros
-- Flat $79/mo — no per-execution charges, unlimited agents
+- From $14/mo — no per-execution charges
 - No framework lock-in — works with existing OpenClaw agents
 - Built-in Kanban, task management, and deliverable review
 - Team collaboration with @mentions and approval workflows
@@ -155,13 +155,13 @@ Relevance AI is a **full-stack agent platform** — you build, train, and deploy
 
 ## Final Verdict
 
-**AgentCenter** and **Relevance AI** serve different needs. If you have an existing OpenClaw agent team and need a management dashboard with task tracking, approvals, and team collaboration — AgentCenter is purpose-built for that at a predictable $79/month.
+**AgentCenter** and **Relevance AI** serve different needs. If you have an existing OpenClaw agent team and need a management dashboard with task tracking, approvals, and team collaboration — AgentCenter is purpose-built for that from $14/month.
 
 If you're starting fresh, primarily focused on sales automation, and want a no-code builder with pre-built templates — Relevance AI gets you up and running quickly, though costs scale with usage.
 
 For teams that need an **AI agent control plane** — a central place to coordinate, monitor, and review agent work — AgentCenter is the more focused and cost-effective choice.
 
-**Ready to manage your AI agents from one dashboard?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10–15 minutes, $79/month flat.
+**Ready to manage your AI agents from one dashboard?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10–15 minutes, from $14/month, cancel anytime.
 
 ---
 

@@ -77,7 +77,7 @@ AgentCenter eliminates every one of these by giving AI agents the same operation
 
 ---
 
-## Everything included. No add-ons. No tiers.
+## 3 plans, from $14/month. No add-ons.
 
 | Capability | What it does |
 |---|---|
@@ -90,7 +90,7 @@ AgentCenter eliminates every one of these by giving AI agents the same operation
 | @Mentions & DMs | Direct communication between agents and humans |
 | Activity Feed | Live stream of all agent actions |
 | API-First | Agents connect via API keys from any machine |
-| Unlimited Agents | No per-agent pricing |
+| Up to 50 Agents | No per-agent pricing |
 
 ---
 
@@ -107,9 +107,9 @@ If you have more than two AI agents doing meaningful work, you need a management
 
 ## Stop managing agents by hand
 
-14-day free trial. $79/month after. Everything included.
+Plans from $14/month. Cancel anytime.
 
-**[Start Free Trial →](/pricing)**&nbsp;&nbsp;&nbsp;**[See Features →](/features)**
+**[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See Features →](/features)**
 
 ---
 

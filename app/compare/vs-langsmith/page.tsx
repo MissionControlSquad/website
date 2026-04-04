@@ -33,7 +33,7 @@ AgentCenter and LangSmith both appear in conversations about AI agent tooling, b
 
 ## Quick Overview
 
-**AgentCenter** is a management and coordination dashboard for AI agents. It answers the question: *"What should my agents be doing, and did they do it well?"* It provides task assignment, deliverable review, approval workflows, and team collaboration — all for $79/month flat.
+**AgentCenter** is a management and coordination dashboard for AI agents. It answers the question: *"What should my agents be doing, and did they do it well?"* It provides task assignment, deliverable review, approval workflows, and team collaboration — plans from $14/month, no per-seat charges.
 
 **LangSmith** is an observability and evaluation platform for LLM applications. It answers the question: *"What did my agents do, and how well did the underlying LLM perform?"* It provides tracing, debugging, dataset management, and evaluation — priced at $39/seat/month.
 
@@ -44,9 +44,9 @@ One manages agent work. The other monitors agent internals. They're complementar
 | Feature | AgentCenter | LangSmith |
 |---|---|---|
 | **Primary function** | Agent management & coordination | LLM observability & evaluation |
-| **Pricing** | $79/mo flat (unlimited users) | $39/seat/mo (adds up with teams) |
-| **Cost for 5-person team** | $79/mo | $195/mo |
-| **Cost for 15-person team** | $79/mo | $585/mo |
+| **Pricing** | from $14/mo — no per-seat charges | $39/seat/mo (adds up with teams) |
+| **Cost for 5-person team** | from $29/mo (Pro plan) | $195/mo |
+| **Cost for 15-person team** | from $29/mo (Pro plan) | $585/mo |
 | **Task management** | ✅ Kanban board, assignments, priorities | ❌ Not a task manager |
 | **Deliverable review** | ✅ Built-in approval workflows | ❌ Not designed for this |
 | **LLM tracing** | ❌ Not an observability tool | ✅ Detailed trace logging |
@@ -71,19 +71,19 @@ AgentCenter operates at the **work management** level. LangSmith operates at the
 
 ### 2. Pricing Models: Flat vs. Per-Seat
 
-AgentCenter charges $79/month flat regardless of team size. Whether you have 2 people or 20 reviewing agent work, the cost is the same.
+AgentCenter has no per-seat charges — your whole team gets access on one plan. Whether you have 2 people or 20 reviewing agent work, adding users doesn't increase your bill.
 
-LangSmith charges $39/seat/month. For a solo developer, that's reasonable. For a team of 10 (developers, product managers, QA), it's $390/month — nearly 5x AgentCenter's cost. And LangSmith's per-seat model means you might restrict access to save money, reducing the visibility you're paying for.
+LangSmith charges $39/seat/month. For a solo developer, that's reasonable. For a team of 10 (developers, product managers, QA), it's $390/month. And the per-seat model means you might restrict access to save money, reducing the visibility you're paying for.
 
-**Team size cost comparison:**
+**Team size cost comparison** (AgentCenter Pro at $29/mo):
 
 | Team Size | AgentCenter | LangSmith |
 |---|---|---|
-| 1 person | $79/mo | $39/mo |
-| 3 people | $79/mo | $117/mo |
-| 5 people | $79/mo | $195/mo |
-| 10 people | $79/mo | $390/mo |
-| 20 people | $79/mo | $780/mo |
+| 1 person | $29/mo | $39/mo |
+| 3 people | $29/mo | $117/mo |
+| 5 people | $29/mo | $195/mo |
+| 10 people | $29/mo | $390/mo |
+| 20 people | $29/mo | $780/mo |
 
 ### 3. Who Uses Each Tool
 
@@ -169,7 +169,7 @@ Use both if:
 - You have a mature agent operation with both business and technical stakeholders
 - Business teams need to manage and review agent work (AgentCenter)
 - Engineering teams need to debug and optimize agent performance (LangSmith)
-- You can justify the combined cost ($79 + $39×seats/mo)
+- You can justify the combined cost (from $29 + $39×seats/mo)
 
 ## Frequently Asked Questions
 
@@ -180,7 +180,7 @@ No. They solve different problems. AgentCenter manages agent work (tasks, delive
 Yes, and it's a natural pairing for mature operations. AgentCenter handles the business coordination layer while LangSmith handles the technical observability layer. They don't conflict or overlap significantly.
 
 ### Why is AgentCenter flat-rate while LangSmith is per-seat?
-Different pricing philosophies. AgentCenter's flat $79/month encourages giving access to everyone — project managers, stakeholders, and engineers. LangSmith's per-seat model reflects its focus on individual developer workflows. The practical impact is that AgentCenter gets cheaper per person as your team grows, while LangSmith gets more expensive.
+Different pricing philosophies. AgentCenter has no per-seat charges — plans from $14/month regardless of how many users you add. LangSmith's per-seat model reflects its focus on individual developer workflows. The practical impact is that AgentCenter gets cheaper per person as your team grows, while LangSmith gets more expensive.
 
 ### Does AgentCenter provide any observability features?
 AgentCenter includes real-time agent status and analytics at the task/agent level — enough to know what agents are doing and how they're performing. It doesn't provide LLM call tracing, token-level metrics, or prompt evaluation. For deep technical observability, pair it with LangSmith or a similar tool.
@@ -189,7 +189,7 @@ AgentCenter includes real-time agent status and analytics at the task/agent leve
 AgentCenter. Its no-code Kanban board, deliverable review, and approval workflows are designed for people who manage agent work without writing code. LangSmith's interface is built for developers working with LLM internals.
 
 ### At what team size does pricing matter?
-At 3+ seats, LangSmith ($117/mo) already costs more than AgentCenter ($79/mo). The gap widens fast: at 10 seats, LangSmith costs $390/mo versus AgentCenter's flat $79. If budget is a consideration, AgentCenter's flat pricing is more predictable and team-friendly.
+At 3+ seats, LangSmith ($117/mo) already costs more than AgentCenter Pro ($29/mo). The gap widens fast: at 10 seats, LangSmith costs $390/mo versus AgentCenter's $29. If budget is a consideration, AgentCenter's no-per-seat pricing is far more predictable as your team grows.
 
 ---
 
@@ -199,7 +199,7 @@ AgentCenter and LangSmith aren't competitors — they're complementary tools for
 
 If you need to manage agent work and give your team visibility, start with AgentCenter. If you need to debug LLM performance and evaluate prompts, start with LangSmith. If you're running agents at scale, consider both.
 
-**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, $79/month flat, unlimited users.
+**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $14/month, no per-seat charges.
 `;
 
 export default function Page() {
