@@ -106,7 +106,7 @@ If you have more than two AI agents doing meaningful work, you need a management
 
 ## Stop managing agents by hand
 
-Plans from $${PLANS.starter.monthly}/month. Cancel anytime.
+7-day free trial. Plans from $${PLANS.starter.monthly}/month.
 
 **[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See Features →](/features)**
 

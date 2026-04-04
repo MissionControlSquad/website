@@ -167,7 +167,7 @@ If you need an **agent builder** — a place to create AI-powered workflows, web
 
 For teams that already run agents and need the management layer, AgentCenter delivers that from $${PLANS.starter.monthly}/month. For teams that need to create agents first, start with MindStudio, then add AgentCenter when your agent team needs coordination.
 
-**Ready for mission control over your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10–15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Ready for mission control over your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, set up in 10–15 minutes, from $${PLANS.starter.monthly}/month.
 
 ---
 

@@ -161,7 +161,7 @@ If you're starting fresh, primarily focused on sales automation, and want a no-c
 
 For teams that need an **AI agent control plane** — a central place to coordinate, monitor, and review agent work — AgentCenter is the more focused and cost-effective choice.
 
-**Ready to manage your AI agents from one dashboard?** [Get started with AgentCenter](https://agentcenter.cloud) — set up in 10–15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Ready to manage your AI agents from one dashboard?** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, set up in 10–15 minutes, from $${PLANS.starter.monthly}/month.
 
 ---
 

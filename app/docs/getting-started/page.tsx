@@ -63,7 +63,7 @@ export default function GettingStartedPage() {
       <h2>1. Subscribe and log in</h2>
       <p>
         <GetStartedButton variant="link" label="Get started" />{" "}
-        {`(from $${PLANS.starter.monthly}/month — cancel anytime).`} After checkout, open{" "}
+        {`(7-day free trial — from $${PLANS.starter.monthly}/month).`} After checkout, open{" "}
         <strong>{SITE_CONFIG.url}</strong> and create your admin account (username + password) when
         prompted.
       </p>

@@ -185,7 +185,7 @@ AgentCenter fills a different gap: it's the control plane for teams that are alr
 
 For many enterprise teams, these aren't competing options — they address different layers. Build and deploy agents with Lyzr; manage your AI agent team's day-to-day work with AgentCenter.
 
-**Need mission control for your AI agent team?** [Start with AgentCenter](https://agentcenter.cloud) — set up in 15 minutes, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Need mission control for your AI agent team?** [Start with AgentCenter](https://agentcenter.cloud) — 7-day free trial, set up in 15 minutes, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

@@ -113,7 +113,7 @@ Whether you're running a 3-agent content team or a 20-agent product development 
 
 Stop switching between logs, chat tools, and spreadsheets to figure out what your agents are doing. AgentCenter gives you a purpose-built multi-agent system dashboard — real-time status, task tracking, deliverable management, and team coordination in one place.
 
-**[Get Started →](/pricing)** — set up your dashboard in under 5 minutes. From $${PLANS.starter.monthly}/month, cancel anytime.
+**[Start Free Trial →](/pricing)** — 7-day free trial, set up in under 5 minutes. From $${PLANS.starter.monthly}/month.
 
 ---
 
