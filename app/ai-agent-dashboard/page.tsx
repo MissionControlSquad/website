@@ -83,7 +83,7 @@ AgentCenter replaces all of that with a dashboard designed for the specific work
 
 ## See your AI agents working — for real
 
-Get started from $${PLANS.starter.monthly}/month. Full access to every feature. No per-agent charges.
+7-day free trial. From $${PLANS.starter.monthly}/month. Full access to every feature. No per-agent charges.
 
 **[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See All Features →](/features)**
 

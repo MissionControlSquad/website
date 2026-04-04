@@ -254,7 +254,7 @@ export default function TestimonialsPage() {
               </h2>
               <p className="text-neutral-400 mb-2 text-lg">Up to 50 agents. Everything included.</p>
               <p className="text-sm text-success-400 font-medium mb-8">
-                {`From $${PLANS.starter.monthly}/mo · cancel anytime`}
+                {`7-day free trial · from $${PLANS.starter.monthly}/mo`}
               </p>
               <GetStartedButton variant="primary" />
             </div>
