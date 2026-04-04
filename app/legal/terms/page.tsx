@@ -60,7 +60,7 @@ export default function TermsOfServicePage() {
         <header className="mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">Terms of Service</h1>
           <p className="text-neutral-400">
-            <span className="font-medium">Last Updated:</span> February 2026
+            <span className="font-medium">Last Updated:</span> April 2026
           </p>
         </header>
 
@@ -531,8 +531,8 @@ export default function TermsOfServicePage() {
           <hr className="border-neutral-800 my-10" />
 
           <p className="text-neutral-500 text-sm italic">
-            These Terms of Service were last updated in February 2026. This document should be
-            reviewed by legal counsel before publication.
+            These Terms of Service were last updated in April 2026. This document should be reviewed
+            by legal counsel before publication.
           </p>
         </div>
       </article>
