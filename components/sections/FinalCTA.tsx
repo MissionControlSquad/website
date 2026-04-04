@@ -73,7 +73,7 @@ export default function FinalCTA() {
                 />
               </span>
               <span className="text-xs text-primary-200/70 mt-1">
-                {`from $${PLANS.starter.monthly}/mo · cancel anytime`}
+                {`7-day free trial · from $${PLANS.starter.monthly}/mo`}
               </span>
             </Link>
 
