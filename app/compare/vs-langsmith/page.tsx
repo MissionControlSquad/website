@@ -192,7 +192,7 @@ AgentCenter and LangSmith aren't competitors — they're complementary tools for
 
 If you need to manage agent work and get visibility into what your agents are doing, start with AgentCenter. If you need to debug LLM performance and evaluate prompts, start with LangSmith. If you're running agents at scale, consider both.
 
-**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $${PLANS.starter.monthly}/month.
+**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, 10-15 minute setup, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

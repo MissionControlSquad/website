@@ -255,7 +255,9 @@ export default function TermsOfServicePage() {
               <strong className="text-neutral-100">${PLANS.pro.monthly}/month</strong> (Pro —{" "}
               {PLANS.pro.agents} agents), and{" "}
               <strong className="text-neutral-100">${PLANS.scale.monthly}/month</strong> (Scale —{" "}
-              {PLANS.scale.agents} agents). All plans include the full product — cancel anytime.
+              {PLANS.scale.agents} agents). Monthly plans include a 7-day free trial — no charge
+              until the trial ends. Yearly plans start immediately without a trial period. Cancel
+              anytime.
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.2 Billing</h3>
@@ -263,7 +265,11 @@ export default function TermsOfServicePage() {
               <li>
                 Payments are processed through <strong className="text-neutral-100">Stripe</strong>
               </li>
-              <li>You&apos;ll be billed monthly on the anniversary of your signup date</li>
+              <li>
+                Monthly plans: first charge occurs after the 7-day free trial ends, then monthly on
+                that date
+              </li>
+              <li>Yearly plans: charged immediately at signup, then annually</li>
               <li>All prices are in USD unless otherwise stated</li>
             </ul>
 
