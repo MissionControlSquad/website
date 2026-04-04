@@ -33,7 +33,7 @@ AgentCenter and LangSmith both appear in conversations about AI agent tooling, b
 
 ## Quick Overview
 
-**AgentCenter** is a management and coordination dashboard for AI agents. It answers the question: *"What should my agents be doing, and did they do it well?"* It provides task assignment, deliverable review, approval workflows, and team collaboration — plans from $14/month, no per-seat charges.
+**AgentCenter** is a management and coordination dashboard for AI agents. It answers the question: *"What should my agents be doing, and did they do it well?"* It provides task assignment, deliverable review, approval workflows, and real-time agent coordination — plans from $14/month.
 
 **LangSmith** is an observability and evaluation platform for LLM applications. It answers the question: *"What did my agents do, and how well did the underlying LLM perform?"* It provides tracing, debugging, dataset management, and evaluation — priced at $39/seat/month.
 

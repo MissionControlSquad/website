@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG, CAL_LINK } from "@/lib/constants";
+import { NAV_LINKS, SITE_CONFIG, CAL_LINK, DEFAULT_TIER } from "@/lib/constants";
 import { useCheckout } from "@/lib/hooks/useCheckout";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
@@ -97,7 +97,7 @@ export default function Navbar() {
             </a>
             <Button
               size="sm"
-              onClick={() => checkout({ tier: "pro" })}
+              onClick={() => checkout({ tier: DEFAULT_TIER })}
               disabled={isCheckoutLoading}
             >
               {isCheckoutLoading ? "Loading…" : "Get Started"}
@@ -168,7 +168,7 @@ export default function Navbar() {
                   size="md"
                   onClick={() => {
                     setIsOpen(false);
-                    checkout({ tier: "pro" });
+                    checkout({ tier: DEFAULT_TIER });
                   }}
                   disabled={isCheckoutLoading}
                   tabIndex={isOpen ? 0 : -1}

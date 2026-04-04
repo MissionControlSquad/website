@@ -105,6 +105,7 @@ export const DEFAULT_PLAN: BillingPlan = "monthly";
 /** Plan tier type */
 export const PLAN_KEYS = ["starter", "pro", "scale"] as const;
 export type PlanKey = (typeof PLAN_KEYS)[number];
+export const DEFAULT_TIER: PlanKey = "pro";
 
 /** Plan definitions */
 export const PLANS = {

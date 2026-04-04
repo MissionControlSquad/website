@@ -111,7 +111,7 @@ export default function SelfHostingPricingSection() {
               Self-Hosting Pricing
             </h2>
             <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-              One flat price. Every feature included. No per-agent fees, no per-seat charges.
+              One flat price. Every feature included. No per-agent fees.
             </p>
           </ScrollReveal>
 

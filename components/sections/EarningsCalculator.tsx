@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ArrowRight, Users } from "@/components/icons";
-import { AFFILIATE, PLANS, PLAN_KEYS, type PlanKey } from "@/lib/constants";
+import { AFFILIATE, PLANS, PLAN_KEYS, DEFAULT_TIER, type PlanKey } from "@/lib/constants";
 
 const EarningsCalculator = () => {
   const [referrals, setReferrals] = useState(10);
-  const [selectedPlan, setSelectedPlan] = useState<PlanKey>("pro");
+  const [selectedPlan, setSelectedPlan] = useState<PlanKey>(DEFAULT_TIER);
 
   const commissionPerReferral = AFFILIATE.commissions[selectedPlan];
   const monthlyEarnings = commissionPerReferral * referrals;

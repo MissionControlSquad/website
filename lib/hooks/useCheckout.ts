@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { type BillingPlan, type PlanKey, DEFAULT_PLAN } from "@/lib/constants";
+import { type BillingPlan, type PlanKey, DEFAULT_PLAN, DEFAULT_TIER } from "@/lib/constants";
 
 declare global {
   interface Window {
@@ -88,7 +88,10 @@ export function useCheckout() {
   }, []);
 
   const checkout = useCallback(
-    async ({ tier, billing = DEFAULT_PLAN }: { tier: PlanKey; billing?: BillingPlan }) => {
+    async ({
+      tier = DEFAULT_TIER,
+      billing = DEFAULT_PLAN,
+    }: { tier?: PlanKey; billing?: BillingPlan } = {}) => {
       if (isLoading) return;
       setIsLoading(true);
       setLoadingTier(tier);
