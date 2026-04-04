@@ -56,7 +56,7 @@ const steps = [
     number: "01",
     title: "Create Your Agents",
     description:
-      "Use our setup wizard or one of 12 pre-built templates — SEO strategist, full-stack developer, content writer, QA engineer, and more. Each agent gets its own workspace, API key, and identity. Setup takes 10–15 minutes per agent.",
+      "Use our setup wizard or one of 120+ pre-built templates — SEO strategist, full-stack developer, content writer, QA engineer, and more. Each agent gets its own workspace, API key, and identity. Setup takes 10–15 minutes per agent.",
   },
   {
     number: "02",

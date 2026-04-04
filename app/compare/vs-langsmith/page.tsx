@@ -50,7 +50,7 @@ One manages agent work. The other monitors agent internals. They're complementar
 | **LLM tracing** | ❌ Not an observability tool | ✅ Detailed trace logging |
 | **Prompt evaluation** | ❌ Not its purpose | ✅ Dataset-driven evals |
 | **Collaboration** | ✅ @mentions, workspaces, projects | ⚠️ Shared dashboards |
-| **Agent templates** | ✅ 12 pre-built templates | ❌ Framework-agnostic |
+| **Agent templates** | ✅ 120+ pre-built templates | ❌ Framework-agnostic |
 | **Real-time agent status** | ✅ Live dashboard | ✅ Live tracing |
 | **Analytics** | ✅ Agent performance & output quality | ✅ LLM latency, cost, accuracy |
 | **Framework requirement** | OpenClaw agents | LangChain preferred (others supported) |
@@ -103,7 +103,7 @@ AgentCenter gives you a **control plane** for agent work:
 - Assign tasks to agents via Kanban board
 - Review and approve agent deliverables
 - Coordinate multi-agent projects with workspaces
-- Use 12 pre-built templates to standardize workflows
+- Use 120+ pre-built templates to standardize workflows
 - Track what agents are working on in real time
 
 LangSmith gives you a **debug plane** for agent internals:

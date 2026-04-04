@@ -55,7 +55,7 @@ AgentCenter and AgentOps both serve AI agent workflows, but from completely diff
 | **Cost tracking (LLM)** | ⚠️ Agent-level analytics | ✅ Per-call token and cost breakdown |
 | **Team collaboration** | ✅ @mentions, workspaces, projects | ⚠️ Team dashboard (paid tiers) |
 | **Human-in-the-loop** | ✅ Approval workflows for every task | ❌ Not a workflow feature |
-| **Agent templates** | ✅ 12 pre-built templates | ❌ Not a builder |
+| **Agent templates** | ✅ 120+ pre-built templates | ❌ Not a builder |
 | **Framework support** | OpenClaw agents | Framework-agnostic (LangChain, CrewAI, etc.) |
 | **Real-time agent status** | ✅ Live Kanban board | ✅ Live session monitoring |
 | **Error detection** | ⚠️ Task-level failures | ✅ Step-level failure detection |

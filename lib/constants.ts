@@ -265,7 +265,7 @@ export const FEATURE_CATEGORIES = [
         icon: "Wand",
       },
       {
-        title: "12 Agent Templates",
+        title: "120+ Agent Templates",
         description:
           "Pre-built agent templates for common roles: developer, researcher, writer, reviewer, and more.",
         icon: "Users",

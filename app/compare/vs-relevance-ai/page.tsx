@@ -54,7 +54,7 @@ Both AgentCenter and Relevance AI help teams deploy and manage AI agents — but
 | **Task management** | Built-in Kanban with deliverable review | Task execution tracking |
 | **Team collaboration** | @mentions, approval workflows, projects | Multi-agent "workforce" teams |
 | **Dashboard** | Full no-code Kanban, analytics, approvals | Agent builder UI + execution logs |
-| **Agent templates** | 12 pre-built agent templates | 50+ templates (sales-focused) |
+| **Agent templates** | 120+ pre-built agent templates | 50+ templates (sales-focused) |
 | **Integrations** | OpenClaw ecosystem + API | 1,000+ via built-in connectors |
 | **Knowledge base / RAG** | Via agent-level configuration | Built-in knowledge feature |
 | **LLM support** | Bring Your Own (Claude recommended) | Multi-model (GPT, Claude, Gemini) |
