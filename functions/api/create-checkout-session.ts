@@ -101,6 +101,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       allow_promotion_codes: true,
       success_url: `${origin}/thank-you/purchase?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/pricing`,
+      ...(billing === "monthly" ? { subscription_data: { trial_period_days: 7 } } : {}),
       metadata: {
         tier,
         billing,

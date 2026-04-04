@@ -62,7 +62,7 @@ export default function Hero() {
                 />
               </span>
               <span className="text-xs text-primary-200/70 mt-0.5">
-                from ${PLANS.starter.monthly}/mo · cancel anytime
+                7-day free trial · from ${PLANS.starter.monthly}/mo
               </span>
             </Link>
           </div>

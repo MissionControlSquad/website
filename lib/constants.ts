@@ -175,7 +175,12 @@ export const AFFILIATE = {
   url: "https://agentcenter-cloud.endorsely.com",
 } as const;
 
-export const TRUST_INDICATORS = ["Cancel anytime", "No lock-in", "Powered by Stripe"] as const;
+export const TRUST_INDICATORS = [
+  "7-day free trial",
+  "Cancel anytime",
+  "No lock-in",
+  "Powered by Stripe",
+] as const;
 
 export const FEATURES = [
   {
