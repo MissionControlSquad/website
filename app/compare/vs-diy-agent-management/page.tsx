@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs Building Your Own Dashboard",
@@ -33,7 +33,7 @@ Every team managing AI agents eventually faces the same question: should we buil
 
 ## Quick Overview
 
-**AgentCenter** is a ready-made management dashboard for AI agents, specifically built for OpenClaw. It includes task management, deliverable review, real-time monitoring, approval workflows, and team collaboration — all from $14/month.
+**AgentCenter** is a ready-made management dashboard for AI agents, specifically built for OpenClaw. It includes task management, deliverable review, real-time monitoring, approval workflows, and team collaboration — all from $${PLANS.starter.monthly}/month.
 
 **Building your own dashboard** means designing, developing, and maintaining a custom internal tool. You get exactly what you want, but you pay for every hour of engineering time and carry the maintenance burden indefinitely.
 
@@ -43,7 +43,7 @@ This isn't a question of which is "better." It's a question of where your engine
 
 | Factor | AgentCenter | Build Your Own |
 |---|---|---|
-| **Year 1 cost** | from $168 ($14/mo × 12) | $50,000–$80,000+ |
+| **Year 1 cost** | from $168 ($${PLANS.starter.monthly}/mo × 12) | $50,000–$80,000+ |
 | **Year 2 cost** | from $168 | $20,000–$40,000 (maintenance) |
 | **3-year total** | from $504 | $90,000–$160,000 |
 | **Time to launch** | 10-15 minutes | 3-6 months minimum |
@@ -76,7 +76,7 @@ The sticker price of building a dashboard is deceptive. Most teams estimate 2-3 
 
 And that's just version 1. Maintenance runs 20-30% of initial build cost annually: bug fixes, security patches, dependency updates, feature requests, and infrastructure costs.
 
-AgentCenter gives you all of this from $14/month. In three years, you'll spend a fraction of the cost versus six figures on a custom build.
+AgentCenter gives you all of this from $${PLANS.starter.monthly}/month. In three years, you'll spend a fraction of the cost versus six figures on a custom build.
 
 ### 2. Time-to-Value: Minutes vs. Months
 
@@ -161,7 +161,7 @@ Plan for 3-6 months for a functional MVP with a team of 1-3 engineers. A product
 AgentCenter offers configuration-based customization: projects, workspaces, templates, and custom task workflows. It integrates via API, so your agents can send whatever data you need. It won't match unlimited custom code flexibility, but it covers the vast majority of management use cases.
 
 ### What if we outgrow AgentCenter?
-AgentCenter plans scale from $14/month (5 agents) to $79/month (50 agents), so growth is predictable. If you eventually need capabilities AgentCenter doesn't offer, you'll have saved enough money in the interim to fund a custom build with a clear understanding of your actual requirements — which is a much better starting position than building from scratch on day one.
+AgentCenter plans scale from $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents) to $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents), so growth is predictable. If you eventually need capabilities AgentCenter doesn't offer, you'll have saved enough money in the interim to fund a custom build with a clear understanding of your actual requirements — which is a much better starting position than building from scratch on day one.
 
 ### Is $50-80K a realistic estimate for building a dashboard?
 Yes, based on typical engineering costs. A senior full-stack engineer costs $150-200K/year. A 4-month project uses ~$50-67K in salary alone, before infrastructure, design, and testing. Many internal tool projects exceed initial estimates by 50-100%.
@@ -178,7 +178,7 @@ AgentCenter runs on Hetzner Cloud with encryption. For teams that need specific 
 
 Building your own AI agent dashboard costs 40x more than AgentCenter over three years, takes months instead of minutes, and diverts engineering resources from your core product. Unless you have unique requirements that no existing tool can meet, the buy decision is clear.
 
-**Skip the months of development.** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $14/month, cancel anytime.
+**Skip the months of development.** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $${PLANS.starter.monthly}/month, cancel anytime.
 `;
 
 export default function Page() {

@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Task Orchestration — Assign, Track & Complete Work Automatically | AgentCenter",
@@ -49,7 +49,7 @@ const jsonLd = {
     operatingSystem: "Web",
     offers: {
       "@type": "Offer",
-      price: "79",
+      price: String(PLANS.scale.monthly),
       priceCurrency: "USD",
     },
   },
@@ -111,7 +111,7 @@ Agents read project documentation before starting work on a task. Write your gui
 
 ---
 
-[See Plans — from $14/month →](/pricing)
+[See Plans — from $${PLANS.starter.monthly}/month →](/pricing)
 
 ---
 

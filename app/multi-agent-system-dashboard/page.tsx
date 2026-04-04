@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Multi-Agent System Dashboard — Monitor Every Agent in One View | AgentCenter",
-  description:
-    "A multi-agent system dashboard that shows every agent's status, tasks, and deliverables in real time. See who's working, who's blocked, and what shipped. From $14/month.",
+  description: `A multi-agent system dashboard that shows every agent's status, tasks, and deliverables in real time. See who's working, who's blocked, and what shipped. From $${PLANS.starter.monthly}/month.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/multi-agent-system-dashboard`,
   },
@@ -114,7 +113,7 @@ Whether you're running a 3-agent content team or a 20-agent product development 
 
 Stop switching between logs, chat tools, and spreadsheets to figure out what your agents are doing. AgentCenter gives you a purpose-built multi-agent system dashboard — real-time status, task tracking, deliverable management, and team coordination in one place.
 
-**[Get Started →](/pricing)** — set up your dashboard in under 5 minutes. From $14/month, cancel anytime.
+**[Get Started →](/pricing)** — set up your dashboard in under 5 minutes. From $${PLANS.starter.monthly}/month, cancel anytime.
 
 ---
 
@@ -151,7 +150,7 @@ export default function MultiAgentSystemDashboardPage() {
             operatingSystem: "Web",
             offers: {
               "@type": "Offer",
-              price: "79",
+              price: String(PLANS.scale.monthly),
               priceCurrency: "USD",
             },
           }),

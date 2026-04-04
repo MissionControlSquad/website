@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 import { ArrowRight } from "@/components/icons";
 import { CheckoutButton } from "@/components/CheckoutButton";
 
@@ -256,7 +256,7 @@ export default function TestimonialsPage() {
               </h2>
               <p className="text-neutral-400 mb-2 text-lg">Up to 50 agents. Everything included.</p>
               <p className="text-sm text-success-400 font-medium mb-8">
-                From $14/mo · cancel anytime
+                {`From $${PLANS.starter.monthly}/mo · cancel anytime`}
               </p>
               <CheckoutButton className="group inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 transition-colors">
                 Get Started

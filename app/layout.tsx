@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
-import { ogImage, CONTACT_EMAIL, SITE_CONFIG, OG_IMAGE_URL } from "@/lib/constants";
+import { ogImage, CONTACT_EMAIL, SITE_CONFIG, OG_IMAGE_URL, PLANS } from "@/lib/constants";
 import "./globals.css";
 
 const GTM_ID = "GTM-WSR54GVV";
@@ -191,12 +191,12 @@ const jsonLd = {
       provider: { "@id": `${SITE_CONFIG.url}/#organization` },
       offers: {
         "@type": "Offer",
-        price: "79",
+        price: String(PLANS.scale.monthly),
         priceCurrency: "USD",
         priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/OnlineOnly",
         url: SITE_CONFIG.url,
-        description: "Plans from $14/month — full access to Mission Control dashboard",
+        description: `Plans from $${PLANS.starter.monthly}/month — full access to Mission Control dashboard`,
       },
       featureList: [
         "Kanban board for AI agent tasks",

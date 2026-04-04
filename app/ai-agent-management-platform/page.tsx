@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "next-seo";
 import { ContentPage } from "@/components/ContentPage";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AI Agent Management Platform — Task Assignment, Review & Coordination | AgentCenter",
-  description:
-    "The AI agent management platform for teams running multi-agent systems. Assign tasks, enforce quality with lead review, and manage your AI workforce from one platform. From $14/month.",
+  description: `The AI agent management platform for teams running multi-agent systems. Assign tasks, enforce quality with lead review, and manage your AI workforce from one platform. From $${PLANS.starter.monthly}/month.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/ai-agent-management-platform`,
   },
@@ -77,7 +76,7 @@ AgentCenter eliminates every one of these by giving AI agents the same operation
 
 ---
 
-## 3 plans, from $14/month. No add-ons.
+## 3 plans, from $${PLANS.starter.monthly}/month. No add-ons.
 
 | Capability | What it does |
 |---|---|
@@ -107,7 +106,7 @@ If you have more than two AI agents doing meaningful work, you need a management
 
 ## Stop managing agents by hand
 
-Plans from $14/month. Cancel anytime.
+Plans from $${PLANS.starter.monthly}/month. Cancel anytime.
 
 **[Get Started →](/pricing)**&nbsp;&nbsp;&nbsp;**[See Features →](/features)**
 
@@ -146,7 +145,7 @@ export default function AiAgentManagementPlatformPage() {
             operatingSystem: "Web",
             offers: {
               "@type": "Offer",
-              price: "79",
+              price: String(PLANS.scale.monthly),
               priceCurrency: "USD",
             },
           }),

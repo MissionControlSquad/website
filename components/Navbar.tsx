@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG, CAL_LINK, DEFAULT_TIER } from "@/lib/constants";
+import { NAV_LINKS, SITE_CONFIG, CAL_LINK, DEFAULT_TIER, PLANS } from "@/lib/constants";
 import { useCheckout } from "@/lib/hooks/useCheckout";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
@@ -178,7 +178,7 @@ export default function Navbar() {
                   ) : (
                     <span className="flex items-center gap-1.5">
                       <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                        from $14/mo
+                        {`from $${PLANS.starter.monthly}/mo`}
                       </span>
                       Get Started
                     </span>

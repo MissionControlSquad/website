@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd } from "next-seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/mdx-components";
-import { ogImage, SITE_CONFIG } from "@/lib/constants";
+import { ogImage, SITE_CONFIG, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AgentCenter vs LangSmith",
@@ -33,7 +33,7 @@ AgentCenter and LangSmith both appear in conversations about AI agent tooling, b
 
 ## Quick Overview
 
-**AgentCenter** is a management and coordination dashboard for AI agents. It answers the question: *"What should my agents be doing, and did they do it well?"* It provides task assignment, deliverable review, approval workflows, and real-time agent coordination — plans from $14/month.
+**AgentCenter** is a management and coordination dashboard for AI agents. It answers the question: *"What should my agents be doing, and did they do it well?"* It provides task assignment, deliverable review, approval workflows, and real-time agent coordination — plans from $${PLANS.starter.monthly}/month.
 
 **LangSmith** is an observability and evaluation platform for LLM applications. It answers the question: *"What did my agents do, and how well did the underlying LLM perform?"* It provides tracing, debugging, dataset management, and evaluation — priced at $39/month per user.
 
@@ -44,7 +44,7 @@ One manages agent work. The other monitors agent internals. They're complementar
 | Feature | AgentCenter | LangSmith |
 |---|---|---|
 | **Primary function** | Agent management & coordination | LLM observability & evaluation |
-| **Pricing** | from $14/mo | $39/mo per user |
+| **Pricing** | from $${PLANS.starter.monthly}/mo | $39/mo per user |
 | **Task management** | ✅ Kanban board, assignments, priorities | ❌ Not a task manager |
 | **Deliverable review** | ✅ Built-in approval workflows | ❌ Not designed for this |
 | **LLM tracing** | ❌ Not an observability tool | ✅ Detailed trace logging |
@@ -69,7 +69,7 @@ AgentCenter operates at the **work management** level. LangSmith operates at the
 
 ### 2. Pricing Models
 
-AgentCenter starts at $14/month (Starter, 5 agents) and goes up to $79/month (Scale, 50 agents) — flat monthly plans based on how many agents you need, not how many people are logging in.
+AgentCenter starts at $${PLANS.starter.monthly}/month (Starter, 5 agents) and goes up to $${PLANS.scale.monthly}/month (Scale, 50 agents) — flat monthly plans based on how many agents you need, not how many people are logging in.
 
 LangSmith charges $39/month per user. For a solo developer that's straightforward, but costs scale with every person you add to the workspace.
 
@@ -77,9 +77,9 @@ LangSmith charges $39/month per user. For a solo developer that's straightforwar
 
 | | AgentCenter | LangSmith |
 |---|---|---|
-| Starter | $14/mo | $39/mo |
-| Pro | $29/mo | $39/mo |
-| Scale | $79/mo | $39/mo |
+| Starter | $${PLANS.starter.monthly}/mo | $39/mo |
+| Pro | $${PLANS.pro.monthly}/mo | $39/mo |
+| Scale | $${PLANS.scale.monthly}/mo | $39/mo |
 
 ### 3. Who Uses Each Tool
 
@@ -176,7 +176,7 @@ No. They solve different problems. AgentCenter manages agent work (tasks, delive
 Yes, and it's a natural pairing for mature operations. AgentCenter handles the business coordination layer while LangSmith handles the technical observability layer. They don't conflict or overlap significantly.
 
 ### How does AgentCenter pricing compare to LangSmith?
-AgentCenter starts at $14/month and goes up to $79/month — flat plans based on how many agents you need. LangSmith is $39/month per user. For a solo operator, the starting prices are comparable. AgentCenter's flat pricing makes it more predictable as your usage scales.
+AgentCenter starts at $${PLANS.starter.monthly}/month and goes up to $${PLANS.scale.monthly}/month — flat plans based on how many agents you need. LangSmith is $39/month per user. For a solo operator, the starting prices are comparable. AgentCenter's flat pricing makes it more predictable as your usage scales.
 
 ### Does AgentCenter provide any observability features?
 AgentCenter includes real-time agent status and analytics at the task/agent level — enough to know what agents are doing and how they're performing. It doesn't provide LLM call tracing, token-level metrics, or prompt evaluation. For deep technical observability, pair it with LangSmith or a similar tool.
@@ -192,7 +192,7 @@ AgentCenter and LangSmith aren't competitors — they're complementary tools for
 
 If you need to manage agent work and get visibility into what your agents are doing, start with AgentCenter. If you need to debug LLM performance and evaluate prompts, start with LangSmith. If you're running agents at scale, consider both.
 
-**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $14/month.
+**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

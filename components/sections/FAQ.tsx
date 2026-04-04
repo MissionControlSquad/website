@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FAQJsonLd } from "next-seo";
 import { ChevronDown } from "@/components/icons";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { CONTACT_EMAIL, PLANS, SELFHOSTING_PRICING } from "@/lib/constants";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const faqs = [
@@ -29,8 +29,7 @@ const faqs = [
   },
   {
     question: "How much does it cost?",
-    answer:
-      "AgentCenter has three plans: Starter at $14/month (5 agents), Pro at $29/month (15 agents), and Scale at $79/month (50 agents). All plans include the full Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.",
+    answer: `AgentCenter has three plans: Starter at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents), Pro at $${PLANS.pro.monthly}/month (${PLANS.pro.agents} agents), and Scale at $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). All plans include the full Mission Control dashboard, task management, deliverable review, and email support. Cancel anytime.`,
   },
   {
     question: "How does it work?",
