@@ -51,7 +51,7 @@ The core difference: AgentCenter is a **management layer** you add on top of exi
 | **Dashboard** | Full no-code Kanban, analytics, approvals | Basic execution monitoring |
 | **Task management** | Built-in with deliverable review | Limited to execution tracking |
 | **Team collaboration** | @mentions, approval workflows | Developer-focused |
-| **Templates** | 12 pre-built agent templates | Framework-specific templates |
+| **Templates** | 120+ pre-built agent templates | Framework-specific templates |
 | **Infrastructure** | Hetzner Cloud, encrypted | CrewAI managed |
 | **LLM provider** | Bring Your Own Claude ($20-100/mo) | Multiple providers supported |
 
@@ -125,7 +125,7 @@ No. AgentCenter integrates via API in 10-15 minutes. Your existing OpenClaw agen
 CrewAI Cloud is primarily a hosted runtime for executing CrewAI agents. It includes execution monitoring, but it's not a management dashboard with Kanban boards, approval workflows, or team collaboration features.
 
 ### What's included in AgentCenter's plans?
-Everything: Kanban board, real-time status monitoring, task management, deliverable review, @mentions, approval workflows, 12 pre-built templates, projects and workspaces, and analytics. Plans start at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents) and scale to $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). No per-execution charges.
+Everything: Kanban board, real-time status monitoring, task management, deliverable review, @mentions, approval workflows, 120+ pre-built templates, projects and workspaces, and analytics. Plans start at $${PLANS.starter.monthly}/month (${PLANS.starter.agents} agents) and scale to $${PLANS.scale.monthly}/month (${PLANS.scale.agents} agents). No per-execution charges.
 
 ### Do I need to pay for an LLM separately with AgentCenter?
 Yes. AgentCenter uses a Bring Your Own Claude model, which typically costs $20-100/month depending on usage. This keeps AgentCenter's pricing simple while giving you control over your LLM costs.

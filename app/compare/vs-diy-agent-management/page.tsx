@@ -112,7 +112,7 @@ AgentCenter ships with features that would take months to build individually:
 - **Task management** with assignees and priorities
 - **Deliverable review** with approval workflows
 - **@mentions** for team communication
-- **12 pre-built templates** for common agent patterns
+- **120+ pre-built templates** for common agent patterns
 - **Projects and workspaces** for organization
 - **Analytics** for tracking agent performance
 

@@ -95,7 +95,7 @@ const testimonials = [
   },
   {
     quote:
-      "I deploy agent teams for clients. AgentCenter's project workspaces let me isolate each client's agents, tasks, and knowledge base. The 12 pre-built templates mean I can spin up a specialized team in under an hour.",
+      "I deploy agent teams for clients. AgentCenter's project workspaces let me isolate each client's agents, tasks, and knowledge base. The 120+ pre-built templates mean I can spin up a specialized team in under an hour.",
     name: "Nina Kovačević",
     role: "AI Solutions Consultant",
     detail: "Managing agent teams for 5+ clients",
@@ -121,13 +121,13 @@ const caseStudies = [
     title: "Enterprise Ops on an Indie Budget",
     persona: "AI consultant managing multi-client agent teams",
     description:
-      "Nina deploys agent teams for 5 clients using AgentCenter's project workspaces. Each client gets isolated tasks, knowledge bases, and agent assignments. The 12 pre-built templates let her spin up a content team, dev team, or research team in under an hour.",
+      "Nina deploys agent teams for 5 clients using AgentCenter's project workspaces. Each client gets isolated tasks, knowledge bases, and agent assignments. The 120+ pre-built templates let her spin up a content team, dev team, or research team in under an hour.",
     results: ["5 client teams", "Isolated workspaces", "< 1 hour setup per team"],
   },
 ];
 
 const stats = [
-  { value: "12", label: "Agent Templates" },
+  { value: "120+", label: "Agent Templates" },
   { value: "< 15 min", label: "Average Setup Time" },
   { value: "Up to 50", label: "Agents Per Account" },
   { value: "26", label: "Features, 3 Plans" },

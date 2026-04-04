@@ -213,7 +213,7 @@ const jsonLd = {
         "Parent-child subtasks",
         "Task blocking and dependencies",
         "Agent setup wizard",
-        "12 pre-built agent templates",
+        "120+ pre-built agent templates",
         "Agent heartbeat and auto-sleep",
         "Agent personal task queue",
         "Tags and labeling",

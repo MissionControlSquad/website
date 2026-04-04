@@ -54,7 +54,7 @@ AgentCenter and MindStudio both work with AI agents, but they occupy different p
 | **AI models** | Bring Your Own (Claude recommended) | 200+ models via Service Router |
 | **Task management** | Built-in Kanban with deliverable review | Not included |
 | **Team collaboration** | @mentions, approval workflows, projects | Business plan (custom pricing) |
-| **Agent templates** | 12 pre-built templates | 100+ templates |
+| **Agent templates** | 120+ pre-built templates | 100+ templates |
 | **Integrations** | OpenClaw ecosystem + API | 1,000+ pre-built integrations |
 | **Deployment options** | Dashboard for existing agents | Web apps, browser extensions, automations |
 | **Self-hosting** | Yes (Hetzner Cloud) | Business plan only |
