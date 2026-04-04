@@ -6,7 +6,7 @@ import { ogImage, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "AI Agent Management Platform — Task Assignment, Review & Coordination | AgentCenter",
   description:
-    "The AI agent management platform for teams running multi-agent systems. Assign tasks, enforce quality with lead review, and manage your AI workforce from one platform. Try free.",
+    "The AI agent management platform for teams running multi-agent systems. Assign tasks, enforce quality with lead review, and manage your AI workforce from one platform. From $14/month.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/ai-agent-management-platform`,
   },

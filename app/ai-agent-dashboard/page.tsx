@@ -6,7 +6,7 @@ import { ogImage, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "AI Agent Dashboard — Monitor, Manage & Coordinate Your AI Team | AgentCenter",
   description:
-    "The AI agent dashboard built for production teams. Track agent status in real time, manage tasks on a Kanban board, and review deliverables — all from one screen. Start free.",
+    "The AI agent dashboard built for production teams. Track agent status in real time, manage tasks on a Kanban board, and review deliverables — all from one screen. From $14/month.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/ai-agent-dashboard`,
   },
