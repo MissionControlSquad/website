@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { CONTACT_EMAIL } from "@/lib/constants";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { GetStartedButton } from "@/components/ui/GetStartedButton";
 import { CheckCircle, AlertTriangle, Mail, Clock, ArrowRight } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -247,11 +248,7 @@ function ThankYouContent() {
                   className="flex flex-col sm:flex-row items-center justify-center gap-4"
                   staggerIndex={5}
                 >
-                  {error && (
-                    <Link href="/pricing">
-                      <Button size="lg">Try Again</Button>
-                    </Link>
-                  )}
+                  {error && <GetStartedButton size="lg" label="Try Again" />}
                   <Link href="/">
                     <Button variant="secondary" size="lg">
                       Back to Home

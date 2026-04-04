@@ -1,17 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight, Zap, CheckCircle } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CAL_LINK, DEFAULT_TIER, PLANS } from "@/lib/constants";
-import { useCheckout } from "@/lib/hooks/useCheckout";
+import { CAL_LINK, PLANS } from "@/lib/constants";
 import { trackCTA } from "@/lib/analytics";
 
 export default function FinalCTA() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-  const { checkout, isLoading } = useCheckout();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -61,30 +59,23 @@ export default function FinalCTA() {
 
           {/* Primary CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <button
-              onClick={() => {
-                trackCTA("bottom", "get_started");
-                checkout({ tier: DEFAULT_TIER });
-              }}
-              disabled={isLoading}
-              className="group relative inline-flex flex-col items-center px-10 py-4 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            <Link
+              href="/pricing"
+              onClick={() => trackCTA("bottom", "get_started")}
+              className="group relative inline-flex flex-col items-center px-10 py-4 gradient-bg rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
             >
               <span className="flex items-center gap-2 text-white font-semibold text-lg">
-                {isLoading ? "Loading…" : "Get Started"}
-                {!isLoading && (
-                  <ArrowRight
-                    size={20}
-                    className="group-hover:translate-x-1 transition-transform"
-                    aria-hidden="true"
-                  />
-                )}
+                Get Started
+                <ArrowRight
+                  size={20}
+                  className="group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
               </span>
-              {!isLoading && (
-                <span className="text-xs text-primary-200/70 mt-1">
-                  {`from $${PLANS.starter.monthly}/mo · cancel anytime`}
-                </span>
-              )}
-            </button>
+              <span className="text-xs text-primary-200/70 mt-1">
+                {`from $${PLANS.starter.monthly}/mo · cancel anytime`}
+              </span>
+            </Link>
 
             <a
               href={CAL_LINK}
