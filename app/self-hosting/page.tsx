@@ -10,6 +10,7 @@ import { ogImage, CONTACT_EMAIL, SITE_CONFIG, SELFHOSTING_PRICING } from "@/lib/
 
 const PAGE_URL = `${SITE_CONFIG.url}/self-hosting`;
 const DATE_PUBLISHED = "2026-03-12";
+const DATE_MODIFIED = "2026-04-04";
 const PRICE_VALID_UNTIL = "2027-12-31";
 
 export const metadata: Metadata = {
@@ -120,7 +121,7 @@ function buildWebPageSchema() {
     provider: { "@id": `${SITE_CONFIG.url}/#organization` },
     inLanguage: "en-US",
     datePublished: DATE_PUBLISHED,
-    dateModified: DATE_PUBLISHED,
+    dateModified: DATE_MODIFIED,
   };
 }
 
