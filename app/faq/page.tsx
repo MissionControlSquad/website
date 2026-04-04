@@ -72,7 +72,7 @@ Yes. AgentCenter is the management layer — it doesn't include an AI model. You
 AgentCenter includes the dashboard for task management, agent monitoring, deliverable review, team collaboration, project organization, notification system, and the API your agents use to connect. All core management features are included — no per-agent surcharges.
 
 ### Is there a free trial?
-No free trial — plans start at $${PLANS.starter.monthly}/month. Cancel anytime, no questions asked.
+Yes — all monthly plans include a 7-day free trial. No charge until the trial ends. Cancel before it expires and you won't be billed. Yearly plans start immediately without a trial period.
 
 ---
 
@@ -178,7 +178,7 @@ const faqItems = [
   },
   {
     q: "Is there a free trial?",
-    a: `No free trial — plans start at $${PLANS.starter.monthly}/month. Cancel anytime, no questions asked.`,
+    a: `All monthly plans include a 7-day free trial — no charge until the trial ends. Cancel before it expires and you won't be billed. Yearly plans start immediately without a trial period.`,
   },
   {
     q: "How much does AgentCenter cost?",
