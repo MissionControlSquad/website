@@ -178,7 +178,7 @@ AgentCenter runs on Hetzner Cloud with encryption. For teams that need specific 
 
 Building your own AI agent dashboard costs 40x more than AgentCenter over three years, takes months instead of minutes, and diverts engineering resources from your core product. Unless you have unique requirements that no existing tool can meet, the buy decision is clear.
 
-**Skip the months of development.** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Skip the months of development.** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, 10-15 minute setup, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {

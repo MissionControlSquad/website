@@ -197,7 +197,7 @@ AgentCenter and AgentOps aren't competitors — they occupy different layers of 
 
 If you manage teams of agents and care about deliverable quality and workflow coordination, AgentCenter is the right starting point. If you're an engineer who needs to debug LLM sessions and track execution costs, AgentOps is the right starting point. For production-grade agent operations, you'll likely want both.
 
-**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 10-15 minute setup, from $${PLANS.starter.monthly}/month, cancel anytime.
+**Ready to manage your AI agents?** [Get started with AgentCenter](https://agentcenter.cloud) — 7-day free trial, 10-15 minute setup, from $${PLANS.starter.monthly}/month.
 `;
 
 export default function Page() {
