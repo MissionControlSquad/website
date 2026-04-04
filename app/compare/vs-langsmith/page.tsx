@@ -165,7 +165,7 @@ Use both if:
 - You have a mature agent operation and need both management and observability
 - You want to manage and review agent work in AgentCenter
 - You need to debug and optimize agent performance in LangSmith
-- You can justify the combined cost (from $29 + $39/mo)
+- You can justify the combined cost (from $${PLANS.pro.monthly} + $39/mo)
 
 ## Frequently Asked Questions
 
