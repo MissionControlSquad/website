@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Is there a free trial?",
     answer:
-      "We don't offer a free trial — but you can cancel anytime with no penalty. If AgentCenter isn't the right fit, cancel before your next billing date and you won't be charged again. We'd rather earn your business every month than hook you with a trial.",
+      "Yes — all monthly plans include a 7-day free trial. No charge until the trial ends. If AgentCenter isn't the right fit, cancel before the trial ends and you won't be billed. Yearly plans start immediately without a trial period.",
   },
   {
     question: "What are the differences between plans?",
