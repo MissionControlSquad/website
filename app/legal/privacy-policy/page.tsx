@@ -260,11 +260,43 @@ export default function PrivacyPolicyPage() {
               </li>
               <li>
                 <strong className="text-neutral-100">Analytics:</strong> Services that help us
-                understand how users interact with the Service
+                understand how users interact with the Service (Google Analytics, Plausible)
+              </li>
+              <li>
+                <strong className="text-neutral-100">Session Recording and Heatmaps:</strong> Hotjar
+                records anonymised session replays and heatmaps to help us improve the user
+                experience. Payment fields and passwords are never recorded. You can opt out at{" "}
+                <a
+                  href="https://www.hotjar.com/legal/compliance/opt-out"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  hotjar.com/legal/compliance/opt-out
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Live Chat and CRM:</strong> HubSpot powers our
+                live chat widget and stores contact details submitted through chat or contact forms.
+                This helps our support team follow up with you. See HubSpot&apos;s{" "}
+                <a
+                  href="https://legal.hubspot.com/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                .
               </li>
               <li>
                 <strong className="text-neutral-100">Authentication:</strong> Third-party identity
                 providers (if you choose social login)
+              </li>
+              <li>
+                <strong className="text-neutral-100">Payment Processing:</strong> Stripe handles all
+                card transactions. We do not store payment card details on our servers.
               </li>
             </ul>
           </section>

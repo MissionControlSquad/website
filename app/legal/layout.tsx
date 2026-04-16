@@ -55,6 +55,15 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
               <Link href="/legal/terms" className="hover:text-neutral-300 transition-colors">
                 Terms of Service
               </Link>
+              <Link href="/legal/cookies" className="hover:text-neutral-300 transition-colors">
+                Cookie Policy
+              </Link>
+              <Link href="/legal/refund" className="hover:text-neutral-300 transition-colors">
+                Cancellation
+              </Link>
+              <Link href="/legal/disclosure" className="hover:text-neutral-300 transition-colors">
+                Disclosure
+              </Link>
             </div>
           </div>
         </Container>
