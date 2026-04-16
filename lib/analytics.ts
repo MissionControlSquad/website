@@ -6,12 +6,60 @@
 
 declare global {
   interface Window {
-    dataLayer?: Record<string, unknown>[];
+    dataLayer: Record<string, unknown>[];
+    gtag: (command: string, ...args: unknown[]) => void;
+  }
+}
+
+export interface ConsentCategories {
+  analytics: boolean;
+  marketing: boolean;
+  behaviour: boolean;
+  crm: boolean;
+  affiliate: boolean;
+}
+
+/**
+ * Push a GTM Consent Mode v2 update after the user makes a cookie choice.
+ * Uses window.gtag for the standard Consent Mode v2 API, then pushes
+ * custom signals for Hotjar/HubSpot/Endorsely GTM tags.
+ */
+export function updateConsentGranted(cats: ConsentCategories) {
+  if (typeof window === "undefined") return;
+  // Standard Consent Mode v2 update
+  if (typeof window.gtag === "function") {
+    window.gtag("consent", "update", {
+      analytics_storage: cats.analytics ? "granted" : "denied",
+      ad_storage: cats.marketing ? "granted" : "denied",
+      ad_user_data: cats.marketing ? "granted" : "denied",
+      ad_personalization: cats.marketing ? "granted" : "denied",
+    });
+  }
+  // Custom GTM signals for Hotjar, HubSpot, Endorsely tags
+  push({
+    event: "consent_update",
+    hotjar_enabled: cats.behaviour,
+    hubspot_enabled: cats.crm,
+    endorsely_enabled: cats.affiliate,
+  });
+}
+
+function hasAnalyticsConsent(): boolean {
+  if (typeof localStorage === "undefined") return false;
+  try {
+    const stored = localStorage.getItem("ac_cookie_consent");
+    if (!stored) return false;
+    const parsed = JSON.parse(stored);
+    return parsed?.categories?.analytics === true;
+  } catch {
+    return false;
   }
 }
 
 function push(payload: Record<string, unknown>) {
-  if (typeof window === "undefined" || !window.dataLayer) return;
+  if (typeof window === "undefined") return;
+  if (!hasAnalyticsConsent()) return;
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(payload);
 }
 

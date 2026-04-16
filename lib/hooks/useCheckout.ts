@@ -46,19 +46,43 @@ export function useCheckout() {
   const [loadingTier, setLoadingTier] = useState<PlanKey | null>(null);
   const [referral, setReferral] = useState<string | null>(null);
 
-  // Load Endorsely script
+  // Load Endorsely script — only after affiliate cookie consent is granted
   useEffect(() => {
     if (typeof window === "undefined" || typeof document === "undefined") return;
 
-    const scriptUrl = "https://assets.endorsely.com/endorsely.js";
-    const existingScript = document.querySelector(`script[src="${scriptUrl}"]`);
-    if (existingScript) return;
+    function loadEndorsely() {
+      const scriptUrl = "https://assets.endorsely.com/endorsely.js";
+      if (document.querySelector(`script[src="${scriptUrl}"]`)) return;
+      const script = document.createElement("script");
+      script.src = scriptUrl;
+      script.async = true;
+      script.dataset.endorsely = "89c5a07e-69b4-47fe-b2a7-61d39e5d51f7";
+      document.head.appendChild(script);
+    }
 
-    const script = document.createElement("script");
-    script.src = scriptUrl;
-    script.async = true;
-    script.dataset.endorsely = "89c5a07e-69b4-47fe-b2a7-61d39e5d51f7";
-    document.head.appendChild(script);
+    function hasAffiliateConsent(): boolean {
+      try {
+        const stored = localStorage.getItem("ac_cookie_consent");
+        if (!stored) return false;
+        const parsed = JSON.parse(stored);
+        return parsed?.categories?.affiliate === true;
+      } catch {
+        return false;
+      }
+    }
+
+    if (hasAffiliateConsent()) {
+      loadEndorsely();
+      return;
+    }
+
+    // Wait for consent to be granted in this session
+    function handleConsent(e: Event) {
+      const cats = (e as CustomEvent).detail?.categories;
+      if (cats?.affiliate) loadEndorsely();
+    }
+    window.addEventListener("cookieConsentChange", handleConsent);
+    return () => window.removeEventListener("cookieConsentChange", handleConsent);
   }, []);
 
   // Poll for Endorsely referral from cookie / window / localStorage

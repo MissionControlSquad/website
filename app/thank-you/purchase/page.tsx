@@ -53,15 +53,22 @@ function ThankYouContent() {
           const value = data.amount ? data.amount / 100 : 0;
           const planName = data.plan ?? "monthly";
 
-          if (window.dataLayer) {
-            window.dataLayer.push({
-              event: "purchase",
-              ecommerce: {
-                transaction_id: sessionId,
-                value,
-                currency: (data.currency || "usd").toUpperCase(),
-              },
-            });
+          // Only push directly to dataLayer if analytics consent has been granted
+          try {
+            const stored = localStorage.getItem("ac_cookie_consent");
+            const hasConsent = stored ? JSON.parse(stored)?.categories?.analytics === true : false;
+            if (hasConsent && window.dataLayer) {
+              window.dataLayer.push({
+                event: "purchase",
+                ecommerce: {
+                  transaction_id: sessionId,
+                  value,
+                  currency: (data.currency || "usd").toUpperCase(),
+                },
+              });
+            }
+          } catch {
+            // never block the UI if consent check fails
           }
 
           await trackPlanUpgrade(planName, value, data.email);

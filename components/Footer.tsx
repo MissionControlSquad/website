@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Twitter, MessageCircle, Github } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS, CAL_LINK } from "@/lib/constants";
+import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 
 const iconMap: Record<string, React.ReactNode> = {
   Twitter: <Twitter size={20} />,
@@ -108,6 +109,11 @@ export default function Footer() {
                     )}
                   </li>
                 ))}
+                {section.title === "Legal" && (
+                  <li>
+                    <CookiePreferencesButton />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
