@@ -101,7 +101,7 @@ const faqs = [
   {
     question: "Can I get a refund on a self-hosting license?",
     answer:
-      "We don't offer refunds on self-hosting licenses. If you hit a setup issue, email us — we'll help you get it running. If something is genuinely broken on our end, we'll make it right.",
+      "We handle self-hosting license refunds fairly. If you hit a setup issue, email us — we'll help you get it running. If something is genuinely broken on our end or it just doesn't work for your situation, contact us within 7 days and we'll sort it out.",
   },
 ];
 
