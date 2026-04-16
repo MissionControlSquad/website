@@ -44,6 +44,27 @@ const cookies = [
     expiry: "Session / 30 days",
     canDisable: false,
   },
+  // Security / CDN
+  {
+    category: "Security / CDN",
+    name: "__cf_bm",
+    provider: "Cloudflare",
+    purpose:
+      "Bot management cookie used by Cloudflare to distinguish between humans and automated bots. Required for site security and DDoS protection.",
+    type: "Cookie",
+    expiry: "30 minutes",
+    canDisable: false,
+  },
+  {
+    category: "Security / CDN",
+    name: "cf_clearance",
+    provider: "Cloudflare",
+    purpose:
+      "Set after a Cloudflare challenge is passed. Allows access to pages protected by Cloudflare security checks for the duration of the session.",
+    type: "Cookie",
+    expiry: "30 minutes – 1 day",
+    canDisable: false,
+  },
   // Analytics
   {
     category: "Analytics",
@@ -133,6 +154,7 @@ const cookies = [
 
 const categoryOrder = [
   "Essential",
+  "Security / CDN",
   "Analytics",
   "Behaviour / UX",
   "CRM / Chat",
@@ -143,6 +165,7 @@ const categoryOrder = [
 
 const categoryColors: Record<string, string> = {
   Essential: "bg-blue-500/10 border-blue-500/30 text-blue-400",
+  "Security / CDN": "bg-slate-500/10 border-slate-500/30 text-slate-400",
   Analytics: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
   "Behaviour / UX": "bg-pink-500/10 border-pink-500/30 text-pink-400",
   "CRM / Chat": "bg-yellow-500/10 border-yellow-500/30 text-yellow-400",
@@ -186,10 +209,12 @@ export default function CookiePolicyPage() {
           <section>
             <h2 className="text-2xl font-bold text-neutral-100 mb-4">2. How We Use Cookies</h2>
             <p className="text-neutral-300 leading-relaxed">
-              We use cookies and similar technologies for five purposes: keeping your session active
-              (essential), measuring site usage (analytics), running and measuring advertising
-              campaigns (marketing), attributing affiliate referrals for commission payments
-              (affiliate), and securing checkout (payment).
+              We use cookies and similar technologies for eight purposes: keeping your session
+              active (essential), protecting against bots and DDoS attacks via our CDN (security),
+              measuring site usage (analytics), recording anonymised sessions and heatmaps to
+              improve UX (behaviour), powering live chat and managing support contacts (CRM),
+              running and measuring advertising campaigns (marketing), attributing affiliate
+              referrals for commission payments (affiliate), and securing checkout (payment).
             </p>
           </section>
 
@@ -202,6 +227,10 @@ export default function CookiePolicyPage() {
                 {
                   name: "Essential",
                   desc: "Required for core website and dashboard functionality (authentication, session management). Cannot be disabled.",
+                },
+                {
+                  name: "Security / CDN",
+                  desc: "Set by Cloudflare for bot management, DDoS protection, and CDN security. Required for site security and performance. Cannot be disabled.",
                 },
                 {
                   name: "Analytics",
@@ -311,7 +340,11 @@ export default function CookiePolicyPage() {
               {[
                 {
                   title: "Browser Settings",
-                  desc: "Most browsers allow you to block or delete cookies. Note that blocking essential or payment cookies may break authentication and checkout functionality.",
+                  desc: "Most browsers allow you to block or delete cookies. Note that blocking essential, security, or payment cookies may break authentication, site access, and checkout functionality.",
+                },
+                {
+                  title: "Cloudflare Security Cookies",
+                  desc: "Cloudflare security cookies (__cf_bm, cf_clearance) are required for bot protection and CDN delivery. They cannot be opted out of without affecting site functionality.",
                 },
                 {
                   title: "Google Ads Opt-Out",

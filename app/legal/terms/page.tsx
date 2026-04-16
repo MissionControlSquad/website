@@ -39,6 +39,7 @@ const SECTIONS = [
   { id: "acceptable-use", label: "Acceptable Use" },
   { id: "payment-terms", label: "Payment Terms" },
   { id: "your-data-and-ownership", label: "Your Data and Ownership" },
+  { id: "third-party-services", label: "Third-Party Services" },
   { id: "service-availability", label: "Service Availability" },
   { id: "limitation-of-liability", label: "Limitation of Liability" },
   { id: "termination", label: "Termination" },
@@ -351,8 +352,78 @@ export default function TermsOfServicePage() {
 
           <hr className="border-neutral-800 my-10" />
 
+          <section id="third-party-services" className="scroll-mt-24">
+            <h2 className="text-2xl font-bold text-neutral-100 mb-4">7. Third-Party Services</h2>
+            <p className="text-neutral-300 leading-relaxed mb-4">
+              AgentCenter integrates with the following third-party services to operate. Your use of
+              AgentCenter is also subject to those services&apos; terms and privacy policies. We are
+              not responsible for their practices.
+            </p>
+            <ul className="list-disc list-inside text-neutral-300 space-y-2 ml-4">
+              <li>
+                <strong className="text-neutral-100">Cloudflare</strong> — Hosting, CDN, and bot
+                protection (Turnstile CAPTCHA)
+              </li>
+              <li>
+                <strong className="text-neutral-100">Stripe</strong> — Payment processing for
+                subscriptions and one-time purchases
+              </li>
+              <li>
+                <strong className="text-neutral-100">Supabase</strong> — Backend database for
+                waitlist and pricing-drop signups
+              </li>
+              <li>
+                <strong className="text-neutral-100">Resend</strong> — Transactional and marketing
+                email delivery
+              </li>
+              <li>
+                <strong className="text-neutral-100">HubSpot</strong> — Live chat widget and support
+                CRM
+              </li>
+              <li>
+                <strong className="text-neutral-100">Hotjar</strong> — Anonymised session recording
+                and heatmaps
+              </li>
+              <li>
+                <strong className="text-neutral-100">Google Analytics &amp; Tag Manager</strong> —
+                Usage analytics and tag management
+              </li>
+              <li>
+                <strong className="text-neutral-100">Google Ads</strong> — Paid advertising and
+                conversion tracking
+              </li>
+              <li>
+                <strong className="text-neutral-100">Plausible Analytics</strong> — Privacy-first,
+                cookieless analytics
+              </li>
+              <li>
+                <strong className="text-neutral-100">Endorsely</strong> — Affiliate referral
+                tracking and commission management
+              </li>
+            </ul>
+            <p className="text-neutral-300 leading-relaxed mt-4">
+              For full details on data collected by each service, see our{" "}
+              <a
+                href="/legal/privacy-policy"
+                className="text-primary-400 hover:text-primary-300 transition-colors"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="/legal/cookies"
+                className="text-primary-400 hover:text-primary-300 transition-colors"
+              >
+                Cookie Policy
+              </a>
+              .
+            </p>
+          </section>
+
+          <hr className="border-neutral-800 my-10" />
+
           <section id="service-availability" className="scroll-mt-24">
-            <h2 className="text-2xl font-bold text-neutral-100 mb-4">7. Service Availability</h2>
+            <h2 className="text-2xl font-bold text-neutral-100 mb-4">8. Service Availability</h2>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">7.1 Uptime</h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
@@ -387,10 +458,10 @@ export default function TermsOfServicePage() {
           <hr className="border-neutral-800 my-10" />
 
           <section id="limitation-of-liability" className="scroll-mt-24">
-            <h2 className="text-2xl font-bold text-neutral-100 mb-4">8. Limitation of Liability</h2>
+            <h2 className="text-2xl font-bold text-neutral-100 mb-4">9. Limitation of Liability</h2>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
-              8.1 Disclaimer of Warranties
+              9.1 Disclaimer of Warranties
             </h3>
             <p className="text-neutral-300 leading-relaxed mb-4 uppercase text-sm">
               AGENTCENTER IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT
@@ -400,7 +471,7 @@ export default function TermsOfServicePage() {
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
-              8.2 Limitation of Liability
+              9.2 Limitation of Liability
             </h3>
             <p className="text-neutral-300 leading-relaxed mb-4 uppercase text-sm">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, JAGODANA LLC SHALL NOT BE LIABLE FOR ANY
@@ -415,7 +486,7 @@ export default function TermsOfServicePage() {
               claim.
             </p>
 
-            <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">8.3 Agent Actions</h3>
+            <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">9.3 Agent Actions</h3>
             <p className="text-neutral-300 leading-relaxed">
               AgentCenter is a management dashboard — it coordinates and monitors agents but does
               not control what they do. You are responsible for your agents&apos; actions, outputs,
@@ -427,15 +498,15 @@ export default function TermsOfServicePage() {
           <hr className="border-neutral-800 my-10" />
 
           <section id="termination" className="scroll-mt-24">
-            <h2 className="text-2xl font-bold text-neutral-100 mb-4">9. Termination</h2>
+            <h2 className="text-2xl font-bold text-neutral-100 mb-4">10. Termination</h2>
 
-            <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">9.1 By You</h3>
+            <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">10.1 By You</h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
               You can close your account at any time by canceling your subscription and contacting
               us. We&apos;ll process account deletion within 30 days of your request.
             </p>
 
-            <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">9.2 By Us</h3>
+            <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">10.2 By Us</h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
               We may suspend or terminate your account if:
             </p>
@@ -451,7 +522,7 @@ export default function TermsOfServicePage() {
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
-              9.3 After Termination
+              10.3 After Termination
             </h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
               When your account is terminated:
@@ -469,7 +540,7 @@ export default function TermsOfServicePage() {
           <hr className="border-neutral-800 my-10" />
 
           <section id="general-terms" className="scroll-mt-24">
-            <h2 className="text-2xl font-bold text-neutral-100 mb-4">10. General Terms</h2>
+            <h2 className="text-2xl font-bold text-neutral-100 mb-4">11. General Terms</h2>
 
             <p className="text-neutral-300 leading-relaxed mb-4">
               <strong className="text-neutral-100">Changes to Terms:</strong> We may update these
@@ -510,7 +581,7 @@ export default function TermsOfServicePage() {
           <hr className="border-neutral-800 my-10" />
 
           <section id="contact-us" className="scroll-mt-24">
-            <h2 className="text-2xl font-bold text-neutral-100 mb-4">11. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-neutral-100 mb-4">12. Contact Us</h2>
             <p className="text-neutral-300 leading-relaxed mb-4">
               Questions about these Terms? Reach out:
             </p>
