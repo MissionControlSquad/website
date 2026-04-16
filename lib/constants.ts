@@ -87,6 +87,9 @@ export const FOOTER_LINKS = {
   legal: [
     { label: "Privacy Policy", href: "/legal/privacy-policy" },
     { label: "Terms of Service", href: "/legal/terms" },
+    { label: "Cookie Policy", href: "/legal/cookies" },
+    { label: "Cancellation Policy", href: "/legal/refund" },
+    { label: "Affiliate Disclosure", href: "/legal/disclosure" },
     { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
   ],
 } as const;

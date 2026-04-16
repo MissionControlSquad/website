@@ -288,6 +288,27 @@ const PAGES = [
     subtitle: "The terms that govern your use of AgentCenter.",
     accentColor: BLUE,
   },
+  {
+    slug: "legal-cookies",
+    category: null,
+    title: "Cookie Policy",
+    subtitle: "Cookies and tracking technologies used by AgentCenter, and how to manage them.",
+    accentColor: BLUE,
+  },
+  {
+    slug: "legal-refund",
+    category: null,
+    title: "Cancellation Policy",
+    subtitle: "Cancel any time from your account dashboard — no fees, no penalties.",
+    accentColor: BLUE,
+  },
+  {
+    slug: "legal-disclosure",
+    category: null,
+    title: "Affiliate & Advertising Disclosure",
+    subtitle: "Our affiliate programme, advertising partnerships, and FTC compliance.",
+    accentColor: BLUE,
+  },
 
   // Not found
   {
