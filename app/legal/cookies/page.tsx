@@ -5,14 +5,14 @@ import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
-    "Cookie Policy for AgentCenter. Learn about the cookies and tracking technologies we use, their purpose, and how to manage your preferences.",
+    "Cookie Policy for AgentCenter. Learn which cookies we use — analytics, Hotjar, HubSpot, Stripe, Endorsely — their purpose, and how to manage or disable them.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/legal/cookies`,
   },
   openGraph: {
     title: "Cookie Policy | AgentCenter",
     description:
-      "Cookie Policy for AgentCenter. Learn about the cookies and tracking technologies we use, their purpose, and how to manage your preferences.",
+      "Cookie Policy for AgentCenter. Learn which cookies we use — analytics, Hotjar, HubSpot, Stripe, Endorsely — their purpose, and how to manage or disable them.",
     type: "website",
     url: `${SITE_CONFIG.url}/legal/cookies`,
     siteName: SITE_CONFIG.name,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cookie Policy | AgentCenter",
     description:
-      "Cookie Policy for AgentCenter. Learn about the cookies and tracking technologies we use, their purpose, and how to manage your preferences.",
+      "Cookie Policy for AgentCenter. Learn which cookies we use — analytics, Hotjar, HubSpot, Stripe, Endorsely — their purpose, and how to manage or disable them.",
     images: [ogImage("legal-cookies")],
   },
   robots: {

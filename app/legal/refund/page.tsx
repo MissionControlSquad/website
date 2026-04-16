@@ -5,14 +5,14 @@ import { ogImage, CONTACT_EMAIL, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Cancellation Policy",
   description:
-    "Cancellation Policy for AgentCenter — cancel your subscription any time, no fees, no penalties.",
+    "Cancellation Policy for AgentCenter. Cancel your monthly or yearly subscription any time from your dashboard — no fees, no penalties, no questions asked.",
   alternates: {
     canonical: `${SITE_CONFIG.url}/legal/refund`,
   },
   openGraph: {
     title: "Cancellation Policy | AgentCenter",
     description:
-      "Cancellation Policy for AgentCenter — cancel your subscription any time, no fees, no penalties.",
+      "Cancellation Policy for AgentCenter. Cancel your monthly or yearly subscription any time from your dashboard — no fees, no penalties, no questions asked.",
     type: "website",
     url: `${SITE_CONFIG.url}/legal/refund`,
     siteName: SITE_CONFIG.name,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cancellation Policy | AgentCenter",
     description:
-      "Cancellation Policy for AgentCenter — cancel your subscription any time, no fees, no penalties.",
+      "Cancellation Policy for AgentCenter. Cancel your monthly or yearly subscription any time from your dashboard — no fees, no penalties, no questions asked.",
     images: [ogImage("legal-refund")],
   },
   robots: {
