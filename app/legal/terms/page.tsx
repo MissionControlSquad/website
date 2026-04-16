@@ -297,8 +297,8 @@ export default function TermsOfServicePage() {
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">5.5 Refunds</h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
-              We don&apos;t offer automatic refunds for partial months. If you believe you deserve a
-              refund due to service issues, contact us at{" "}
+              We handle refunds fairly. If you&apos;re not happy with your subscription or
+              experienced a service issue, reach out within 7 days of the charge at{" "}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="text-primary-400 hover:text-primary-300 transition-colors"

@@ -32,7 +32,7 @@ const FAQS = [
   },
   {
     q: "Is there a refund policy?",
-    a: "All lifetime deal purchases are final — no refunds. This is a one-time, heavily discounted offer and seats are limited, so we can't offer returns. Make sure it's the right fit before you buy.",
+    a: "Lifetime deal purchases are heavily discounted and seats are limited, but we're fair — if something isn't right, contact us within 7 days and we'll work it out. Make sure it's the right fit before you buy.",
   },
   {
     q: "When does the price increase?",
