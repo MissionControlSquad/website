@@ -152,6 +152,21 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Content */}
       <Container>
         <article className="max-w-3xl mx-auto py-12 md:py-16">
+          {post.tags.some((t) =>
+            ["affiliate", "tools", "review", "comparison"].includes(t.toLowerCase())
+          ) && (
+            <div className="mb-8 px-4 py-3 rounded-lg bg-neutral-800/50 border border-neutral-700 text-xs text-neutral-400">
+              <strong className="text-neutral-300">Disclosure:</strong> Some links in this post are
+              affiliate links. If you purchase through them, someone may earn a commission at no
+              extra cost to you.{" "}
+              <a
+                href="/legal/disclosure"
+                className="text-primary-400 hover:text-primary-300 underline"
+              >
+                Full disclosure
+              </a>
+            </div>
+          )}
           <div className="prose prose-invert prose-neutral max-w-none prose-headings:text-neutral-100 prose-p:text-neutral-300 prose-strong:text-neutral-200 prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-code:text-primary-300 prose-code:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800 prose-li:text-neutral-300 prose-blockquote:border-primary-500 prose-blockquote:text-neutral-400 prose-table:text-neutral-300 prose-th:text-neutral-200 prose-td:border-neutral-800 prose-th:border-neutral-800">
             <MDXRemote
               source={post.content}

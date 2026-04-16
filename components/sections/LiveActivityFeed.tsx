@@ -141,8 +141,8 @@ function formatTime(date: Date): string {
 
 function generateTimestamp(index: number): string {
   const now = new Date();
-  // Events are spaced 2–5 min apart going backwards
-  const offset = index * (2 + Math.floor(Math.random() * 3)) * 60 * 1000;
+  // Fixed 3-min spacing — deterministic so server/client renders match
+  const offset = index * 3 * 60 * 1000;
   return formatTime(new Date(now.getTime() - offset));
 }
 
@@ -163,8 +163,11 @@ function FeedItem({ event, timestamp, isNew }: FeedItemProps) {
         ${isNew ? "animate-feed-slide-in border-primary-500/20 bg-primary-500/5" : ""}
       `}
     >
-      {/* Timestamp */}
-      <span className="text-neutral-600 font-mono text-[10px] sm:text-xs shrink-0 mt-0.5 tabular-nums">
+      {/* Timestamp — suppressHydrationWarning: server/client times differ by seconds */}
+      <span
+        className="text-neutral-600 font-mono text-[10px] sm:text-xs shrink-0 mt-0.5 tabular-nums"
+        suppressHydrationWarning
+      >
         {timestamp}
       </span>
 
@@ -286,7 +289,10 @@ export default function LiveActivityFeed() {
                   {visibleEvents.length > 0 ? "streaming" : "connecting..."}
                 </span>
               </div>
-              <span className="text-neutral-600 text-xs font-mono tabular-nums">
+              <span
+                className="text-neutral-600 text-xs font-mono tabular-nums"
+                suppressHydrationWarning
+              >
                 {formatTime(new Date())}
               </span>
             </div>

@@ -57,9 +57,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     method: "POST",
     headers,
     body: JSON.stringify({
-      from: "AgentCenter <hello@agentcenter.cloud>",
+      from: "AgentCenter <dharmendra@agentcenter.cloud>",
       to: email,
       subject: "Thanks for signing up for early access!",
+      headers: {
+        "List-Unsubscribe": `<mailto:dharmendra@agentcenter.cloud?subject=unsubscribe&body=Please%20unsubscribe%20${encodeURIComponent(email)}>`,
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      },
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">
           <h2 style="color: #111;">Welcome to AgentCenter!</h2>
@@ -74,6 +78,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           </p>
           <br />
           <p>— Dharmik Jagodana, Founder of AgentCenter</p>
+          <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
+          <p style="font-size: 12px; color: #999; line-height: 1.5;">
+            You received this email because you signed up for early access at agentcenter.cloud.<br />
+            Jagodana LLC · agentcenter.cloud<br />
+            <a href="mailto:dharmendra@agentcenter.cloud?subject=unsubscribe&body=Please%20unsubscribe%20${encodeURIComponent(email)}" style="color: #999;">Unsubscribe</a> ·
+            <a href="https://agentcenter.cloud/legal/privacy-policy" style="color: #999;">Privacy Policy</a>
+          </p>
         </div>
       `,
     }),
@@ -85,7 +96,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       method: "POST",
       headers,
       body: JSON.stringify({
-        from: "AgentCenter <hello@agentcenter.cloud>",
+        from: "AgentCenter <dharmendra@agentcenter.cloud>",
         to: NOTIFY_EMAIL,
         subject: "New early access signup",
         html: `
