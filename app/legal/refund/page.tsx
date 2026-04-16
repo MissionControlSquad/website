@@ -85,9 +85,9 @@ export default function CancellationPolicyPage() {
         <div className="prose prose-invert prose-neutral max-w-none space-y-8">
           {[
             {
-              title: "No Refunds",
+              title: "Fair Refund Policy",
               content:
-                "All subscription payments are non-refundable. Because our product is digital and delivered immediately upon subscription, we do not offer refunds for any charges already processed. If you believe there has been an error in billing, please contact us and we will work it out.",
+                "We handle refunds on a case-by-case basis. If you're not satisfied with your subscription, contact us within 7 days of your charge and we'll work it out — whether that's a full refund, a partial credit, or something else that makes sense for your situation. We're not looking to keep money for a service that didn't work for you.",
             },
             {
               title: "How to Cancel",
