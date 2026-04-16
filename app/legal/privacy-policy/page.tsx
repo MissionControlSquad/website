@@ -139,6 +139,15 @@ export default function PrivacyPolicyPage() {
               do not store complete credit card numbers or banking details on our servers.
             </p>
 
+            <p className="text-neutral-300 leading-relaxed mb-4">
+              <strong className="text-neutral-100">Email Sign-Up Data:</strong> If you submit your
+              email address via our early-access, waitlist, or pricing-drop forms, we collect your
+              email address and store it in our email platform (Resend) to send you a confirmation
+              and future product updates. Your email is normalized and a hashed (SHA-256) version of
+              your IP address is stored temporarily to prevent duplicate submissions — we never
+              store raw IP addresses.
+            </p>
+
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
               Information Collected Automatically
             </h3>
@@ -181,7 +190,13 @@ export default function PrivacyPolicyPage() {
               <li>Provide, maintain, and improve the Service</li>
               <li>Process transactions and send related information</li>
               <li>Create and manage your account</li>
-              <li>Respond to your comments, questions, and support requests</li>
+              <li>
+                Send welcome emails and product updates to subscribers who opt in via our forms (via
+                Resend)
+              </li>
+              <li>
+                Respond to your comments, questions, and support requests (via HubSpot live chat)
+              </li>
               <li>Send technical notices, updates, security alerts, and administrative messages</li>
               <li>
                 Monitor and analyze trends, usage, and activities in connection with the Service
@@ -251,21 +266,67 @@ export default function PrivacyPolicyPage() {
               Key Third-Party Services
             </h3>
             <p className="text-neutral-300 leading-relaxed mb-4">
-              Our Service utilizes the following categories of third-party services:
+              The following third-party services may collect or process personal data on our behalf.
+              Each operates under its own privacy policy.
             </p>
-            <ul className="list-disc list-inside text-neutral-300 space-y-2 ml-4">
+            <ul className="list-disc list-inside text-neutral-300 space-y-3 ml-4">
               <li>
-                <strong className="text-neutral-100">Infrastructure and Hosting:</strong> Cloud
-                hosting and database services
+                <strong className="text-neutral-100">Cloudflare</strong> — Hosts and delivers the
+                website via Cloudflare Pages and CDN. Processes request data (IP address, browser
+                headers) for routing, performance, and security including DDoS protection and bot
+                management (Turnstile CAPTCHA).{" "}
+                <a
+                  href="https://www.cloudflare.com/privacypolicy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Cloudflare Privacy Policy
+                </a>
+                .
               </li>
               <li>
-                <strong className="text-neutral-100">Analytics:</strong> Services that help us
-                understand how users interact with the Service (Google Analytics, Plausible)
+                <strong className="text-neutral-100">Google Tag Manager</strong> — Manages and
+                deploys analytics and advertising tags without code changes. Acts as the delivery
+                mechanism for Google Analytics, Google Ads, and Hotjar.
               </li>
               <li>
-                <strong className="text-neutral-100">Session Recording and Heatmaps:</strong> Hotjar
-                records anonymised session replays and heatmaps to help us improve the user
-                experience. Payment fields and passwords are never recorded. You can opt out at{" "}
+                <strong className="text-neutral-100">Google Analytics (GA4)</strong> — Collects
+                anonymised usage data (pages viewed, session duration, traffic sources) to help us
+                understand how visitors use the site.{" "}
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Google Privacy Policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Google Search Console / Bing / Yandex</strong>{" "}
+                — We use webmaster verification meta tags for search engine ownership verification.
+                No personal data is collected via these tags.
+              </li>
+              <li>
+                <strong className="text-neutral-100">Plausible Analytics</strong> — Privacy-first,
+                cookieless analytics. Collects aggregate page views without storing personal data or
+                setting cookies.{" "}
+                <a
+                  href="https://plausible.io/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Plausible Privacy Policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Hotjar</strong> — Records anonymised session
+                replays, heatmaps, and scroll maps to help us improve UX. Payment fields and
+                passwords are never recorded. Opt out at{" "}
                 <a
                   href="https://www.hotjar.com/legal/compliance/opt-out"
                   target="_blank"
@@ -277,26 +338,89 @@ export default function PrivacyPolicyPage() {
                 .
               </li>
               <li>
-                <strong className="text-neutral-100">Live Chat and CRM:</strong> HubSpot powers our
-                live chat widget and stores contact details submitted through chat or contact forms.
-                This helps our support team follow up with you. See HubSpot&apos;s{" "}
+                <strong className="text-neutral-100">HubSpot</strong> — Powers the live chat widget
+                and stores contact details from chat sessions and contact forms for support
+                follow-up.{" "}
                 <a
                   href="https://legal.hubspot.com/privacy-policy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-400 hover:text-primary-300 transition-colors"
                 >
-                  Privacy Policy
+                  HubSpot Privacy Policy
                 </a>
                 .
               </li>
               <li>
-                <strong className="text-neutral-100">Authentication:</strong> Third-party identity
-                providers (if you choose social login)
+                <strong className="text-neutral-100">Google Ads</strong> — Runs paid advertising.
+                Tracks purchases from ad clicks and enables remarketing audiences from site
+                visitors.{" "}
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Google Privacy Policy
+                </a>
+                .
               </li>
               <li>
-                <strong className="text-neutral-100">Payment Processing:</strong> Stripe handles all
-                card transactions. We do not store payment card details on our servers.
+                <strong className="text-neutral-100">Stripe</strong> — Handles all payment
+                processing. We do not store card details on our servers. Your affiliate referral ID
+                is passed to Stripe as subscription metadata for commission attribution.{" "}
+                <a
+                  href="https://stripe.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Stripe Privacy Policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Resend</strong> — Transactional and marketing
+                email platform. Email addresses submitted via our early-access or waitlist forms are
+                stored in Resend to send a welcome email and product updates. You can unsubscribe at
+                any time.{" "}
+                <a
+                  href="https://resend.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Resend Privacy Policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Supabase</strong> — Backend database. For
+                pricing-drop and waitlist signups we store your email address and a salted SHA-256
+                hash of your IP address (never the raw IP) to prevent duplicate submissions.{" "}
+                <a
+                  href="https://supabase.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Supabase Privacy Policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Endorsely</strong> — Affiliate tracking. Stores
+                a referral ID in a cookie and localStorage (up to 90 days) when you arrive via an
+                affiliate link, to attribute purchases and calculate commissions.{" "}
+                <a
+                  href="https://endorsely.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Endorsely Privacy Policy
+                </a>
+                .
               </li>
             </ul>
           </section>
