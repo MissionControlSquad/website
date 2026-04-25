@@ -56,9 +56,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   }
 
   const userId = user?.id || user?._id || "";
+  if (!SYSTEM_SECRET) {
+    return Response.json({ success: false, message: "Server misconfigured" }, { status: 500 });
+  }
+
   const token = await createJWT(
     { userId, workspaceId: null, userRole: user?.role || "user", email: user?.email || "" },
-    SYSTEM_SECRET || "dev-secret-change-in-production"
+    SYSTEM_SECRET
   );
 
   const isSecure = new URL(context.request.url).protocol === "https:";
