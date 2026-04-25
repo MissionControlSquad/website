@@ -43,8 +43,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     return Response.json({ ready: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const secret = SYSTEM_SECRET || "dev-secret-change-in-production";
-  const payload = (await verifyJWT(token, secret)) as TokenPayload | null;
+  if (!SYSTEM_SECRET) {
+    return Response.json({ ready: false, error: "Server misconfigured" }, { status: 500 });
+  }
+  const payload = (await verifyJWT(token, SYSTEM_SECRET)) as TokenPayload | null;
   if (!payload) {
     return Response.json({ ready: false, error: "Invalid token" }, { status: 401 });
   }

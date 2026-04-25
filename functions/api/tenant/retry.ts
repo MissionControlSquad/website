@@ -16,6 +16,7 @@ interface TokenPayload {
 interface InfraLookupResult {
   found: boolean;
   slug?: string;
+  provisioningStatus?: "provisioning" | "active" | "failed";
   provisioningAttempts?: number;
 }
 
@@ -26,8 +27,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
   if (!token) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
-  const secret = SYSTEM_SECRET || "dev-secret-change-in-production";
-  const payload = (await verifyJWT(token, secret)) as TokenPayload | null;
+  if (!SYSTEM_SECRET) return Response.json({ error: "Server misconfigured" }, { status: 500 });
+  const payload = (await verifyJWT(token, SYSTEM_SECRET)) as TokenPayload | null;
   if (!payload) return Response.json({ error: "Invalid token" }, { status: 401 });
 
   const { email } = payload;
@@ -51,6 +52,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const data = (await lookupRes.json()) as InfraLookupResult;
     if (!data.found || !data.slug) {
       return Response.json({ error: "Tenant not found" }, { status: 404 });
+    }
+
+    // Only allow retry when provisioning explicitly failed — not for active or
+    // in-progress tenants. Prevents misuse by users calling this endpoint manually.
+    if (data.provisioningStatus !== "failed") {
+      return Response.json({ error: "Tenant is not in a failed state" }, { status: 409 });
     }
 
     const reprRes = await fetch(`${infraBase}/api/clients/${data.slug}/reprovision`, {
