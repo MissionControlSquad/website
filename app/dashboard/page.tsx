@@ -23,6 +23,8 @@ interface TenantStatus {
   licenseKey?: string;
   status?: string | null;
   type?: string;
+  name?: string;
+  createdAt?: string;
   reason?: string;
   error?: string;
   attempts?: number;
