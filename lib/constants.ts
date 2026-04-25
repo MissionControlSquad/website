@@ -152,13 +152,6 @@ export const PLANS = {
   }
 >;
 
-/** Lifetime deal pricing configuration */
-export const LIFETIME_DEAL = {
-  startingPrice: 259,
-  totalSeats: 100,
-  seatsPerTier: 25,
-} as const;
-
 /** Self-hosting pricing configuration */
 export const SELFHOSTING_PRICING = {
   monthly: 99,

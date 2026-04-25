@@ -1,5 +1,9 @@
 interface Env {
-  STRIPE_SECRET_KEY: string;
+  SAAS_CLIENT_SECRET: string;
+  SAAS_SERVER_URL: string;
+  SAAS_ORG_ID: string;
+  SAAS_CLIENT_ID: string;
+  SYSTEM_SECRET: string;
 }
 
 const corsHeaders: Record<string, string> = {
