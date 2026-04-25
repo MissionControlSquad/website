@@ -29,12 +29,15 @@ function clearAuthToken() {
 }
 
 async function updateAuthToken(userId: string, workspaceId: string, userRole: string) {
-  // Preserve the email across token refreshes — it was stored during initial sign-in
   const email = localStorage.getItem("user_email") ?? "";
+  const currentToken = localStorage.getItem("auth_token") ?? "";
   try {
     const response = await fetch("/api/auth/workspace-token", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(currentToken ? { Authorization: `Bearer ${currentToken}` } : {}),
+      },
       body: JSON.stringify({ userId, workspaceId, userRole, email }),
     });
     const data = (await response.json()) as { success?: boolean; token?: string };
@@ -192,16 +195,19 @@ export function BuildbaseProvider({ children }: { children: React.ReactNode }) {
           onWorkspaceChange: async (params) => {
             const { user, workspace, role: userRole } = params;
             if (!user?.id || !workspace?._id) return;
-            // Use email from params if available, otherwise fall back to localStorage
             const email =
               (user as unknown as { email?: string }).email ??
               localStorage.getItem("user_email") ??
               "";
             if (email) storeUserEmail(email);
+            const currentToken = localStorage.getItem("auth_token") ?? "";
             try {
               const response = await fetch("/api/auth/workspace-token", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                  "Content-Type": "application/json",
+                  ...(currentToken ? { Authorization: `Bearer ${currentToken}` } : {}),
+                },
                 body: JSON.stringify({
                   userId: user.id,
                   workspaceId: workspace._id,

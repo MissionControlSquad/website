@@ -68,7 +68,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 
   const { email, workspaceId } = payload;
   const url = new URL(context.request.url);
-  const planName = url.searchParams.get("planName") ?? undefined;
+  const rawPlanName = url.searchParams.get("planName");
+  // Only forward known plan names to infra — discard anything else
+  const planName = rawPlanName === SELF_HOST_PLAN_NAME ? SELF_HOST_PLAN_NAME : undefined;
   const isSelfHostedPlan = planName === SELF_HOST_PLAN_NAME;
 
   const infraBase = (INFRA_API_URL || "").replace(/\/$/, "");
