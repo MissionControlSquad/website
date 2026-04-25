@@ -6,11 +6,10 @@ import { Check, X, ArrowRight, Minus, LayoutList, Monitor } from "@/components/i
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PricingPage } from "@buildbase/sdk/react";
 import { trackBeginCheckout } from "@/lib/analytics";
-import { SELFHOSTING_PRICING } from "@/lib/constants";
+import { SELFHOSTING_PRICING, SELF_HOST_PLAN_NAME } from "@/lib/constants";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
 const PLAN_GROUP_SLUG = process.env.NEXT_PUBLIC_PLAN_GROUP_SLUG ?? "";
-const SELF_HOST_PLAN_NAME = "Self-Hosting";
 
 type BillingInterval = "monthly" | "quarterly" | "yearly";
 

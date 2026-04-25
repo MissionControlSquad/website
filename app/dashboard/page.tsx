@@ -5,6 +5,14 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useSaaSAuth, WorkspaceSwitcher } from "@buildbase/sdk/react";
 import { useWorkspaceSubscription } from "@/lib/hooks/useWorkspaceSubscription";
+import {
+  CONTACT_EMAIL,
+  SELF_HOSTING_SETUP_URL,
+  AUTH_TOKEN_KEY,
+  TENANT_MAX_RETRY_ATTEMPTS,
+  CLIENT_TYPE,
+  PROVISIONING_STATUS,
+} from "@/lib/constants";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -12,6 +20,7 @@ interface TenantStatus {
   ready: boolean;
   url?: string;
   slug?: string;
+  licenseKey?: string;
   status?: string | null;
   type?: string;
   reason?: string;
@@ -88,21 +97,80 @@ function Spinner({ size = "md" }: { size?: "sm" | "md" }) {
   );
 }
 
+// ─── SelfHostedCard ───────────────────────────────────────────────────────────
+
+function SelfHostedCard({ tenant }: { tenant: TenantStatus }) {
+  const [copied, setCopied] = useState(false);
+  const licenseKey = tenant.licenseKey ?? "";
+
+  function copyKey() {
+    if (!licenseKey) return;
+    void navigator.clipboard.writeText(licenseKey).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
+  return (
+    <div className="flex flex-col gap-5 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+      <div className="flex items-center gap-2">
+        <span className="w-2.5 h-2.5 rounded-full bg-primary-400 flex-shrink-0" />
+        <span className="font-semibold text-neutral-100 text-base">Self-Hosted</span>
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">
+          License Key
+        </p>
+        <div className="flex items-center gap-2">
+          <code className="flex-1 text-xs font-mono bg-neutral-800 text-neutral-200 px-3 py-2 rounded-lg truncate">
+            {licenseKey || "—"}
+          </code>
+          <button
+            onClick={copyKey}
+            disabled={!licenseKey}
+            className="px-3 py-2 text-xs font-medium border border-neutral-700 hover:border-neutral-600 text-neutral-400 hover:text-neutral-200 rounded-lg transition-colors flex-shrink-0 disabled:opacity-40"
+          >
+            {copied ? "Copied!" : "Copy"}
+          </button>
+        </div>
+        <p className="text-xs text-neutral-600 leading-relaxed">
+          Enter this key when the app prompts you on first launch.
+        </p>
+      </div>
+
+      <a
+        href={SELF_HOSTING_SETUP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto inline-flex items-center gap-2 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors self-start"
+      >
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+        Setup Guide
+      </a>
+    </div>
+  );
+}
+
 // ─── TenantCard ───────────────────────────────────────────────────────────────
 
-function TenantCard() {
+function TenantCard({ planName }: { planName?: string | null }) {
   const [tenant, setTenant] = useState<TenantStatus | null>(null);
   const [checking, setChecking] = useState(true);
 
   async function check() {
     setChecking(true);
     try {
-      const token = localStorage.getItem("auth_token");
+      const token = localStorage.getItem(AUTH_TOKEN_KEY);
       if (!token) {
         setTenant({ ready: false, reason: "no_token" });
         return;
       }
-      const res = await fetch("/api/tenant/status", {
+      const statusUrl = new URL("/api/tenant/status", window.location.href);
+      if (planName) statusUrl.searchParams.set("planName", planName);
+      const res = await fetch(statusUrl.toString(), {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = (await res.json()) as TenantStatus;
@@ -116,10 +184,16 @@ function TenantCard() {
 
   useEffect(() => {
     void check();
+    // planName is stable after subscription loads — only need to run once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (checking) {
     return <TenantSkeleton />;
+  }
+
+  if (tenant?.ready && tenant.type === CLIENT_TYPE.SELF_HOSTED) {
+    return <SelfHostedCard tenant={tenant} />;
   }
 
   if (tenant?.ready && tenant.url) {
@@ -129,7 +203,7 @@ function TenantCard() {
       typeof window !== "undefined" &&
       (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
     const containerDown =
-      !isLocalDev && tenant.type !== "self-hosted" && tenant.status !== "running";
+      !isLocalDev && tenant.type !== CLIENT_TYPE.SELF_HOSTED && tenant.status !== "running";
 
     if (containerDown) {
       return (
@@ -143,7 +217,7 @@ function TenantCard() {
             support.
           </p>
           <a
-            href="mailto:dharmendra@agentcenter.cloud"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="mt-1 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors"
           >
             Contact support
@@ -173,7 +247,7 @@ function TenantCard() {
     );
   }
 
-  if (tenant?.reason === "provisioning") {
+  if (tenant?.reason === PROVISIONING_STATUS.PROVISIONING) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-warning-500/20 bg-warning-500/5 h-full">
         <div className="flex items-center gap-2">
@@ -196,13 +270,12 @@ function TenantCard() {
 
   if (tenant?.reason === "provisioning_failed") {
     const attempts = tenant.attempts ?? 1;
-    const MAX_ATTEMPTS = 3;
-    const canRetry = attempts < MAX_ATTEMPTS;
+    const canRetry = attempts < TENANT_MAX_RETRY_ATTEMPTS;
 
     async function retryProvisioning() {
       setChecking(true);
       try {
-        const token = localStorage.getItem("auth_token");
+        const token = localStorage.getItem(AUTH_TOKEN_KEY);
         if (!token) {
           setChecking(false);
           return;
@@ -235,7 +308,7 @@ function TenantCard() {
               className="text-sm text-primary-400 hover:text-primary-300 transition-colors mt-1 flex items-center gap-2"
             >
               <Spinner size="sm" />
-              Retry (attempt {attempts} of {MAX_ATTEMPTS})
+              Retry (attempt {attempts} of {TENANT_MAX_RETRY_ATTEMPTS})
             </button>
           </>
         ) : (
@@ -245,7 +318,7 @@ function TenantCard() {
               look.
             </p>
             <a
-              href="mailto:dharmendra@agentcenter.cloud"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="mt-1 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors"
             >
               Contact support
@@ -281,7 +354,7 @@ function TenantCard() {
           Your account has no workspace configured. Please contact support.
         </p>
         <a
-          href="mailto:dharmendra@agentcenter.cloud"
+          href={`mailto:${CONTACT_EMAIL}`}
           className="mt-1 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors"
         >
           Contact support
@@ -426,7 +499,7 @@ function DashboardContent({ user }: { user: AuthUser | null }) {
           </div>
 
           {/* Workspace card */}
-          <TenantCard />
+          <TenantCard planName={planName} />
         </div>
       )}
     </div>
