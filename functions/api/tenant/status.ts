@@ -83,6 +83,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
               url: data.url,
               slug: data.slug,
               status: data.status,
+              type: data.type ?? "hosted",
               name: data.name,
               createdAt: data.createdAt,
             });
