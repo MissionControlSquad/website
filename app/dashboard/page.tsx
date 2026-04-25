@@ -13,6 +13,7 @@ interface TenantStatus {
   url?: string;
   slug?: string;
   status?: string | null;
+  type?: string;
   reason?: string;
   error?: string;
   attempts?: number;
@@ -122,6 +123,35 @@ function TenantCard() {
   }
 
   if (tenant?.ready && tenant.url) {
+    // Show container-down warning for hosted tenants in production.
+    // In local dev Docker is unavailable so status is always "not found" — skip the warning.
+    const isLocalDev =
+      typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+    const containerDown =
+      !isLocalDev && tenant.type !== "self-hosted" && tenant.status !== "running";
+
+    if (containerDown) {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-warning-500/20 bg-warning-500/5 h-full">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-warning-500 flex-shrink-0" />
+            <span className="font-semibold text-warning-500">Workspace unavailable</span>
+          </div>
+          <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+            Your workspace is provisioned but the container is currently not running. Please contact
+            support.
+          </p>
+          <a
+            href="mailto:dharmendra@agentcenter.cloud"
+            className="mt-1 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors"
+          >
+            Contact support
+          </a>
+        </div>
+      );
+    }
+
     return (
       <a
         href={tenant.url}
