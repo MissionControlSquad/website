@@ -7,16 +7,18 @@ interface Env {
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { SYSTEM_SECRET } = context.env;
 
-  let userId: string, workspaceId: string, userRole: string;
+  let userId: string, workspaceId: string, userRole: string, email: string;
   try {
     const body = (await context.request.json()) as {
       userId?: string;
       workspaceId?: string;
       userRole?: string;
+      email?: string;
     };
     userId = body.userId ?? "";
     workspaceId = body.workspaceId ?? "";
     userRole = body.userRole ?? "member";
+    email = body.email ?? "";
   } catch {
     return Response.json({ success: false, message: "Invalid request body" }, { status: 400 });
   }
@@ -29,7 +31,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   }
 
   const token = await createJWT(
-    { userId, workspaceId, userRole },
+    { userId, workspaceId, userRole, email },
     SYSTEM_SECRET || "dev-secret-change-in-production"
   );
 
