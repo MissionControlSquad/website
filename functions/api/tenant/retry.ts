@@ -1,4 +1,5 @@
 import { verifyJWT } from "../../lib/jwt";
+import { PROVISIONING_STATUS, type ProvisioningStatus } from "../../../lib/constants";
 
 interface Env {
   SYSTEM_SECRET: string;
@@ -16,7 +17,7 @@ interface TokenPayload {
 interface InfraLookupResult {
   found: boolean;
   slug?: string;
-  provisioningStatus?: "provisioning" | "active" | "failed";
+  provisioningStatus?: ProvisioningStatus;
   provisioningAttempts?: number;
 }
 
@@ -56,7 +57,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     // Only allow retry when provisioning explicitly failed — not for active or
     // in-progress tenants. Prevents misuse by users calling this endpoint manually.
-    if (data.provisioningStatus !== "failed") {
+    if (data.provisioningStatus !== PROVISIONING_STATUS.FAILED) {
       return Response.json({ error: "Tenant is not in a failed state" }, { status: 409 });
     }
 

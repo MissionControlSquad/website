@@ -1,4 +1,11 @@
 import { verifyJWT } from "../../lib/jwt";
+import {
+  SELF_HOST_PLAN_NAME,
+  HOSTED_APP_DOMAIN,
+  CLIENT_TYPE,
+  PROVISIONING_STATUS,
+  type ProvisioningStatus,
+} from "../../../lib/constants";
 
 interface Env {
   SYSTEM_SECRET: string;
@@ -16,13 +23,21 @@ interface TokenPayload {
 interface InfraLookupResult {
   found: boolean;
   slug?: string;
-  url?: string;
+  url?: string | null;
   name?: string;
   type?: string;
   status?: string | null;
-  provisioningStatus?: "provisioning" | "active" | "failed";
+  licenseKey?: string;
+  provisioningStatus?: ProvisioningStatus;
   provisioningAttempts?: number;
   createdAt?: string;
+}
+
+interface InfraCreateResult {
+  ok: boolean;
+  type?: string;
+  licenseKey?: string;
+  slug?: string;
 }
 
 interface InfraClient {
@@ -52,6 +67,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   }
 
   const { email, workspaceId } = payload;
+  const url = new URL(context.request.url);
+  const planName = url.searchParams.get("planName") ?? undefined;
+  const isSelfHostedPlan = planName === SELF_HOST_PLAN_NAME;
+
   const infraBase = (INFRA_API_URL || "").replace(/\/$/, "");
   const headers: Record<string, string> = {
     "X-API-Key": INFRA_API_KEY || "",
@@ -61,36 +80,38 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   // ── 1. Email-based lookup (fast path) ──────────────────────────────────────
   if (email) {
     try {
-      const lookupRes = await fetch(
-        `${infraBase}/api/clients/lookup?email=${encodeURIComponent(email)}`,
-        { headers }
-      );
+      const lookupUrl = new URL(`${infraBase}/api/clients/lookup`);
+      lookupUrl.searchParams.set("email", email);
+      if (planName) lookupUrl.searchParams.set("planName", planName);
+
+      const lookupRes = await fetch(lookupUrl.toString(), { headers });
       if (lookupRes.ok) {
         const data = (await lookupRes.json()) as InfraLookupResult;
-        if (data.found && data.url) {
+        if (data.found) {
           // Self-hosted clients manage their own uptime — always active.
           // Hosted clients with no provisioningStatus field are legacy entries that
           // predate tracking and should be treated as active.
           // New entries use provisioningStatus explicitly set by the creation flow.
           const isActive =
-            data.type === "self-hosted" ||
-            data.provisioningStatus === "active" ||
+            data.type === CLIENT_TYPE.SELF_HOSTED ||
+            data.provisioningStatus === PROVISIONING_STATUS.ACTIVE ||
             data.provisioningStatus === undefined;
 
           if (isActive) {
             return Response.json({
               ready: true,
-              url: data.url,
+              url: data.url ?? null,
               slug: data.slug,
+              ...(data.licenseKey ? { licenseKey: data.licenseKey } : {}),
               status: data.status,
-              type: data.type ?? "hosted",
+              type: data.type ?? CLIENT_TYPE.HOSTED,
               name: data.name,
               createdAt: data.createdAt,
             });
           }
 
           // Entry exists but provisioning failed — admin must intervene
-          if (data.provisioningStatus === "failed") {
+          if (data.provisioningStatus === PROVISIONING_STATUS.FAILED) {
             return Response.json({
               ready: false,
               reason: "provisioning_failed",
@@ -102,8 +123,8 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
           // Container not up yet — tell the client to keep waiting
           return Response.json({
             ready: false,
-            reason: "provisioning",
-            url: data.url,
+            reason: PROVISIONING_STATUS.PROVISIONING,
+            url: data.url ?? null,
             slug: data.slug,
           });
         }
@@ -166,16 +187,32 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         slug,
         name: slug,
         version: "latest",
-        type: "hosted",
+        // Let the infra determine type from planName; pass explicit type only for hosted
+        ...(isSelfHostedPlan ? {} : { type: CLIENT_TYPE.HOSTED }),
+        ...(planName ? { planName } : {}),
         ...(email ? { email } : {}),
       }),
     });
 
     if (createRes.ok) {
+      const body = (await createRes.json()) as InfraCreateResult;
+
+      // Self-hosted: infra registered + issued license immediately — ready now
+      if (body.type === CLIENT_TYPE.SELF_HOSTED && body.licenseKey) {
+        return Response.json({
+          ready: true,
+          url: null,
+          slug,
+          type: CLIENT_TYPE.SELF_HOSTED,
+          licenseKey: body.licenseKey,
+          status: null,
+        });
+      }
+
       return Response.json({
         ready: false,
-        reason: "provisioning",
-        url: `https://${slug}.app.agentcenter.cloud`,
+        reason: PROVISIONING_STATUS.PROVISIONING,
+        url: `https://${slug}.${HOSTED_APP_DOMAIN}`,
         slug,
       });
     }
@@ -186,8 +223,8 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       const existingSlug = body.slug ?? slug;
       return Response.json({
         ready: false,
-        reason: "provisioning",
-        url: `https://${existingSlug}.app.agentcenter.cloud`,
+        reason: PROVISIONING_STATUS.PROVISIONING,
+        url: `https://${existingSlug}.${HOSTED_APP_DOMAIN}`,
         slug: existingSlug,
       });
     }
