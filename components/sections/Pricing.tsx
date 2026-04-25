@@ -25,6 +25,7 @@ interface PlanData {
     string,
     Record<string, { included?: number; overage?: number; unitSize?: number }>
   >;
+  trial?: { enabled: boolean; durationDays: number; requireCard: boolean };
 }
 
 interface PlanItem {
@@ -896,7 +897,9 @@ export default function Pricing({ selfHostOnly = false }: PricingProps) {
                                     billing,
                                     activeCents / 100
                                   );
-                                  selectPlan(plan._id, billing, currency);
+                                  Promise.resolve(selectPlan(plan._id, billing, currency)).catch(
+                                    (err) => console.error("selectPlan failed:", err)
+                                  );
                                 }}
                                 className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-colors mb-2 ${
                                   isRecommended
@@ -904,13 +907,15 @@ export default function Pricing({ selfHostOnly = false }: PricingProps) {
                                     : "bg-neutral-700 hover:bg-neutral-600 text-neutral-100"
                                 }`}
                               >
-                                {billing === "monthly" ? "Start 7-Day Free Trial" : "Get Started"}
+                                {plan.trial?.enabled
+                                  ? `Start ${plan.trial.durationDays}-Day Free Trial`
+                                  : "Get Started"}
                                 <ArrowRight size={16} aria-hidden="true" />
                               </button>
 
-                              {billing === "monthly" && (
+                              {plan.trial?.enabled && (
                                 <p className="text-xs text-center text-success-400 mb-2 font-medium">
-                                  7 days free — no charge until trial ends
+                                  {plan.trial.durationDays} days free — no charge until trial ends
                                 </p>
                               )}
                               <p className="text-xs text-center text-neutral-500 mb-6">
