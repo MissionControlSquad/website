@@ -1,22 +1,32 @@
-# Copy this file to .dev.vars and fill in your values
+# Copy this file to .dev.vars and fill in your values.
 # .dev.vars is loaded automatically by `wrangler pages dev`
 
-STRIPE_SECRET_KEY=sk_test_xxx
+# --- BuildBase Auth (server-side only) ---------------------------------------
+# Find these in your BuildBase dashboard -> Settings -> OAuth
+SAAS_SERVER_URL=https://api.console.buildbase.app
+SAAS_ORG_ID=your_org_id
+SAAS_CLIENT_ID=your_client_id
+SAAS_CLIENT_SECRET=your_client_secret
+# Found in BuildBase dashboard -> Settings -> API Tokens (used to verify incoming events)
+SAAS_API_TOKEN_SECRET=your_org_id:your_api_token
 
-# Cloud plans — 3 tiers × monthly/yearly
-STRIPE_PRICE_ID_STARTER_MONTHLY=price_xxx
-STRIPE_PRICE_ID_STARTER_YEARLY=price_xxx
-STRIPE_PRICE_ID_PRO_MONTHLY=price_xxx
-STRIPE_PRICE_ID_PRO_YEARLY=price_xxx
-STRIPE_PRICE_ID_SCALE_MONTHLY=price_xxx
-STRIPE_PRICE_ID_SCALE_YEARLY=price_xxx
+# --- Client (public) ---------------------------------------------------------
+NEXT_PUBLIC_SAAS_SERVER_URL=https://api.console.buildbase.app
+NEXT_PUBLIC_SAAS_ORG_ID=your_org_id
+NEXT_PUBLIC_SAAS_CLIENT_ID=your_client_id
+NEXT_PUBLIC_PLAN_GROUP_SLUG=main
+NEXT_PUBLIC_APP_URL=https://agentcenter.cloud/dashboard
 
-STRIPE_PRODUCT_ID_LIFETIME=prod_xxx
+# --- JWT signing -------------------------------------------------------------
+# Generate with: openssl rand -base64 32
+SYSTEM_SECRET=your_32_char_random_secret_here
 
-STRIPE_PRICE_ID_SELFHOST_MONTHLY=price_xxx
-STRIPE_PRICE_ID_SELFHOST_YEARLY=price_yyy
+# --- Lifetime deal (admin webhook protection) --------------------------------
+# Any random secret to protect the lifetime-deal webhook endpoint
+LIFETIME_DEAL_TOKEN=your_random_token_here
 
-LIFETIME_DEAL_TOKEN=test_51T4
-
-SUPABASE_URL=https://xxxx.supabase.co
-SUPABASE_SERVICE_KEY=sb_secret_xxx
+# --- SEO verification (optional) ---------------------------------------------
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+NEXT_PUBLIC_BING_SITE_VERIFICATION=
+NEXT_PUBLIC_YANDEX_VERIFICATION=
+NEXT_PUBLIC_BAIDU_SITE_VERIFICATION=
