@@ -150,6 +150,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         url: client.url,
         slug: client.slug,
         status: client.status,
+        type: CLIENT_TYPE.HOSTED,
         name: client.name,
         createdAt: client.createdAt,
       });
