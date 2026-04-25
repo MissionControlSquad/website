@@ -18,6 +18,12 @@ NEXT_PUBLIC_APP_URL=https://agentcenter.cloud/dashboard
 # Generate with: openssl rand -base64 32
 SYSTEM_SECRET=your_32_char_random_secret_here
 
+# --- Infra API (server-side only) --------------------------------------------
+# URL of the MissionControlSquad-infra dashboard (e.g. https://admin.agentcenter.cloud)
+INFRA_API_URL=https://admin.agentcenter.cloud
+# Must match API_KEY in the infra .env.local
+INFRA_API_KEY=your_infra_api_key_here
+
 # --- SEO verification (optional) ---------------------------------------------
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
 NEXT_PUBLIC_BING_SITE_VERIFICATION=

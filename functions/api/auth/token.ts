@@ -57,7 +57,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   const userId = user?.id || user?._id || "";
   const token = await createJWT(
-    { userId, workspaceId: null, userRole: user?.role || "user" },
+    { userId, workspaceId: null, userRole: user?.role || "user", email: user?.email || "" },
     SYSTEM_SECRET || "dev-secret-change-in-production"
   );
 

@@ -19,16 +19,23 @@ function storeAuthToken(token: string) {
   localStorage.setItem("auth_token", token);
 }
 
+function storeUserEmail(email: string) {
+  if (email) localStorage.setItem("user_email", email);
+}
+
 function clearAuthToken() {
   localStorage.removeItem("auth_token");
+  localStorage.removeItem("user_email");
 }
 
 async function updateAuthToken(userId: string, workspaceId: string, userRole: string) {
+  // Preserve the email across token refreshes — it was stored during initial sign-in
+  const email = localStorage.getItem("user_email") ?? "";
   try {
     const response = await fetch("/api/auth/workspace-token", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId, workspaceId, userRole }),
+      body: JSON.stringify({ userId, workspaceId, userRole, email }),
     });
     const data = (await response.json()) as { success?: boolean; token?: string };
     if (data.success && data.token) {
@@ -128,9 +135,14 @@ export function BuildbaseProvider({ children }: { children: React.ReactNode }) {
               success?: boolean;
               sessionId?: string;
               token?: string;
+              user?: { email?: string };
             };
             if (data.success && data.token) {
               storeAuthToken(data.token);
+            }
+            // Persist email so workspace token refreshes can carry it forward
+            if (data.user?.email) {
+              storeUserEmail(data.user.email);
             }
             return { sessionId: data.sessionId ?? "" };
           },
@@ -180,6 +192,12 @@ export function BuildbaseProvider({ children }: { children: React.ReactNode }) {
           onWorkspaceChange: async (params) => {
             const { user, workspace, role: userRole } = params;
             if (!user?.id || !workspace?._id) return;
+            // Use email from params if available, otherwise fall back to localStorage
+            const email =
+              (user as unknown as { email?: string }).email ??
+              localStorage.getItem("user_email") ??
+              "";
+            if (email) storeUserEmail(email);
             try {
               const response = await fetch("/api/auth/workspace-token", {
                 method: "POST",
@@ -188,6 +206,7 @@ export function BuildbaseProvider({ children }: { children: React.ReactNode }) {
                   userId: user.id,
                   workspaceId: workspace._id,
                   userRole,
+                  email,
                 }),
               });
               const data = (await response.json()) as { success?: boolean; token?: string };
