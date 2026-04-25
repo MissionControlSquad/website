@@ -215,13 +215,47 @@ function TenantCard() {
               look.
             </p>
             <a
-              href="mailto:support@agentcenter.cloud"
+              href="mailto:dharmendra@agentcenter.cloud"
               className="mt-1 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors"
             >
               Contact support
             </a>
           </>
         )}
+      </div>
+    );
+  }
+
+  if (tenant?.reason === "no_token") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-neutral-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-300">Session missing</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          Your session could not be found. Please sign out and sign in again.
+        </p>
+      </div>
+    );
+  }
+
+  if (tenant?.reason === "no_workspace") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-neutral-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-300">Workspace not found</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          Your account has no workspace configured. Please contact support.
+        </p>
+        <a
+          href="mailto:dharmendra@agentcenter.cloud"
+          className="mt-1 px-4 py-2.5 border border-neutral-700 hover:border-neutral-600 text-neutral-300 hover:text-neutral-200 text-sm font-medium rounded-lg transition-colors"
+        >
+          Contact support
+        </a>
       </div>
     );
   }
