@@ -7,9 +7,6 @@ SAAS_SERVER_URL=https://api.console.buildbase.app
 SAAS_ORG_ID=your_org_id
 SAAS_CLIENT_ID=your_client_id
 SAAS_CLIENT_SECRET=your_client_secret
-# Found in BuildBase dashboard -> Settings -> API Tokens (used to verify incoming events)
-SAAS_API_TOKEN_SECRET=your_org_id:your_api_token
-
 # --- Client (public) ---------------------------------------------------------
 NEXT_PUBLIC_SAAS_SERVER_URL=https://api.console.buildbase.app
 NEXT_PUBLIC_SAAS_ORG_ID=your_org_id
@@ -20,10 +17,6 @@ NEXT_PUBLIC_APP_URL=https://agentcenter.cloud/dashboard
 # --- JWT signing -------------------------------------------------------------
 # Generate with: openssl rand -base64 32
 SYSTEM_SECRET=your_32_char_random_secret_here
-
-# --- Lifetime deal (admin webhook protection) --------------------------------
-# Any random secret to protect the lifetime-deal webhook endpoint
-LIFETIME_DEAL_TOKEN=your_random_token_here
 
 # --- SEO verification (optional) ---------------------------------------------
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=

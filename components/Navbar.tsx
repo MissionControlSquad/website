@@ -3,13 +3,34 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Menu, X } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { NAV_LINKS, SITE_CONFIG, CAL_LINK, PLANS } from "@/lib/constants";
-import { GetStartedButton } from "@/components/ui/GetStartedButton";
+import { NAV_LINKS, SITE_CONFIG, CAL_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
+
+// Auth-aware CTA — loaded client-only so useSaaSAuth doesn't run during SSR prerendering
+const NavbarAuthCTA = dynamic(
+  () => import("@/components/NavbarAuthCTA").then((m) => ({ default: m.NavbarAuthCTA })),
+  {
+    ssr: false,
+    loading: () => <Button size="sm">Get Started</Button>,
+  }
+);
+
+const NavbarAuthCTAMobile = dynamic(
+  () => import("@/components/NavbarAuthCTA").then((m) => ({ default: m.NavbarAuthCTAMobile })),
+  {
+    ssr: false,
+    loading: () => (
+      <Button className="w-full" size="md">
+        Get Started
+      </Button>
+    ),
+  }
+);
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,29 +41,20 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
-
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -94,10 +106,10 @@ export default function Navbar() {
                 Book a Demo
               </Button>
             </a>
-            <GetStartedButton size="sm" />
+            <NavbarAuthCTA size="sm" />
           </div>
 
-          {/* Mobile/Tablet CTA + Menu Button */}
+          {/* Mobile/Tablet menu button */}
           <div className="flex lg:hidden items-center gap-4">
             <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
               <Button size="sm" variant="secondary">
@@ -117,7 +129,7 @@ export default function Navbar() {
         </nav>
       </Container>
 
-      {/* Mobile Menu — CSS grid-rows trick for height:auto animation */}
+      {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
         className={cn(
@@ -156,21 +168,7 @@ export default function Navbar() {
                     Book a Demo
                   </Button>
                 </a>
-                <Link
-                  href="/pricing"
-                  className="w-full"
-                  onClick={() => setIsOpen(false)}
-                  tabIndex={isOpen ? 0 : -1}
-                >
-                  <Button className="w-full" size="md">
-                    <span className="flex items-center gap-1.5">
-                      <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-                        7-day free trial
-                      </span>
-                      Get Started
-                    </span>
-                  </Button>
-                </Link>
+                <NavbarAuthCTAMobile onClose={() => setIsOpen(false)} isOpen={isOpen} />
               </div>
             </nav>
           </Container>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd, JsonLdScript } from "next-seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SelfHostingPricingSection from "@/components/sections/SelfHostingPricingSection";
+import Pricing from "@/components/sections/Pricing";
 import { Container } from "@/components/ui/Container";
 import { Shield, ShieldCheck, Activity, DollarSign, GitBranch, Monitor } from "@/components/icons";
 import { ogImage, CONTACT_EMAIL, SITE_CONFIG, SELFHOSTING_PRICING, PLANS } from "@/lib/constants";
@@ -437,7 +437,7 @@ export default function SelfHostingPage() {
         </section>
 
         {/* Pricing + What's included + How it works (client component) */}
-        <SelfHostingPricingSection />
+        <Pricing selfHostOnly />
 
         {/* Who is self-hosting for */}
         <section className="py-20 px-4 bg-neutral-950 border-t border-neutral-800">
