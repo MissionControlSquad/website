@@ -10,10 +10,10 @@ declare global {
   }
 }
 
-const SERVER_URL = process.env.NEXT_PUBLIC_SAAS_SERVER_URL ?? "https://api.console.buildbase.app";
+const SERVER_URL = process.env.NEXT_PUBLIC_SAAS_SERVER_URL ?? "";
 const ORG_ID = process.env.NEXT_PUBLIC_SAAS_ORG_ID ?? "";
 const CLIENT_ID = process.env.NEXT_PUBLIC_SAAS_CLIENT_ID ?? "";
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://agentcenter.cloud/dashboard";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
 
 function storeAuthToken(token: string) {
   localStorage.setItem("auth_token", token);
