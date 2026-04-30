@@ -1,0 +1,82 @@
+---
+title: "AgentCenter Prompt — Type C: Use-Case / Industry Blog Post"
+schedule: "Weekly on Friday at 02:00 IST (20:30 UTC Thursday)"
+timezone: "Asia/Kolkata (IST)"
+type: "usecase"
+---
+
+**Goal:** Generate one new use-case blog post for agentcenter.cloud showing a specific role, team type, or industry how AgentCenter solves their particular AI agent management challenges.
+
+**Repo:** git@github.com:MissionControlSquad/website.git
+**Branch:** main
+**Post date timezone:** Asia/Kolkata (IST) — use current date in IST
+
+---
+
+### Step 1 — Setup
+
+1. Read `CLAUDE.md` fully — project context, voice rules, banned words, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — post structure, frontmatter spec, CTA rules, internal linking, filename conventions
+3. Read `skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
+4. Read `skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
+5. Read `skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
+6. Read all existing filenames in `content/blog/` — do NOT duplicate a role or industry already covered
+
+---
+
+### Step 2 — Pick a Role or Industry
+
+Choose ONE from this list that does NOT already have a post in `content/blog/`:
+
+DevOps engineering teams, ML engineering teams, platform engineering teams, growth engineering teams, data engineering teams, customer support automation teams, e-commerce operations teams, fintech compliance teams, legal tech teams, healthcare admin automation teams, edtech platforms, SaaS product teams, marketing automation teams, content operations teams, research automation teams, document processing teams, sales automation teams, solo technical founders, AI startup teams, cybersecurity operations teams, HR automation teams, supply chain operations teams, procurement automation teams
+
+If all are taken, generate a new role or industry not listed that realistically runs OpenClaw agents in production.
+
+---
+
+### Step 3 — Write the Post
+
+Follow **Type C — Use-Case / Industry Post** structure from `.claude/commands/blog.md` exactly:
+
+- Hook (name the role/industry, name the real daily problem they hit managing agents)
+- The specific bottleneck (2–3 concrete examples of what breaks without a control plane, specific to this role)
+- Feature-to-workflow mapping (which AgentCenter features solve their problems — be concrete, name the feature, show the example)
+- The numbers (typical agent count for this role, which plan fits, what it replaces)
+- Before vs After table (Without AgentCenter | With AgentCenter — rows: visibility, task handoffs, error detection, cost tracking, debugging time)
+- Where to start (one recommended first feature to set up)
+- CTA (see `.claude/commands/blog.md` for use-case CTA format)
+
+Include at least one Mermaid diagram showing how this team's agents flow through AgentCenter.
+
+**Date field:** This task is scheduled at `02:00 IST on Friday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time.
+**Include in tags:** the role/industry name and `ai-agents` as tags
+**Filename:** `content/blog/ai-agents-for-[role-or-industry-slug].mdx` or `content/blog/[role-slug]-ai-agent-management.mdx`
+
+---
+
+### Step 4 — Branch, Commit & PR
+
+1. Write the file to `content/blog/[slug].mdx`
+2. `git checkout -b blog/usecase-[slug]`
+3. `git add content/blog/[slug].mdx`
+4. `git commit -m "blog: add use-case post — AI agents for [role/industry]"`
+5. `git push origin blog/usecase-[slug]`
+6. Open a PR from `blog/usecase-[slug]` → `main` with title: `blog: AI agents for [role/industry]`
+7. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+
+---
+
+### Step 5 — Final Output
+
+Return:
+
+```
+Post Type: Type C (Use-Case)
+Role/Industry Covered: [name]
+File: content/blog/[slug].mdx
+Branch: blog/usecase-[slug]
+PR: [PR URL]
+Word Count: [n]
+Date Used: [date in IST]
+Status: PR open — awaiting owner merge
+```

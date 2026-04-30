@@ -1,0 +1,82 @@
+---
+title: "AgentCenter Prompt — Type D: Perspective / Lessons Learned Blog Post"
+schedule: "Weekly on Sunday at 02:00 IST (20:30 UTC Saturday)"
+timezone: "Asia/Kolkata (IST)"
+type: "perspective"
+---
+
+**Goal:** Generate one new perspective or lessons-learned blog post for agentcenter.cloud — honest, experience-driven writing that shifts how developers and technical teams think about running AI agents in production.
+
+**Repo:** git@github.com:MissionControlSquad/website.git
+**Branch:** main
+**Post date timezone:** Asia/Kolkata (IST) — use current date in IST
+
+---
+
+### Step 1 — Setup
+
+1. Read `CLAUDE.md` fully — project context, voice rules, banned words, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — post structure, frontmatter spec, CTA rules, internal linking, filename conventions
+3. Read `skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
+4. Read `skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
+5. Read `skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
+6. Read all existing filenames in `content/blog/` — do NOT duplicate a topic already covered
+
+---
+
+### Step 2 — Pick a Topic
+
+Choose ONE topic from this list that does NOT already have a post in `content/blog/`:
+
+What nobody tells you about running agents in production, The week we had 50 agents and zero visibility into them, Why your agents are slower than you think (and how to find out), Three agent failures that taught us the most, The difference between agent observability and agent management, Why most teams instrument too late, The problem with treating agents like scripts, What "multi-agent" actually means at 3am when something breaks, Why debugging agents is nothing like debugging code, The case for boring agent infrastructure, When to add a new agent vs fix the one you have, What agent monitoring dashboards miss, How we decided which agents to keep and which to kill, The hidden cost of unreviewed agent deliverables, Why rollback is the most underrated AI ops feature, What production-ready actually means for AI agents, Why your agent pipeline is a team coordination problem, The moment you stop treating agents as experiments and start treating them as infrastructure, What happens when two agents block each other (and how to see it), Why most agent dashboards show the wrong things
+
+If all are taken, generate a new honest, specific perspective on running AI agents in production that isn't listed above.
+
+---
+
+### Step 3 — Write the Post
+
+Follow **Type D — Perspective / Lessons Learned Post** structure from `.claude/commands/blog.md` exactly:
+
+- Scene-setting opener (specific, grounded — real numbers, real situation, not generic)
+- The shift or realization
+- Concrete examples (specific failure modes, specific features, real numbers where possible)
+- What the reader should take away (a decision, a habit, a frame — not a product pitch)
+- Who this matters most for (role + specific situation)
+- Honest caveat — don't oversell AgentCenter or AI agents generally
+- CTA (see `.claude/commands/blog.md` for perspective CTA format)
+
+Include at least one Mermaid diagram illustrating the failure mode, pattern, or concept being discussed.
+
+**Date field:** This task is scheduled at `02:00 IST on Sunday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time.
+**Include in tags:** `production` or `best-practices` or `observability` as one of the tags
+**Filename:** `content/blog/[topic-slug].mdx`
+
+---
+
+### Step 4 — Branch, Commit & PR
+
+1. Write the file to `content/blog/[slug].mdx`
+2. `git checkout -b blog/perspective-[slug]`
+3. `git add content/blog/[slug].mdx`
+4. `git commit -m "blog: add perspective post — [topic]"`
+5. `git push origin blog/perspective-[slug]`
+6. Open a PR from `blog/perspective-[slug]` → `main` with title: `blog: [topic]`
+7. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+
+---
+
+### Step 5 — Final Output
+
+Return:
+
+```
+Post Type: Type D (Perspective)
+Topic Covered: [topic]
+File: content/blog/[slug].mdx
+Branch: blog/perspective-[slug]
+PR: [PR URL]
+Word Count: [n]
+Date Used: [date in IST]
+Status: PR open — awaiting owner merge
+```
