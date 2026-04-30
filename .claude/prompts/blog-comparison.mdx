@@ -1,0 +1,111 @@
+---
+title: "AgentCenter Prompt — Type A: Comparison Blog Post"
+schedule: "Weekly on Monday at 02:00 IST (20:30 UTC Sunday)"
+timezone: "Asia/Kolkata (IST)"
+type: "comparisons"
+---
+
+**Goal:** Generate one new comparison blog post for agentcenter.cloud showing why AgentCenter is the right control plane compared to a specific competing tool.
+
+**Repo:** git@github.com:MissionControlSquad/website.git
+**Branch:** main
+**Post date timezone:** Asia/Kolkata (IST) — use current date in IST
+
+> **Important — two separate comparison systems exist in this repo. Do not confuse them:**
+>
+> - **`app/compare/vs-[slug]/page.tsx`** — Curated, hand-built TSX product pages for top competitors. These use live pricing constants and require code changes. **Do NOT touch these. Do NOT create files here.**
+> - **`content/blog/agentcenter-vs-[slug].mdx`** — Blog-format comparison posts written in MDX. **This is what you write.**
+>
+> Your output always goes to `content/blog/` as an MDX file. Never create or modify files under `app/compare/`.
+
+---
+
+### Step 1 — Setup
+
+1. Read `CLAUDE.md` fully — project context, voice rules, **complete banned words list**, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — post types, frontmatter spec, existing posts table, CTA rules, internal linking, tag patterns, SEO checklist, word count targets, filename conventions
+3. Read `skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
+4. Read `skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
+5. Read `skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
+6. Run `ls content/blog/` and cross-check against the existing posts table in `blog.md` — do NOT duplicate any competitor already covered in either source
+
+---
+
+### Step 2 — Pick a Competitor
+
+**Before picking:** run `ls content/blog/`, scan for any `agentcenter-vs-*` or `*-vs-*` files, and cross-check the existing posts table in `blog.md`. Only pick a competitor with no existing blog post.
+
+Choose ONE competitor from this list:
+
+**Automation / workflow:** n8n, Make.com, Zapier, Tray.io, Workato, Activepieces
+**AI frameworks:** AutoGen, LangChain, LlamaIndex, Haystack, Semantic Kernel, AutoGPT
+**Cloud AI agents:** Vertex AI Agent Builder, AWS Bedrock Agents, Azure AI Foundry, Google ADK
+**Observability:** Datadog, New Relic, Dynatrace, Grafana, Honeycomb
+**ML ops:** Weights & Biases, MLflow, Comet ML, Neptune AI
+**Workflow orchestration:** Temporal, Airflow, Prefect, Dagster
+**No-code agent builders:** Flowise, Dify, BotPress, Voiceflow, Stack AI
+**AI coding tools:** Devin AI, GitHub Copilot Workspace
+**Other agent platforms:** Sema4.ai, E2B, Modal, MultiOn
+
+If all are taken, pick a mainstream developer tool that teams commonly reach for when trying to manage AI agents — and explain why it falls short of a dedicated control plane.
+
+**Date constraint:** The last used post date is 2026-03-13. Your new post date must be after that and at least 1 day after any other post in `content/blog/` (each post must have a unique date — no two posts share the same date). Check all frontmatter dates before deciding.
+
+---
+
+### Step 3 — Write the Post
+
+Follow **Type A — Comparison Post** structure from `.claude/commands/blog.md` exactly:
+
+- Hook (acknowledge competitor is genuinely useful, then pivot to the real question)
+- What [Competitor] does well (bullet list, be fair)
+- The core limitation for teams managing AI agents
+- Comparison table (8+ rows, always include pricing)
+- Workflow comparison (step-by-step, their way vs AgentCenter way)
+- "Can you use both?" section — answer honestly
+- Bottom line (2–3 sentences max)
+- CTA (see `.claude/commands/blog.md` for comparison CTA format)
+
+**Word count:** 1000–1600 words. Do not exceed 1600.
+
+Include at least one Mermaid diagram showing the workflow difference. Use `<br/>` for line breaks inside labels — never `\n`.
+
+**Tags:** Use proven tag patterns from `blog.md`. Always include `comparison` and `ai-agents`. Max 5 tags total.
+
+**Date field:** This task is scheduled at `02:00 IST on Monday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time. Verify it is at least 1 day after the most recent post in `content/blog/` and not already used by another post.
+
+**Filename:** `content/blog/agentcenter-vs-[competitor-slug].mdx`
+Run the SEO checklist from `blog.md` before saving.
+
+---
+
+### Step 4 — Branch, Commit & PR
+
+1. Write the MDX file to `content/blog/[slug].mdx`
+2. Update `public/llms.txt` — append to the end of the `## Blog` section (before `## Legal`):
+   `- [Post Title](https://agentcenter.cloud/blogs/[slug]): One-line description of what the post covers.`
+   Also increment the post count in the Blog Index line (e.g. `39 posts` → `40 posts`).
+3. `git checkout -b blog/vs-[competitor-slug]`
+4. `git add content/blog/[slug].mdx public/llms.txt`
+5. `git commit -m "blog: add comparison post — AgentCenter vs [competitor]"`
+6. `git push origin blog/vs-[competitor-slug]`
+7. Open a PR from `blog/vs-[competitor-slug]` → `main` with title: `blog: AgentCenter vs [competitor]`
+8. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+
+---
+
+### Step 5 — Final Output
+
+Return:
+
+```
+Post Type: Type A (Comparison)
+Competitor Covered: [name]
+llms.txt: updated (post count: [n])
+File: content/blog/[slug].mdx
+Branch: blog/vs-[competitor-slug]
+PR: [PR URL]
+Word Count: [n]
+Date Used: [date in IST]
+Status: PR open — awaiting owner merge
+```
