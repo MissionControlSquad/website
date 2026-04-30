@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 39 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 87 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -94,6 +94,54 @@ AgentCenter provides:
 - [OpenClaw Dashboard: Mission Control for Agents](https://agentcenter.cloud/blogs/openclaw-dashboard-mission-control): Setup guide, features overview, and real-world use cases for the OpenClaw dashboard
 - [From 2 to 50 AI Agents: A Scaling Playbook](https://agentcenter.cloud/blogs/scaling-ai-agents-2-to-50): Bottlenecks, architecture patterns, and strategies for growing your AI agent fleet
 - [Scaling AI Agents — 10 to 10,000 Concurrent Agents](https://agentcenter.cloud/blogs/scaling-ai-agents-production): Horizontal scaling, queue management, and resource allocation for large agent deployments
+- [AgentCenter vs n8n](https://agentcenter.cloud/blogs/agentcenter-vs-n8n): n8n automates workflows — AgentCenter manages AI agents as persistent entities with review gates and task coordination.
+- [How to Set Up AI Agent Monitoring from Scratch](https://agentcenter.cloud/blogs/how-to-set-up-agent-monitoring): Step-by-step guide to building agent monitoring before your first production failure.
+- [AI Agent Management for DevOps Engineering Teams](https://agentcenter.cloud/blogs/devops-teams-ai-agent-management): DevOps teams running AI agents face uptime, drift, and alert noise — here's how to manage them.
+- [What Nobody Tells You About Running Agents in Production](https://agentcenter.cloud/blogs/what-nobody-tells-you-about-running-agents-in-production): Cost surprises, drift, coordination failures — the real challenges after the prototype works.
+- [AgentCenter vs Zapier](https://agentcenter.cloud/blogs/agentcenter-vs-zapier): Zapier connects apps; AgentCenter manages AI agents. Honest comparison of what each does.
+- [How to Debug a Failing AI Agent in Production](https://agentcenter.cloud/blogs/how-to-debug-a-failing-ai-agent-in-production): A 5-step structured approach to diagnosing AI agent failures without guessing.
+- [AI Agent Management for ML Engineering Teams](https://agentcenter.cloud/blogs/ml-engineering-teams-ai-agent-management): ML engineers need model version tracking, cost attribution, and experiment isolation for production agents.
+- [The Problem With Treating Agents Like Scripts](https://agentcenter.cloud/blogs/the-problem-with-treating-agents-like-scripts): Agents are non-deterministic reasoning processes, not deterministic scripts — operating them requires different patterns.
+- [AgentCenter vs Make.com](https://agentcenter.cloud/blogs/agentcenter-vs-make): Make.com orchestrates scenarios; AgentCenter coordinates AI agents with deliverable review and real-time status.
+- [How to Roll Back an AI Agent Safely](https://agentcenter.cloud/blogs/how-to-roll-back-an-ai-agent-safely): A structured process to revert agent behavior without losing in-flight work.
+- [AI Agent Management for Customer Support Automation Teams](https://agentcenter.cloud/blogs/customer-support-automation-ai-agent-management): Support teams running AI agents need escalation control, response quality gates, and volume spike visibility.
+- [The Difference Between Agent Observability and Agent Management](https://agentcenter.cloud/blogs/agent-observability-vs-agent-management): Observability tells you what happened; management lets you act on it in real time.
+- [AgentCenter vs AutoGen](https://agentcenter.cloud/blogs/agentcenter-vs-autogen): AutoGen builds multi-agent conversations; AgentCenter manages them in production. They solve adjacent problems.
+- [How to Write an Agent Runbook Your Team Will Actually Use](https://agentcenter.cloud/blogs/how-to-write-an-agent-runbook): Short, actionable runbooks with specific failure modes and remediation steps — for the person on call at 2am.
+- [AI Agent Management for Platform Engineering Teams](https://agentcenter.cloud/blogs/platform-engineering-teams-ai-agent-management): Platform teams supporting agent deployments need standardized infrastructure, unified visibility, and access control.
+- [Why Most Teams Instrument Their Agents Too Late](https://agentcenter.cloud/blogs/why-most-teams-instrument-too-late): Adding monitoring after your first incident costs 3-5x more than doing it before deployment.
+- [AgentCenter vs LangChain](https://agentcenter.cloud/blogs/agentcenter-vs-langchain): LangChain builds agent logic; AgentCenter manages agents in production. They complement each other.
+- [How to Track AI Agent Costs Per Task](https://agentcenter.cloud/blogs/how-to-track-agent-costs-per-task): Aggregate spend tells you nothing useful — per-task tracking is how you find the expensive agent and fix it.
+- [AI Agent Management for E-Commerce Operations Teams](https://agentcenter.cloud/blogs/ecommerce-operations-ai-agent-management): E-commerce teams running pricing, catalog, and support agents need real-time control and chain coordination.
+- [The Case for Boring Agent Infrastructure](https://agentcenter.cloud/blogs/the-case-for-boring-agent-infrastructure): The teams running agents most reliably aren't using the newest tools — they're using the most predictable ones.
+- [AgentCenter vs Datadog for AI Agent Monitoring](https://agentcenter.cloud/blogs/agentcenter-vs-datadog): Datadog monitors infrastructure; AgentCenter manages AI agents. Both show dashboards — for very different things.
+- [How to Handle AI Agent Rate Limits at Scale](https://agentcenter.cloud/blogs/how-to-handle-agent-rate-limits-at-scale): Rate limits cause cascading failures in multi-agent systems — here's how to design around them.
+- [AI Agent Management for Fintech Compliance Teams](https://agentcenter.cloud/blogs/fintech-compliance-ai-agent-management): Compliance teams using AI agents need audit trails, approval workflows, and explainability built in.
+- [When to Add a New Agent vs Fix the One You Have](https://agentcenter.cloud/blogs/when-to-add-a-new-agent-vs-fix-the-one-you-have): More agents isn't always better — here's how to decide between expanding and fixing.
+- [AgentCenter vs Temporal](https://agentcenter.cloud/blogs/agentcenter-vs-temporal): Temporal gives durable workflows; AgentCenter gives a control plane for AI agents. Different layers.
+- [How to Version AI Agent Prompts Like Code](https://agentcenter.cloud/blogs/how-to-version-ai-agent-prompts-like-code): Prompts define agent behavior like code does — if you're not versioning them, you're debugging blind.
+- [AI Agent Management for SaaS Product Teams](https://agentcenter.cloud/blogs/saas-product-teams-ai-agent-management): SaaS teams embedding agents need per-customer isolation, cost attribution, and reliability monitoring.
+- [What Agent Monitoring Dashboards Miss](https://agentcenter.cloud/blogs/what-agent-monitoring-dashboards-miss): Most dashboards tell you if the agent ran — they don't tell you if what it produced was any good.
+- [AgentCenter vs Flowise](https://agentcenter.cloud/blogs/agentcenter-vs-flowise): Flowise builds LLM flows visually; AgentCenter manages agents in production with task queues and review gates.
+- [How to Alert on Agent Drift Without Drowning in Noise](https://agentcenter.cloud/blogs/how-to-alert-on-agent-drift-without-noise): A tiered alert framework for AI agents that catches real drift without burying signal in noise.
+- [AI Agent Management for Marketing Automation Teams](https://agentcenter.cloud/blogs/marketing-automation-ai-agent-management): Marketing teams need brand consistency, campaign coordination, and approval workflows for AI agents.
+- [The Hidden Cost of Unreviewed Agent Deliverables](https://agentcenter.cloud/blogs/the-hidden-cost-of-unreviewed-agent-deliverables): Skipping the review gate feels fast — the correction cost, trust erosion, and quality debt that follow are not.
+- [AgentCenter vs Weights and Biases](https://agentcenter.cloud/blogs/agentcenter-vs-weights-and-biases): W&B tracks ML experiments; AgentCenter manages agent operations. Both useful — for different phases.
+- [How to Pass Context Between Agents in a Multi-Agent Pipeline](https://agentcenter.cloud/blogs/how-to-pass-context-between-agents): Context passing is where most multi-agent pipelines fail silently — here's a structured approach.
+- [AI Agent Management for Data Engineering Teams](https://agentcenter.cloud/blogs/data-engineering-teams-ai-agent-management): Data teams using agents for pipeline monitoring and documentation need review gates and audit trails.
+- [Why Rollback Is the Most Underrated AI Ops Feature](https://agentcenter.cloud/blogs/why-rollback-is-the-most-underrated-ai-ops-feature): Deployment gets all the attention — rollback is what saves you when deployment goes wrong.
+- [AgentCenter vs Apache Airflow](https://agentcenter.cloud/blogs/agentcenter-vs-airflow): Airflow orchestrates data pipelines; AgentCenter manages AI agents. Friction adds up when you mix the two.
+- [How to Test an AI Agent Before Shipping It](https://agentcenter.cloud/blogs/how-to-test-an-ai-agent-before-shipping): A practical test framework for AI agents — format, accuracy, edge cases, and load testing.
+- [AI Agent Management for Sales Automation Teams](https://agentcenter.cloud/blogs/sales-automation-ai-agent-management): Sales teams need factual accuracy review and structured handoffs from research to outreach agents.
+- [What Production-Ready Actually Means for AI Agents](https://agentcenter.cloud/blogs/what-production-ready-means-for-ai-agents): Beyond "it runs" — quality gates, baselines, rollback, cost visibility, and escalation paths.
+- [AgentCenter vs Devin AI](https://agentcenter.cloud/blogs/agentcenter-vs-devin): Devin is a coding agent; AgentCenter is a control plane for managing agents including Devin.
+- [How to Review Agent Deliverables at Scale](https://agentcenter.cloud/blogs/how-to-review-agent-deliverables-at-scale): Automated validation, random sampling, and triggered review — a review process that scales without becoming a bottleneck.
+- [AI Agent Management for Solo Technical Founders](https://agentcenter.cloud/blogs/solo-founders-managing-ai-agents): Solo founders are builder, operator, and on-call engineer — here's what actually helps when you're the whole team.
+- [Why Your Agent Pipeline Is a Team Coordination Problem](https://agentcenter.cloud/blogs/agent-pipeline-is-a-team-coordination-problem): Multi-agent pipelines fail most often at coordination points between people, not in the agent logic.
+- [AgentCenter vs Vertex AI Agent Builder](https://agentcenter.cloud/blogs/agentcenter-vs-vertex-ai-agent-builder): Vertex deploys agents in GCP; AgentCenter manages agents across any provider with operational control.
+- [How to Structure a Kanban Board for AI Agents](https://agentcenter.cloud/blogs/how-to-structure-a-kanban-board-for-ai-agents): Agent Kanban boards need different columns and card fields than software development boards.
+- [AI Agent Management for AI Startup Teams](https://agentcenter.cloud/blogs/ai-startup-teams-managing-agents): Early-stage AI startups need operational discipline for agents without slowing down product velocity.
+- [The Week We Had 50 Agents and Zero Visibility Into Them](https://agentcenter.cloud/blogs/the-week-we-had-50-agents-and-zero-visibility): What it actually feels like to scale agent deployments without a control plane — and what changed after.
 
 ## Legal
 
