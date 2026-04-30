@@ -15,22 +15,26 @@ type: "perspective"
 
 ### Step 1 — Setup
 
-1. Read `CLAUDE.md` fully — project context, voice rules, banned words, Mermaid diagram rules
-2. Read `.claude/commands/blog.md` fully — post structure, frontmatter spec, CTA rules, internal linking, filename conventions
+1. Read `CLAUDE.md` fully — project context, voice rules, **complete banned words list**, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — post types, frontmatter spec, existing posts table, CTA rules, internal linking, tag patterns, SEO checklist, word count targets, filename conventions
 3. Read `skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
 4. Read `skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
 5. Read `skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
-6. Read all existing filenames in `content/blog/` — do NOT duplicate a topic already covered
+6. Run `ls content/blog/` and cross-check against the existing posts table in `blog.md` — do NOT duplicate any topic already covered in either source
 
 ---
 
 ### Step 2 — Pick a Topic
 
-Choose ONE topic from this list that does NOT already have a post in `content/blog/`:
+**Before picking:** run `ls content/blog/`, scan filenames, and cross-check the existing posts table in `blog.md`. Only pick a topic with no existing coverage — including partial coverage where the core angle is already taken.
+
+Choose ONE topic from this list:
 
 What nobody tells you about running agents in production, The week we had 50 agents and zero visibility into them, Why your agents are slower than you think (and how to find out), Three agent failures that taught us the most, The difference between agent observability and agent management, Why most teams instrument too late, The problem with treating agents like scripts, What "multi-agent" actually means at 3am when something breaks, Why debugging agents is nothing like debugging code, The case for boring agent infrastructure, When to add a new agent vs fix the one you have, What agent monitoring dashboards miss, How we decided which agents to keep and which to kill, The hidden cost of unreviewed agent deliverables, Why rollback is the most underrated AI ops feature, What production-ready actually means for AI agents, Why your agent pipeline is a team coordination problem, The moment you stop treating agents as experiments and start treating them as infrastructure, What happens when two agents block each other (and how to see it), Why most agent dashboards show the wrong things
 
 If all are taken, generate a new honest, specific perspective on running AI agents in production that isn't listed above.
+
+**Date constraint:** The last used post date is 2026-03-13. Your new post date must be after that and at least 2 days after any other post in `content/blog/`. Check all frontmatter dates before deciding.
 
 ---
 
@@ -46,23 +50,32 @@ Follow **Type D — Perspective / Lessons Learned Post** structure from `.claude
 - Honest caveat — don't oversell AgentCenter or AI agents generally
 - CTA (see `.claude/commands/blog.md` for perspective CTA format)
 
-Include at least one Mermaid diagram illustrating the failure mode, pattern, or concept being discussed.
+**Word count:** 700–1300 words. Do not exceed 1300.
 
-**Date field:** This task is scheduled at `02:00 IST on Sunday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time.
-**Include in tags:** `production` or `best-practices` or `observability` as one of the tags
+Include at least one Mermaid diagram illustrating the failure mode, pattern, or concept being discussed. Use `<br/>` for line breaks inside labels — never `\n`.
+
+**Tags:** Use proven tag patterns from `blog.md`. Always include `production` or `best-practices` or `observability` and `ai-agents`. Max 5 tags total.
+
+**Date field:** This task is scheduled at `02:00 IST on Sunday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time. Verify it is at least 2 days after the most recent post in `content/blog/`.
+
 **Filename:** `content/blog/[topic-slug].mdx`
+
+Run the SEO checklist from `blog.md` before saving.
 
 ---
 
 ### Step 4 — Branch, Commit & PR
 
-1. Write the file to `content/blog/[slug].mdx`
-2. `git checkout -b blog/perspective-[slug]`
-3. `git add content/blog/[slug].mdx`
-4. `git commit -m "blog: add perspective post — [topic]"`
-5. `git push origin blog/perspective-[slug]`
-6. Open a PR from `blog/perspective-[slug]` → `main` with title: `blog: [topic]`
-7. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+1. Write the MDX file to `content/blog/[slug].mdx`
+2. Update `public/llms.txt` — append to the end of the `## Blog` section (before `## Legal`):
+   `- [Post Title](https://agentcenter.cloud/blogs/[slug]): One-line description of what the post covers.`
+   Also increment the post count in the Blog Index line (e.g. `39 posts` → `40 posts`).
+3. `git checkout -b blog/perspective-[slug]`
+4. `git add content/blog/[slug].mdx public/llms.txt`
+5. `git commit -m "blog: add perspective post — [topic]"`
+6. `git push origin blog/perspective-[slug]`
+7. Open a PR from `blog/perspective-[slug]` → `main` with title: `blog: [topic]`
+8. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
 
 ---
 
@@ -74,6 +87,7 @@ Return:
 Post Type: Type D (Perspective)
 Topic Covered: [topic]
 File: content/blog/[slug].mdx
+llms.txt: updated (post count: [n])
 Branch: blog/perspective-[slug]
 PR: [PR URL]
 Word Count: [n]

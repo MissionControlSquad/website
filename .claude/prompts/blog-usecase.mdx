@@ -15,22 +15,26 @@ type: "usecase"
 
 ### Step 1 — Setup
 
-1. Read `CLAUDE.md` fully — project context, voice rules, banned words, Mermaid diagram rules
-2. Read `.claude/commands/blog.md` fully — post structure, frontmatter spec, CTA rules, internal linking, filename conventions
+1. Read `CLAUDE.md` fully — project context, voice rules, **complete banned words list**, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — post types, frontmatter spec, existing posts table, CTA rules, internal linking, tag patterns, SEO checklist, word count targets, filename conventions
 3. Read `skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
 4. Read `skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
 5. Read `skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
-6. Read all existing filenames in `content/blog/` — do NOT duplicate a role or industry already covered
+6. Run `ls content/blog/` and cross-check against the existing posts table in `blog.md` — do NOT duplicate any role or industry already covered in either source
 
 ---
 
 ### Step 2 — Pick a Role or Industry
 
-Choose ONE from this list that does NOT already have a post in `content/blog/`:
+**Before picking:** run `ls content/blog/`, scan for any `ai-agents-for-*` or `*-ai-agent-management*` files, and cross-check the existing posts table in `blog.md`. Only pick a role or industry with no existing coverage.
+
+Choose ONE from this list:
 
 DevOps engineering teams, ML engineering teams, platform engineering teams, growth engineering teams, data engineering teams, customer support automation teams, e-commerce operations teams, fintech compliance teams, legal tech teams, healthcare admin automation teams, edtech platforms, SaaS product teams, marketing automation teams, content operations teams, research automation teams, document processing teams, sales automation teams, solo technical founders, AI startup teams, cybersecurity operations teams, HR automation teams, supply chain operations teams, procurement automation teams
 
 If all are taken, generate a new role or industry not listed that realistically runs OpenClaw agents in production.
+
+**Date constraint:** The last used post date is 2026-03-13. Your new post date must be after that and at least 2 days after any other post in `content/blog/`. Check all frontmatter dates before deciding.
 
 ---
 
@@ -46,23 +50,32 @@ Follow **Type C — Use-Case / Industry Post** structure from `.claude/commands/
 - Where to start (one recommended first feature to set up)
 - CTA (see `.claude/commands/blog.md` for use-case CTA format)
 
-Include at least one Mermaid diagram showing how this team's agents flow through AgentCenter.
+**Word count:** 700–1300 words. Do not exceed 1300.
 
-**Date field:** This task is scheduled at `02:00 IST on Friday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time.
-**Include in tags:** the role/industry name and `ai-agents` as tags
+Include at least one Mermaid diagram showing how this team's agents flow through AgentCenter. Use `<br/>` for line breaks inside labels — never `\n`.
+
+**Tags:** Use proven tag patterns from `blog.md`. Always include the role/industry name and `ai-agents`. Max 5 tags total.
+
+**Date field:** This task is scheduled at `02:00 IST on Friday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time. Verify it is at least 2 days after the most recent post in `content/blog/`.
+
 **Filename:** `content/blog/ai-agents-for-[role-or-industry-slug].mdx` or `content/blog/[role-slug]-ai-agent-management.mdx`
+
+Run the SEO checklist from `blog.md` before saving.
 
 ---
 
 ### Step 4 — Branch, Commit & PR
 
-1. Write the file to `content/blog/[slug].mdx`
-2. `git checkout -b blog/usecase-[slug]`
-3. `git add content/blog/[slug].mdx`
-4. `git commit -m "blog: add use-case post — AI agents for [role/industry]"`
-5. `git push origin blog/usecase-[slug]`
-6. Open a PR from `blog/usecase-[slug]` → `main` with title: `blog: AI agents for [role/industry]`
-7. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+1. Write the MDX file to `content/blog/[slug].mdx`
+2. Update `public/llms.txt` — append to the end of the `## Blog` section (before `## Legal`):
+   `- [Post Title](https://agentcenter.cloud/blogs/[slug]): One-line description of what the post covers.`
+   Also increment the post count in the Blog Index line (e.g. `39 posts` → `40 posts`).
+3. `git checkout -b blog/usecase-[slug]`
+4. `git add content/blog/[slug].mdx public/llms.txt`
+5. `git commit -m "blog: add use-case post — AI agents for [role/industry]"`
+6. `git push origin blog/usecase-[slug]`
+7. Open a PR from `blog/usecase-[slug]` → `main` with title: `blog: AI agents for [role/industry]`
+8. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
 
 ---
 
@@ -74,6 +87,7 @@ Return:
 Post Type: Type C (Use-Case)
 Role/Industry Covered: [name]
 File: content/blog/[slug].mdx
+llms.txt: updated (post count: [n])
 Branch: blog/usecase-[slug]
 PR: [PR URL]
 Word Count: [n]
