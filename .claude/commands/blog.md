@@ -412,7 +412,7 @@ CrewAI, LangSmith, AgentOps, Relevance AI, SuperAGI, Lindy AI, Lyzr, MindStudio,
 | 2026-03-12 | `agentcenter-community-power-users`                             | AgentCenter community tips from power users             |
 | 2026-03-13 | `25-best-ai-agent-platforms-2026`                               | 25 best AI agent platforms 2026                         |
 
-**Last date used:** 2026-03-13. New posts must use a date after this, spaced at least 2 days apart.
+**Last date used:** 2026-03-13. New posts must use a date after this, spaced at least 1 day apart (one unique date per post, no two posts share the same date).
 
 **Duplication rules:**
 
