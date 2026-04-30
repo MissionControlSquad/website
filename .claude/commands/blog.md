@@ -169,7 +169,12 @@ tags: ["tag1", "tag2", "tag3"]
 
 **`author`**
 
-- Always `"AgentCenter Team"`
+- Rotate randomly across these four names — pick a different one each post:
+  - `"Dharmendra Jagodana"`
+  - `"Dharmik Jagodana"`
+  - `"Krupali Patel"`
+  - `"Mona Laniya"`
+- Do not repeat the same author as the most recent post in `content/blog/`
 
 **`tags`**
 
