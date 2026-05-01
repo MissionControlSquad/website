@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 88 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 89 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -144,6 +144,7 @@ AgentCenter provides:
 - [The Week We Had 50 Agents and Zero Visibility Into Them](https://agentcenter.cloud/blogs/the-week-we-had-50-agents-and-zero-visibility): What it actually feels like to scale agent deployments without a control plane — and what changed after.
 - [Why Debugging AI Agents Is Nothing Like Debugging Code](https://agentcenter.cloud/blogs/why-debugging-agents-is-nothing-like-debugging-code): Agent failures are non-deterministic and context-dependent — here's the mental model shift required to debug them effectively.
 - [AI Agent Management for Legal Tech Teams](https://agentcenter.cloud/blogs/legal-tech-teams-ai-agent-management): How legal tech teams running contract review, compliance, and document agents get visibility into what's failing and why.
+- [Why Your AI Agents Are Slower Than You Think](https://agentcenter.cloud/blogs/why-your-agents-are-slower-than-you-think): Most teams don't know their agents' actual runtime until something breaks — here's how to find the latency hiding in your pipeline.
 
 ## Legal
 
