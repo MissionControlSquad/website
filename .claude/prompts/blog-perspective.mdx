@@ -34,7 +34,7 @@ What nobody tells you about running agents in production, The week we had 50 age
 
 If all are taken, generate a new honest, specific perspective on running AI agents in production that isn't listed above.
 
-**Date:** Use today's current date in IST. Same-day posts are allowed — no minimum spacing between posts. The only requirement is that no two posts share the exact same timestamp.
+**Date:** Use yesterday's date in IST (current date minus 1 day). Same-day posts are allowed — no minimum spacing between posts. The only requirement is that no two posts share the exact same timestamp.
 
 ---
 
@@ -56,7 +56,7 @@ Include at least one Mermaid diagram illustrating the failure mode, pattern, or 
 
 **Tags:** Use proven tag patterns from `blog.md`. Always include `production` or `best-practices` or `observability` and `ai-agents`. Max 5 tags total.
 
-**Date field:** Use today's current date in IST at the fixed slot `18:00` assigned to this post type. Format: `YYYY-MM-DDTHH:MM:00+05:30`. Example: if today in IST is 2026-05-09, use `"2026-05-09T18:00:00+05:30"`. This slot is reserved exclusively for Type D (Perspective) posts — no collision with other types is possible.
+**Date field:** Use **yesterday's date** in IST (current date minus 1 day) with the fixed Type D slot `T18:00:00+05:30`. Format: `YYYY-MM-DDTHH:MM:00+05:30`. Example: if today is 2026-05-01, use `"2026-04-30T18:00:00+05:30"`. Never use today's date or a future date. Verify it is not already used by another post.
 
 **Filename:** `content/blog/[topic-slug].mdx`
 
