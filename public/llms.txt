@@ -142,6 +142,7 @@ AgentCenter provides:
 - [How to Structure a Kanban Board for AI Agents](https://agentcenter.cloud/blogs/how-to-structure-a-kanban-board-for-ai-agents): Agent Kanban boards need different columns and card fields than software development boards.
 - [AI Agent Management for AI Startup Teams](https://agentcenter.cloud/blogs/ai-startup-teams-managing-agents): Early-stage AI startups need operational discipline for agents without slowing down product velocity.
 - [The Week We Had 50 Agents and Zero Visibility Into Them](https://agentcenter.cloud/blogs/the-week-we-had-50-agents-and-zero-visibility): What it actually feels like to scale agent deployments without a control plane — and what changed after.
+- [Why Debugging AI Agents Is Nothing Like Debugging Code](https://agentcenter.cloud/blogs/why-debugging-agents-is-nothing-like-debugging-code): Agent failures are non-deterministic and context-dependent — here's the mental model shift required to debug them effectively.
 - [AI Agent Management for Legal Tech Teams](https://agentcenter.cloud/blogs/legal-tech-teams-ai-agent-management): How legal tech teams running contract review, compliance, and document agents get visibility into what's failing and why.
 
 ## Legal
