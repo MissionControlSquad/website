@@ -7,7 +7,7 @@ type: "comparisons"
 
 **Goal:** Generate one new comparison blog post for agentcenter.cloud showing why AgentCenter is the right control plane compared to a specific competing tool.
 
-**Repo:** git@github.com:MissionControlSquad/website.git
+**Repo:** https://github.com/MissionControlSquad/website.git
 **Branch:** main
 **Post date timezone:** Asia/Kolkata (IST) — use current date in IST
 
@@ -20,13 +20,27 @@ type: "comparisons"
 
 ---
 
+### Step 0 — Environment Setup
+
+Run these commands before anything else:
+
+```bash
+git config --global user.email "dharmendra@jagodana.org"
+git config --global user.name "dharmendra-jagodana"
+gh auth setup-git
+```
+
+This sets git identity and authenticates the `gh` CLI using the `GITHUB_TOKEN` environment variable. Required for `git push` and `gh pr create` to work. If `GITHUB_TOKEN` is not set, stop and report the error.
+
+---
+
 ### Step 1 — Setup
 
 1. Read `CLAUDE.md` fully — project context, voice rules, **complete banned words list**, Mermaid diagram rules
 2. Read `.claude/commands/blog.md` fully — post types, frontmatter spec, existing posts table, CTA rules, internal linking, tag patterns, SEO checklist, word count targets, filename conventions
-3. Read `skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
-4. Read `skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
-5. Read `skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
+3. Read `.claude/skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
+4. Read `.claude/skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
+5. Read `.claude/skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
 6. Run `ls content/blog/` and cross-check against the existing posts table in `blog.md` — do NOT duplicate any competitor already covered in either source
 
 ---
