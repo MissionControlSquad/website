@@ -49,7 +49,7 @@ Choose ONE competitor from this list:
 
 If all are taken, pick a mainstream developer tool that teams commonly reach for when trying to manage AI agents — and explain why it falls short of a dedicated control plane.
 
-**Date constraint:** The last used post date is 2026-03-13. Your new post date must be after that and at least 1 day after any other post in `content/blog/` (each post must have a unique date — no two posts share the same date). Check all frontmatter dates before deciding.
+**Date:** Use today's current date in IST. Same-day posts are allowed — no minimum spacing between posts. The only requirement is that no two posts share the exact same timestamp.
 
 ---
 
@@ -72,7 +72,7 @@ Include at least one Mermaid diagram showing the workflow difference. Use `<br/>
 
 **Tags:** Use proven tag patterns from `blog.md`. Always include `comparison` and `ai-agents`. Max 5 tags total.
 
-**Date field:** This task is scheduled at `02:00 IST on Monday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time. Verify it is at least 1 day after the most recent post in `content/blog/` and not already used by another post.
+**Date field:** Use today's current date in IST with this prompt's slot time of `02:00`. Format: `YYYY-MM-DDTHH:MM:00+05:30`. Example: if today in IST is 2026-05-09, use `"2026-05-09T02:00:00+05:30"`. If that exact timestamp is already taken by another post in `content/blog/`, add 6 hours (`T08:00:00+05:30`), then another 6 (`T14:00:00+05:30`), and so on until the timestamp is unique.
 
 **Filename:** `content/blog/agentcenter-vs-[competitor-slug].mdx`
 Run the SEO checklist from `blog.md` before saving.
