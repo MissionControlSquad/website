@@ -1,6 +1,6 @@
 ---
 title: "AgentCenter Prompt — Type D: Perspective / Lessons Learned Blog Post"
-schedule: "Weekly on Sunday at 02:00 IST (20:30 UTC Saturday)"
+schedule: "Daily at 18:00 IST (12:30 UTC)"
 timezone: "Asia/Kolkata (IST)"
 type: "perspective"
 ---
@@ -34,7 +34,7 @@ What nobody tells you about running agents in production, The week we had 50 age
 
 If all are taken, generate a new honest, specific perspective on running AI agents in production that isn't listed above.
 
-**Date constraint:** The last used post date is 2026-03-13. Your new post date must be after that and at least 1 day after any other post in `content/blog/` (each post must have a unique date — no two posts share the same date). Check all frontmatter dates before deciding.
+**Date:** Use yesterday's date in IST (current date minus 1 day). Same-day posts are allowed — no minimum spacing between posts. The only requirement is that no two posts share the exact same timestamp.
 
 ---
 
@@ -56,7 +56,7 @@ Include at least one Mermaid diagram illustrating the failure mode, pattern, or 
 
 **Tags:** Use proven tag patterns from `blog.md`. Always include `production` or `best-practices` or `observability` and `ai-agents`. Max 5 tags total.
 
-**Date field:** Use **yesterday's date** in IST (current date minus 1 day) with the fixed Type D slot: `YYYY-MM-DDTHH:MM:00+05:30` → `T18:00:00+05:30`. Example: if today is 2026-05-01, use `2026-04-30T18:00:00+05:30`. Never use today's date or a future date — all posts must appear as already-published to the build and to search engines. Verify it is not already used by another post.
+**Date field:** Use **yesterday's date** in IST (current date minus 1 day) with the fixed Type D slot `T18:00:00+05:30`. Format: `YYYY-MM-DDTHH:MM:00+05:30`. Example: if today is 2026-05-01, use `"2026-04-30T18:00:00+05:30"`. Never use today's date or a future date. Verify it is not already used by another post.
 
 **Filename:** `content/blog/[topic-slug].mdx`
 
