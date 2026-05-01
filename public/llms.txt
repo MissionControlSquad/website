@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 89 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 90 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -148,6 +148,7 @@ AgentCenter provides:
 - [AgentCenter vs Dify](https://agentcenter.cloud/blogs/agentcenter-vs-dify): Dify builds AI agents visually; AgentCenter manages them in production. Different tools for different stages of the agent lifecycle.
 - [Why Your AI Agents Are Slower Than You Think](https://agentcenter.cloud/blogs/why-your-agents-are-slower-than-you-think): Most teams don't know their agents' actual runtime until something breaks — here's how to find the latency hiding in your pipeline.
 - [AI Agents for Content Operations Teams](https://agentcenter.cloud/blogs/content-operations-ai-agent-management): Content operations teams running 8-20 agents for research, drafting, and publishing need a control plane to track handoffs, catch failures, and control model costs.
+- [AI Agent Management for Growth Engineering Teams](https://agentcenter.cloud/blogs/growth-engineering-teams-ai-agent-management): Growth engineering teams running A/B test and experiment agents need real-time visibility and cost attribution to catch silent failures before they corrupt experiment data.
 
 ## Legal
 
