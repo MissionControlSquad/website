@@ -134,9 +134,8 @@ Every post MUST use this exact frontmatter. Every field drives SEO, OG image gen
 ---
 title: "Post Title Here"
 description: "One-line summary for SEO and social cards. Max 155 characters."
-date: "YYYY-MM-DD"                    # single post on this day
-date: "YYYY-MM-DDTHH:MM:00+05:30"    # multiple posts same day — use IST timestamp
-dateModified: "YYYY-MM-DD"
+date: "YYYY-MM-DDTHH:MM:00+05:30"    # always IST timestamp — fixed slot per post type (see below)
+dateModified: "YYYY-MM-DDTHH:MM:00+05:30"
 author: "AgentCenter Team"
 tags: ["tag1", "tag2", "tag3"]
 ---
@@ -159,11 +158,15 @@ tags: ["tag1", "tag2", "tag3"]
 
 **`date`**
 
-- Single post on a day: use `YYYY-MM-DD` (treated as midnight)
-- Multiple posts on the same day: use `YYYY-MM-DDTHH:MM:00+05:30` (IST). First post at `08:00`, then every 6 hours (`14:00`, `20:00`, ...). Example: `"2026-05-04T08:00:00+05:30"`
-- Use the scheduled slot date and time (not execution time)
-- Must be unique — no two posts share the exact same timestamp
-- Posts with future dates are hidden from the site until that date/time passes
+- Always use IST timestamp format: `YYYY-MM-DDTHH:MM:00+05:30`
+- Each post type has a permanently fixed time slot — never change these:
+  - Type A (Comparison): `T00:00:00+05:30`
+  - Type B (Educational): `T06:00:00+05:30`
+  - Type C (Use-Case): `T12:00:00+05:30`
+  - Type D (Perspective): `T18:00:00+05:30`
+- Always use **yesterday's date** (current date minus 1 day in IST) — never today's date, never a future date
+- Example: if today is 2026-05-01, a Type C post uses `"2026-04-30T12:00:00+05:30"`
+- Posts with future timestamps are hidden from the site until that date/time passes
 
 **`dateModified`**
 
@@ -333,8 +336,7 @@ Accurate `date` frontmatter = accurate sitemap signal to Google.
 - [ ] At least 2 internal links
 - [ ] At least one Mermaid diagram
 - [ ] No H1 in body
-- [ ] `date` timestamp is unique — no other post in `content/blog/` has the same value
-- [ ] Multiple posts on same day use `YYYY-MM-DDTHH:MM:00+05:30` format, spaced 6 hours apart starting at `08:00`
+- [ ] `date` is yesterday's date in IST at the fixed slot for this post type (A=00:00, B=06:00, C=12:00, D=18:00) — not today, not future
 - [ ] `dateModified` matches `date`
 - [ ] Filename slug matches SEO target keyword
 
@@ -420,7 +422,7 @@ CrewAI, LangSmith, AgentOps, Relevance AI, SuperAGI, Lindy AI, Lyzr, MindStudio,
 | 2026-03-12 | `agentcenter-community-power-users`                             | AgentCenter community tips from power users             |
 | 2026-03-13 | `25-best-ai-agent-platforms-2026`                               | 25 best AI agent platforms 2026                         |
 
-**Last date used:** 2026-03-13. New posts must use a date after this. One post per day: use `YYYY-MM-DD`. Multiple posts on the same day: use `YYYY-MM-DDTHH:MM:00+05:30` starting at `08:00`, spaced 6 hours apart. No two posts may share the exact same timestamp.
+**Last date used:** 2026-04-30. Always use **yesterday's date** in IST (current date minus 1 day) with the fixed time slot for the post type being written: Type A = `T00:00:00+05:30`, Type B = `T06:00:00+05:30`, Type C = `T12:00:00+05:30`, Type D = `T18:00:00+05:30`.
 
 **Duplication rules:**
 
