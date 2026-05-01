@@ -118,6 +118,7 @@ graph TD
 
 ### Date Rules
 
-- Every blog post must have a unique date — no two posts share the same day.
-- Space posts at least 2 days apart.
-- Posts with future dates are automatically hidden from the site and sitemap until their date passes.
+- Every blog post must have a unique timestamp — no two posts share the exact same date+time.
+- For a single post on a given day, use `YYYY-MM-DD` format (treated as midnight).
+- When multiple posts are scheduled on the same day, use full IST timestamps: `YYYY-MM-DDTHH:MM:00+05:30`. Start the first post at `08:00`, then space each additional post 6 hours later (`14:00`, `20:00`, and so on).
+- Posts with future dates are automatically hidden from the site and sitemap until their date/time passes.
