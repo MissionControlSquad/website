@@ -119,6 +119,11 @@ graph TD
 ### Date Rules
 
 - Every blog post must have a unique timestamp — no two posts share the exact same date+time.
-- For a single post on a given day, use `YYYY-MM-DD` format (treated as midnight).
-- When multiple posts are scheduled on the same day, use full IST timestamps: `YYYY-MM-DDTHH:MM:00+05:30`. Start the first post at `08:00`, then space each additional post 6 hours later (`14:00`, `20:00`, and so on).
+- Always use **yesterday's date** (current date minus 1 day in IST) — never today's date and never a future date. This ensures all posts are already past the build-time filter the moment they're committed, and prevents any post from appearing future-dated to search engines.
+- Always use full IST timestamps: `YYYY-MM-DDTHH:MM:00+05:30`. Fixed time slots per post type (so posts from the same day never collide):
+  - Type A (Comparison): `T00:00:00+05:30`
+  - Type B (Educational): `T06:00:00+05:30`
+  - Type C (Use-Case): `T12:00:00+05:30`
+  - Type D (Perspective): `T18:00:00+05:30`
+- Example: if today is 2026-05-01, a Type C post uses `2026-04-30T12:00:00+05:30`.
 - Posts with future dates are automatically hidden from the site and sitemap until their date/time passes.
