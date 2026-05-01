@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 87 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 88 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -142,6 +142,7 @@ AgentCenter provides:
 - [How to Structure a Kanban Board for AI Agents](https://agentcenter.cloud/blogs/how-to-structure-a-kanban-board-for-ai-agents): Agent Kanban boards need different columns and card fields than software development boards.
 - [AI Agent Management for AI Startup Teams](https://agentcenter.cloud/blogs/ai-startup-teams-managing-agents): Early-stage AI startups need operational discipline for agents without slowing down product velocity.
 - [The Week We Had 50 Agents and Zero Visibility Into Them](https://agentcenter.cloud/blogs/the-week-we-had-50-agents-and-zero-visibility): What it actually feels like to scale agent deployments without a control plane — and what changed after.
+- [AI Agent Management for Legal Tech Teams](https://agentcenter.cloud/blogs/legal-tech-teams-ai-agent-management): How legal tech teams running contract review, compliance, and document agents get visibility into what's failing and why.
 
 ## Legal
 
