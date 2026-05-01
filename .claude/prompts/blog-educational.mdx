@@ -56,7 +56,7 @@ Include at least one Mermaid diagram illustrating the process or workflow descri
 
 **Tags:** Use proven tag patterns from `blog.md`. Always include `best-practices` or `how-to` and `ai-agents`. Max 5 tags total.
 
-**Date field:** This task is scheduled at `02:00 IST on Wednesday`. Calculate what calendar date that falls on and use it as the post date in `YYYY-MM-DD` format. Anchor to the scheduled slot — not execution time. Verify it is at least 1 day after the most recent post in `content/blog/` and not already used by another post.
+**Date field:** Use **yesterday's date** in IST (current date minus 1 day) with the fixed Type B slot: `YYYY-MM-DDTHH:MM:00+05:30` → `T06:00:00+05:30`. Example: if today is 2026-05-01, use `2026-04-30T06:00:00+05:30`. Never use today's date or a future date — all posts must appear as already-published to the build and to search engines. Verify it is not already used by another post.
 
 **Filename:** `content/blog/[how-to-slug].mdx`
 
