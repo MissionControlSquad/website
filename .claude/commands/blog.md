@@ -164,8 +164,8 @@ tags: ["tag1", "tag2", "tag3"]
   - Type B (Educational): `T06:00:00+05:30`
   - Type C (Use-Case): `T12:00:00+05:30`
   - Type D (Perspective): `T18:00:00+05:30`
-- Example for Type C on 2026-05-09: `"2026-05-09T12:00:00+05:30"`
-- Use today's date in IST — no minimum spacing between days
+- Always use **yesterday's date** (current date minus 1 day in IST) — never today's date, never a future date
+- Example: if today is 2026-05-01, a Type C post uses `"2026-04-30T12:00:00+05:30"`
 - Posts with future timestamps are hidden from the site until that date/time passes
 
 **`dateModified`**
@@ -336,7 +336,7 @@ Accurate `date` frontmatter = accurate sitemap signal to Google.
 - [ ] At least 2 internal links
 - [ ] At least one Mermaid diagram
 - [ ] No H1 in body
-- [ ] `date` uses the fixed IST slot for this post type (A=00:00, B=06:00, C=12:00, D=18:00)
+- [ ] `date` is yesterday's date in IST at the fixed slot for this post type (A=00:00, B=06:00, C=12:00, D=18:00) — not today, not future
 - [ ] `dateModified` matches `date`
 - [ ] Filename slug matches SEO target keyword
 
@@ -422,7 +422,7 @@ CrewAI, LangSmith, AgentOps, Relevance AI, SuperAGI, Lindy AI, Lyzr, MindStudio,
 | 2026-03-12 | `agentcenter-community-power-users`                             | AgentCenter community tips from power users             |
 | 2026-03-13 | `25-best-ai-agent-platforms-2026`                               | 25 best AI agent platforms 2026                         |
 
-**Last date used:** 2026-03-13. Always use today's date in IST with the fixed time slot for the post type being written: Type A = `T00:00:00+05:30`, Type B = `T06:00:00+05:30`, Type C = `T12:00:00+05:30`, Type D = `T18:00:00+05:30`.
+**Last date used:** 2026-04-30. Always use **yesterday's date** in IST (current date minus 1 day) with the fixed time slot for the post type being written: Type A = `T00:00:00+05:30`, Type B = `T06:00:00+05:30`, Type C = `T12:00:00+05:30`, Type D = `T18:00:00+05:30`.
 
 **Duplication rules:**
 
