@@ -1,6 +1,19 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /** @type {import('next-sitemap').IConfig} */
 
+const fs = require("fs");
+const nodePath = require("path");
+const matter = require("gray-matter");
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://agentcenter.cloud";
+
+function getBlogLastmod(slug) {
+  const filePath = nodePath.join(process.cwd(), "content/blog", `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+  const { data } = matter(fs.readFileSync(filePath, "utf-8"));
+  const d = data.dateModified || data.date;
+  return d ? new Date(d).toISOString() : null;
+}
 
 const disallow = ["/api/", "/admin/", "/thank-you", "/lifetime-deal", "/pricing-drop"];
 
@@ -41,11 +54,16 @@ module.exports = {
 
     const rule = rules.find((r) => r.match.test(path));
 
+    const blogMatch = path.match(/^\/blogs\/([^/]+)$/);
+    const lastmod = blogMatch
+      ? (getBlogLastmod(blogMatch[1]) ?? new Date().toISOString())
+      : new Date().toISOString();
+
     return {
       loc: url,
       changefreq: rule?.changefreq ?? config.changefreq,
       priority: rule?.priority ?? config.priority,
-      lastmod: new Date().toISOString(),
+      lastmod,
     };
   },
 

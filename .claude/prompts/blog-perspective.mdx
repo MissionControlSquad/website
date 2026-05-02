@@ -1,0 +1,110 @@
+---
+title: "AgentCenter Prompt — Type D: Perspective / Lessons Learned Blog Post"
+schedule: "Daily at 18:00 IST (12:30 UTC)"
+timezone: "Asia/Kolkata (IST)"
+type: "perspective"
+---
+
+**Goal:** Generate one new perspective or lessons-learned blog post for agentcenter.cloud — honest, experience-driven writing that shifts how developers and technical teams think about running AI agents in production.
+
+**Repo:** https://github.com/MissionControlSquad/website.git
+**Branch:** main
+**Post date timezone:** Asia/Kolkata (IST) — use current date in IST
+
+---
+
+### Step 0 — Environment Setup
+
+Run these commands before anything else:
+
+```bash
+git config --global user.email "dharmendra@jagodana.org"
+git config --global user.name "dharmendra-jagodana"
+gh auth setup-git
+```
+
+This sets git identity and authenticates the `gh` CLI using the `GITHUB_TOKEN` environment variable. Required for `git push` and `gh pr create` to work. If `GITHUB_TOKEN` is not set, stop and report the error.
+
+---
+
+### Step 1 — Setup
+
+1. Read `CLAUDE.md` fully — project context, voice rules, **complete banned words list**, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — post types, frontmatter spec, existing posts table, CTA rules, internal linking, tag patterns, SEO checklist, word count targets, filename conventions
+3. Read `.claude/skills/seo-audit/SKILL.md` — SEO pre-write checklist (on-page, headings, keyword targeting)
+4. Read `.claude/skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid (em dashes, banned phrases, filler words)
+5. Read `.claude/skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns for AI citation
+6. Run `ls content/blog/` and cross-check against the existing posts table in `blog.md` — do NOT duplicate any topic already covered in either source
+
+---
+
+### Step 2 — Pick a Topic
+
+**Before picking:** run `ls content/blog/`, scan filenames, and cross-check the existing posts table in `blog.md`. Only pick a topic with no existing coverage — including partial coverage where the core angle is already taken.
+
+Choose ONE topic from this list:
+
+What nobody tells you about running agents in production, The week we had 50 agents and zero visibility into them, Why your agents are slower than you think (and how to find out), Three agent failures that taught us the most, The difference between agent observability and agent management, Why most teams instrument too late, The problem with treating agents like scripts, What "multi-agent" actually means at 3am when something breaks, Why debugging agents is nothing like debugging code, The case for boring agent infrastructure, When to add a new agent vs fix the one you have, What agent monitoring dashboards miss, How we decided which agents to keep and which to kill, The hidden cost of unreviewed agent deliverables, Why rollback is the most underrated AI ops feature, What production-ready actually means for AI agents, Why your agent pipeline is a team coordination problem, The moment you stop treating agents as experiments and start treating them as infrastructure, What happens when two agents block each other (and how to see it), Why most agent dashboards show the wrong things
+
+If all are taken, generate a new honest, specific perspective on running AI agents in production that isn't listed above.
+
+**Date:** Use yesterday's date in IST (current date minus 1 day). Same-day posts are allowed — no minimum spacing between posts. The only requirement is that no two posts share the exact same timestamp.
+
+---
+
+### Step 3 — Write the Post
+
+Follow **Type D — Perspective / Lessons Learned Post** structure from `.claude/commands/blog.md` exactly:
+
+- Scene-setting opener (specific, grounded — real numbers, real situation, not generic)
+- The shift or realization
+- Concrete examples (specific failure modes, specific features, real numbers where possible)
+- What the reader should take away (a decision, a habit, a frame — not a product pitch)
+- Who this matters most for (role + specific situation)
+- Honest caveat — don't oversell AgentCenter or AI agents generally
+- CTA (see `.claude/commands/blog.md` for perspective CTA format)
+
+**Word count:** 700–1300 words. Do not exceed 1300.
+
+Include at least one Mermaid diagram illustrating the failure mode, pattern, or concept being discussed. Use `<br/>` for line breaks inside labels — never `\n`.
+
+**Tags:** Use proven tag patterns from `blog.md`. Always include `production` or `best-practices` or `observability` and `ai-agents`. Max 5 tags total.
+
+**Date field:** Use **yesterday's date** in IST (current date minus 1 day) with the fixed Type D slot `T18:00:00+05:30`. Format: `YYYY-MM-DDTHH:MM:00+05:30`. Example: if today is 2026-05-01, use `"2026-04-30T18:00:00+05:30"`. Never use today's date or a future date. Verify it is not already used by another post.
+
+**Filename:** `content/blog/[topic-slug].mdx`
+
+Run the SEO checklist from `blog.md` before saving.
+
+---
+
+### Step 4 — Branch, Commit & PR
+
+1. Write the MDX file to `content/blog/[slug].mdx`
+2. Update `public/llms.txt` — append to the end of the `## Blog` section (before `## Legal`):
+   `- [Post Title](https://agentcenter.cloud/blogs/[slug]): One-line description of what the post covers.`
+   Also increment the post count in the Blog Index line (e.g. `39 posts` → `40 posts`).
+3. `git checkout -b blog/perspective-[slug]`
+4. `git add content/blog/[slug].mdx public/llms.txt`
+5. `git commit -m "blog: add perspective post — [topic]"`
+6. `git push origin blog/perspective-[slug]`
+7. Open a PR from `blog/perspective-[slug]` → `main` with title: `blog: [topic]`
+8. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+
+---
+
+### Step 5 — Final Output
+
+Return:
+
+```
+Post Type: Type D (Perspective)
+Topic Covered: [topic]
+File: content/blog/[slug].mdx
+llms.txt: updated (post count: [n])
+Branch: blog/perspective-[slug]
+PR: [PR URL]
+Word Count: [n]
+Date Used: [date in IST]
+Status: PR open — awaiting owner merge
+```
