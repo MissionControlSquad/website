@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 92 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 93 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -151,6 +151,7 @@ AgentCenter provides:
 - [AI Agent Management for Growth Engineering Teams](https://agentcenter.cloud/blogs/growth-engineering-teams-ai-agent-management): Growth engineering teams running A/B test and experiment agents need real-time visibility and cost attribution to catch silent failures before they corrupt experiment data.
 - [Three Agent Failures That Taught Us the Most](https://agentcenter.cloud/blogs/three-agent-failures-that-taught-us-the-most): Three production failures — a silent retry loop, a missed handoff, and an unset timeout — and what each one revealed about running AI agents without proper observability.
 - [AgentCenter vs LlamaIndex](https://agentcenter.cloud/blogs/agentcenter-vs-llamaindex): LlamaIndex builds data-powered agents; AgentCenter manages them in production. Different tools for different stages of the agent lifecycle.
+- [How to Detect When an AI Agent Is Stuck or Looping](https://agentcenter.cloud/blogs/how-to-detect-agent-stuck-or-looping): Five detection methods for catching stuck and looping agents in production — timeouts, checkpoints, retry caps, token budgets, and heartbeats.
 
 ## Legal
 
