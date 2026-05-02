@@ -1,0 +1,121 @@
+---
+title: "AgentCenter Prompt — Backfill: Cover Missing Dates"
+type: "backfill"
+run: "once"
+---
+
+**Goal:** Write one blog post for every missing date between the last published post and today, so there are no gaps in the publishing history. Posts with future dates are hidden automatically — posts with past dates appear immediately.
+
+**Repo:** https://github.com/MissionControlSquad/website.git
+**Branch:** main
+
+---
+
+### Step 0 — Environment Setup
+
+Run these commands before anything else:
+
+```bash
+git config --global user.email "dharmendra@jagodana.org"
+git config --global user.name "dharmendra-jagodana"
+gh auth setup-git
+```
+
+This sets git identity and authenticates the `gh` CLI using the `GITHUB_TOKEN` environment variable. Required for `git push` and `gh pr create` to work. If `GITHUB_TOKEN` is not set, stop and report the error.
+
+---
+
+### Step 1 — Setup
+
+1. Read `CLAUDE.md` fully — project context, voice rules, complete banned words list, Mermaid diagram rules
+2. Read `.claude/commands/blog.md` fully — all 4 post types, frontmatter spec, existing posts table, author rotation, CTA rules, internal linking, tag patterns, SEO checklist, word count targets, filename conventions
+3. Read `.claude/skills/seo-audit/SKILL.md` — SEO pre-write checklist
+4. Read `.claude/skills/seo-audit/references/ai-writing-detection.md` — patterns to avoid
+5. Read `.claude/skills/seo-audit/references/aeo-geo-patterns.md` — GEO/AEO content block patterns
+6. Run `ls content/blog/` — get the full list of existing posts and their dates
+
+---
+
+### Step 2 — Calculate the Gap
+
+1. Find the most recent post date in `content/blog/` by reading frontmatter dates
+2. The gap starts the day after that date and ends on today's date (April 30, 2026 IST)
+3. List every missing date in order — these are the dates you will write posts for
+4. Count the total number of posts to write
+
+**Expected gap:** 2026-03-14 through 2026-04-30 = 48 dates = 48 posts
+
+---
+
+### Step 3 — Write All Posts Sequentially
+
+Write one post per missing date, in chronological order (oldest first). Rotate through all 4 post types in this cycle:
+
+```
+Date 1 → Type A (Comparison)
+Date 2 → Type B (Educational)
+Date 3 → Type C (Use-Case)
+Date 4 → Type D (Perspective)
+Date 5 → Type A (Comparison)
+Date 6 → Type B (Educational)
+... repeat
+```
+
+For each post:
+
+- Follow the exact structure for that type from `.claude/commands/blog.md`
+- Pick a topic/competitor/role that is NOT already covered by any existing post OR any post already written in this batch
+- Rotate authors across the four names — never use the same author twice in a row:
+  `"Dharmendra Jagodana"`, `"Dharmik Jagodana"`, `"Krupali Patel"`, `"Mona Laniya"`
+- Set `date` to the assigned missing date in `YYYY-MM-DD` format
+- Set `dateModified` same as `date`
+- Include at least one Mermaid diagram per post
+- Word count: 700–1300 words (comparison posts up to 1600)
+- Run SEO checklist from `blog.md` before finalising each post
+- Save to `content/blog/[slug].mdx`
+
+**Topic tracking — keep a running list as you write each post to avoid duplicating within this batch:**
+
+- Track: every competitor used (Type A), every how-to topic (Type B), every role/industry (Type C), every perspective topic (Type D)
+- Before writing each post, confirm neither the topic nor a close variant exists in `content/blog/` OR earlier in this batch
+
+---
+
+### Step 4 — Update llms.txt
+
+After all posts are written, update `public/llms.txt`:
+
+- Append one entry per new post to the end of the `## Blog` section (before `## Legal`):
+  `- [Post Title](https://agentcenter.cloud/blogs/[slug]): One-line description.`
+- Update the Blog Index count from `39 posts` to `39 + [number of posts written] posts`
+
+---
+
+### Step 5 — Branch, Commit & PR
+
+1. `git checkout -b blog/backfill-mar14-apr30`
+2. `git add content/blog/*.mdx public/llms.txt`
+3. `git commit -m "blog: backfill 48 posts — 2026-03-14 to 2026-04-30"`
+4. `git push origin blog/backfill-mar14-apr30`
+5. Open a PR from `blog/backfill-mar14-apr30` → `main` with title: `blog: backfill Mar 14 – Apr 30 2026 (48 posts)`
+6. **Do NOT merge the PR.** Leave it open for the site owner to review and merge.
+
+---
+
+### Step 6 — Final Output
+
+Return a summary table:
+
+```
+Backfill Complete
+Total posts written: [n]
+Date range: 2026-03-14 to 2026-04-30
+Branch: blog/backfill-mar14-apr30
+PR: [PR URL]
+llms.txt: updated (new count: [n])
+
+Posts written:
+[date] | [type] | [slug] | [author]
+[date] | [type] | [slug] | [author]
+... (all 48)
+```
