@@ -7,6 +7,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PricingPage } from "@buildbase/sdk/react";
 import { trackBeginCheckout } from "@/lib/analytics";
 import { SELFHOSTING_PRICING, SELF_HOST_PLAN_NAME } from "@/lib/constants";
+import { useBuildbaseReady } from "@/components/providers/BuildbaseProvider";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
 const PLAN_GROUP_SLUG = process.env.NEXT_PUBLIC_PLAN_GROUP_SLUG ?? "";
@@ -584,15 +585,16 @@ interface PricingProps {
 }
 
 export default function Pricing({ selfHostOnly = false }: PricingProps) {
-  const [mounted, setMounted] = useState(false);
+  const providerReady = useBuildbaseReady();
+  const [canRender, setCanRender] = useState(false);
   const [pricingLoaded, setPricingLoaded] = useState(false);
   const [billing, setBilling] = useState<BillingInterval>("monthly");
   const [compareOpen, setCompareOpen] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
+    if (providerReady) setCanRender(true);
+  }, [providerReady]);
 
   const handlePricingReady = useCallback(() => setPricingLoaded(true), []);
   const closeCompare = useCallback(() => setCompareOpen(false), []);
@@ -614,7 +616,7 @@ export default function Pricing({ selfHostOnly = false }: PricingProps) {
         {/* Skeleton — visible until API data arrives */}
         {!pricingLoaded && (selfHostOnly ? <PricingSingleSkeleton /> : <PricingGridSkeleton />)}
 
-        {mounted && (
+        {canRender && (
           <PricingPage slug={PLAN_GROUP_SLUG} redirectBaseUrl={APP_URL} loadingFallback={null}>
             {({ loading, error, items, plans, selectPlan }) => {
               if (loading || (!plans?.length && !error)) return null;
