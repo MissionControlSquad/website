@@ -5,7 +5,7 @@ const fs = require("fs");
 const nodePath = require("path");
 const matter = require("gray-matter");
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://agentcenter.cloud";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.agentcenter.cloud";
 
 function getBlogLastmod(slug) {
   const filePath = nodePath.join(process.cwd(), "content/blog", `${slug}.mdx`);
