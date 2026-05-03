@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useSaaSAuth, WorkspaceSwitcher } from "@buildbase/sdk/react";
 import { useWorkspaceSubscription } from "@/lib/hooks/useWorkspaceSubscription";
+import { useBuildbaseReady } from "@/components/providers/BuildbaseProvider";
 import {
   CONTACT_EMAIL,
   SELF_HOSTING_SETUP_URL,
@@ -649,14 +650,9 @@ function LoadingFrame() {
 // ─── SSR shell ────────────────────────────────────────────────────────────────
 
 function DashboardShell() {
-  const [mounted, setMounted] = useState(false);
+  const providerReady = useBuildbaseReady();
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <LoadingFrame />;
+  if (!providerReady) return <LoadingFrame />;
 
   return <DashboardPage />;
 }

@@ -2,7 +2,12 @@
 
 import { SaaSOSProvider, useSaaSAuth } from "@buildbase/sdk/react";
 import { ApiVersion, consumeAuthIntent, type EventType, type EventData } from "@buildbase/sdk";
-import React, { useEffect, useRef, useState } from "react";
+import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+
+const BuildbaseReadyContext = createContext(false);
+export function useBuildbaseReady() {
+  return useContext(BuildbaseReadyContext);
+}
 
 declare global {
   interface Window {
@@ -108,8 +113,11 @@ export function BuildbaseProvider({ children }: { children: React.ReactNode }) {
 
   // Don't render SaaSOSProvider during SSR/prerendering — orgId would be empty
   // and the SDK throws. Also guard against empty ORG_ID at build time.
+  // Wrap with BuildbaseReadyContext=false so children can wait for the provider.
   if (!mounted || !ORG_ID) {
-    return <>{children}</>;
+    return (
+      <BuildbaseReadyContext.Provider value={false}>{children}</BuildbaseReadyContext.Provider>
+    );
   }
 
   return (
@@ -234,8 +242,10 @@ export function BuildbaseProvider({ children }: { children: React.ReactNode }) {
         };
       }}
     >
-      <PostAuthRedirector />
-      {children}
+      <BuildbaseReadyContext.Provider value={true}>
+        <PostAuthRedirector />
+        {children}
+      </BuildbaseReadyContext.Provider>
     </SaaSOSProvider>
   );
 }
