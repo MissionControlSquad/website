@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { useSaaSAuth } from "@buildbase/sdk/react";
+import { useBuildbaseReady } from "@/components/providers/BuildbaseProvider";
 
 interface Props {
   size?: "sm" | "md";
@@ -28,13 +29,14 @@ function NavbarAuthCTAInner({ size }: { size: "sm" | "md" }) {
 }
 
 export function NavbarAuthCTA({ size = "sm" }: Props) {
-  const [mounted, setMounted] = useState(false);
+  const providerReady = useBuildbaseReady();
+  const [canRender, setCanRender] = useState(false);
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
+    if (providerReady) setCanRender(true);
+  }, [providerReady]);
 
-  if (!mounted) {
+  if (!canRender) {
     return <Button size={size}>Get Started</Button>;
   }
 
@@ -81,13 +83,14 @@ function NavbarAuthCTAMobileInner({ onClose, isOpen }: MobileProps) {
 }
 
 export function NavbarAuthCTAMobile({ onClose, isOpen }: MobileProps) {
-  const [mounted, setMounted] = useState(false);
+  const providerReady = useBuildbaseReady();
+  const [canRender, setCanRender] = useState(false);
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
+    if (providerReady) setCanRender(true);
+  }, [providerReady]);
 
-  if (!mounted) {
+  if (!canRender) {
     return (
       <button className="w-full" tabIndex={isOpen ? 0 : -1}>
         <Button className="w-full" size="md">
