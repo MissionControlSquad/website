@@ -1,4 +1,4 @@
-// Web Crypto API JWT — compatible with Cloudflare Workers runtime (no Node.js required)
+// Web Crypto API JWT — works in both Node.js 18+ and edge runtime
 
 function base64url(input: ArrayBuffer | string): string {
   const bytes = typeof input === "string" ? new TextEncoder().encode(input) : new Uint8Array(input);

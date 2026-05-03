@@ -5,7 +5,7 @@ const fs = require("fs");
 const nodePath = require("path");
 const matter = require("gray-matter");
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://agentcenter.cloud";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.agentcenter.cloud";
 
 function getBlogLastmod(slug) {
   const filePath = nodePath.join(process.cwd(), "content/blog", `${slug}.mdx`);
@@ -15,7 +15,7 @@ function getBlogLastmod(slug) {
   return d ? new Date(d).toISOString() : null;
 }
 
-const disallow = ["/api/", "/admin/", "/thank-you"];
+const disallow = ["/api/", "/admin/", "/dashboard", "/thank-you"];
 
 const exclude = [...disallow, "/**/opengraph-image", "/**/twitter-image"];
 
@@ -23,7 +23,6 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  outDir: "out",
   changefreq: "weekly",
   priority: 0.7,
   autoLastmod: true,

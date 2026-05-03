@@ -40,7 +40,7 @@ export const SITE_CONFIG = {
   tagline: "Mission Control for Your OpenClaw Agents",
   description:
     "Mission Control dashboard for your OpenClaw agents. Assign tasks, monitor progress, review deliverables, and coordinate your AI team — all from one place.",
-  url: "https://agentcenter.cloud",
+  url: "https://www.agentcenter.cloud",
 } as const;
 
 /** Absolute URL for the default Open Graph / Twitter share image (1200×630). */
