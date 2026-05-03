@@ -142,11 +142,11 @@ export default function PrivacyPolicyPage() {
 
             <p className="text-neutral-300 leading-relaxed mb-4">
               <strong className="text-neutral-100">Email Sign-Up Data:</strong> If you submit your
-              email address via our early-access, waitlist, or pricing-drop forms, we collect your
-              email address and store it in our email platform (Resend) to send you a confirmation
-              and future product updates. Your email is normalized and a hashed (SHA-256) version of
-              your IP address is stored temporarily to prevent duplicate submissions — we never
-              store raw IP addresses.
+              email address via our early-access or waitlist forms, we collect your email address
+              and store it in our email platform (Resend) to send you a confirmation and future
+              product updates. Your email is normalized and a hashed (SHA-256) version of your IP
+              address is stored temporarily to prevent duplicate submissions — we never store raw IP
+              addresses.
             </p>
 
             <h3 className="text-xl font-semibold text-neutral-200 mb-3 mt-6">
@@ -418,20 +418,6 @@ export default function PrivacyPolicyPage() {
                   className="text-primary-400 hover:text-primary-300 transition-colors"
                 >
                   Resend Privacy Policy
-                </a>
-                .
-              </li>
-              <li>
-                <strong className="text-neutral-100">Supabase</strong> — Backend database. For
-                pricing-drop and waitlist signups we store your email address and a salted SHA-256
-                hash of your IP address (never the raw IP) to prevent duplicate submissions.{" "}
-                <a
-                  href="https://supabase.com/privacy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-400 hover:text-primary-300 transition-colors"
-                >
-                  Supabase Privacy Policy
                 </a>
                 .
               </li>
