@@ -417,15 +417,16 @@ function readBlogPosts() {
 
   for (const file of files) {
     const slug = file.replace(/\.mdx$/, "");
-    const content = fs.readFileSync(path.join(BLOG_DIR, file), "utf8");
+    const mdxPath = path.join(BLOG_DIR, file);
+    const content = fs.readFileSync(mdxPath, "utf8");
 
-    // Extract title from frontmatter
     const titleMatch = content.match(/^title:\s*["']?(.+?)["']?\s*$/m);
     const descMatch = content.match(/^description:\s*["']?(.+?)["']?\s*$/m);
 
     if (titleMatch) {
       posts.push({
         slug: `blog-${slug}`,
+        mdxPath,
         category: "BLOG",
         title: titleMatch[1].trim(),
         subtitle: descMatch ? descMatch[1].trim() : "AgentCenter Blog",
@@ -441,13 +442,31 @@ function readBlogPosts() {
 async function main() {
   const allPages = [...PAGES, ...readBlogPosts()];
 
-  console.log(`Generating ${allPages.length} OG images → public/og/\n`);
+  console.log(`Generating OG images → public/og/  (${allPages.length} total)\n`);
 
   let ok = 0;
+  let skip = 0;
   let fail = 0;
 
   for (const page of allPages) {
     const outputPath = path.join(OUT_DIR, `${page.slug}.png`);
+
+    if (fs.existsSync(outputPath)) {
+      if (page.mdxPath) {
+        const mdxMtime = fs.statSync(page.mdxPath).mtimeMs;
+        const pngMtime = fs.statSync(outputPath).mtimeMs;
+        if (mdxMtime <= pngMtime) {
+          console.log(`  –  ${page.slug}.png  (up to date)`);
+          skip++;
+          continue;
+        }
+      } else {
+        console.log(`  –  ${page.slug}.png  (exists, skipping)`);
+        skip++;
+        continue;
+      }
+    }
+
     try {
       const info = await generateOgImage({
         category: page.category,
@@ -464,7 +483,7 @@ async function main() {
     }
   }
 
-  console.log(`\nDone: ${ok} generated, ${fail} failed.`);
+  console.log(`\nDone: ${ok} generated, ${skip} skipped, ${fail} failed.`);
   if (fail > 0) process.exit(1);
 }
 
