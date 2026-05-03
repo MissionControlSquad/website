@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Check, X, ArrowRight, Minus, LayoutList, Monitor } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { PricingPage } from "@buildbase/sdk/react";
+import { PricingPage, useSaaSAuth } from "@buildbase/sdk/react";
 import { trackBeginCheckout } from "@/lib/analytics";
 import { SELFHOSTING_PRICING, SELF_HOST_PLAN_NAME } from "@/lib/constants";
 import { useBuildbaseReady } from "@/components/providers/BuildbaseProvider";
@@ -578,6 +579,54 @@ function PricingContent({ children, onReady }: { children: React.ReactNode; onRe
   return <>{children}</>;
 }
 
+// ─── PlanButton ──────────────────────────────────────────────────────────────
+// Rendered only inside the canRender guard so AuthProvider is guaranteed ready.
+
+function PlanButton({
+  planId,
+  planName,
+  billing,
+  currency,
+  activeCents,
+  isRecommended,
+  trial,
+}: {
+  planId: string;
+  planName: string;
+  billing: BillingInterval;
+  currency: string;
+  activeCents: number;
+  isRecommended: boolean;
+  trial?: { enabled: boolean; durationDays: number };
+}) {
+  const { isAuthenticated, signIn } = useSaaSAuth();
+  const router = useRouter();
+
+  function handleClick() {
+    trackBeginCheckout(`AgentCenter ${planName}`, billing, activeCents / 100);
+    const target = `/dashboard?planId=${encodeURIComponent(planId)}&billing=${billing}&currency=${encodeURIComponent(currency)}`;
+    if (isAuthenticated) {
+      router.push(target);
+    } else {
+      signIn(`${window.location.origin}${target}`);
+    }
+  }
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-colors mb-2 ${
+        isRecommended
+          ? "bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/30"
+          : "bg-neutral-700 hover:bg-neutral-600 text-neutral-100"
+      }`}
+    >
+      {trial?.enabled ? `Start ${trial.durationDays}-Day Free Trial` : "Get Started"}
+      <ArrowRight size={16} aria-hidden="true" />
+    </button>
+  );
+}
+
 // ─── Main component ──────────────────────────────────────────────────────────
 
 interface PricingProps {
@@ -891,28 +940,15 @@ export default function Pricing({ selfHostOnly = false }: PricingProps) {
                                 )}
                               </div>
 
-                              <button
-                                onClick={() => {
-                                  trackBeginCheckout(
-                                    `AgentCenter ${plan.name}`,
-                                    billing,
-                                    activeCents / 100
-                                  );
-                                  Promise.resolve(selectPlan(plan._id, billing, currency)).catch(
-                                    (err) => console.error("selectPlan failed:", err)
-                                  );
-                                }}
-                                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-colors mb-2 ${
-                                  isRecommended
-                                    ? "bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/30"
-                                    : "bg-neutral-700 hover:bg-neutral-600 text-neutral-100"
-                                }`}
-                              >
-                                {plan.trial?.enabled
-                                  ? `Start ${plan.trial.durationDays}-Day Free Trial`
-                                  : "Get Started"}
-                                <ArrowRight size={16} aria-hidden="true" />
-                              </button>
+                              <PlanButton
+                                planId={plan._id}
+                                planName={plan.name}
+                                billing={billing}
+                                currency={currency}
+                                activeCents={activeCents}
+                                isRecommended={isRecommended}
+                                trial={plan.trial}
+                              />
 
                               {plan.trial?.enabled && (
                                 <p className="text-xs text-center text-success-400 mb-2 font-medium">
