@@ -1,18 +1,14 @@
-import { createJWT, verifyJWT } from "../../lib/jwt";
+import { NextRequest } from "next/server";
+import { createJWT, verifyJWT } from "@/lib/jwt";
 
-interface Env {
-  SYSTEM_SECRET: string;
-}
-
-export const onRequestPost: PagesFunction<Env> = async (context) => {
-  const { SYSTEM_SECRET } = context.env;
+export async function POST(request: NextRequest) {
+  const SYSTEM_SECRET = process.env.SYSTEM_SECRET;
 
   if (!SYSTEM_SECRET) {
     return Response.json({ success: false, message: "Server misconfigured" }, { status: 500 });
   }
 
-  // Require a valid token from /api/auth/token to prove the caller authenticated
-  const authHeader = context.request.headers.get("Authorization") ?? "";
+  const authHeader = request.headers.get("Authorization") ?? "";
   const existingToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
   if (!existingToken || !(await verifyJWT(existingToken, SYSTEM_SECRET))) {
     return Response.json({ success: false, message: "Unauthorized" }, { status: 401 });
@@ -20,7 +16,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   let userId: string, workspaceId: string, userRole: string, email: string;
   try {
-    const body = (await context.request.json()) as {
+    const body = (await request.json()) as {
       userId?: string;
       workspaceId?: string;
       userRole?: string;
@@ -44,4 +40,4 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const token = await createJWT({ userId, workspaceId, userRole, email }, SYSTEM_SECRET);
 
   return Response.json({ success: true, token });
-};
+}

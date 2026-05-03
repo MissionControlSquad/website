@@ -4,13 +4,12 @@ The marketing website and blog for [AgentCenter.cloud](https://agentcenter.cloud
 
 ## Tech Stack
 
-- **Framework:** Next.js 16 (App Router, static export)
-- **Runtime:** Cloudflare Pages + Pages Functions (CF Workers)
+- **Framework:** Next.js 16 (App Router)
+- **Deployment:** Vercel
 - **Auth:** BuildBase SDK (`@buildbase/sdk`) — OAuth2 + workspace management
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Blog:** MDX via next-mdx-remote + gray-matter
-- **Deployment:** Cloudflare Pages (via Wrangler)
 
 ## Getting Started
 
@@ -18,7 +17,6 @@ The marketing website and blog for [AgentCenter.cloud](https://agentcenter.cloud
 
 - Node.js 20+
 - npm
-- Wrangler CLI (`npm i -g wrangler`) for local CF Functions dev
 
 ### Setup
 
@@ -26,26 +24,23 @@ The marketing website and blog for [AgentCenter.cloud](https://agentcenter.cloud
 git clone https://github.com/MissionControlSquad/website.git
 cd website
 npm install
-cp .dev.vars.example .dev.vars   # fill in your values (see below)
-npm run dev                      # Next.js only (no CF Functions)
-# OR
-wrangler pages dev               # Next.js + CF Functions locally
+cp .dev.vars.example .env.local   # fill in your values (see below)
+npm run dev
 ```
 
 ### Available Scripts
 
-| Command              | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| `npm run dev`        | Start Next.js dev server (port 3000)             |
-| `npm run build`      | Production build + sitemap generation            |
-| `npm run start`      | Serve production build                           |
-| `npm run lint`       | Run ESLint                                       |
-| `npm run format`     | Format with Prettier                             |
-| `wrangler pages dev` | Local dev with CF Functions (auth, tenant, etc.) |
+| Command          | Description                           |
+| ---------------- | ------------------------------------- |
+| `npm run dev`    | Start Next.js dev server (port 3000)  |
+| `npm run build`  | Production build + sitemap generation |
+| `npm run start`  | Serve production build                |
+| `npm run lint`   | Run ESLint                            |
+| `npm run format` | Format with Prettier                  |
 
 ## Environment Variables
 
-Copy `.dev.vars.example` to `.dev.vars` for local development. All variables are required in production unless marked optional.
+Copy `.dev.vars.example` to `.env.local` for local development. All variables are required in production unless marked optional. In production, set these in the Vercel project dashboard under Settings → Environment Variables.
 
 ### BuildBase (OAuth + Workspace)
 
@@ -85,26 +80,24 @@ These come from your BuildBase dashboard → Settings → OAuth.
 | `NEXT_PUBLIC_YANDEX_VERIFICATION`      | Yandex verification                         |
 | `NEXT_PUBLIC_BAIDU_SITE_VERIFICATION`  | Baidu verification                          |
 
-## Cloudflare Pages Functions
+## API Routes
 
-All server-side logic lives in `functions/` and runs as CF Workers at the edge.
+All server-side logic runs as Next.js API routes.
 
 ```
-functions/
-├── api/
-│   ├── auth/
-│   │   ├── token.ts          # POST — exchanges BuildBase OAuth code for session + JWT
-│   │   ├── session.ts        # GET  — reads HttpOnly session cookie for SDK restore
-│   │   ├── logout.ts         # POST — clears session cookie
-│   │   └── workspace-token.ts# POST — issues workspace-scoped JWT (requires valid Bearer token)
-│   ├── tenant/
-│   │   ├── status.ts         # GET  — checks/provisions tenant via infra API
-│   │   └── retry.ts          # POST — retries a failed tenant provisioning
-│   ├── events.ts             # POST — receives BuildBase SDK events (workspace:changed, etc.)
-│   └── _middleware.ts        # CORS + auth middleware for all /api/* routes
-└── lib/
-    └── jwt.ts                # HMAC-SHA256 JWT (Web Crypto API, CF Workers compatible)
+app/api/
+├── auth/
+│   ├── token/route.ts           # POST — exchanges BuildBase OAuth code for session + JWT
+│   ├── session/route.ts         # GET  — reads HttpOnly session cookie for SDK restore
+│   ├── logout/route.ts          # POST — clears session cookie
+│   └── workspace-token/route.ts # POST — issues workspace-scoped JWT (requires valid Bearer token)
+├── tenant/
+│   ├── status/route.ts          # GET  — checks/provisions tenant via infra API
+│   └── retry/route.ts           # POST — retries a failed tenant provisioning
+└── events/route.ts              # POST — receives BuildBase SDK events (workspace:changed, etc.)
 ```
+
+CORS for all `/api/*` routes is handled by `proxy.ts`.
 
 ### Auth flow
 
@@ -135,6 +128,7 @@ const { subscribe, isSubscribed } = usePushNotifications();
 ```
 .
 ├── app/                    # Next.js App Router pages
+│   ├── api/                # Next.js API routes
 │   ├── dashboard/          # Authenticated dashboard (BuildBase + tenant status)
 │   ├── blogs/              # Blog listing + MDX post pages
 │   ├── pricing/            # Pricing page (BuildBase checkout)
@@ -146,15 +140,16 @@ const { subscribe, isSubscribed } = usePushNotifications();
 │   └── Navbar.tsx
 ├── content/
 │   └── blog/               # MDX blog posts
-├── functions/              # Cloudflare Pages Functions (CF Workers)
 ├── lib/
 │   ├── constants.ts        # Shared constants (plan names, client types, provisioning states)
+│   ├── jwt.ts              # HMAC-SHA256 JWT (Web Crypto API)
 │   ├── hooks/
 │   │   └── useWorkspaceSubscription.ts  # BuildBase subscription state hook
 │   └── utils.ts
+├── proxy.ts           # CORS proxy for /api/* routes
 ├── public/
 │   └── push-sw.js          # Push notification service worker
-├── .dev.vars.example       # Environment variable template
+├── .dev.vars.example       # Environment variable template (copy to .env.local)
 └── package.json
 ```
 

@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Vercel
 
 on:
   push:
@@ -31,36 +31,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
 
-      - name: Determine branch name
-        id: branch
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "name=${{ github.head_ref }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "name=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
-          fi
+      - name: Pull Vercel environment
+        run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy to Cloudflare Pages
+      - name: Build project
+        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel
         id: deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name=agentcenter-website --branch=${{ steps.branch.outputs.name }}
+        run: |
+          URL=$(vercel deploy --prebuilt ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$URL" >> $GITHUB_OUTPUT
 
       - name: Comment preview URL on PR
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
-            const branch = '${{ steps.branch.outputs.name }}';
-            const url = `https://${branch}.agentcenter-website.pages.dev`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🚀 Preview deployed: ${url}`
+              body: `🚀 Preview deployed: ${{ steps.deploy.outputs.url }}`
             });
