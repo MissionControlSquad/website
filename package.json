@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "generate:og": "node scripts/generate-all-og-images.mjs",
+    "generate:og:force": "node scripts/generate-all-og-images.mjs --force",
+    "generate:og:dry-run": "node scripts/generate-all-og-images.mjs --dry-run",
     "prebuild": "node scripts/validate-blog-links.mjs",
     "build": "next build",
     "postbuild": "next-sitemap",
