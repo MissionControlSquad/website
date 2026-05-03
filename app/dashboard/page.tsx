@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { useSaaSAuth, WorkspaceSwitcher } from "@buildbase/sdk/react";
+import { useSaaSAuth, useSaaSWorkspaces, WorkspaceSwitcher } from "@buildbase/sdk/react";
 import { useWorkspaceSubscription } from "@/lib/hooks/useWorkspaceSubscription";
 import { useBuildbaseReady } from "@/components/providers/BuildbaseProvider";
 import {
@@ -514,16 +514,18 @@ function DashboardContent({ user }: { user: AuthUser | null }) {
 function DashboardPage() {
   const { isAuthenticated, isLoading, signIn, signOut, user, openWorkspaceSettings } =
     useSaaSAuth();
+  const { currentWorkspace } = useSaaSWorkspaces();
   const searchParams = useSearchParams();
   const plan = searchParams.get("plan");
+  const planId = searchParams.get("planId");
   const openedRef = useRef(false);
 
   useEffect(() => {
-    if (plan && isAuthenticated && !openedRef.current) {
-      openedRef.current = true;
-      openWorkspaceSettings("subscription");
-    }
-  }, [plan, isAuthenticated, openWorkspaceSettings]);
+    if (isLoading || !isAuthenticated || !currentWorkspace) return;
+    if (!(plan || planId) || openedRef.current) return;
+    openedRef.current = true;
+    openWorkspaceSettings("subscription");
+  }, [isLoading, isAuthenticated, currentWorkspace, plan, planId, openWorkspaceSettings]);
 
   const headerRight = (
     <>
