@@ -651,8 +651,14 @@ function LoadingFrame() {
 
 function DashboardShell() {
   const providerReady = useBuildbaseReady();
+  const [canRender, setCanRender] = useState(false);
 
-  if (!providerReady) return <LoadingFrame />;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (providerReady) setCanRender(true);
+  }, [providerReady]);
+
+  if (!canRender) return <LoadingFrame />;
 
   return <DashboardPage />;
 }
