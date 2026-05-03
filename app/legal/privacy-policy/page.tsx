@@ -115,9 +115,10 @@ export default function PrivacyPolicyPage() {
 
             <p className="text-neutral-300 leading-relaxed mb-4">
               <strong className="text-neutral-100">Account Information:</strong> When you create an
-              account, we collect your name, email address, and password. If you choose to
-              authenticate through a third-party service, we may receive additional profile
-              information from that provider.
+              account, we collect your name, email address, and password. If you choose to sign in
+              with Google (OAuth 2.0), we receive your name, email address, and profile picture
+              directly from Google. This information is used only to create and maintain your
+              account.
             </p>
 
             <p className="text-neutral-300 leading-relaxed mb-4">
@@ -284,6 +285,32 @@ export default function PrivacyPolicyPage() {
                   Cloudflare Privacy Policy
                 </a>
                 .
+              </li>
+              <li>
+                <strong className="text-neutral-100">Google Sign-In (OAuth 2.0)</strong> — We use
+                Google Sign-In to allow you to authenticate with your Google account. When you sign
+                in with Google, we receive your name, email address, and profile picture from
+                Google. We use this information solely to create and manage your AgentCenter
+                account. We do not share this data with third parties or use it for advertising. You
+                can revoke access at any time via{" "}
+                <a
+                  href="https://myaccount.google.com/permissions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Google Account Permissions
+                </a>
+                . Our use of Google user data complies with the{" "}
+                <a
+                  href="https://developers.google.com/terms/api-services-user-data-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  Google API Services User Data Policy
+                </a>
+                , including the Limited Use requirements.
               </li>
               <li>
                 <strong className="text-neutral-100">Google Tag Manager</strong> — Manages and
