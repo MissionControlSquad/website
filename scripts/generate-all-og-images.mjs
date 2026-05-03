@@ -9,7 +9,10 @@ import fs from "fs";
 import path from "path";
 import { generateOgImage } from "./og-image-generator.mjs";
 
-const OUT_DIR = path.join(process.cwd(), "public/og");
+const FORCE   = process.argv.includes("--force");
+const DRY_RUN = process.argv.includes("--dry-run");
+
+const OUT_DIR  = path.join(process.cwd(), "public/og");
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
 // ─── Pricing — keep in sync with lib/constants.ts PLANS ─────────────────────
@@ -442,7 +445,8 @@ function readBlogPosts() {
 async function main() {
   const allPages = [...PAGES, ...readBlogPosts()];
 
-  console.log(`Generating OG images → public/og/  (${allPages.length} total)\n`);
+  const mode = FORCE ? " [--force]" : DRY_RUN ? " [--dry-run]" : "";
+  console.log(`Generating OG images → public/og/  (${allPages.length} total)${mode}\n`);
 
   let ok = 0;
   let skip = 0;
@@ -451,7 +455,7 @@ async function main() {
   for (const page of allPages) {
     const outputPath = path.join(OUT_DIR, `${page.slug}.png`);
 
-    if (fs.existsSync(outputPath)) {
+    if (!FORCE && fs.existsSync(outputPath)) {
       if (page.mdxPath) {
         const mdxMtime = fs.statSync(page.mdxPath).mtimeMs;
         const pngMtime = fs.statSync(outputPath).mtimeMs;
@@ -465,6 +469,12 @@ async function main() {
         skip++;
         continue;
       }
+    }
+
+    if (DRY_RUN) {
+      console.log(`  ○  ${page.slug}.png  (would generate)`);
+      ok++;
+      continue;
     }
 
     try {
