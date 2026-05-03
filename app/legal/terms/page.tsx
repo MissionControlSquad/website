@@ -369,10 +369,6 @@ export default function TermsOfServicePage() {
                 subscriptions and one-time purchases
               </li>
               <li>
-                <strong className="text-neutral-100">Supabase</strong> — Backend database for
-                waitlist and pricing-drop signups
-              </li>
-              <li>
                 <strong className="text-neutral-100">Resend</strong> — Transactional and marketing
                 email delivery
               </li>

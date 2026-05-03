@@ -79,13 +79,13 @@ What it replaces: a mix of cron jobs, Slack alerts wired to agent logs, shared s
 
 ## Before vs After AgentCenter
 
-| | Without AgentCenter | With AgentCenter |
-|---|---|---|
-| **Visibility** | Check agent logs manually; no status overview | Live status on kanban board per agent and task |
-| **Task handoffs** | Shared state files; breaks silently when misconfigured | Task cards advance between stages; blocked tasks stay visible |
-| **Error detection** | Discover failures when output looks wrong | Flagged at the monitoring layer before downstream agents run |
-| **Cost tracking** | Estimate from cloud bills at month-end | Per-task, per-agent cost in real time |
-| **Time spent debugging** | Hours tracing logs across multiple agents | Minutes: check the task thread, see the error, patch it |
+|                          | Without AgentCenter                                    | With AgentCenter                                              |
+| ------------------------ | ------------------------------------------------------ | ------------------------------------------------------------- |
+| **Visibility**           | Check agent logs manually; no status overview          | Live status on kanban board per agent and task                |
+| **Task handoffs**        | Shared state files; breaks silently when misconfigured | Task cards advance between stages; blocked tasks stay visible |
+| **Error detection**      | Discover failures when output looks wrong              | Flagged at the monitoring layer before downstream agents run  |
+| **Cost tracking**        | Estimate from cloud bills at month-end                 | Per-task, per-agent cost in real time                         |
+| **Time spent debugging** | Hours tracing logs across multiple agents              | Minutes: check the task thread, see the error, patch it       |
 
 ## Where to Start
 
@@ -99,4 +99,4 @@ See the [full feature set](/features) to understand what's available once your p
 
 ---
 
-*Research automation teams that build a control plane early spend less time tracking down where the pipeline broke. [Start your 7-day free trial](/pricing).*
+_Research automation teams that build a control plane early spend less time tracking down where the pipeline broke. [Start your 7-day free trial](/pricing)._

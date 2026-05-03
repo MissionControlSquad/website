@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLdScript } from "next-seo";
 import { ogImage, CONTACT_EMAIL, SITE_CONFIG, OG_IMAGE_URL, PLANS } from "@/lib/constants";
 import { ClientProviders } from "@/components/ClientProviders";
+import { BuildbaseProvider } from "@/components/providers/BuildbaseProvider";
+import "@buildbase/sdk/css";
 import "./globals.css";
 
 const inter = Inter({
@@ -253,12 +255,14 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-neutral-950 text-neutral-100`}
         suppressHydrationWarning
       >
-        <ClientProviders />
-        {/* Skip to content link for accessibility */}
-        <a href="#main-content" className="skip-to-content">
-          Skip to main content
-        </a>
-        {children}
+        <BuildbaseProvider>
+          <ClientProviders />
+          {/* Skip to content link for accessibility */}
+          <a href="#main-content" className="skip-to-content">
+            Skip to main content
+          </a>
+          {children}
+        </BuildbaseProvider>
       </body>
     </html>
   );

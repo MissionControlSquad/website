@@ -2,6 +2,37 @@
 
 export const CONTACT_EMAIL = "dharmendra@agentcenter.cloud";
 
+/** Subdomain base for hosted tenant workspaces. */
+export const HOSTED_APP_DOMAIN = "app.agentcenter.cloud";
+
+/** Plan name string used by BuildBase SDK for the self-hosting subscription. */
+export const SELF_HOST_PLAN_NAME = "Self-Hosting";
+
+/** GitHub URL for the self-hosting setup guide. */
+export const SELF_HOSTING_SETUP_URL =
+  "https://github.com/MissionControlSquad/agentcenter-self-hosting/blob/main/SETUP.md";
+
+/** localStorage key where the auth JWT is stored. */
+export const AUTH_TOKEN_KEY = "auth_token";
+
+/** Maximum provisioning retry attempts before requiring admin intervention. */
+export const TENANT_MAX_RETRY_ATTEMPTS = 3;
+
+/** Client deployment type discriminator values. */
+export const CLIENT_TYPE = {
+  HOSTED: "hosted",
+  SELF_HOSTED: "self-hosted",
+} as const;
+export type ClientType = (typeof CLIENT_TYPE)[keyof typeof CLIENT_TYPE];
+
+/** Provisioning lifecycle state values. */
+export const PROVISIONING_STATUS = {
+  PROVISIONING: "provisioning",
+  ACTIVE: "active",
+  FAILED: "failed",
+} as const;
+export type ProvisioningStatus = (typeof PROVISIONING_STATUS)[keyof typeof PROVISIONING_STATUS];
+
 export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
 
 export const SITE_CONFIG = {
@@ -151,13 +182,6 @@ export const PLANS = {
     recommended: boolean;
   }
 >;
-
-/** Lifetime deal pricing configuration */
-export const LIFETIME_DEAL = {
-  startingPrice: 259,
-  totalSeats: 100,
-  seatsPerTier: 25,
-} as const;
 
 /** Self-hosting pricing configuration */
 export const SELFHOSTING_PRICING = {

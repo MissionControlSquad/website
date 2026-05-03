@@ -503,3 +503,24 @@ export function Key(props: IconProps) {
     </Icon>
   );
 }
+
+export function Minus(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M5 12h14" />
+    </Icon>
+  );
+}
+
+export function LayoutList(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <rect width="7" height="7" x="3" y="3" rx="1" />
+      <rect width="7" height="7" x="3" y="14" rx="1" />
+      <path d="M14 4h7" />
+      <path d="M14 9h7" />
+      <path d="M14 15h7" />
+      <path d="M14 20h7" />
+    </Icon>
+  );
+}
