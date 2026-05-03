@@ -22,9 +22,9 @@ function NavbarAuthCTAInner({ size }: { size: "sm" | "md" }) {
   }
 
   return (
-    <button onClick={() => signIn()}>
-      <Button size={size}>Get Started</Button>
-    </button>
+    <Button size={size} onClick={() => signIn()}>
+      Get Started
+    </Button>
   );
 }
 
@@ -62,23 +62,22 @@ function NavbarAuthCTAMobileInner({ onClose, isOpen }: MobileProps) {
   }
 
   return (
-    <button
+    <Button
       className="w-full"
+      size="md"
+      tabIndex={isOpen ? 0 : -1}
       onClick={() => {
         signIn();
         onClose();
       }}
-      tabIndex={isOpen ? 0 : -1}
     >
-      <Button className="w-full" size="md">
-        <span className="flex items-center gap-1.5">
-          <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
-            7-day free trial
-          </span>
-          Get Started
+      <span className="flex items-center gap-1.5">
+        <span className="inline-flex items-center px-1.5 py-0.5 rounded bg-success-500/20 text-success-400 text-xs font-medium leading-none">
+          7-day free trial
         </span>
-      </Button>
-    </button>
+        Get Started
+      </span>
+    </Button>
   );
 }
 
@@ -92,11 +91,9 @@ export function NavbarAuthCTAMobile({ onClose, isOpen }: MobileProps) {
 
   if (!canRender) {
     return (
-      <button className="w-full" tabIndex={isOpen ? 0 : -1}>
-        <Button className="w-full" size="md">
-          Get Started
-        </Button>
-      </button>
+      <Button className="w-full" size="md" tabIndex={isOpen ? 0 : -1} disabled>
+        Get Started
+      </Button>
     );
   }
 

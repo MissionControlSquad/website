@@ -1,11 +1,6 @@
-import { verifyJWT } from "../../lib/jwt";
-import { PROVISIONING_STATUS, type ProvisioningStatus } from "../../../lib/constants";
-
-interface Env {
-  SYSTEM_SECRET: string;
-  INFRA_API_URL: string;
-  INFRA_API_KEY: string;
-}
+import { NextRequest } from "next/server";
+import { verifyJWT } from "@/lib/jwt";
+import { PROVISIONING_STATUS } from "@/lib/constants";
 
 interface TokenPayload {
   userId?: string;
@@ -17,14 +12,16 @@ interface TokenPayload {
 interface InfraLookupResult {
   found: boolean;
   slug?: string;
-  provisioningStatus?: ProvisioningStatus;
+  provisioningStatus?: string;
   provisioningAttempts?: number;
 }
 
-export const onRequestPost: PagesFunction<Env> = async (context) => {
-  const { SYSTEM_SECRET, INFRA_API_URL, INFRA_API_KEY } = context.env;
+export async function POST(request: NextRequest) {
+  const SYSTEM_SECRET = process.env.SYSTEM_SECRET;
+  const INFRA_API_URL = process.env.INFRA_API_URL;
+  const INFRA_API_KEY = process.env.INFRA_API_KEY;
 
-  const authHeader = context.request.headers.get("Authorization") ?? "";
+  const authHeader = request.headers.get("Authorization") ?? "";
   const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
   if (!token) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
@@ -41,7 +38,6 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     "Content-Type": "application/json",
   };
 
-  // Find the slug for this email
   try {
     const lookupRes = await fetch(
       `${infraBase}/api/clients/lookup?email=${encodeURIComponent(email)}`,
@@ -55,8 +51,6 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       return Response.json({ error: "Tenant not found" }, { status: 404 });
     }
 
-    // Only allow retry when provisioning explicitly failed — not for active or
-    // in-progress tenants. Prevents misuse by users calling this endpoint manually.
     if (data.provisioningStatus !== PROVISIONING_STATUS.FAILED) {
       return Response.json({ error: "Tenant is not in a failed state" }, { status: 409 });
     }
@@ -78,4 +72,4 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   } catch {
     return Response.json({ error: "network_error" }, { status: 500 });
   }
-};
+}

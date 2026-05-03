@@ -1,17 +1,12 @@
-import { verifyJWT } from "../../lib/jwt";
+import { NextRequest } from "next/server";
+import { verifyJWT } from "@/lib/jwt";
 import {
   SELF_HOST_PLAN_NAME,
   HOSTED_APP_DOMAIN,
   CLIENT_TYPE,
   PROVISIONING_STATUS,
   type ProvisioningStatus,
-} from "../../../lib/constants";
-
-interface Env {
-  SYSTEM_SECRET: string;
-  INFRA_API_URL: string;
-  INFRA_API_KEY: string;
-}
+} from "@/lib/constants";
 
 interface TokenPayload {
   userId?: string;
@@ -48,10 +43,12 @@ interface InfraClient {
   createdAt: string;
 }
 
-export const onRequestGet: PagesFunction<Env> = async (context) => {
-  const { SYSTEM_SECRET, INFRA_API_URL, INFRA_API_KEY } = context.env;
+export async function GET(request: NextRequest) {
+  const SYSTEM_SECRET = process.env.SYSTEM_SECRET;
+  const INFRA_API_URL = process.env.INFRA_API_URL;
+  const INFRA_API_KEY = process.env.INFRA_API_KEY;
 
-  const authHeader = context.request.headers.get("Authorization") ?? "";
+  const authHeader = request.headers.get("Authorization") ?? "";
   const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
 
   if (!token) {
@@ -67,9 +64,8 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   }
 
   const { email, workspaceId } = payload;
-  const url = new URL(context.request.url);
+  const url = new URL(request.url);
   const rawPlanName = url.searchParams.get("planName");
-  // Only forward known plan names to infra — discard anything else
   const planName = rawPlanName === SELF_HOST_PLAN_NAME ? SELF_HOST_PLAN_NAME : undefined;
   const isSelfHostedPlan = planName === SELF_HOST_PLAN_NAME;
 
@@ -79,7 +75,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     "Content-Type": "application/json",
   };
 
-  // ── 1. Email-based lookup (fast path) ──────────────────────────────────────
   if (email) {
     try {
       const lookupUrl = new URL(`${infraBase}/api/clients/lookup`);
@@ -90,10 +85,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       if (lookupRes.ok) {
         const data = (await lookupRes.json()) as InfraLookupResult;
         if (data.found) {
-          // Self-hosted clients manage their own uptime — always active.
-          // Hosted clients with no provisioningStatus field are legacy entries that
-          // predate tracking and should be treated as active.
-          // New entries use provisioningStatus explicitly set by the creation flow.
           const isActive =
             data.type === CLIENT_TYPE.SELF_HOSTED ||
             data.provisioningStatus === PROVISIONING_STATUS.ACTIVE ||
@@ -112,7 +103,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
             });
           }
 
-          // Entry exists but provisioning failed — admin must intervene
           if (data.provisioningStatus === PROVISIONING_STATUS.FAILED) {
             return Response.json({
               ready: false,
@@ -122,7 +112,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
             });
           }
 
-          // Container not up yet — tell the client to keep waiting
           return Response.json({
             ready: false,
             reason: PROVISIONING_STATUS.PROVISIONING,
@@ -136,12 +125,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     }
   }
 
-  // ── 2. WorkspaceId lookup / provision (fallback) ───────────────────────────
   if (!workspaceId) {
     return Response.json({ ready: false, reason: "no_workspace" });
   }
 
-  // Check legacy workspace-ID-based slug first so existing tenants keep working
   const legacySlug = `w${workspaceId}`;
   try {
     const legacyRes = await fetch(`${infraBase}/api/clients/${legacySlug}`, { headers });
@@ -161,9 +148,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     // network error — fall through to provision
   }
 
-  // Derive slug from email local-part. Append a 4-char suffix only if the clean
-  // slug is already taken by another tenant.
-  // e.g. "jagodana.dharmendra@gmail.com" → "jagodanadharmendra" (or "jagodanadharmendra-a3f9")
   let slug = legacySlug;
   if (email) {
     const local = email
@@ -181,7 +165,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     }
   }
 
-  // Provision a new tenant
   try {
     const createRes = await fetch(`${infraBase}/api/clients`, {
       method: "POST",
@@ -190,7 +173,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         slug,
         name: slug,
         version: "latest",
-        // Let the infra determine type from planName; pass explicit type only for hosted
         ...(isSelfHostedPlan ? {} : { type: CLIENT_TYPE.HOSTED }),
         ...(planName ? { planName } : {}),
         ...(email ? { email } : {}),
@@ -200,7 +182,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     if (createRes.ok) {
       const body = (await createRes.json()) as InfraCreateResult;
 
-      // Self-hosted: infra registered + issued license immediately — ready now
       if (body.type === CLIENT_TYPE.SELF_HOSTED && body.licenseKey) {
         return Response.json({
           ready: true,
@@ -220,7 +201,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       });
     }
 
-    // 409 means the email is already registered (creation in progress) — wait
     if (createRes.status === 409) {
       const body = (await createRes.json()) as { slug?: string };
       const existingSlug = body.slug ?? slug;
@@ -236,4 +216,4 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   } catch {
     return Response.json({ ready: false, reason: "network_error" });
   }
-};
+}

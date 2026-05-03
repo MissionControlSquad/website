@@ -238,11 +238,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <link
-          rel="preconnect"
-          href="https://static.cloudflareinsights.com"
-          crossOrigin="anonymous"
-        />
         {/* GA4 Consent Mode v2 — defaults denied before any tag fires */}
         <script
           dangerouslySetInnerHTML={{
