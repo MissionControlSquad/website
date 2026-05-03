@@ -12,8 +12,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky",
-    "local": "npm run build && npx wrangler pages dev out"
+    "prepare": "husky"
   },
   "dependencies": {
     "@buildbase/sdk": "0.0.44",

@@ -1,22 +1,18 @@
-import { createJWT } from "../../lib/jwt";
+import { NextRequest } from "next/server";
+import { createJWT } from "@/lib/jwt";
 
 const SESSION_COOKIE_NAME = "bb-session-id";
 
-interface Env {
-  SAAS_CLIENT_SECRET: string;
-  SAAS_SERVER_URL: string;
-  SAAS_ORG_ID: string;
-  SAAS_CLIENT_ID: string;
-  SYSTEM_SECRET: string;
-}
-
-export const onRequestPost: PagesFunction<Env> = async (context) => {
-  const { SAAS_CLIENT_SECRET, SAAS_SERVER_URL, SAAS_ORG_ID, SAAS_CLIENT_ID, SYSTEM_SECRET } =
-    context.env;
+export async function POST(request: NextRequest) {
+  const SAAS_CLIENT_SECRET = process.env.SAAS_CLIENT_SECRET;
+  const SAAS_SERVER_URL = process.env.SAAS_SERVER_URL;
+  const SAAS_ORG_ID = process.env.SAAS_ORG_ID;
+  const SAAS_CLIENT_ID = process.env.SAAS_CLIENT_ID;
+  const SYSTEM_SECRET = process.env.SYSTEM_SECRET;
 
   let code: string;
   try {
-    const body = (await context.request.json()) as { code?: string };
+    const body = (await request.json()) as { code?: string };
     code = body.code ?? "";
   } catch {
     return Response.json({ success: false, message: "Invalid request body" }, { status: 400 });
@@ -65,11 +61,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     SYSTEM_SECRET
   );
 
-  const isSecure = new URL(context.request.url).protocol === "https:";
+  const isSecure = new URL(request.url).protocol === "https:";
   const cookieFlags = `HttpOnly; Path=/; SameSite=Lax${isSecure ? "; Secure" : ""}; Max-Age=604800`;
 
   const headers = new Headers({ "Content-Type": "application/json" });
   headers.set("Set-Cookie", `${SESSION_COOKIE_NAME}=${sessionId}; ${cookieFlags}`);
 
   return new Response(JSON.stringify({ success: true, sessionId, token, user }), { headers });
-};
+}

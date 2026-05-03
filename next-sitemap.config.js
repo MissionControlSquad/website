@@ -23,7 +23,6 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  outDir: "out",
   changefreq: "weekly",
   priority: 0.7,
   autoLastmod: true,

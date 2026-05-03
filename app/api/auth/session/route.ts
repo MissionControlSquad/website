@@ -1,7 +1,9 @@
+import { NextRequest } from "next/server";
+
 const SESSION_COOKIE_NAME = "bb-session-id";
 
-export const onRequestGet: PagesFunction = async (context) => {
-  const cookieHeader = context.request.headers.get("Cookie") ?? "";
+export async function GET(request: NextRequest) {
+  const cookieHeader = request.headers.get("Cookie") ?? "";
 
   const sessionCookie = cookieHeader
     .split(";")
@@ -11,4 +13,4 @@ export const onRequestGet: PagesFunction = async (context) => {
   const sessionId = sessionCookie ? sessionCookie.slice(`${SESSION_COOKIE_NAME}=`.length) : null;
 
   return Response.json({ sessionId: sessionId || null });
-};
+}
