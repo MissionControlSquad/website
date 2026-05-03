@@ -15,7 +15,7 @@ function getBlogLastmod(slug) {
   return d ? new Date(d).toISOString() : null;
 }
 
-const disallow = ["/api/", "/admin/", "/thank-you", "/lifetime-deal", "/pricing-drop"];
+const disallow = ["/api/", "/admin/", "/thank-you"];
 
 const exclude = [...disallow, "/**/opengraph-image", "/**/twitter-image"];
 

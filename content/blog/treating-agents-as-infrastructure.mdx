@@ -15,7 +15,7 @@ They just didn't know it yet.
 
 ## The Sign You've Already Crossed the Line
 
-Here's how you know an agent is infrastructure and not an experiment: someone *else* noticed when it stopped working.
+Here's how you know an agent is infrastructure and not an experiment: someone _else_ noticed when it stopped working.
 
 Not you. A customer. A teammate. A downstream system that was expecting output.
 
@@ -31,7 +31,7 @@ This isn't about adding more tools. It's a mental model shift that changes three
 
 Experiments fail loudly. They error out and you fix them. Infrastructure fails quietly — an agent produces output, just the wrong output. Nobody alerts on bad output. They only alert on no output.
 
-Real [agent monitoring](/features/agent-monitoring) means tracking what the agent *produced*, not just whether it ran. Output quality, drift, cases where the agent finishes with a 200 but returns garbage. That's the gap most teams miss until it's too late.
+Real [agent monitoring](/features/agent-monitoring) means tracking what the agent _produced_, not just whether it ran. Output quality, drift, cases where the agent finishes with a 200 but returns garbage. That's the gap most teams miss until it's too late.
 
 ### 2. You think about rollback before you need it
 
@@ -62,7 +62,7 @@ graph TD
 
 ## Where Teams Get Stuck
 
-The most common pattern: teams add observability *after* the first production incident.
+The most common pattern: teams add observability _after_ the first production incident.
 
 They had 8 agents running, one went wrong in a way that hit real work, and then they scrambled to add monitoring. The problem is that you're learning from a fire. You add exactly the metrics that would have caught that specific failure — and you're still blind to the next one.
 
@@ -96,4 +96,4 @@ Pick two of your current agents right now. Ask: if this broke silently tonight, 
 
 ---
 
-*The dashboard won't fix a broken agent. But it will tell you which one is broken at 3am. [Try AgentCenter free](/pricing).*
+_The dashboard won't fix a broken agent. But it will tell you which one is broken at 3am. [Try AgentCenter free](/pricing)._

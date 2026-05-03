@@ -1,53 +1,27 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Zap, CheckCircle } from "@/components/icons";
+import { ArrowRight, Zap } from "@/components/icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CAL_LINK, PLANS } from "@/lib/constants";
 import { trackCTA } from "@/lib/analytics";
 
 export default function FinalCTA() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
-    trackCTA("bottom", "subscribe");
-    try {
-      const res = await fetch("/api/early-access", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-      setEmail("");
-    } catch {
-      setStatus("idle");
-    }
-  };
-
   return (
     <section id="cta" className="py-24 px-4 relative overflow-hidden">
-      {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-primary-950/40 to-neutral-950" />
 
-      {/* Animated glow effect */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[600px] h-[600px] bg-primary-500/20 rounded-full blur-[120px] animate-cta-glow" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         <ScrollReveal className="text-center">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary-500/20 text-primary-300 text-sm font-medium px-4 py-2 rounded-full mb-8">
             <Zap className="w-4 h-4" aria-hidden="true" />
             <span>Launch your agent army</span>
           </div>
 
-          {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-100 mb-6">
             Ready to Take Control of <span className="gradient-text">Your AI Team?</span>
           </h2>
@@ -57,8 +31,7 @@ export default function FinalCTA() {
             Cancel anytime.
           </p>
 
-          {/* Primary CTA buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/pricing"
               onClick={() => trackCTA("bottom", "get_started")}
@@ -87,54 +60,6 @@ export default function FinalCTA() {
               Book a Demo
             </a>
           </div>
-
-          {/* Divider */}
-          <div className="flex items-center gap-4 max-w-md mx-auto mb-8">
-            <div className="flex-1 h-px bg-neutral-700" />
-            <span className="text-neutral-500 text-sm">or stay in the loop</span>
-            <div className="flex-1 h-px bg-neutral-700" />
-          </div>
-
-          {/* Subscribe form */}
-          <div className="max-w-md mx-auto mb-6">
-            {status === "success" ? (
-              <div className="flex items-center justify-center gap-2 text-success-500 py-3">
-                <CheckCircle size={20} />
-                <span className="font-medium">You&apos;re subscribed!</span>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row items-center justify-center gap-3"
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 w-full px-4 py-3 rounded-xl bg-neutral-800/80 border border-neutral-700 text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-700 hover:bg-neutral-600 disabled:opacity-50 text-white font-medium rounded-xl transition-colors whitespace-nowrap"
-                >
-                  {status === "loading" ? (
-                    <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      Subscribe
-                      <ArrowRight size={16} aria-hidden="true" />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* Trust */}
-          <p className="text-neutral-500 text-sm">No spam. Just product updates and tips.</p>
         </ScrollReveal>
       </div>
     </section>

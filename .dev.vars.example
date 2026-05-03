@@ -1,22 +1,31 @@
-# Copy this file to .dev.vars and fill in your values
+# Copy this file to .dev.vars and fill in your values.
 # .dev.vars is loaded automatically by `wrangler pages dev`
 
-STRIPE_SECRET_KEY=sk_test_xxx
+# --- BuildBase Auth (server-side only) ---------------------------------------
+# Find these in your BuildBase dashboard -> Settings -> OAuth
+SAAS_SERVER_URL=https://api.console.buildbase.app
+SAAS_ORG_ID=your_org_id
+SAAS_CLIENT_ID=your_client_id
+SAAS_CLIENT_SECRET=your_client_secret
+# --- Client (public) ---------------------------------------------------------
+NEXT_PUBLIC_SAAS_SERVER_URL=https://api.console.buildbase.app
+NEXT_PUBLIC_SAAS_ORG_ID=your_org_id
+NEXT_PUBLIC_SAAS_CLIENT_ID=your_client_id
+NEXT_PUBLIC_PLAN_GROUP_SLUG=main
+NEXT_PUBLIC_APP_URL=https://agentcenter.cloud/dashboard
 
-# Cloud plans — 3 tiers × monthly/yearly
-STRIPE_PRICE_ID_STARTER_MONTHLY=price_xxx
-STRIPE_PRICE_ID_STARTER_YEARLY=price_xxx
-STRIPE_PRICE_ID_PRO_MONTHLY=price_xxx
-STRIPE_PRICE_ID_PRO_YEARLY=price_xxx
-STRIPE_PRICE_ID_SCALE_MONTHLY=price_xxx
-STRIPE_PRICE_ID_SCALE_YEARLY=price_xxx
+# --- JWT signing -------------------------------------------------------------
+# Generate with: openssl rand -base64 32
+SYSTEM_SECRET=your_32_char_random_secret_here
 
-STRIPE_PRODUCT_ID_LIFETIME=prod_xxx
+# --- Infra API (server-side only) --------------------------------------------
+# URL of the MissionControlSquad-infra dashboard (e.g. https://admin.agentcenter.cloud)
+INFRA_API_URL=https://admin.agentcenter.cloud
+# Must match API_KEY in the infra .env.local
+INFRA_API_KEY=your_infra_api_key_here
 
-STRIPE_PRICE_ID_SELFHOST_MONTHLY=price_xxx
-STRIPE_PRICE_ID_SELFHOST_YEARLY=price_yyy
-
-LIFETIME_DEAL_TOKEN=test_51T4
-
-SUPABASE_URL=https://xxxx.supabase.co
-SUPABASE_SERVICE_KEY=sb_secret_xxx
+# --- SEO verification (optional) ---------------------------------------------
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+NEXT_PUBLIC_BING_SITE_VERIFICATION=
+NEXT_PUBLIC_YANDEX_VERIFICATION=
+NEXT_PUBLIC_BAIDU_SITE_VERIFICATION=
