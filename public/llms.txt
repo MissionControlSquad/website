@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 102 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 103 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -161,6 +161,7 @@ AgentCenter provides:
 - [AgentCenter vs AWS Bedrock Agents](https://agentcenter.cloud/blogs/agentcenter-vs-aws-bedrock-agents): AWS Bedrock Agents runs agents inside your AWS environment; AgentCenter manages them from the outside — task visibility, review gates, and cost tracking across your team.
 - [How to Use Recurring Tasks for Always-On Agent Workflows](https://agentcenter.cloud/blogs/how-to-use-recurring-tasks-for-always-on-agent-workflows): How to configure recurring tasks in AgentCenter so monitoring, sync, and report agents run automatically on a schedule instead of relying on manual triggers.
 - [AI Agents for Document Processing Teams](https://agentcenter.cloud/blogs/ai-agents-for-document-processing-teams): How document processing teams use AgentCenter to track batch runs, catch silent errors, review extracted outputs, and control per-agent costs across invoices, contracts, and forms.
+- [How We Decided Which Agents to Keep and Which to Kill](https://agentcenter.cloud/blogs/how-we-decided-which-agents-to-keep-and-kill): How to audit a production AI agent fleet using output utilization, task completion rate, cost per useful output, and replaceability — and the monthly habit that keeps the fleet clean.
 
 ## Legal
 
