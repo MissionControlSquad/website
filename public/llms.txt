@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 99 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 102 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -158,6 +158,9 @@ AgentCenter provides:
 - [How to Onboard a New AI Agent into an Existing Workflow](https://agentcenter.cloud/blogs/how-to-onboard-a-new-ai-agent-into-an-existing-workflow): Step-by-step guide to integrating a new agent into a live workflow — scope definition, project setup, monitoring, dry runs, and safe scope expansion.
 - [AI Agents for Research Automation Teams](https://agentcenter.cloud/blogs/research-automation-ai-agent-management): How research automation teams use AgentCenter to manage data gathering, analysis, and synthesis agents without losing track of what's running or why.
 - [What Happens When Two Agents Block Each Other](https://agentcenter.cloud/blogs/what-happens-when-two-agents-block-each-other): How agent deadlocks form in multi-agent pipelines, why they don't look like failures, and how to detect them before your queue fills up.
+- [AgentCenter vs AWS Bedrock Agents](https://agentcenter.cloud/blogs/agentcenter-vs-aws-bedrock-agents): AWS Bedrock Agents runs agents inside your AWS environment; AgentCenter manages them from the outside — task visibility, review gates, and cost tracking across your team.
+- [How to Use Recurring Tasks for Always-On Agent Workflows](https://agentcenter.cloud/blogs/how-to-use-recurring-tasks-for-always-on-agent-workflows): How to configure recurring tasks in AgentCenter so monitoring, sync, and report agents run automatically on a schedule instead of relying on manual triggers.
+- [AI Agents for Document Processing Teams](https://agentcenter.cloud/blogs/ai-agents-for-document-processing-teams): How document processing teams use AgentCenter to track batch runs, catch silent errors, review extracted outputs, and control per-agent costs across invoices, contracts, and forms.
 
 ## Legal
 
