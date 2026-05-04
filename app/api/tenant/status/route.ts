@@ -40,7 +40,9 @@ interface InfraClient {
   url: string;
   status: string | null;
   name: string;
+  type?: string;
   createdAt: string;
+  provisioningStatus?: ProvisioningStatus;
 }
 
 export async function GET(request: NextRequest) {
@@ -129,6 +131,60 @@ export async function GET(request: NextRequest) {
     return Response.json({ ready: false, reason: "no_workspace" });
   }
 
+  // Derive base slug and deterministic slug once — reused for fallback lookup and creation.
+  let base = "tenant";
+  if (email) {
+    const local = email
+      .split("@")[0]
+      .replace(/[^a-z0-9]/gi, "")
+      .toLowerCase()
+      .slice(0, 18);
+    base = /^[a-z]/.test(local) ? local : `t${local}` || "tenant";
+  }
+  const deterministicSlug = `${base}-${workspaceId.slice(-4)}`;
+
+  // Fallback: check by deterministic slug then base slug directly.
+  // Catches existing clients whose registry entry pre-dates email tracking
+  // so the email lookup above returned found:false even though the client exists.
+  for (const candidate of [deterministicSlug, base]) {
+    try {
+      const res = await fetch(`${infraBase}/api/clients/${candidate}`, { headers });
+      if (!res.ok) continue;
+      const client = (await res.json()) as InfraClient;
+      const ps = client.provisioningStatus;
+      if (ps === PROVISIONING_STATUS.FAILED) {
+        return Response.json({ ready: false, reason: "provisioning_failed", slug: candidate });
+      }
+      const isActive =
+        client.type === CLIENT_TYPE.SELF_HOSTED ||
+        ps === PROVISIONING_STATUS.ACTIVE ||
+        ps === undefined;
+
+      // Backfill email on the registry entry so future calls use the faster
+      // email lookup instead of falling through to this slug-based check.
+      if (email) {
+        fetch(`${infraBase}/api/clients/${candidate}`, {
+          method: "PATCH",
+          headers,
+          body: JSON.stringify({ email }),
+        }).catch(() => {});
+      }
+
+      return Response.json({
+        ready: isActive,
+        url: client.url,
+        slug: client.slug,
+        status: client.status,
+        type: client.type ?? CLIENT_TYPE.HOSTED,
+        name: client.name,
+        createdAt: client.createdAt,
+        ...(isActive ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
+      });
+    } catch {
+      // network error — continue to next candidate
+    }
+  }
+
   const legacySlug = `w${workspaceId}`;
   try {
     const legacyRes = await fetch(`${infraBase}/api/clients/${legacySlug}`, { headers });
@@ -150,15 +206,9 @@ export async function GET(request: NextRequest) {
 
   let slug = legacySlug;
   if (email) {
-    const local = email
-      .split("@")[0]
-      .replace(/[^a-z0-9]/gi, "")
-      .toLowerCase()
-      .slice(0, 18);
-    const base = /^[a-z]/.test(local) ? local : `t${local}` || "tenant";
     try {
       const checkRes = await fetch(`${infraBase}/api/clients/${base}`, { headers });
-      slug = checkRes.ok ? `${base}-${workspaceId.slice(-4)}` : base;
+      slug = checkRes.ok ? deterministicSlug : base;
     } catch {
       slug = base;
     }
