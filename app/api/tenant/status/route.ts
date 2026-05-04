@@ -158,8 +158,7 @@ export async function GET(request: NextRequest) {
     const base = /^[a-z]/.test(local) ? local : `t${local}` || "tenant";
     try {
       const checkRes = await fetch(`${infraBase}/api/clients/${base}`, { headers });
-      const suffix = Math.random().toString(36).slice(2, 6);
-      slug = checkRes.ok ? `${base}-${suffix}` : base;
+      slug = checkRes.ok ? `${base}-${workspaceId.slice(-4)}` : base;
     } catch {
       slug = base;
     }
@@ -202,8 +201,32 @@ export async function GET(request: NextRequest) {
     }
 
     if (createRes.status === 409) {
-      const body = (await createRes.json()) as { slug?: string };
+      const body = (await createRes.json()) as {
+        slug?: string;
+        provisioningStatus?: ProvisioningStatus;
+      };
       const existingSlug = body.slug ?? slug;
+      const ps = body.provisioningStatus;
+
+      if (ps === PROVISIONING_STATUS.FAILED) {
+        return Response.json({
+          ready: false,
+          reason: "provisioning_failed",
+          slug: existingSlug,
+        });
+      }
+
+      // "active" or legacy entries with no provisioningStatus are ready
+      if (ps === PROVISIONING_STATUS.ACTIVE || ps === undefined) {
+        return Response.json({
+          ready: true,
+          url: `https://${existingSlug}.${HOSTED_APP_DOMAIN}`,
+          slug: existingSlug,
+          type: CLIENT_TYPE.HOSTED,
+          status: null,
+        });
+      }
+
       return Response.json({
         ready: false,
         reason: PROVISIONING_STATUS.PROVISIONING,
