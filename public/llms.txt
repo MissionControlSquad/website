@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 104 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 105 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -163,6 +163,7 @@ AgentCenter provides:
 - [AI Agents for Document Processing Teams](https://agentcenter.cloud/blogs/ai-agents-for-document-processing-teams): How document processing teams use AgentCenter to track batch runs, catch silent errors, review extracted outputs, and control per-agent costs across invoices, contracts, and forms.
 - [How We Decided Which Agents to Keep and Which to Kill](https://agentcenter.cloud/blogs/how-we-decided-which-agents-to-keep-and-kill): How to audit a production AI agent fleet using output utilization, task completion rate, cost per useful output, and replaceability — and the monthly habit that keeps the fleet clean.
 - [AgentCenter vs Dagster — Data Pipelines vs AI Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-dagster): Dagster orchestrates data pipelines; AgentCenter manages AI agents in production. Different tools for different layers of the stack.
+- [How to Run a Post-Mortem on an Agent Failure](https://agentcenter.cloud/blogs/how-to-run-a-post-mortem-on-an-agent-failure): A practical 5-step post-mortem process for AI agent failures — build the timeline, find the root cause, classify the failure type, and prevent it from happening twice.
 
 ## Legal
 
