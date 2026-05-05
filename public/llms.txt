@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 107 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 108 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -166,6 +166,7 @@ AgentCenter provides:
 - [How to Run a Post-Mortem on an Agent Failure](https://agentcenter.cloud/blogs/how-to-run-a-post-mortem-on-an-agent-failure): A practical 5-step post-mortem process for AI agent failures — build the timeline, find the root cause, classify the failure type, and prevent it from happening twice.
 - [AI Agents for Cybersecurity Operations Teams](https://agentcenter.cloud/blogs/cybersecurity-operations-ai-agent-management): How cybersecurity operations teams manage threat hunting, triage, and remediation agents with a control plane — real-time status, task coordination, review gates, and cost tracking.
 - [What Multi-Agent Actually Means at 3am](https://agentcenter.cloud/blogs/what-multi-agent-actually-means-at-3am): What multi-agent pipelines really look like when something breaks at 3am — the three failure patterns that hit hardest and how to see which agent caused the problem.
+- [AgentCenter vs Azure AI Foundry — Control Plane vs Builder Platform](https://agentcenter.cloud/blogs/agentcenter-vs-azure-ai-foundry): Azure AI Foundry builds and deploys agents inside Azure; AgentCenter manages them in production — task visibility, review gates, and cost tracking across your team.
 
 ## Legal
 
