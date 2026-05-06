@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 110 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 111 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -169,6 +169,7 @@ AgentCenter provides:
 - [AgentCenter vs Azure AI Foundry — Control Plane vs Builder Platform](https://agentcenter.cloud/blogs/agentcenter-vs-azure-ai-foundry): Azure AI Foundry builds and deploys agents inside Azure; AgentCenter manages them in production — task visibility, review gates, and cost tracking across your team.
 - [How to Measure AI Agent ROI](https://agentcenter.cloud/blogs/how-to-measure-ai-agent-roi): How to calculate the real return on your AI agents — cost per task, manual baseline, review overhead, and throughput gains explained step by step.
 - [AI Agents for Supply Chain Operations Teams](https://agentcenter.cloud/blogs/supply-chain-operations-ai-agent-management): How supply chain teams use AgentCenter to manage inventory, procurement, and logistics agents with real-time status, enforced task dependencies, and per-agent cost tracking.
+- [Why Agent Ownership Dies After the Demo](https://agentcenter.cloud/blogs/why-agent-ownership-dies-after-the-demo): Why production agents need a named owner before they ship — and what happens when the builder moves on and nobody is watching.
 
 ## Legal
 
