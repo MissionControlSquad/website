@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 112 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 113 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -171,6 +171,7 @@ AgentCenter provides:
 - [AI Agents for Supply Chain Operations Teams](https://agentcenter.cloud/blogs/supply-chain-operations-ai-agent-management): How supply chain teams use AgentCenter to manage inventory, procurement, and logistics agents with real-time status, enforced task dependencies, and per-agent cost tracking.
 - [Why Agent Ownership Dies After the Demo](https://agentcenter.cloud/blogs/why-agent-ownership-dies-after-the-demo): Why production agents need a named owner before they ship — and what happens when the builder moves on and nobody is watching.
 - [AgentCenter vs Google ADK — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-google-adk): Google ADK builds agents on Google Cloud; AgentCenter manages them in production — task visibility, real-time status, deliverable review, and cost tracking once agents are live.
+- [How to Use @Mentions to Coordinate Agent Work](https://agentcenter.cloud/blogs/how-to-use-mentions-to-coordinate-agent-work): How to use @mentions in AgentCenter to assign tasks, request reviews, and escalate blockers across agents and humans in a shared task thread.
 
 ## Legal
 
