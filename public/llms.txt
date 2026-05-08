@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 117 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 118 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -176,6 +176,7 @@ AgentCenter provides:
 - [Why Most Agent Failures Aren't the Model's Fault](https://agentcenter.cloud/blogs/why-most-agent-failures-arent-the-models-fault): How infrastructure failures — API schema changes, dropped context, missing env vars, and bad step ordering — cause most agent breakdowns in production, not the model.
 - [AgentCenter vs Haystack — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-haystack): Haystack builds LLM pipelines and agent graphs. AgentCenter manages them in production — task visibility, cost tracking, and deliverable review for teams running Haystack agents live.
 - [How to Migrate from DIY Agent Management to a Dedicated Platform](https://agentcenter.cloud/blogs/how-to-migrate-from-diy-agent-management): Step-by-step guide to moving AI agents from homegrown scripts and spreadsheets to a dedicated control plane — audit first, migrate one agent at a time, run in parallel, then retire the old tooling.
+- [AI Agents for Healthcare Admin Teams](https://agentcenter.cloud/blogs/healthcare-admin-ai-agent-management): How healthcare admin teams manage prior auth, billing, and intake agents with real-time status, task handoff visibility, deliverable review gates, and per-agent cost tracking.
 
 ## Legal
 
