@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 123 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 124 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -182,6 +182,7 @@ AgentCenter provides:
 - [How to Manage Agent Credentials and Secrets Safely](https://agentcenter.cloud/blogs/how-to-manage-agent-credentials-and-secrets): A practical guide to auditing, storing, rotating, and monitoring API keys for AI agents without leaking secrets or breaking production workflows.
 - [AI Agents for Procurement Automation Teams](https://agentcenter.cloud/blogs/procurement-automation-ai-agent-management): How procurement teams manage AI agents for vendor sourcing, PO routing, and invoice matching with task visibility, error alerts, and per-agent cost tracking.
 - [Why Silent Agent Failures Are Worse Than Crashes](https://agentcenter.cloud/blogs/why-silent-agent-failures-are-worse-than-crashes): Why agents that run without errors but produce bad outputs are harder to catch and more expensive to fix than crashes — and how to instrument for output quality, not just uptime.
+- [AgentCenter vs New Relic — Monitoring vs Managing AI Agents](https://agentcenter.cloud/blogs/agentcenter-vs-new-relic): New Relic tracks infrastructure and app performance. AgentCenter manages tasks, deliverables, and agent coordination — two different tools solving two different problems.
 
 ## Legal
 
