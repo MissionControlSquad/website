@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 121 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 122 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -180,6 +180,7 @@ AgentCenter provides:
 - [Why Agents Work in Staging But Fail in Production](https://agentcenter.cloud/blogs/why-agents-work-in-staging-but-fail-in-production): Why staging environments give false confidence for AI agents — five failure modes that only appear in production, and how to instrument the first 48 hours of a live rollout.
 - [AgentCenter vs Semantic Kernel — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-semantic-kernel): Semantic Kernel builds AI agents for .NET and Azure teams; AgentCenter manages them in production — task status, team visibility, cost tracking, and review gates once agents are live.
 - [How to Manage Agent Credentials and Secrets Safely](https://agentcenter.cloud/blogs/how-to-manage-agent-credentials-and-secrets): A practical guide to auditing, storing, rotating, and monitoring API keys for AI agents without leaking secrets or breaking production workflows.
+- [AI Agents for Procurement Automation Teams](https://agentcenter.cloud/blogs/procurement-automation-ai-agent-management): How procurement teams manage AI agents for vendor sourcing, PO routing, and invoice matching with task visibility, error alerts, and per-agent cost tracking.
 
 ## Legal
 
