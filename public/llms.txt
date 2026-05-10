@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 125 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 126 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -184,6 +184,7 @@ AgentCenter provides:
 - [Why Silent Agent Failures Are Worse Than Crashes](https://agentcenter.cloud/blogs/why-silent-agent-failures-are-worse-than-crashes): Why agents that run without errors but produce bad outputs are harder to catch and more expensive to fix than crashes — and how to instrument for output quality, not just uptime.
 - [AgentCenter vs New Relic — Monitoring vs Managing AI Agents](https://agentcenter.cloud/blogs/agentcenter-vs-new-relic): New Relic tracks infrastructure and app performance. AgentCenter manages tasks, deliverables, and agent coordination — two different tools solving two different problems.
 - [How to Decide How Many AI Agents Your Team Actually Needs](https://agentcenter.cloud/blogs/how-to-decide-how-many-agents-your-team-needs): A step-by-step process for sizing your agent fleet against your workflows, review capacity, and team bandwidth — before you overbuild or underbuild.
+- [AI Agent Management for QA and Test Engineering Teams](https://agentcenter.cloud/blogs/qa-engineering-teams-ai-agent-management): How QA and test engineering teams use AgentCenter to monitor test generation, execution, triage, and regression agents with real-time status, pipeline visibility, and per-agent cost tracking.
 
 ## Legal
 
