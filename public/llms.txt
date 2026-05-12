@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 127 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 132 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -186,6 +186,11 @@ AgentCenter provides:
 - [How to Decide How Many AI Agents Your Team Actually Needs](https://agentcenter.cloud/blogs/how-to-decide-how-many-agents-your-team-needs): A step-by-step process for sizing your agent fleet against your workflows, review capacity, and team bandwidth — before you overbuild or underbuild.
 - [AI Agent Management for QA and Test Engineering Teams](https://agentcenter.cloud/blogs/qa-engineering-teams-ai-agent-management): How QA and test engineering teams use AgentCenter to monitor test generation, execution, triage, and regression agents with real-time status, pipeline visibility, and per-agent cost tracking.
 - [What Your Agent's Retry Count Is Actually Telling You](https://agentcenter.cloud/blogs/what-agent-retry-count-is-telling-you): Why agent retries are diagnostic signals revealing flaky dependencies, rate limit pressure, and input timing problems — and how to read retry patterns per-agent before they cause real failures.
+- [AgentCenter vs MLflow — Experiment Tracking vs Agent Operations](https://agentcenter.cloud/blogs/agentcenter-vs-mlflow): MLflow tracks ML experiments and model versions. AgentCenter manages AI agents in production with task queues, deliverable review, and cost tracking.
+- [How to Build a Cost Dashboard for Your AI Agents](https://agentcenter.cloud/blogs/how-to-build-a-cost-dashboard-for-ai-agents): Step-by-step guide to setting up per-agent cost tracking, project budget alerts, and spend breakdowns in AgentCenter without needing a separate analytics tool.
+- [AI Agent Management for Insurance Operations Teams](https://agentcenter.cloud/blogs/insurance-operations-ai-agent-management): How insurance operations teams run AI agents for claims triage, underwriting screening, and fraud detection — with real-time visibility, deliverable review, and per-task cost tracking in AgentCenter.
+- [Why Wrong Agent Output Is Harder to Fix Than a Crash](https://agentcenter.cloud/blogs/why-wrong-output-is-harder-to-fix-than-a-crash): Why plausible-but-incorrect agent output is harder to catch than a crash — and how to instrument for output quality, not just task completion, in production.
+- [How to Set Up an On-Call Process for AI Agent Incidents](https://agentcenter.cloud/blogs/how-to-set-up-on-call-for-ai-agents): How to classify agents by criticality, set alert thresholds, route pages to the right person, and write runbooks so agent failures get fixed before anyone downstream notices.
 
 ## Legal
 
