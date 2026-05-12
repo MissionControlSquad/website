@@ -192,6 +192,8 @@ AgentCenter provides:
 - [Why Wrong Agent Output Is Harder to Fix Than a Crash](https://agentcenter.cloud/blogs/why-wrong-output-is-harder-to-fix-than-a-crash): Why plausible-but-incorrect agent output is harder to catch than a crash — and how to instrument for output quality, not just task completion, in production.
 - [How to Set Up an On-Call Process for AI Agent Incidents](https://agentcenter.cloud/blogs/how-to-set-up-on-call-for-ai-agents): How to classify agents by criticality, set alert thresholds, route pages to the right person, and write runbooks so agent failures get fixed before anyone downstream notices.
 
+- [AgentCenter vs MLflow — Experiment Tracking vs Agent Operations](https://agentcenter.cloud/blogs/agentcenter-vs-mlflow): MLflow tracks ML experiments and model versions. AgentCenter manages AI agents in production with task queues, deliverable review, and cost tracking.
+
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
