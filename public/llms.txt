@@ -193,6 +193,7 @@ AgentCenter provides:
 - [How to Set Up an On-Call Process for AI Agent Incidents](https://agentcenter.cloud/blogs/how-to-set-up-on-call-for-ai-agents): How to classify agents by criticality, set alert thresholds, route pages to the right person, and write runbooks so agent failures get fixed before anyone downstream notices.
 
 - [AgentCenter vs MLflow — Experiment Tracking vs Agent Operations](https://agentcenter.cloud/blogs/agentcenter-vs-mlflow): MLflow tracks ML experiments and model versions. AgentCenter manages AI agents in production with task queues, deliverable review, and cost tracking.
+- [How to Build a Cost Dashboard for Your AI Agents](https://agentcenter.cloud/blogs/how-to-build-a-cost-dashboard-for-ai-agents): Step-by-step guide to setting up per-agent cost tracking, project budget alerts, and spend breakdowns in AgentCenter without needing a separate analytics tool.
 
 ## Legal
 
