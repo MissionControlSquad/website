@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 132 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 133 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -197,6 +197,7 @@ AgentCenter provides:
 - [AI Agent Management for Insurance Operations Teams](https://agentcenter.cloud/blogs/insurance-operations-ai-agent-management): How insurance operations teams run AI agents for claims triage, underwriting screening, and fraud detection — with real-time visibility, deliverable review, and per-task cost tracking in AgentCenter.
 - [Why Wrong Agent Output Is Harder to Fix Than a Crash](https://agentcenter.cloud/blogs/why-wrong-output-is-harder-to-fix-than-a-crash): Why plausible-but-incorrect agent output is harder to catch than a crash — and how to instrument for output quality, not just task completion, in production.
 - [How to Set Up an On-Call Process for AI Agent Incidents](https://agentcenter.cloud/blogs/how-to-set-up-on-call-for-ai-agents): How to classify agents by criticality, set alert thresholds, route pages to the right person, and write runbooks so agent failures get fixed before anyone downstream notices.
+- [AI Agent Management for Product Analytics Teams](https://agentcenter.cloud/blogs/product-analytics-teams-ai-agent-management): How product analytics teams coordinate data pipeline agents, catch silent failures, and track per-query costs without hours of manual log tracing.
 
 ## Legal
 
