@@ -196,6 +196,7 @@ AgentCenter provides:
 - [How to Build a Cost Dashboard for Your AI Agents](https://agentcenter.cloud/blogs/how-to-build-a-cost-dashboard-for-ai-agents): Step-by-step guide to setting up per-agent cost tracking, project budget alerts, and spend breakdowns in AgentCenter without needing a separate analytics tool.
 - [AI Agent Management for Insurance Operations Teams](https://agentcenter.cloud/blogs/insurance-operations-ai-agent-management): How insurance operations teams run AI agents for claims triage, underwriting screening, and fraud detection — with real-time visibility, deliverable review, and per-task cost tracking in AgentCenter.
 - [Why Wrong Agent Output Is Harder to Fix Than a Crash](https://agentcenter.cloud/blogs/why-wrong-output-is-harder-to-fix-than-a-crash): Why plausible-but-incorrect agent output is harder to catch than a crash — and how to instrument for output quality, not just task completion, in production.
+- [How to Set Up an On-Call Process for AI Agent Incidents](https://agentcenter.cloud/blogs/how-to-set-up-on-call-for-ai-agents): How to classify agents by criticality, set alert thresholds, route pages to the right person, and write runbooks so agent failures get fixed before anyone downstream notices.
 
 ## Legal
 
