@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 139 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 140 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -204,6 +204,7 @@ AgentCenter provides:
 - [AI Agents for Recruiting Automation Teams](https://agentcenter.cloud/blogs/ai-agents-for-recruiting-automation-teams): How talent acquisition teams manage candidate sourcing, screening, and outreach agents in AgentCenter — with full visibility, approval workflows, and per-agent cost tracking.
 - [Why Long-Running Agents Get Worse Over Time](https://agentcenter.cloud/blogs/why-long-running-agents-get-worse-over-time): How context window accumulation degrades agent output quality over long batch runs — and how to design agents to avoid it.
 - [AgentCenter vs Grafana — Observability vs Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-grafana): Grafana monitors infrastructure; AgentCenter manages AI agent tasks, deliverables, and team coordination. How they differ and when teams need both.
+- [How to Set SLAs for AI Agent Tasks](https://agentcenter.cloud/blogs/how-to-set-slas-for-ai-agent-tasks): A practical guide to defining service level agreements for AI agent tasks — what to measure, how to set thresholds, and how to catch breaches before they compound.
 
 ## Legal
 
