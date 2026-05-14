@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 133 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 140 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -198,6 +198,13 @@ AgentCenter provides:
 - [Why Wrong Agent Output Is Harder to Fix Than a Crash](https://agentcenter.cloud/blogs/why-wrong-output-is-harder-to-fix-than-a-crash): Why plausible-but-incorrect agent output is harder to catch than a crash — and how to instrument for output quality, not just task completion, in production.
 - [How to Set Up an On-Call Process for AI Agent Incidents](https://agentcenter.cloud/blogs/how-to-set-up-on-call-for-ai-agents): How to classify agents by criticality, set alert thresholds, route pages to the right person, and write runbooks so agent failures get fixed before anyone downstream notices.
 - [AI Agent Management for Product Analytics Teams](https://agentcenter.cloud/blogs/product-analytics-teams-ai-agent-management): How product analytics teams coordinate data pipeline agents, catch silent failures, and track per-query costs without hours of manual log tracing.
+- [Inheriting Agents You Didn't Build](https://agentcenter.cloud/blogs/inheriting-agents-you-didnt-build): What breaks when you take over production agents someone else built — and the documentation habit that prevents it from happening again.
+- [AgentCenter vs Dynatrace: Observability vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-dynatrace): Dynatrace monitors your infrastructure; AgentCenter manages your AI agents. How they differ and why teams running agents in production need both.
+- [How to Retire an AI Agent Gracefully](https://agentcenter.cloud/blogs/how-to-retire-an-ai-agent-gracefully): Step-by-step guide to safely retiring an AI agent — drain the queue, hand off tasks, revoke credentials, and avoid leaving zombie agents in production.
+- [AI Agents for Recruiting Automation Teams](https://agentcenter.cloud/blogs/ai-agents-for-recruiting-automation-teams): How talent acquisition teams manage candidate sourcing, screening, and outreach agents in AgentCenter — with full visibility, approval workflows, and per-agent cost tracking.
+- [Why Long-Running Agents Get Worse Over Time](https://agentcenter.cloud/blogs/why-long-running-agents-get-worse-over-time): How context window accumulation degrades agent output quality over long batch runs — and how to design agents to avoid it.
+- [AgentCenter vs Grafana — Observability vs Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-grafana): Grafana monitors infrastructure; AgentCenter manages AI agent tasks, deliverables, and team coordination. How they differ and when teams need both.
+- [How to Set SLAs for AI Agent Tasks](https://agentcenter.cloud/blogs/how-to-set-slas-for-ai-agent-tasks): A practical guide to defining service level agreements for AI agent tasks — what to measure, how to set thresholds, and how to catch breaches before they compound.
 
 ## Legal
 
