@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 144 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 145 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -209,6 +209,7 @@ AgentCenter provides:
 - [Why Most Agent Failures Start Two Steps Before the Error](https://agentcenter.cloud/blogs/agent-failures-start-upstream): Why agent failures typically originate two steps before the visible error — and how to trace upstream causes using execution lineage instead of debugging at the failure point.
 - [AgentCenter vs Honeycomb — Tracing vs Managing Agents](https://agentcenter.cloud/blogs/agentcenter-vs-honeycomb): Honeycomb traces distributed system execution; AgentCenter manages AI agent tasks, coordination, and deliverables. How they differ and when teams need both.
 - [AI Agent Management for Real Estate Tech Teams](https://agentcenter.cloud/blogs/real-estate-tech-ai-agent-management): How real estate tech teams coordinate listing generation, lead qualification, and market analysis agents without silent failures reaching buyers.
+- [The Hidden Cost of Agent Sprawl](https://agentcenter.cloud/blogs/the-hidden-cost-of-agent-sprawl): Why running similar agents in parallel without a plan leads to duplicate compute costs, inconsistent outputs, and agents no one owns.
 
 ## Legal
 
