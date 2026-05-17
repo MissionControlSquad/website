@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 151 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 152 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -216,6 +216,7 @@ AgentCenter provides:
 - [Why the Second Agent Is Always Harder Than the First](https://agentcenter.cloud/blogs/why-the-second-agent-is-always-harder-than-the-first): Why adding a second AI agent creates a coordination surface that doesn't exist with one — and the specific failure modes teams hit when they don't plan for it.
 - [AgentCenter vs Workato — Workflow Tool vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-workato): Workato automates business workflows across SaaS apps; AgentCenter manages AI agents in production — task visibility, review gates, cost tracking, and real-time agent status.
 - [How to Triage AI Agent Failures by Priority](https://agentcenter.cloud/blogs/how-to-triage-ai-agent-failures-by-priority): How to sort agent failures by impact using a simple priority matrix — so you fix the one that matters first instead of the one that's loudest.
+- [AI Agents for ITSM Teams: Service Automation in Production](https://agentcenter.cloud/blogs/itsm-teams-ai-agent-management): How IT service management teams manage triage, runbook, and escalation agents in production using AgentCenter as a shared control plane.
 
 ## Legal
 
