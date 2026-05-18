@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 155 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 156 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -220,6 +220,7 @@ AgentCenter provides:
 - [Why Your Most Reliable Agent Is Also Your Highest-Risk One](https://agentcenter.cloud/blogs/why-your-most-reliable-agent-is-your-highest-risk): Why AI agents that run without errors get the least oversight — and why that makes them the most dangerous when they eventually fail.
 - [AgentCenter vs Voiceflow — Design Tool vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-voiceflow): Voiceflow designs AI conversations; AgentCenter manages production agent fleets — task tracking, cost visibility, real-time status, and approval workflows in one control plane.
 - [How to Prioritize AI Agent Tasks During Peak Load](https://agentcenter.cloud/blogs/how-to-prioritize-ai-agent-tasks-during-peak-load): How to define task priority tiers, set WIP limits, and structure your agent Kanban board so the right work runs first when the queue backs up.
+- [AI Agent Management for Media Production Teams](https://agentcenter.cloud/blogs/media-production-teams-ai-agent-management): How media production teams coordinate transcription, subtitle, and QA agents in production and stop silent failures from reaching clients.
 
 ## Legal
 
