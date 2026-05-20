@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 160 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 163 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -225,6 +225,9 @@ AgentCenter provides:
 - [AgentCenter vs Tray.io: Automation vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-tray): Tray.io connects SaaS apps via event-driven workflows; AgentCenter manages AI agents in production with task tracking, real-time status, cost monitoring, and approval workflows.
 - [How to Set Up a Staging Environment for AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-a-staging-environment-for-ai-agents): How to create an isolated staging environment for AI agents with separate credentials, cost budgets, and cloned projects in AgentCenter before pushing changes to production.
 - [AI Agents for Tax Automation Teams](https://agentcenter.cloud/blogs/tax-automation-teams-ai-agent-management): How tax automation teams track handoffs, catch silent errors, and control costs across document parsing, calculation, and filing agents.
+- [Why the Agents You Tested Are Not the Agents You're Running](https://agentcenter.cloud/blogs/why-the-agents-you-tested-are-not-the-agents-youre-running): How AI agents drift in production without code changes, and how to catch it with a canary validation approach before users do.
+- [AgentCenter vs Activepieces — Automation vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-activepieces): Activepieces automates app workflows; AgentCenter manages production AI agents — task visibility, real-time status, cost tracking, and approval gates.
+- [How to Set Performance Baselines for Your AI Agents](https://agentcenter.cloud/blogs/how-to-set-performance-baselines-for-ai-agents): How to measure, record, and use performance baselines to detect agent drift and set meaningful monitoring thresholds before problems appear.
 
 ## Legal
 
