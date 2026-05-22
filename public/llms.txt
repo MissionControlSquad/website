@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 169 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 171 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -234,6 +234,8 @@ AgentCenter provides:
 - [How to Reduce LLM Token Costs Without Changing Agent Behavior](https://agentcenter.cloud/blogs/how-to-reduce-llm-token-costs-without-changing-agent-behavior): Four techniques to cut LLM token costs in production AI agents — prompt caching, output caching, model routing, and context trimming — without touching what your agents actually do.
 - [AI Agents for Investment Research Teams](https://agentcenter.cloud/blogs/ai-agents-for-investment-research-teams): How investment research teams manage earnings parsers, news scanners, and report drafters through peak season with real-time task visibility, per-agent cost tracking, and error detection.
 - [Why Nobody Else Knows What Your Agents Are Doing](https://agentcenter.cloud/blogs/why-agents-are-invisible-outside-engineering): Why agent visibility stays trapped inside engineering dashboards, what it costs when non-engineers can't see what agents produced, and how to close that gap.
+- [AgentCenter vs Stack AI — Build Phase vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-stack-ai): Stack AI builds AI workflows fast. AgentCenter manages them in production. Honest comparison of features, pricing, and when you need both.
+- [How to Log AI Agent Decisions for Debugging and Compliance](https://agentcenter.cloud/blogs/how-to-log-ai-agent-decisions): How to capture the intermediate decision trail of your AI agents — structured logging at each decision boundary, audit trails for compliance, and faster debugging in production.
 
 ## Legal
 
