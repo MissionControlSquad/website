@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 173 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 174 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -238,6 +238,7 @@ AgentCenter provides:
 - [How to Log AI Agent Decisions for Debugging and Compliance](https://agentcenter.cloud/blogs/how-to-log-ai-agent-decisions): How to capture the intermediate decision trail of your AI agents — structured logging at each decision boundary, audit trails for compliance, and faster debugging in production.
 - [AI Agents for Game Development Studios](https://agentcenter.cloud/blogs/ai-agents-for-game-development-studios): How game studios manage QA automation, dialogue generation, and asset pipeline agents in production with real-time task visibility, cost tracking, and orchestrated handoffs.
 - [AgentCenter vs Comet ML — Experiment Tracking vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-comet-ml): Comet ML tracks ML experiments and model runs; AgentCenter manages AI agents in production with task visibility, deliverable review, real-time status, and per-task cost tracking.
+- [How to Set Agent Task Timeouts and Build Recovery Workflows](https://agentcenter.cloud/blogs/how-to-set-agent-task-timeouts-and-recovery): How to define task-level and step-level timeouts for AI agents, choose the right recovery path when a timeout fires, and prevent runaway tasks from silently draining your budget.
 
 ## Legal
 
