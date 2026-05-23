@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 175 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 176 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -240,6 +240,7 @@ AgentCenter provides:
 - [AgentCenter vs Comet ML — Experiment Tracking vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-comet-ml): Comet ML tracks ML experiments and model runs; AgentCenter manages AI agents in production with task visibility, deliverable review, real-time status, and per-task cost tracking.
 - [How to Set Agent Task Timeouts and Build Recovery Workflows](https://agentcenter.cloud/blogs/how-to-set-agent-task-timeouts-and-recovery): How to define task-level and step-level timeouts for AI agents, choose the right recovery path when a timeout fires, and prevent runaway tasks from silently draining your budget.
 - [AI Agents for Localization and Translation Teams](https://agentcenter.cloud/blogs/localization-automation-ai-agent-management): How localization teams manage translation, review, and QA agents across language pairs with real-time status, task handoffs, and per-agent cost tracking.
+- [Why Your Agents Are Answering the Wrong Question](https://agentcenter.cloud/blogs/why-agents-answer-the-wrong-question): Why AI agents in production can run correctly and still produce useless output — and how task specification drift quietly becomes your costliest failure mode.
 
 ## Legal
 
