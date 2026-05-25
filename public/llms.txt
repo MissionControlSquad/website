@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 183 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 184 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -249,6 +249,7 @@ AgentCenter provides:
 - [How to Write Acceptance Criteria for AI Agent Tasks](https://agentcenter.cloud/blogs/how-to-write-acceptance-criteria-for-ai-agent-tasks): How to define clear acceptance criteria for AI agent tasks — output format, conditions, failure cases, and scope — so agents produce checkable, reviewable results.
 
 - [AI Agent Management for Social Media Teams](https://agentcenter.cloud/blogs/social-media-teams-ai-agent-management): How social media teams use AgentCenter to monitor brand listening, content drafting, and analytics agents with real-time status, approval workflows, and per-agent cost tracking.
+- [What Agent Error Rates Don't Tell You](https://agentcenter.cloud/blogs/what-agent-error-rates-dont-tell-you): Why error rate is not a health metric for AI agents — and the three signals that actually catch quality degradation in production.
 
 ## Legal
 
