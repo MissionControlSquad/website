@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 180 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 182 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -245,6 +245,8 @@ AgentCenter provides:
 - [How to Enforce Output Schemas on AI Agents](https://agentcenter.cloud/blogs/how-to-enforce-output-schemas-on-ai-agents): How to define AI agent output schemas, add automated validation, and catch format violations before they break your downstream pipeline.
 - [AI Agents for Travel Tech Teams](https://agentcenter.cloud/blogs/travel-tech-teams-ai-agent-management): How travel tech teams manage pricing, booking flow, and customer service agents with real-time status, task handoffs, and per-agent cost tracking.
 - [The Day You Give Your Agent Write Access](https://agentcenter.cloud/blogs/the-day-you-give-your-agent-write-access): What changes operationally when an AI agent gains write permissions — the failure modes that appear, and how to handle the transition without losing control.
+- [AgentCenter vs GitHub Copilot Workspace — Code vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-github-copilot-workspace): GitHub Copilot Workspace writes code; AgentCenter manages deployed agents with task visibility, cost tracking, output review, and real-time status.
+- [How to Write Acceptance Criteria for AI Agent Tasks](https://agentcenter.cloud/blogs/how-to-write-acceptance-criteria-for-ai-agent-tasks): How to define clear acceptance criteria for AI agent tasks — output format, conditions, failure cases, and scope — so agents produce checkable, reviewable results.
 
 ## Legal
 
