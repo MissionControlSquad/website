@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 189 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 190 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -255,6 +255,7 @@ AgentCenter provides:
 - [AI Agents for Customer Success Teams](https://agentcenter.cloud/blogs/customer-success-teams-ai-agent-management): How CS teams manage health score monitors, churn detectors, QBR prep agents, and NPS follow-up agents in production with real-time status, task handoffs, and per-agent cost tracking.
 - [Why Your Agent Doesn't Fail Equally](https://agentcenter.cloud/blogs/why-your-agent-doesnt-fail-equally): Why aggregate agent success rates hide per-user failure patterns — and how to find which user segments your agent is actually failing before they stop trusting it.
 - [AgentCenter vs Modal — Compute Layer vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-modal): Modal runs serverless Python workloads in the cloud; AgentCenter manages AI agents in production with task visibility, real-time status, cost tracking, and approval workflows.
+- [How to Plan AI Agent Capacity Before You Scale](https://agentcenter.cloud/blogs/how-to-plan-ai-agent-capacity): How to estimate agent count, API load, and cost before scaling — so you pick the right AgentCenter plan and avoid hitting rate limits in production.
 
 ## Legal
 
