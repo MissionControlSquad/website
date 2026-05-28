@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 193 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 194 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -259,6 +259,7 @@ AgentCenter provides:
 - [AI Agents for Biotech Research Teams](https://agentcenter.cloud/blogs/ai-agents-for-biotech-research-teams): How biotech research teams manage literature review, compound screening, and trial data AI agents in production without losing visibility across pipelines.
 - [Why Agent Uptime Is the Wrong Metric](https://agentcenter.cloud/blogs/why-agent-uptime-is-the-wrong-metric): Why 99% uptime and zero errors don't mean your agents are working — and which output-level signals to track instead.
 - [AgentCenter vs Cursor — Code Editor vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-cursor): Cursor builds agent code; AgentCenter manages agents in production — task visibility, real-time status, deliverable review, and cost tracking once agents are live.
+- [How to Set Up Circuit Breakers for AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-circuit-breakers-for-ai-agents): How to implement circuit breaker patterns for AI agents so downstream API failures don't cause cascading retries, token waste, and false alerts.
 
 ## Legal
 
