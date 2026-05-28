@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 195 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 196 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -261,6 +261,7 @@ AgentCenter provides:
 - [AgentCenter vs Cursor — Code Editor vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-cursor): Cursor builds agent code; AgentCenter manages agents in production — task visibility, real-time status, deliverable review, and cost tracking once agents are live.
 - [How to Set Up Circuit Breakers for AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-circuit-breakers-for-ai-agents): How to implement circuit breaker patterns for AI agents so downstream API failures don't cause cascading retries, token waste, and false alerts.
 - [AI Agents for Data Science Teams](https://agentcenter.cloud/blogs/data-science-teams-ai-agent-management): How data science teams manage analysis, pipeline, and reporting agents in production — without losing track of what ran, when, and what it cost.
+- [The Single Point of Failure Hidden in Your AI Agent Fleet](https://agentcenter.cloud/blogs/why-your-agent-fleet-has-a-single-point-of-failure): How one shared dependency can silently take down most of your agent fleet — and how to map dependencies before they become incidents.
 
 ## Legal
 
