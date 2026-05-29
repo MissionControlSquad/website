@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 199 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 200 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -265,6 +265,7 @@ AgentCenter provides:
 - [AgentCenter vs Sema4.ai — Automation Runtime vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-sema4ai): Sema4.ai runs enterprise AI automation jobs; AgentCenter manages agents in production with task visibility, deliverable review, real-time status, and per-agent cost tracking.
 - [How to Map Dependencies Between AI Agents](https://agentcenter.cloud/blogs/how-to-map-dependencies-between-ai-agents): A step-by-step process for identifying and documenting every API, database, and shared resource your agents depend on — so one outage doesn't silently take down your fleet.
 - [AI Agents for Manufacturing Operations Teams](https://agentcenter.cloud/blogs/ai-agents-for-manufacturing-operations-teams): How manufacturing ops teams manage quality control, maintenance, and scheduling agents with real-time visibility, task handoffs, and per-agent cost tracking in AgentCenter.
+- [Why Your Agents Run Worse After You Trust Them](https://agentcenter.cloud/blogs/why-agents-run-worse-after-you-trust-them): How trust-driven neglect causes production AI agents to drift silently — and what scheduled maintenance, output health tracking, and named ownership can do about it.
 
 ## Legal
 
