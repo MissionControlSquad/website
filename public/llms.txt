@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 202 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 203 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -268,6 +268,7 @@ AgentCenter provides:
 - [Why Your Agents Run Worse After You Trust Them](https://agentcenter.cloud/blogs/why-agents-run-worse-after-you-trust-them): How trust-driven neglect causes production AI agents to drift silently — and what scheduled maintenance, output health tracking, and named ownership can do about it.
 - [AgentCenter vs MultiOn — Web Automation vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-multion): MultiOn gives AI agents the ability to browse the web; AgentCenter manages what those agents do, what they cost, and whether they're working in production.
 - [How to Audit Your AI Agent Fleet Quarterly](https://agentcenter.cloud/blogs/how-to-audit-your-ai-agent-fleet-quarterly): A practical checklist for reviewing every agent in your fleet — catching cost creep, dead agents, and ownership gaps before they become production problems.
+- [AI Agents for Accounting Automation Teams](https://agentcenter.cloud/blogs/accounting-automation-ai-agent-management): How accounting and bookkeeping teams manage invoice, reconciliation, and report agents in production with task visibility, review gates, and cost control.
 
 ## Legal
 
