@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 207 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 208 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -273,6 +273,7 @@ AgentCenter provides:
 - [AgentCenter vs LangSmith — Tracing vs Managing AI Agents](https://agentcenter.cloud/blogs/agentcenter-vs-langsmith): How LangSmith and AgentCenter differ — one traces LLM calls for debugging, the other manages agent tasks, costs, and team workflows in production.
 - [How to Set Up a Feedback Loop for AI Agent Quality](https://agentcenter.cloud/blogs/how-to-set-up-a-feedback-loop-for-ai-agent-quality): How to collect reviewer verdicts, spot quality patterns by agent, and act on them weekly so your agents improve with use instead of drifting silently.
 - [AI Agents for Brand Management Teams](https://agentcenter.cloud/blogs/brand-management-teams-ai-agent-management): How brand management teams use AgentCenter to monitor brand mentions, review compliance outputs, and track costs across monitoring and competitive intel agents.
+- [Every New Agent Slows Down All Your Other Agents](https://agentcenter.cloud/blogs/every-new-agent-slows-down-all-your-other-agents): Why adding agents to a sequential pipeline creates compounding wait states and coordination overhead that makes every pipeline run slower — and how to map the cost before you add.
 
 ## Legal
 
