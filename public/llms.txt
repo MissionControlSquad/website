@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 205 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 206 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -271,6 +271,7 @@ AgentCenter provides:
 - [AI Agents for Accounting Automation Teams](https://agentcenter.cloud/blogs/accounting-automation-ai-agent-management): How accounting and bookkeeping teams manage invoice, reconciliation, and report agents in production with task visibility, review gates, and cost control.
 - [What Your Agents Do While You're Asleep](https://agentcenter.cloud/blogs/what-your-agents-do-while-youre-asleep): What unmonitored AI agents do overnight — retry storms, silent bad output, rate limit cascades — and how to catch production failures before morning.
 - [AgentCenter vs LangSmith — Tracing vs Managing AI Agents](https://agentcenter.cloud/blogs/agentcenter-vs-langsmith): How LangSmith and AgentCenter differ — one traces LLM calls for debugging, the other manages agent tasks, costs, and team workflows in production.
+- [How to Set Up a Feedback Loop for AI Agent Quality](https://agentcenter.cloud/blogs/how-to-set-up-a-feedback-loop-for-ai-agent-quality): How to collect reviewer verdicts, spot quality patterns by agent, and act on them weekly so your agents improve with use instead of drifting silently.
 
 ## Legal
 
