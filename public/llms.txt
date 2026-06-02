@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 214 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 215 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -280,6 +280,7 @@ AgentCenter provides:
 - [Why Your Agent Throughput Numbers Are Lying to You](https://agentcenter.cloud/blogs/why-agent-throughput-numbers-are-lying): Why high task completion counts hide quality degradation, fallback behavior, and silent skips — and what metrics to track alongside throughput.
 - [AgentCenter vs Relevance AI — Agent Builder vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-relevance-ai): How Relevance AI and AgentCenter differ — one builds AI agents with no-code tools, the other manages agents in production with task visibility, deliverable review, and cost tracking.
 - [How to Implement Gradual Rollouts for AI Agents](https://agentcenter.cloud/blogs/how-to-implement-gradual-rollouts-for-ai-agents): A practical guide to rolling out new AI agents or prompt changes in stages, so a bad update doesn't expose your full workload before you catch the problem.
+- [AI Agents for Fraud Detection Teams](https://agentcenter.cloud/blogs/fraud-detection-teams-ai-agent-management): How fraud detection teams manage transaction monitoring, alert triage, and SAR drafting agents in production with real-time status, approval gates, and per-agent cost tracking.
 
 ## Legal
 
