@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 218 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 219 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -284,6 +284,7 @@ AgentCenter provides:
 - [What a Good Agent Demo Gets Wrong About Production](https://agentcenter.cloud/blogs/what-a-good-agent-demo-gets-wrong): Why a successful agent demo creates production expectations that engineering spends months correcting, and how to close the gap before deployment.
 - [AgentCenter vs SuperAGI — Framework vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-superagi): How SuperAGI and AgentCenter differ — one builds and runs autonomous agents with an open-source framework, the other manages agents in production with task boards, approval workflows, and real-time cost tracking.
 - [How to Handle Conflicting Outputs from Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-handle-conflicting-agent-outputs): When two agents disagree on the same task, you need a process — here's how to detect, triage, and resolve conflicting AI agent outputs before they ship.
+- [AI Agents for Product Management Teams](https://agentcenter.cloud/blogs/ai-agents-for-product-management-teams): How product management teams manage user research, competitive intel, and feedback triage agents in production with real-time status, cost tracking, and output review.
 
 ## Legal
 
