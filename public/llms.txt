@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 213 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 222 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -279,6 +279,15 @@ AgentCenter provides:
 - [AI Agents for Analytics Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-analytics-engineering-teams): How analytics engineering teams manage dbt model agents, data quality checks, and documentation automation in production with AgentCenter.
 - [Why Your Agent Throughput Numbers Are Lying to You](https://agentcenter.cloud/blogs/why-agent-throughput-numbers-are-lying): Why high task completion counts hide quality degradation, fallback behavior, and silent skips — and what metrics to track alongside throughput.
 - [AgentCenter vs Relevance AI — Agent Builder vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-relevance-ai): How Relevance AI and AgentCenter differ — one builds AI agents with no-code tools, the other manages agents in production with task visibility, deliverable review, and cost tracking.
+- [How to Implement Gradual Rollouts for AI Agents](https://agentcenter.cloud/blogs/how-to-implement-gradual-rollouts-for-ai-agents): A practical guide to rolling out new AI agents or prompt changes in stages, so a bad update doesn't expose your full workload before you catch the problem.
+- [AI Agents for Fraud Detection Teams](https://agentcenter.cloud/blogs/fraud-detection-teams-ai-agent-management): How fraud detection teams manage transaction monitoring, alert triage, and SAR drafting agents in production with real-time status, approval gates, and per-agent cost tracking.
+- [What a Good Agent Demo Gets Wrong About Production](https://agentcenter.cloud/blogs/what-a-good-agent-demo-gets-wrong): Why a successful agent demo creates production expectations that engineering spends months correcting, and how to close the gap before deployment.
+- [AgentCenter vs SuperAGI — Framework vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-superagi): How SuperAGI and AgentCenter differ — one builds and runs autonomous agents with an open-source framework, the other manages agents in production with task boards, approval workflows, and real-time cost tracking.
+- [How to Handle Conflicting Outputs from Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-handle-conflicting-agent-outputs): When two agents disagree on the same task, you need a process — here's how to detect, triage, and resolve conflicting AI agent outputs before they ship.
+- [AI Agents for Product Management Teams](https://agentcenter.cloud/blogs/ai-agents-for-product-management-teams): How product management teams manage user research, competitive intel, and feedback triage agents in production with real-time status, cost tracking, and output review.
+- [The Agent That Made Everyone's Job Harder](https://agentcenter.cloud/blogs/the-agent-that-made-everyones-job-harder): How automating part of a workflow with AI agents redistributes invisible human coordination — and what teams miss when they don't map it first.
+- [AgentCenter vs LangGraph — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-langgraph): How LangGraph and AgentCenter differ — one builds stateful agent graphs in Python, the other manages those agents in production with dashboards, cost tracking, and output review workflows.
+- [How to Assign and Track AI Agent Ownership](https://agentcenter.cloud/blogs/how-to-assign-and-track-ai-agent-ownership): How to assign one named owner to every agent in your fleet, document responsibilities, and keep ownership current as your team changes.
 
 ## Legal
 
