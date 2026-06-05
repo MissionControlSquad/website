@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 228 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 229 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -294,6 +294,7 @@ AgentCenter provides:
 - [How to Build an AI Agent Incident Response Playbook](https://agentcenter.cloud/blogs/how-to-build-an-agent-incident-response-playbook): A step-by-step guide to building an incident response playbook for AI agents — what to check first, when to roll back, and how to keep your team from improvising at 2am.
 - [AI Agents for Site Reliability Engineering Teams](https://agentcenter.cloud/blogs/sre-teams-ai-agent-management): How SRE teams use AgentCenter to manage incident triage, runbook, and SLO monitoring agents in production — with real-time status, task coordination, and per-incident cost tracking.
 - [Why Your Agent Needed a Human and Didn't Say So](https://agentcenter.cloud/blogs/why-your-agent-needed-a-human-and-didnt-say-so): Why agents that hit ambiguous decisions continue instead of escalating — and how to build explicit human escalation paths before bad output reaches your downstream systems.
+- [AgentCenter vs AgentVerse — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-agentverse): How AgentVerse and AgentCenter differ — one is a multi-agent collaboration framework for research and prototyping, the other manages agents in production with task boards, cost tracking, and approval workflows.
 
 ## Legal
 
