@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 226 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 227 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -292,6 +292,7 @@ AgentCenter provides:
 - [Why Your Agent's First Month Is Usually Its Best](https://agentcenter.cloud/blogs/why-your-agents-first-month-is-usually-its-best): Why AI agents degrade in production over time through prompt aging, scope creep, and attention decay — and how to build review habits that catch drift before it becomes an incident.
 - [AgentCenter vs Lindy AI — Agent Builder vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-lindy-ai): How Lindy AI and AgentCenter differ — one builds automation agents for non-technical teams, the other manages AI agents in production with task boards, deliverable review, and per-task cost tracking.
 - [How to Build an AI Agent Incident Response Playbook](https://agentcenter.cloud/blogs/how-to-build-an-agent-incident-response-playbook): A step-by-step guide to building an incident response playbook for AI agents — what to check first, when to roll back, and how to keep your team from improvising at 2am.
+- [AI Agents for Site Reliability Engineering Teams](https://agentcenter.cloud/blogs/sre-teams-ai-agent-management): How SRE teams use AgentCenter to manage incident triage, runbook, and SLO monitoring agents in production — with real-time status, task coordination, and per-incident cost tracking.
 
 ## Legal
 
