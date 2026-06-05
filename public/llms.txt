@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 223 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 226 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -289,6 +289,9 @@ AgentCenter provides:
 - [AgentCenter vs LangGraph — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-langgraph): How LangGraph and AgentCenter differ — one builds stateful agent graphs in Python, the other manages those agents in production with dashboards, cost tracking, and output review workflows.
 - [How to Assign and Track AI Agent Ownership](https://agentcenter.cloud/blogs/how-to-assign-and-track-ai-agent-ownership): How to assign one named owner to every agent in your fleet, document responsibilities, and keep ownership current as your team changes.
 - [AI Agents for Developer Relations Teams](https://agentcenter.cloud/blogs/devrel-teams-ai-agent-management): How DevRel teams use AgentCenter to manage docs update, community triage, and code sample agents with real-time status, pipeline handoffs, and per-agent cost tracking.
+- [Why Your Agent's First Month Is Usually Its Best](https://agentcenter.cloud/blogs/why-your-agents-first-month-is-usually-its-best): Why AI agents degrade in production over time through prompt aging, scope creep, and attention decay — and how to build review habits that catch drift before it becomes an incident.
+- [AgentCenter vs Lindy AI — Agent Builder vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-lindy-ai): How Lindy AI and AgentCenter differ — one builds automation agents for non-technical teams, the other manages AI agents in production with task boards, deliverable review, and per-task cost tracking.
+- [How to Build an AI Agent Incident Response Playbook](https://agentcenter.cloud/blogs/how-to-build-an-agent-incident-response-playbook): A step-by-step guide to building an incident response playbook for AI agents — what to check first, when to roll back, and how to keep your team from improvising at 2am.
 
 ## Legal
 
