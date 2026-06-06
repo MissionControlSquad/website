@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 235 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 236 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -297,6 +297,7 @@ AgentCenter provides:
 - [AgentCenter vs AgentVerse — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-agentverse): How AgentVerse and AgentCenter differ — one is a multi-agent collaboration framework for research and prototyping, the other manages agents in production with task boards, cost tracking, and approval workflows.
 - [How to Organize AI Agents Across Multiple Projects](https://agentcenter.cloud/blogs/how-to-organize-ai-agents-across-multiple-projects): How to structure multi-project agent management in AgentCenter — two proven models, step-by-step setup, naming conventions, and common mistakes to avoid.
 - [AI Agents for Content Moderation Teams](https://agentcenter.cloud/blogs/content-moderation-teams-ai-agent-management): How content moderation teams manage flagging, classification, and review routing agents in production with real-time status, task orchestration, and per-agent cost tracking.
+- [Why Good Agents Get Promoted to Tasks They're Bad At](https://agentcenter.cloud/blogs/why-good-agents-get-promoted-to-tasks-theyre-bad-at): How AI agents accumulate new responsibilities faster than acceptance criteria get updated, and why scope creep is where most production quality failures start.
 
 ## Legal
 
