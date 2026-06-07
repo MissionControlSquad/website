@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 238 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 239 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -300,6 +300,7 @@ AgentCenter provides:
 - [Why Good Agents Get Promoted to Tasks They're Bad At](https://agentcenter.cloud/blogs/why-good-agents-get-promoted-to-tasks-theyre-bad-at): How AI agents accumulate new responsibilities faster than acceptance criteria get updated, and why scope creep is where most production quality failures start.
 - [AgentCenter vs Lyzr — Agent Studio vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-lyzr): Lyzr builds and deploys AI agents fast with templates and RAG pipelines; AgentCenter manages them in production — task visibility, deliverable review, cost tracking, and real-time agent status.
 - [How to Set Up Task Dependencies Between AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-task-dependencies-in-agentcenter): Step-by-step guide to configuring task dependencies in AgentCenter so multi-agent pipelines run in the correct order without silent handoff failures.
+- [AI Agents for Demand Generation Teams](https://agentcenter.cloud/blogs/demand-generation-teams-ai-agent-management): How demand gen teams manage intent monitoring, lead enrichment, scoring, and campaign targeting agents with enforced task dependencies, deliverable review, and per-agent cost tracking.
 
 ## Legal
 
