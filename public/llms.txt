@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 243 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 244 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -306,6 +306,7 @@ AgentCenter provides:
 - [How to Checkpoint AI Agent Progress in Long-Running Tasks](https://agentcenter.cloud/blogs/how-to-checkpoint-ai-agent-progress): How to add checkpoints to long-running AI agents so they resume from where they stopped instead of restarting from scratch after a failure.
 
 - [AI Agents for Data Governance Teams](https://agentcenter.cloud/blogs/data-governance-teams-ai-agent-management): How data governance teams use AgentCenter to coordinate PII scan, data quality, and catalog agents with real-time visibility, task dependencies, and per-scan cost tracking.
+- [Why Most Agent Dashboards Show the Wrong Things](https://agentcenter.cloud/blogs/why-most-agent-dashboards-show-the-wrong-things): Why uptime and task count miss the failures that matter most — and what production teams should actually be measuring to catch silent agent failures early.
 
 ## Legal
 
