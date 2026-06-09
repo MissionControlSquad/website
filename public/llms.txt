@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 246 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 247 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -309,6 +309,7 @@ AgentCenter provides:
 - [Why Most Agent Dashboards Show the Wrong Things](https://agentcenter.cloud/blogs/why-most-agent-dashboards-show-the-wrong-things): Why uptime and task count miss the failures that matter most — and what production teams should actually be measuring to catch silent agent failures early.
 - [AgentCenter vs Langfuse — Observability vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-langfuse): How Langfuse and AgentCenter differ — one traces LLM calls and evals outputs for debugging, the other manages agents in production with task boards, deliverable review, and real-time status.
 - [How to Communicate AI Agent Status to Stakeholders](https://agentcenter.cloud/blogs/how-to-communicate-ai-agent-status-to-stakeholders): How to share clear agent status with PMs and executives using task boards, @mentions, and short weekly summaries — without overwhelming them with engineering dashboards.
+- [AI Agents for FinOps Teams](https://agentcenter.cloud/blogs/finops-teams-ai-agent-management): How FinOps teams manage cloud cost agents in production — anomaly detection, rightsizing, and remediation — with task visibility and per-agent cost tracking in AgentCenter.
 
 ## Legal
 
