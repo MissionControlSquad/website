@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 250 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 251 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -313,6 +313,7 @@ AgentCenter provides:
 - [Why 10 AI Agents Is Harder to Manage Than 50](https://agentcenter.cloud/blogs/why-ten-agents-is-harder-than-fifty): Why the middle stage of agent scale — 5 to 20 agents — is the hardest to operate, and what teams that survive it do differently.
 - [AgentCenter vs Notion — Managing Agents vs Tracking Them](https://agentcenter.cloud/blogs/agentcenter-vs-notion): Why a manual Notion database can't replace a live AI agent control plane — covers real-time status, cost tracking, deliverable review, and when to use both tools together.
 - [How to Set Escalation Rules for AI Agent Failures](https://agentcenter.cloud/blogs/how-to-set-escalation-rules-for-ai-agent-failures): A practical guide to defining failure categories, setting escalation thresholds, and routing AI agent failures to the right person before they compound.
+- [AI Agents for Learning and Development Teams](https://agentcenter.cloud/blogs/ai-agents-for-learning-and-development-teams): How corporate L&D teams manage content creation, assessment, and learning path agents with task visibility, deliverable review gates, and per-agent cost tracking in AgentCenter.
 
 ## Legal
 
