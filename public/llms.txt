@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 255 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 256 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -320,6 +320,7 @@ AgentCenter provides:
 - [How to Split a Monolithic AI Agent into a Multi-Agent Pipeline](https://agentcenter.cloud/blogs/how-to-split-a-monolithic-agent-into-a-pipeline): How to identify split points in an over-loaded single agent and rebuild it as a multi-agent pipeline with independent stages, clear handoff specs, and task dependencies in AgentCenter.
 
 - [AI Agents for Technical Documentation Teams](https://agentcenter.cloud/blogs/ai-agents-for-technical-documentation-teams): How technical documentation teams manage doc-writing agents, track deliverables, and catch silent failures before they ship broken content.
+- [The False Comfort of Green Status Lights](https://agentcenter.cloud/blogs/the-false-comfort-of-green-status-lights): Why green agent status means your agent ran — not that it produced good output — and how to close the gap between operational health and output quality.
 
 ## Legal
 
