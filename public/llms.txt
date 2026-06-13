@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 263 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 264 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -328,6 +328,7 @@ AgentCenter provides:
 - [AgentCenter vs Helicone — Observability vs Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-helicone): Helicone tracks LLM requests and costs; AgentCenter manages the agents making those requests — covers task visibility, deliverable review, and when to use both tools together.
 - [How to Estimate AI Agent Costs Before You Build](https://agentcenter.cloud/blogs/how-to-estimate-ai-agent-costs-before-you-build): Step-by-step guide to estimating AI agent costs before deployment, covering token counting, task frequency, retry rates, and model pricing.
 - [AI Agents for Developer Experience Teams](https://agentcenter.cloud/blogs/developer-experience-teams-ai-agent-management): How developer experience teams manage code review bots, doc generators, and onboarding agents without losing track of what's running or why it failed.
+- [Why You Can't Reproduce Your Last Agent Failure](https://agentcenter.cloud/blogs/why-you-cant-reproduce-your-last-agent-failure): Why AI agent failures can't be reproduced like software bugs and what to capture before the next incident so you're not debugging blind.
 
 ## Legal
 
