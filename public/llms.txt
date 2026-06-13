@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 261 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 262 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -326,6 +326,7 @@ AgentCenter provides:
 - [AI Agent Management for Performance Marketing Teams](https://agentcenter.cloud/blogs/performance-marketing-teams-ai-agent-management): How performance marketing teams manage ad copy, bidding, and reporting agents with task visibility, cost control, and approval workflows in AgentCenter.
 - [Why Every Agent Needs a Budget, Not Just a Goal](https://agentcenter.cloud/blogs/why-every-agent-needs-a-budget): Why setting token, time, and tool-call budgets on AI agents is not cost control — it forces clarity about what done means and prevents runaway costs in production.
 - [AgentCenter vs Helicone — Observability vs Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-helicone): Helicone tracks LLM requests and costs; AgentCenter manages the agents making those requests — covers task visibility, deliverable review, and when to use both tools together.
+- [How to Estimate AI Agent Costs Before You Build](https://agentcenter.cloud/blogs/how-to-estimate-ai-agent-costs-before-you-build): Step-by-step guide to estimating AI agent costs before deployment, covering token counting, task frequency, retry rates, and model pricing.
 
 ## Legal
 
