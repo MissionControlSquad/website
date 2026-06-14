@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 266 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 267 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -331,6 +331,7 @@ AgentCenter provides:
 - [Why You Can't Reproduce Your Last Agent Failure](https://agentcenter.cloud/blogs/why-you-cant-reproduce-your-last-agent-failure): Why AI agent failures can't be reproduced like software bugs and what to capture before the next incident so you're not debugging blind.
 - [AgentCenter vs Argo Workflows — Control Plane for AI Agents](https://agentcenter.cloud/blogs/agentcenter-vs-argo-workflows): Why Argo Workflows falls short for AI agent teams — covers task visibility, deliverable review, LLM cost tracking, and when a dedicated control plane beats K8s-native orchestration.
 - [How to Write Clear Task Descriptions for AI Agents](https://agentcenter.cloud/blogs/how-to-write-clear-task-descriptions-for-ai-agents): A step-by-step guide to writing agent task descriptions that produce good output on the first run — covering output spec, context, scope, acceptance criteria, and edge case handling.
+- [AI Agent Management for Regulatory Affairs Teams](https://agentcenter.cloud/blogs/regulatory-affairs-ai-agent-management): How regulatory affairs teams manage submission drafting, compliance monitoring, and document review agents with audit trails, deliverable review gates, and per-filing cost tracking.
 
 ## Legal
 
