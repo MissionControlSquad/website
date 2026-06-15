@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 270 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 271 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -335,6 +335,7 @@ AgentCenter provides:
 - [What Happens to Your Team's Knowledge When Agents Take Over](https://agentcenter.cloud/blogs/what-happens-to-team-knowledge-when-agents-take-over): Why teams lose domain knowledge as AI agents take over reliable tasks — and three habits to stay sharp enough to catch when those agents eventually drift.
 - [AgentCenter vs GitHub Actions — Automation vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-github-actions): GitHub Actions runs scheduled jobs; AgentCenter manages AI agents in production — task queues, cost tracking, deliverable review, and real-time status.
 - [How to Rotate LLM Providers Without Breaking Your Agents](https://agentcenter.cloud/blogs/how-to-rotate-llm-providers-without-breaking-agents): Step-by-step guide to rotating LLM providers in production without breaking your agents — covering baseline capture, staging tests, shadow mode rollout, and monitoring with AgentCenter.
+- [AI Agents for Energy Operations Teams](https://agentcenter.cloud/blogs/energy-operations-ai-agent-management): How energy operations teams manage grid monitoring, anomaly detection, and demand forecasting agents with real-time status, task handoff tracking, and per-agent cost control in AgentCenter.
 
 ## Legal
 
