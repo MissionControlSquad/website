@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 273 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 274 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -338,6 +338,7 @@ AgentCenter provides:
 - [AI Agents for Energy Operations Teams](https://agentcenter.cloud/blogs/energy-operations-ai-agent-management): How energy operations teams manage grid monitoring, anomaly detection, and demand forecasting agents with real-time status, task handoff tracking, and per-agent cost control in AgentCenter.
 - [What You Find When You Actually Read Your Agent Outputs](https://agentcenter.cloud/blogs/what-you-find-when-you-read-agent-outputs): Why green metrics don't mean your agents are producing good output — and what you discover when you stop reading the dashboard and start reading the actual outputs your agents deliver.
 - [AgentCenter vs Portkey — LLM Gateway vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-portkey): Portkey manages LLM API calls; AgentCenter manages the agents making them — task tracking, real-time status, deliverable review, and per-agent cost visibility.
+- [How to Set Up a Golden Test Suite for Your AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-a-golden-test-suite-for-ai-agents): A practical guide to building a set of representative test tasks that catch AI agent behavior changes before they reach production.
 
 ## Legal
 
