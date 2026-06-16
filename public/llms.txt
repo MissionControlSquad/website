@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 276 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 277 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -341,6 +341,7 @@ AgentCenter provides:
 - [How to Set Up a Golden Test Suite for Your AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-a-golden-test-suite-for-ai-agents): A practical guide to building a set of representative test tasks that catch AI agent behavior changes before they reach production.
 - [AI Agents for Marketplace Operations Teams](https://agentcenter.cloud/blogs/marketplace-operations-ai-agent-management): How marketplace operations teams manage seller onboarding, listing quality, and trust & safety agents without losing track of what's running or why it failed.
 - [What You Owe Your Production Agents](https://agentcenter.cloud/blogs/what-you-owe-your-production-agents): Most agent failures trace back to the team — vague tasks, untracked input drift, skipped output review. Here's what production agents actually need to perform reliably.
+- [AgentCenter vs Retool — Build Your Own vs Ready-Made Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-retool): Why building an AI agent dashboard in Retool costs more than it looks — and how AgentCenter ships the control plane teams would otherwise spend weeks building themselves.
 
 ## Legal
 
