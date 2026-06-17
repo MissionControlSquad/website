@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 279 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 280 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -344,6 +344,7 @@ AgentCenter provides:
 - [AgentCenter vs Retool — Build Your Own vs Ready-Made Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-retool): Why building an AI agent dashboard in Retool costs more than it looks — and how AgentCenter ships the control plane teams would otherwise spend weeks building themselves.
 - [How to Set Concurrency Limits for AI Agents in Production](https://agentcenter.cloud/blogs/how-to-configure-agent-concurrency-limits): How to cap parallel task execution across AI agents to prevent API overload, control costs, and keep throughput predictable in AgentCenter.
 - [AI Agents for Competitive Intelligence Teams](https://agentcenter.cloud/blogs/competitive-intelligence-ai-agent-management): How competitive intelligence teams manage scraping agents, price monitors, and reporting pipelines without losing track of which one broke and why.
+- [What Nobody Budgets for When They Put an Agent in Production](https://agentcenter.cloud/blogs/what-nobody-budgets-for-production-agents): The ongoing operational costs teams don't plan for — prompt review, output review, on-call burden, and model migrations — and how to account for them before deployment.
 
 ## Legal
 
