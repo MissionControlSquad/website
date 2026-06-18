@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 284 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 285 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -349,6 +349,7 @@ AgentCenter provides:
 - [How to Load Test AI Agents Before Going to Production](https://agentcenter.cloud/blogs/how-to-load-test-ai-agents): A step-by-step guide to load testing AI agents before shipping — covering latency under concurrency, token cost drift, rate limit behavior, and output quality at scale.
 - [AI Agents for UX Research Teams](https://agentcenter.cloud/blogs/ai-agents-for-ux-research-teams): How UX research teams manage transcription, synthesis, and report agents without losing track of which pipeline stage broke and why.
 - [Why Agents Report Completion, Not Success](https://agentcenter.cloud/blogs/why-agents-report-completion-not-success): Why task completion metrics mislead teams and what outcome signals actually look like for AI agents in production.
+- [AgentCenter vs Kubernetes — Pod Manager vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-kubernetes): Kubernetes keeps your agent pods running — AgentCenter manages what those agents actually do, including tasks, outputs, costs, and team coordination in production.
 
 ## Legal
 
