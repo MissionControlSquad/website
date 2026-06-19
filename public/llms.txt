@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 286 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 287 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -351,6 +351,7 @@ AgentCenter provides:
 - [Why Agents Report Completion, Not Success](https://agentcenter.cloud/blogs/why-agents-report-completion-not-success): Why task completion metrics mislead teams and what outcome signals actually look like for AI agents in production.
 - [AgentCenter vs Kubernetes — Pod Manager vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-kubernetes): Kubernetes keeps your agent pods running — AgentCenter manages what those agents actually do, including tasks, outputs, costs, and team coordination in production.
 - [How to Set Up Cost Alerts for AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-cost-alerts-for-ai-agents): How to configure per-task, per-agent, and project-level cost alerts so spending spikes get caught before they become surprise bills.
+- [AI Agents for API Product Teams](https://agentcenter.cloud/blogs/api-product-teams-ai-agent-management): How API product teams manage docs generation, changelog drafting, and contract testing agents with real-time status, deliverable review gates, and per-release cost tracking.
 
 ## Legal
 
