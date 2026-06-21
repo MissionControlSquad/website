@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 296 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 297 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -361,6 +361,7 @@ AgentCenter provides:
 - [How to Write Integration Tests for Multi-Agent Pipelines](https://agentcenter.cloud/blogs/how-to-write-integration-tests-for-multi-agent-pipelines): Integration tests catch the handoff failures that unit tests miss — schema contracts, fixture-based testing, and end-to-end staging runs for multi-agent pipelines.
 - [AI Agents for Payments Engineering Teams](https://agentcenter.cloud/blogs/payments-engineering-teams-ai-agent-management): How payments engineering teams manage reconciliation, retry, and fraud agents in production, and which AgentCenter features catch silent failures before the finance team does.
 - [What You Find at 1,000 Agent Tasks](https://agentcenter.cloud/blogs/what-you-find-at-1000-agent-tasks): The patterns invisible at 100 tasks — token drift, time-of-day failure clustering, output quality drift, and silent tool failures — that only become visible when agents have run long enough to tell the truth.
+- [AgentCenter vs Braintrust — Evaluation vs Operational Control](https://agentcenter.cloud/blogs/agentcenter-vs-braintrust): Braintrust evaluates LLM outputs for quality and prompt regression. AgentCenter manages the agents producing them in production — task tracking, real-time status, deliverable review, and per-task cost visibility.
 
 ## Legal
 
