@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 293 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 294 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -358,6 +358,7 @@ AgentCenter provides:
 - [AI Agents for Customer Onboarding Teams](https://agentcenter.cloud/blogs/customer-onboarding-teams-ai-agent-management): How customer onboarding teams manage document collection, verification, welcome sequence, and activation check agents without losing new customers to silent pipeline failures.
 - [The Agent That Doesn't Know It's Wrong](https://agentcenter.cloud/blogs/the-agent-that-doesnt-know-its-wrong): How agents confidently complete tasks with stale context, outdated assumptions, or missing information — and why standard monitoring won't catch it.
 - [AgentCenter vs OpenAI Assistants API: Conversation or Control?](https://agentcenter.cloud/blogs/agentcenter-vs-openai-assistants): OpenAI Assistants API runs AI agents — AgentCenter manages them. Here's what teams discover when running both in production.
+- [How to Write Integration Tests for Multi-Agent Pipelines](https://agentcenter.cloud/blogs/how-to-write-integration-tests-for-multi-agent-pipelines): Integration tests catch the handoff failures that unit tests miss — schema contracts, fixture-based testing, and end-to-end staging runs for multi-agent pipelines.
 
 ## Legal
 
