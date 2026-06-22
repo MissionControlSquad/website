@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 298 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 299 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -363,6 +363,7 @@ AgentCenter provides:
 - [What You Find at 1,000 Agent Tasks](https://agentcenter.cloud/blogs/what-you-find-at-1000-agent-tasks): The patterns invisible at 100 tasks — token drift, time-of-day failure clustering, output quality drift, and silent tool failures — that only become visible when agents have run long enough to tell the truth.
 - [AgentCenter vs Braintrust — Evaluation vs Operational Control](https://agentcenter.cloud/blogs/agentcenter-vs-braintrust): Braintrust evaluates LLM outputs for quality and prompt regression. AgentCenter manages the agents producing them in production — task tracking, real-time status, deliverable review, and per-task cost visibility.
 - [How to Debug Slow AI Agents in Production](https://agentcenter.cloud/blogs/how-to-debug-slow-ai-agents): How to find the bottleneck when an agent gets slow — task duration trends, token usage, external tool calls, and a step-by-step isolation process using AgentCenter monitoring.
+- [AI Agents for Fleet Operations Teams](https://agentcenter.cloud/blogs/fleet-management-operations-ai-agent-management): How fleet operations teams manage vehicle monitoring, maintenance scheduling, compliance, and fuel anomaly agents with real-time status, cost tracking, and handoff visibility in AgentCenter.
 
 ## Legal
 
