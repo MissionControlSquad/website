@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 306 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 307 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -372,6 +372,7 @@ AgentCenter provides:
 
 - [How to Freeze an AI Agent During a Production Incident](https://agentcenter.cloud/blogs/how-to-freeze-an-ai-agent-during-production-incident): How to stop a misbehaving AI agent cleanly during a production incident, preserve task state, investigate the root cause, and resume or reassign without losing work.
 - [AgentCenter vs Splunk — Agent Management vs Log Aggregation](https://agentcenter.cloud/blogs/agentcenter-vs-splunk): Splunk collects logs. AgentCenter manages agents. Here's what teams discover when they try to use Splunk for AI agent visibility and control.
+- [How to Monitor a Multi-Agent Pipeline End to End](https://agentcenter.cloud/blogs/how-to-monitor-multi-agent-pipeline-end-to-end): How to set up end-to-end visibility across a multi-agent pipeline using task dependencies, naming conventions, timeout alerts, and the activity feed in AgentCenter.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
