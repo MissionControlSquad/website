@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 308 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 309 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -374,6 +374,7 @@ AgentCenter provides:
 - [AgentCenter vs Splunk — Agent Management vs Log Aggregation](https://agentcenter.cloud/blogs/agentcenter-vs-splunk): Splunk collects logs. AgentCenter manages agents. Here's what teams discover when they try to use Splunk for AI agent visibility and control.
 - [How to Monitor a Multi-Agent Pipeline End to End](https://agentcenter.cloud/blogs/how-to-monitor-multi-agent-pipeline-end-to-end): How to set up end-to-end visibility across a multi-agent pipeline using task dependencies, naming conventions, timeout alerts, and the activity feed in AgentCenter.
 - [AI Agents for Patent and IP Management Teams](https://agentcenter.cloud/blogs/patent-ip-teams-ai-agent-management): How patent and IP management teams manage prior art search, claim analysis, and portfolio monitoring agents with a dedicated control plane.
+- [AgentCenter vs Phidata — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-phidata): Why Phidata builds intelligent agents but doesn't manage them across a team — and where AgentCenter fills the gap as a dedicated control plane.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
