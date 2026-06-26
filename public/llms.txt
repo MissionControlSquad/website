@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 310 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 311 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -376,6 +376,7 @@ AgentCenter provides:
 - [AI Agents for Patent and IP Management Teams](https://agentcenter.cloud/blogs/patent-ip-teams-ai-agent-management): How patent and IP management teams manage prior art search, claim analysis, and portfolio monitoring agents with a dedicated control plane.
 - [AgentCenter vs Phidata — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-phidata): Why Phidata builds intelligent agents but doesn't manage them across a team — and where AgentCenter fills the gap as a dedicated control plane.
 - [AI Agents for Retail Merchandising Teams](https://agentcenter.cloud/blogs/retail-merchandising-ai-agent-management): How retail merchandising teams manage pricing, product content, and competitor tracking agents across thousands of SKUs with a dedicated control plane.
+- [Why Your Agent Prompt Becomes Tech Debt](https://agentcenter.cloud/blogs/why-agent-prompts-become-tech-debt): How production agent prompts accumulate patches and contradictions over time until they become unmaintainable tech debt and what to do about it.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
