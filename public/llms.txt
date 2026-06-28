@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 316 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 317 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -382,6 +382,7 @@ AgentCenter provides:
 - [AgentCenter vs Metaflow — Control Plane vs ML Pipeline](https://agentcenter.cloud/blogs/agentcenter-vs-metaflow): How Metaflow ML pipeline orchestration differs from AI agent management — and why teams running agents in production need a dedicated control plane.
 - [How to Set Up SLOs for Your AI Agent Fleet](https://agentcenter.cloud/blogs/how-to-set-up-slos-for-ai-agents): SLOs give your AI agents measurable reliability targets — how to define, track, and act on them before your team is flying blind.
 - [AI Agents for Business Intelligence Teams](https://agentcenter.cloud/blogs/business-intelligence-teams-ai-agent-management): How BI teams manage report generation, anomaly detection, and commentary agents without losing visibility when a nightly run breaks.
+- [Why the Second Agent Failure Costs More Than the First](https://agentcenter.cloud/blogs/why-the-second-agent-failure-costs-more): Why patching the symptom of an agent failure instead of the root cause makes the second failure more expensive in time, trust, and stakeholder confidence.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
