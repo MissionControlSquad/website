@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 314 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 315 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -380,6 +380,7 @@ AgentCenter provides:
 - [How to Run a Weekly Agent Fleet Review](https://agentcenter.cloud/blogs/how-to-run-weekly-agent-fleet-review): A 5-step weekly process for checking agent completion rates, error patterns, cost trends, and stalled work before problems compound.
 - [AI Agents for Privacy Engineering Teams](https://agentcenter.cloud/blogs/privacy-engineering-teams-ai-agent-management): How privacy engineering teams manage GDPR/CCPA automation agents, PII scanning pipelines, and data subject request workflows without losing visibility.
 - [AgentCenter vs Metaflow — Control Plane vs ML Pipeline](https://agentcenter.cloud/blogs/agentcenter-vs-metaflow): How Metaflow ML pipeline orchestration differs from AI agent management — and why teams running agents in production need a dedicated control plane.
+- [How to Set Up SLOs for Your AI Agent Fleet](https://agentcenter.cloud/blogs/how-to-set-up-slos-for-ai-agents): SLOs give your AI agents measurable reliability targets — how to define, track, and act on them before your team is flying blind.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
@@ -394,3 +395,4 @@ AgentCenter provides:
 ## Optional
 
 - [Sitemap](https://agentcenter.cloud/sitemap.xml): Full list of indexable URLs
+
