@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 318 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 319 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -384,6 +384,7 @@ AgentCenter provides:
 - [AI Agents for Business Intelligence Teams](https://agentcenter.cloud/blogs/business-intelligence-teams-ai-agent-management): How BI teams manage report generation, anomaly detection, and commentary agents without losing visibility when a nightly run breaks.
 - [Why the Second Agent Failure Costs More Than the First](https://agentcenter.cloud/blogs/why-the-second-agent-failure-costs-more): Why patching the symptom of an agent failure instead of the root cause makes the second failure more expensive in time, trust, and stakeholder confidence.
 - [AgentCenter vs AWS Step Functions — Workflow vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-aws-step-functions): How AWS Step Functions compares to AgentCenter for AI agent management — and why workflow orchestration is not the same as a dedicated control plane.
+- [AI Agents for Proposal Management Teams](https://agentcenter.cloud/blogs/proposal-management-teams-ai-agent-management): How proposal management teams manage RFP parsing, compliance checking, and section writing agents without losing visibility under deadline.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
