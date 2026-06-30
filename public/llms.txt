@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 319 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 322 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -385,6 +385,9 @@ AgentCenter provides:
 - [Why the Second Agent Failure Costs More Than the First](https://agentcenter.cloud/blogs/why-the-second-agent-failure-costs-more): Why patching the symptom of an agent failure instead of the root cause makes the second failure more expensive in time, trust, and stakeholder confidence.
 - [AgentCenter vs AWS Step Functions — Workflow vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-aws-step-functions): How AWS Step Functions compares to AgentCenter for AI agent management — and why workflow orchestration is not the same as a dedicated control plane.
 - [AI Agents for Proposal Management Teams](https://agentcenter.cloud/blogs/proposal-management-teams-ai-agent-management): How proposal management teams manage RFP parsing, compliance checking, and section writing agents without losing visibility under deadline.
+- [What You Learn About Your Team When an Agent Stops Working](https://agentcenter.cloud/blogs/what-you-learn-about-your-team-when-an-agent-stops): What an agent outage reveals about ownership gaps, unreviewed output, undocumented dependencies, and access problems your team never knew it had.
+- [AgentCenter vs Slack — Managing AI Agents Isn't a Chat Problem](https://agentcenter.cloud/blogs/agentcenter-vs-slack): Why using Slack as your AI agent control plane breaks down at scale — and how a dedicated management dashboard handles task state, cost tracking, and deliverable review.
+- [How to Categorize AI Agents by Risk Level](https://agentcenter.cloud/blogs/how-to-categorize-ai-agents-by-risk-level): A practical framework for grouping AI agents into risk tiers so you apply the right oversight, approval workflows, and monitoring to each.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
@@ -399,4 +402,5 @@ AgentCenter provides:
 ## Optional
 
 - [Sitemap](https://agentcenter.cloud/sitemap.xml): Full list of indexable URLs
+
 
