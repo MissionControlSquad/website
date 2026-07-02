@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 324 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 325 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -390,6 +390,7 @@ AgentCenter provides:
 - [How to Categorize AI Agents by Risk Level](https://agentcenter.cloud/blogs/how-to-categorize-ai-agents-by-risk-level): A practical framework for grouping AI agents into risk tiers so you apply the right oversight, approval workflows, and monitoring to each.
 - [AI Agents for Clinical Research Teams](https://agentcenter.cloud/blogs/ai-agents-for-clinical-research-teams): How clinical research teams manage eligibility screening, regulatory prep, and data extraction agents across multiple active trials without losing visibility.
 - [The Problem With Agents That Are Almost Right](https://agentcenter.cloud/blogs/the-problem-with-almost-right-agents): Why a 94% accurate AI agent can cost your team more time than one that fails reliably — and how to spot the difference before shipping.
+- [Why Your Agent Is Solving Yesterday's Problem](https://agentcenter.cloud/blogs/why-your-agent-is-solving-yesterdays-problem): How agents drift out of alignment when the workflow they were built for changes — and why your metrics won't catch it.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
