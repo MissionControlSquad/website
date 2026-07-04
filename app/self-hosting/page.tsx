@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Self-Hosted AI Agent Dashboard | AgentCenter",
     description: `Run AgentCenter on your own server. Docker image + activation key + docker-compose. From $${SELFHOSTING_PRICING.monthly}/month.`,
-    creator: "@dharmikjagodana",
-    site: "@dharmikjagodana",
+    creator: "@Dharmendra_Jago",
+    site: "@Dharmendra_Jago",
     images: [ogImage("self-hosting")],
   },
 };
