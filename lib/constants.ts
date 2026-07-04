@@ -33,7 +33,7 @@ export const PROVISIONING_STATUS = {
 } as const;
 export type ProvisioningStatus = (typeof PROVISIONING_STATUS)[keyof typeof PROVISIONING_STATUS];
 
-export const CAL_LINK = "https://cal.com/dharmikjagodana/agentcenter";
+export const CAL_LINK = "https://cal.com/dharmendra-jagodana-8c8oye/agentcenter-cloud";
 
 export const SITE_CONFIG = {
   name: "AgentCenter",
