@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 328 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 330 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -394,6 +394,8 @@ AgentCenter provides:
 - [What Your Agents Remember That Your Team Has Forgotten](https://agentcenter.cloud/blogs/what-your-agents-remember-that-your-team-has-forgotten): How six months of production agent outputs become institutional memory — and what reading them reveals about edge cases, behavioral drift, and hidden decisions.
 - [When Agents Work Faster Than Your Team Can Review](https://agentcenter.cloud/blogs/when-agents-work-faster-than-your-team-can-review): Why agents that outpace your review capacity create backlogs that turn human oversight into a rubber stamp — and how tiered review models fix it.
 - [AgentCenter vs Kestra](https://agentcenter.cloud/blogs/agentcenter-vs-kestra): Kestra orchestrates your pipelines. AgentCenter manages your AI agents. Here's what that distinction actually means in production.
+- [How to Choose the Right LLM for Each Agent in Your Fleet](https://agentcenter.cloud/blogs/how-to-choose-the-right-llm-for-each-agent): How to match LLM models to agent task complexity — tier 1 cheap-fast models for extraction and classification, premium models only where judgment is genuinely needed.
+- [AI Agents for Internal Tools Engineering Teams](https://agentcenter.cloud/blogs/internal-tools-engineering-ai-agent-management): How internal tools engineering teams coordinate data pipeline agents, Slack bots, and report automation in production without losing track of what's running.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
