@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 333 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 334 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -399,6 +399,7 @@ AgentCenter provides:
 - [Why Your Agent's Problem Is Probably Not Its Prompt](https://agentcenter.cloud/blogs/why-your-agents-problem-is-probably-not-its-prompt): Why most production AI agent failures trace back to input data, tool configuration, or task descriptions — not the prompt — and how to diagnose which layer the problem is actually in.
 - [AgentCenter vs Prometheus](https://agentcenter.cloud/blogs/agentcenter-vs-prometheus): Prometheus tracks metrics. AgentCenter manages agents. Here's what's missing when you use a monitoring tool as your AI agent control plane.
 - [How to Handle AI Agent Tasks During a Provider Outage](https://agentcenter.cloud/blogs/how-to-handle-agent-tasks-during-llm-provider-outage): A structured process to pause in-flight agent tasks, notify your team, resume gradually, and validate output quality when your LLM provider goes down.
+- [The Agent That Revealed Your Process Was Broken](https://agentcenter.cloud/blogs/the-agent-that-revealed-your-process-was-broken): How AI agents surface broken processes your team has been quietly working around — and why the right fix is the process, not the prompt.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
