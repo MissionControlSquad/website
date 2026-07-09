@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 336 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 337 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -402,6 +402,7 @@ AgentCenter provides:
 - [The Agent That Revealed Your Process Was Broken](https://agentcenter.cloud/blogs/the-agent-that-revealed-your-process-was-broken): How AI agents surface broken processes your team has been quietly working around — and why the right fix is the process, not the prompt.
 - [AgentCenter vs ClickUp — Task Boards vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-clickup): ClickUp tracks human project work. AgentCenter manages AI agents with live status, cost tracking, and deliverable review. Here's what changes once your agents are running.
 - [How to Run AI Agents in Shadow Mode Before Full Deployment](https://agentcenter.cloud/blogs/how-to-run-ai-agents-in-shadow-mode): A step-by-step guide to validating a new AI agent on real production inputs before committing to full deployment.
+- [When Humans Start Working Around Your Agents](https://agentcenter.cloud/blogs/when-humans-work-around-your-agents): Why human workarounds are the leading indicator of AI agent failure — before any error metric fires, your team is already compensating silently.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
