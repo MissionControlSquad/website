@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 343 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 344 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -409,6 +409,7 @@ AgentCenter provides:
 - [What AI Agent Management Looks Like at Year Two](https://agentcenter.cloud/blogs/what-agent-management-looks-like-at-year-two): What AI agent management looks like after your first year in production, and what you learn about your fleet once it outgrows your memory.
 - [How to Build an AI Agent Catalog Your Team Will Actually Use](https://agentcenter.cloud/blogs/how-to-build-an-ai-agent-catalog): A five-step guide to documenting every production agent with owner, cost, dependencies, and task scope — so your team always knows what's running and who's responsible.
 - [AI Agents for Solutions Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-solutions-engineering-teams): How solutions engineering teams manage RFP agents, demo builders, and research agents across active deals using AgentCenter.
+- [Why Reviewing Your Own Agent's Output Doesn't Work](https://agentcenter.cloud/blogs/why-reviewing-your-own-agents-output-doesnt-work): Why the person who built the agent is the worst reviewer of its outputs — and how to fix the review gap before errors compound in production.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
