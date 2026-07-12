@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 345 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 346 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -411,6 +411,7 @@ AgentCenter provides:
 - [AI Agents for Solutions Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-solutions-engineering-teams): How solutions engineering teams manage RFP agents, demo builders, and research agents across active deals using AgentCenter.
 - [Why Reviewing Your Own Agent's Output Doesn't Work](https://agentcenter.cloud/blogs/why-reviewing-your-own-agents-output-doesnt-work): Why the person who built the agent is the worst reviewer of its outputs — and how to fix the review gap before errors compound in production.
 - [How to Set Up Cost Allocation for Shared AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-cost-allocation-for-shared-ai-agents): How to tag tasks by team, capture token usage per task, and build weekly cost attribution reports so you always know which teams are spending what on shared agent infrastructure.
+- [AI Agents for AppSec Engineering Teams](https://agentcenter.cloud/blogs/appsec-engineering-teams-ai-agent-management): How application security teams manage SAST, DAST, and triage agents in production using AgentCenter's control plane.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
