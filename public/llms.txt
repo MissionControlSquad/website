@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 349 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 350 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -415,6 +415,7 @@ AgentCenter provides:
 - [Being On Call for AI Agents Is Nothing Like Software](https://agentcenter.cloud/blogs/on-call-for-ai-agents-is-different): Why agent failures are silent where software failures are loud — and the review habits experienced teams build before alerts can catch them.
 - [AgentCenter vs Ray — Distributed Compute vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-ray): Ray scales Python workloads across clusters. AgentCenter manages AI agents in production. Here's what separates compute infrastructure from an agent control plane.
 - [How to Keep AI Agent Context Fresh During Long-Running Tasks](https://agentcenter.cloud/blogs/how-to-keep-ai-agent-context-fresh): How to detect and fix context staleness in long-running AI agents — periodic checkpointing, task-bounded context windows, and external state storage.
+- [AI Agents for IoT Platform Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-iot-platform-engineering-teams): How IoT platform teams use AgentCenter to monitor telemetry pipelines, track agent costs, and catch silent failures across device fleet agent workflows.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
