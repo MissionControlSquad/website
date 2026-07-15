@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 354 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 355 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -420,6 +420,8 @@ AgentCenter provides:
 - [AgentCenter vs Arize AI — Observability vs Control](https://agentcenter.cloud/blogs/agentcenter-vs-arize-ai): Why Arize AI's LLM call tracing and AgentCenter's agent task management solve different problems — and what you actually need when agents fail in production.
 - [How to Set Up Agent Task Templates for Repeatable Workflows](https://agentcenter.cloud/blogs/how-to-set-up-agent-task-templates): How to create reusable task templates in AgentCenter to standardize repeatable agent work and get consistent outputs across runs.
 - [Why Your Agent's Third Month in Production Is Its Hardest](https://agentcenter.cloud/blogs/why-your-agents-third-month-is-its-hardest): Why month three is when production agents silently degrade — context drift, stale prompts, and metrics nobody reviews anymore.
+- [AgentCenter vs Pydantic AI — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-pydantic-ai): Pydantic AI builds type-safe AI agents in Python. AgentCenter manages them in production — task tracking, deliverable review, cost visibility, and real-time agent status.
+- [How to Design Fallback Behaviors for AI Agents](https://agentcenter.cloud/blogs/how-to-design-fallback-behaviors-for-ai-agents): How to map agent failure modes and define fallback actions — partial results, human handoffs, retries, and graceful stops — so agents fail gracefully instead of silently.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
