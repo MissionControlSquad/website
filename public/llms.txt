@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 356 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 359 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -424,6 +424,9 @@ AgentCenter provides:
 - [AgentCenter vs Pydantic AI — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-pydantic-ai): Pydantic AI builds type-safe AI agents in Python. AgentCenter manages them in production — task tracking, deliverable review, cost visibility, and real-time agent status.
 - [How to Design Fallback Behaviors for AI Agents](https://agentcenter.cloud/blogs/how-to-design-fallback-behaviors-for-ai-agents): How to map agent failure modes and define fallback actions — partial results, human handoffs, retries, and graceful stops — so agents fail gracefully instead of silently.
 - [AI Agents for Partner Engineering Teams](https://agentcenter.cloud/blogs/partner-engineering-teams-ai-agent-management): How partner engineering teams manage AI agents for integration testing, partner onboarding, and API health monitoring without losing visibility in production.
+- [Why Your Agent Produces Different Results for Different People](https://agentcenter.cloud/blogs/why-agents-produce-different-results-for-different-people): Why the same AI agent delivers wildly different output quality depending on who assigns the task, and how to fix it with input standardization.
+- [AgentCenter vs Copilot Studio — Agent Builder or Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-copilot-studio): Copilot Studio builds AI agents for the Microsoft ecosystem. AgentCenter manages them in production with task visibility, cost tracking, and deliverable review.
+- [How to Set Up Automated Output Validation for AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-automated-output-validation-for-ai-agents): Automated output validation catches format errors, missing fields, and quality issues before bad agent output reaches your downstream systems.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
