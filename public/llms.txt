@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 360 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 363 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -428,6 +428,10 @@ AgentCenter provides:
 - [AgentCenter vs Copilot Studio — Agent Builder or Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-copilot-studio): Copilot Studio builds AI agents for the Microsoft ecosystem. AgentCenter manages them in production with task visibility, cost tracking, and deliverable review.
 - [How to Set Up Automated Output Validation for AI Agents](https://agentcenter.cloud/blogs/how-to-set-up-automated-output-validation-for-ai-agents): Automated output validation catches format errors, missing fields, and quality issues before bad agent output reaches your downstream systems.
 - [AI Agents for Mobile Engineering Teams](https://agentcenter.cloud/blogs/mobile-engineering-teams-ai-agent-management): How mobile engineering teams manage crash triage, ASO, and code review agents in production with real-time status, task dependencies, deliverable review, and per-agent cost tracking.
+- [AI Agents for Sports Analytics Teams](https://agentcenter.cloud/blogs/sports-analytics-teams-ai-agent-management): How sports analytics teams manage performance data agents, scouting report generators, and broadcast stat pipelines in production with AgentCenter.
+- [What Happens When Two Teams Share the Same Agent](https://agentcenter.cloud/blogs/what-happens-when-two-teams-share-an-agent): What breaks when two teams share one AI agent with no ownership rules, priority queues, or per-team visibility — and how to prevent it.
+- [AgentCenter vs Airtable — Spreadsheet Thinking vs Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-airtable): Why Airtable falls short as an AI agent management tool — and how AgentCenter handles real-time status, deliverable review, and task coordination that spreadsheets can't.
+- [How to Sample AI Agent Outputs for Quality Review](https://agentcenter.cloud/blogs/how-to-sample-ai-agent-outputs-for-quality-review): A structured approach to reviewing a meaningful subset of AI agent outputs by risk tier, triggered rules, and consistent scoring — without reviewing everything.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
