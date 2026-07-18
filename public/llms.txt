@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 365 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 366 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -434,6 +434,7 @@ AgentCenter provides:
 - [How to Sample AI Agent Outputs for Quality Review](https://agentcenter.cloud/blogs/how-to-sample-ai-agent-outputs-for-quality-review): A structured approach to reviewing a meaningful subset of AI agent outputs by risk tier, triggered rules, and consistent scoring — without reviewing everything.
 - [AI Agents for Wealth Management Teams](https://agentcenter.cloud/blogs/wealth-management-teams-ai-agent-management): How wealth management and wealthtech teams keep client briefing, portfolio analysis, and risk agents visible, gated, and cost-tracked in production.
 - [AgentCenter vs Trello — Task Boards vs Agent Control Planes](https://agentcenter.cloud/blogs/agentcenter-vs-trello): Why Trello falls short for AI agent management — real-time status, cost tracking, and output review that a Kanban board can't provide.
+- [How to Validate AI Agent Inputs Before They Run](https://agentcenter.cloud/blogs/how-to-validate-ai-agent-inputs): Step-by-step guide to validating agent inputs before task creation — structure checks, reference validity, freshness limits, and failure routing so bad inputs never reach your agents.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
