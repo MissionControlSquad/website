@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 370 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 371 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -444,6 +444,7 @@ AgentCenter provides:
 - [AgentCenter vs Hugging Face — Control Plane vs Model Host](https://agentcenter.cloud/blogs/agentcenter-vs-hugging-face): Why Hugging Face Inference Endpoints and Spaces fall short as an agent control plane — and how AgentCenter adds task tracking, multi-agent coordination, and output review on top.
 - [AI Agents for Creative Agency Teams](https://agentcenter.cloud/blogs/creative-agency-teams-ai-agent-management): How creative agency teams manage AI agents across client accounts, from copy pipelines and deliverable review to per-client LLM cost tracking.
 - [How to Create a Pre-Deployment Checklist for AI Agents](https://agentcenter.cloud/blogs/how-to-create-a-pre-deployment-checklist-for-ai-agents): Ten-point checklist for shipping AI agents to production — input validation, output schemas, cost limits, health checks, owner assignment, and a written rollback plan.
+- [Why Agent Deployment Is the Easy Part](https://agentcenter.cloud/blogs/why-agent-deployment-is-the-easy-part): What the ongoing maintenance, output review, context drift, and stakeholder questions look like after you ship an agent — and why most teams don't plan for them.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
