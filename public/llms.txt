@@ -442,6 +442,7 @@ AgentCenter provides:
 - [AI Agents for Knowledge Management Teams](https://agentcenter.cloud/blogs/knowledge-management-teams-ai-agent-management): How knowledge management teams keep their documentation agents, Q&A bots, and wiki curation pipelines visible, reviewed, and cost-tracked in production.
 - [Why Your Incident Runbook Doesn't Work for AI Agent Failures](https://agentcenter.cloud/blogs/why-your-incident-runbook-doesnt-work-for-ai-agent-failures): Why software incident runbooks fail for AI agent failures — agents produce output instead of errors, and everything about detection, scoping, and remediation works differently.
 - [AgentCenter vs Hugging Face — Control Plane vs Model Host](https://agentcenter.cloud/blogs/agentcenter-vs-hugging-face): Why Hugging Face Inference Endpoints and Spaces fall short as an agent control plane — and how AgentCenter adds task tracking, multi-agent coordination, and output review on top.
+- [AI Agents for Creative Agency Teams](https://agentcenter.cloud/blogs/creative-agency-teams-ai-agent-management): How creative agency teams manage AI agents across client accounts, from copy pipelines and deliverable review to per-client LLM cost tracking.
 - [How to Create a Pre-Deployment Checklist for AI Agents](https://agentcenter.cloud/blogs/how-to-create-a-pre-deployment-checklist-for-ai-agents): Ten-point checklist for shipping AI agents to production — input validation, output schemas, cost limits, health checks, owner assignment, and a written rollback plan.
 ## Legal
 
