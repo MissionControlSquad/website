@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 376 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 377 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -452,6 +452,7 @@ AgentCenter provides:
 - [AgentCenter vs Vellum AI — Prompt Platform vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-vellum-ai): Vellum AI manages LLM workflows and prompts. AgentCenter manages AI agents in production — tasks, costs, team visibility, and deliverable review.
 - [How to Red-Team Your AI Agents Before Production](https://agentcenter.cloud/blogs/how-to-red-team-ai-agents): A step-by-step guide to adversarial testing for AI agents — finding failure modes before production does.
 - [AI Agents for Corporate Communications Teams](https://agentcenter.cloud/blogs/corporate-communications-ai-agent-management): How corporate communications teams manage media monitoring, press drafting, and stakeholder briefing agents with real-time status, task dependencies, and deliverable review gates.
+- [Why Your Agents Keep Making the Same Mistake](https://agentcenter.cloud/blogs/why-your-agents-keep-making-the-same-mistake): Why AI agents repeat production failures without deliberate feedback loops — and what test suites, output sampling, and baseline tracking actually fix.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
