@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 374 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 375 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -448,6 +448,7 @@ AgentCenter provides:
 - [AgentCenter vs Power Automate — Automation vs AI Agents](https://agentcenter.cloud/blogs/agentcenter-vs-power-automate): Why Power Automate falls short for AI agent management — and how AgentCenter adds real-time agent status, cost tracking, and deliverable review on top of your existing automation.
 - [AI Agents for Pricing Operations Teams](https://agentcenter.cloud/blogs/pricing-ops-teams-ai-agent-management): How pricing operations teams manage dynamic pricing, margin, and promotional agents in production, and how to keep control of who changed what.
 - [What Happened When We Cut Our Agent Costs in Half](https://agentcenter.cloud/blogs/what-happened-when-we-cut-agent-costs-in-half): Why cutting LLM spend by 52% led to more errors, slower review queues, and a customer incident — and what cost metric actually matters for agent quality.
+- [How to Red-Team Your AI Agents Before Production](https://agentcenter.cloud/blogs/how-to-red-team-ai-agents): A step-by-step guide to adversarial testing for AI agents — finding failure modes before production does.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
