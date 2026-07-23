@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 382 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 383 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -459,6 +459,7 @@ AgentCenter provides:
 - [Why the First Thing You Monitor Is Never the Thing That Breaks](https://agentcenter.cloud/blogs/why-the-first-thing-you-monitor-isnt-what-breaks): Why teams instrument token cost and latency first — and why the real failures in AI agent monitoring come from output quality drift and silent wrong answers.
 - [AgentCenter vs Databricks — AI Platform vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-databricks): Databricks builds and trains AI at scale — AgentCenter manages AI agents in production with task visibility, deliverable review, real-time status, and per-task cost tracking.
 - [How to Set Up an AI Agent Intake Process](https://agentcenter.cloud/blogs/how-to-set-up-an-ai-agent-intake-process): How to build an AI agent intake process — from request form to go/no-go review, owner assignment, and trial period success criteria.
+- [AI Agents for Hospitality Tech Teams](https://agentcenter.cloud/blogs/ai-agents-for-hospitality-tech-teams): How hospitality tech teams manage guest communication, dynamic pricing, and review response agents without losing track of what's running.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
