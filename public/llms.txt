@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 389 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 390 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -466,6 +466,7 @@ AgentCenter provides:
 - [How to Set AI Agent Task Priorities Across Multiple Teams](https://agentcenter.cloud/blogs/how-to-set-agent-task-priorities-across-teams): How to define priority tiers, set per-team limits, and build an escalation path so shared agents run the right tasks first.
 - [AI Agent Management for Technical Program Managers](https://agentcenter.cloud/blogs/tpm-teams-ai-agent-management): How TPM teams track status, catch agent failures, and coordinate cross-program AI agent work using AgentCenter's kanban board, monitoring, and deliverable review.
 - [Why Agents Fail at the Seams](https://agentcenter.cloud/blogs/why-agents-fail-at-the-seams): Why multi-agent pipeline failures happen at handoff points between agents, not inside individual agents, and how to instrument the seams to catch them.
+- [AgentCenter vs Inngest — Agent Orchestration vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-inngest): Inngest runs AI agent functions reliably; AgentCenter manages the agents doing that work with task tracking, deliverable review, cost visibility, and team coordination.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
