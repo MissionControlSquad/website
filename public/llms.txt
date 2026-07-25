@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 386 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 387 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -463,6 +463,7 @@ AgentCenter provides:
 - [How FP&A Teams Manage AI Agents in Production](https://agentcenter.cloud/blogs/fpa-teams-ai-agent-management): How financial planning and analysis teams manage variance analysis, forecasting, and board commentary agents — with task dependencies, deliverable review, and a full audit trail.
 - [Why Agent Maintenance Debt Compounds](https://agentcenter.cloud/blogs/why-agent-maintenance-debt-compounds): How model drift, prompt drift, and API changes compound silently in production agents — and why scheduled maintenance windows catch problems before they become outages.
 - [AgentCenter vs LangFlow — Visual Builder vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-langflow): LangFlow builds agent pipelines visually; AgentCenter manages them in production — task tracking, live status, deliverable review, and cost logging.
+- [How to Set AI Agent Task Priorities Across Multiple Teams](https://agentcenter.cloud/blogs/how-to-set-agent-task-priorities-across-teams): How to define priority tiers, set per-team limits, and build an escalation path so shared agents run the right tasks first.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
