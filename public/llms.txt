@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 395 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 396 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -472,6 +472,7 @@ AgentCenter provides:
 - [Why Unreviewed Agents Degrade Your Team's Judgment](https://agentcenter.cloud/blogs/why-unreviewed-agents-degrade-your-teams-judgment): When teams stop reviewing agent outputs, they lose more than oversight — they lose the ability to spot problems. Here's what that costs and how to prevent it.
 - [AgentCenter vs Salesforce Agentforce — CRM Suite vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-salesforce-agentforce): Salesforce Agentforce automates CRM workflows inside the Salesforce ecosystem — AgentCenter manages AI agents in production with task tracking, cost visibility, deliverable review, and real-time status for any stack.
 - [How to Set Up Automated Health Reports for Your AI Agent Fleet](https://agentcenter.cloud/blogs/how-to-set-up-automated-health-reports-for-ai-agents): How to configure recurring automated health reports for your AI agent fleet — covering status, cost, errors, and task trends without manual dashboard checks.
+- [What You Learn When You Stop Your Agents for a Week](https://agentcenter.cloud/blogs/what-you-learn-when-you-stop-your-agents-for-a-week): Pausing all your AI agents reveals which ones are critical vs. invisible — a perspective on deliberate agent pauses and what they expose about fleet value and zombie agents.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
