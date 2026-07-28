@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 397 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 398 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -479,6 +479,7 @@ AgentCenter provides:
 - [What You Learn When You Stop Your Agents for a Week](https://agentcenter.cloud/blogs/what-you-learn-when-you-stop-your-agents-for-a-week): Pausing all your AI agents reveals which ones are critical vs. invisible — a perspective on deliberate agent pauses and what they expose about fleet value and zombie agents.
 - [AgentCenter vs Taskade — AI Task Manager vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-taskade): Taskade bundles AI into a collaborative workspace — AgentCenter manages OpenClaw agents in production with real-time status, cost tracking, deliverable review, and cross-agent coordination.
 - [How to Document Your AI Agent's Tool and API Dependencies](https://agentcenter.cloud/blogs/how-to-document-ai-agent-tool-dependencies): How to map which external APIs and tools each agent depends on, build a reverse-lookup for incident response, and keep that documentation current as agents change.
+- [Why Inconsistent Agent Performance Is Harder Than Failure](https://agentcenter.cloud/blogs/why-agent-performance-variance-breaks-production): Why variance in AI agent execution time — not outright failure — is the harder production problem, and what to measure instead of averages.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
