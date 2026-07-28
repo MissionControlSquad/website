@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 391 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 397 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -468,6 +468,14 @@ AgentCenter provides:
 - [Why Agents Fail at the Seams](https://agentcenter.cloud/blogs/why-agents-fail-at-the-seams): Why multi-agent pipeline failures happen at handoff points between agents, not inside individual agents, and how to instrument the seams to catch them.
 - [AgentCenter vs Inngest — Agent Orchestration vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-inngest): Inngest runs AI agent functions reliably; AgentCenter manages the agents doing that work with task tracking, deliverable review, cost visibility, and team coordination.
 - [How to Onboard New Engineers to Your AI Agent Workflows](https://agentcenter.cloud/blogs/how-to-onboard-engineers-to-ai-agent-workflows): How to document your agents, structure dashboard access, and walk new engineers through your production agent stack before they break anything.
+- [AI Agents for Telecom Operations Teams](https://agentcenter.cloud/blogs/ai-agents-for-telecom-operations-teams): How telecom ops teams manage fault detection, billing anomaly, and churn prediction agents in production using AgentCenter's control plane.
+- [Why Unreviewed Agents Degrade Your Team's Judgment](https://agentcenter.cloud/blogs/why-unreviewed-agents-degrade-your-teams-judgment): When teams stop reviewing agent outputs, they lose more than oversight — they lose the ability to spot problems. Here's what that costs and how to prevent it.
+- [AgentCenter vs Salesforce Agentforce — CRM Suite vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-salesforce-agentforce): Salesforce Agentforce automates CRM workflows inside the Salesforce ecosystem — AgentCenter manages AI agents in production with task tracking, cost visibility, deliverable review, and real-time status for any stack.
+- [How to Set Up Automated Health Reports for Your AI Agent Fleet](https://agentcenter.cloud/blogs/how-to-set-up-automated-health-reports-for-ai-agents): How to configure recurring automated health reports for your AI agent fleet — covering status, cost, errors, and task trends without manual dashboard checks.
+- [AI Agents for Government Tech Teams](https://agentcenter.cloud/blogs/government-tech-teams-ai-agent-management): How government and public sector tech teams manage AI agents for permit processing, document handling, and compliance workflows with full audit trails and human review.
+- [What You Learn When You Stop Your Agents for a Week](https://agentcenter.cloud/blogs/what-you-learn-when-you-stop-your-agents-for-a-week): Pausing all your AI agents reveals which ones are critical vs. invisible — a perspective on deliberate agent pauses and what they expose about fleet value and zombie agents.
+- [AgentCenter vs Taskade — AI Task Manager vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-taskade): Taskade bundles AI into a collaborative workspace — AgentCenter manages OpenClaw agents in production with real-time status, cost tracking, deliverable review, and cross-agent coordination.
+- [How to Document Your AI Agent's Tool and API Dependencies](https://agentcenter.cloud/blogs/how-to-document-ai-agent-tool-dependencies): How to map which external APIs and tools each agent depends on, build a reverse-lookup for incident response, and keep that documentation current as agents change.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
