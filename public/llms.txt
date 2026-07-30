@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 402 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 403 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -484,6 +484,7 @@ AgentCenter provides:
 - [Why Adding Context to Your Agents Usually Makes Them Worse](https://agentcenter.cloud/blogs/why-adding-context-makes-agents-worse): How prompt accumulation degrades production AI agents, and why removing instructions often fixes what more rules can't.
 - [AgentCenter vs Composio — Tool Integrations vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-composio): Composio connects agents to 200+ external tools; AgentCenter manages the agents using them — tasks, status, cost tracking, and deliverable review.
 - [How to Set Spending Limits on AI Agents](https://agentcenter.cloud/blogs/how-to-set-spending-limits-on-ai-agents): How to set per-agent and per-task spending caps in AgentCenter before a runaway task blows your monthly LLM budget.
+- [AI Agents for Newsroom Automation Teams](https://agentcenter.cloud/blogs/ai-agents-for-newsroom-automation-teams): How editorial and news teams use AI agents for source monitoring, research, and draft generation without losing quality control.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
