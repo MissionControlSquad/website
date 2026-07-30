@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 404 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 405 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -486,6 +486,7 @@ AgentCenter provides:
 - [How to Set Spending Limits on AI Agents](https://agentcenter.cloud/blogs/how-to-set-spending-limits-on-ai-agents): How to set per-agent and per-task spending caps in AgentCenter before a runaway task blows your monthly LLM budget.
 - [AI Agents for Newsroom Automation Teams](https://agentcenter.cloud/blogs/ai-agents-for-newsroom-automation-teams): How editorial and news teams use AI agents for source monitoring, research, and draft generation without losing quality control.
 - [Why Your Agents Inherit Your Team's Blind Spots](https://agentcenter.cloud/blogs/why-agents-inherit-your-teams-blind-spots): Agents don't just follow your instructions — they encode your team's unstated assumptions. Here's how those assumptions compound at scale and how to catch them before they silently degrade output quality.
+- [AgentCenter vs LiteLLM — LLM Gateway vs AI Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-litellm): LiteLLM routes LLM calls across 100+ providers. AgentCenter manages the agents making those calls — task visibility, status, costs, and deliverable review.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
