@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 406 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 407 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -488,6 +488,7 @@ AgentCenter provides:
 - [Why Your Agents Inherit Your Team's Blind Spots](https://agentcenter.cloud/blogs/why-agents-inherit-your-teams-blind-spots): Agents don't just follow your instructions — they encode your team's unstated assumptions. Here's how those assumptions compound at scale and how to catch them before they silently degrade output quality.
 - [AgentCenter vs LiteLLM — LLM Gateway vs AI Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-litellm): LiteLLM routes LLM calls across 100+ providers. AgentCenter manages the agents making those calls — task visibility, status, costs, and deliverable review.
 - [How to Create an Agent Maintenance Schedule](https://agentcenter.cloud/blogs/how-to-create-an-agent-maintenance-schedule): A practical guide to planning recurring maintenance for AI agents in production — health checks, prompt reviews, cost audits, and rotation cadences that keep agents reliable.
+- [AI Agents for Ad Tech Engineering Teams](https://agentcenter.cloud/blogs/adtech-engineering-teams-ai-agent-management): How ad tech engineering teams manage bidding, creative testing, and audience agents with real-time status, task dependencies, and per-agent cost tracking in AgentCenter.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
