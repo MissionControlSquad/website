@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 408 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 409 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -490,6 +490,7 @@ AgentCenter provides:
 - [How to Create an Agent Maintenance Schedule](https://agentcenter.cloud/blogs/how-to-create-an-agent-maintenance-schedule): A practical guide to planning recurring maintenance for AI agents in production — health checks, prompt reviews, cost audits, and rotation cadences that keep agents reliable.
 - [AI Agents for Ad Tech Engineering Teams](https://agentcenter.cloud/blogs/adtech-engineering-teams-ai-agent-management): How ad tech engineering teams manage bidding, creative testing, and audience agents with real-time status, task dependencies, and per-agent cost tracking in AgentCenter.
 - [Why Nobody on Your Team Agrees on What Your AI Agent Does](https://agentcenter.cloud/blogs/why-nobody-agrees-on-what-the-agent-is-supposed-to-do): When teams run AI agents without a clear scope definition, debugging becomes a debate, changes break invisible assumptions, and success metrics measure the wrong things.
+- [AgentCenter vs Humanloop — Evals vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-humanloop): Humanloop tracks prompt quality and model performance. AgentCenter manages the agents running those prompts in production — task boards, status tracking, deliverable review, and cost visibility.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
