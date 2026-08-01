@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 411 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 412 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -493,6 +493,7 @@ AgentCenter provides:
 - [AgentCenter vs Humanloop — Evals vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-humanloop): Humanloop tracks prompt quality and model performance. AgentCenter manages the agents running those prompts in production — task boards, status tracking, deliverable review, and cost visibility.
 - [How to Rerun Failed AI Agent Tasks in Bulk](https://agentcenter.cloud/blogs/how-to-rerun-failed-ai-agent-tasks-in-bulk): When AI agent tasks fail at scale, the bottleneck is the rerun process — filter by failure type, fix the root cause, and release retries in controlled batches to avoid a second wave of failures.
 - [AI Agents for Sales Enablement Teams](https://agentcenter.cloud/blogs/sales-enablement-teams-ai-agent-management): How sales enablement teams manage proposal, competitive intel, and coaching agents in production — task handoffs, cost tracking, and deliverable review across 6-10 agents.
+- [AgentCenter vs PagerDuty — Incident Alerts vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-pagerduty): PagerDuty alerts when AI agents fail; AgentCenter manages tasks, deliverables, costs, and coordination before incidents fire.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
