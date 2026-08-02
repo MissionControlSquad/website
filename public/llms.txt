@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 401 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 413 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -483,6 +483,18 @@ AgentCenter provides:
 - [AI Agent Management for Media Buying Teams](https://agentcenter.cloud/blogs/media-buying-teams-ai-agent-management): How media buying teams monitor campaign agents, catch errors before clients do, and track per-agent LLM costs without losing task handoffs.
 - [Why Adding Context to Your Agents Usually Makes Them Worse](https://agentcenter.cloud/blogs/why-adding-context-makes-agents-worse): How prompt accumulation degrades production AI agents, and why removing instructions often fixes what more rules can't.
 - [AgentCenter vs Composio — Tool Integrations vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-composio): Composio connects agents to 200+ external tools; AgentCenter manages the agents using them — tasks, status, cost tracking, and deliverable review.
+- [How to Set Spending Limits on AI Agents](https://agentcenter.cloud/blogs/how-to-set-spending-limits-on-ai-agents): How to set per-agent and per-task spending caps in AgentCenter before a runaway task blows your monthly LLM budget.
+- [AI Agents for Newsroom Automation Teams](https://agentcenter.cloud/blogs/ai-agents-for-newsroom-automation-teams): How editorial and news teams use AI agents for source monitoring, research, and draft generation without losing quality control.
+- [Why Your Agents Inherit Your Team's Blind Spots](https://agentcenter.cloud/blogs/why-agents-inherit-your-teams-blind-spots): Agents don't just follow your instructions — they encode your team's unstated assumptions. Here's how those assumptions compound at scale and how to catch them before they silently degrade output quality.
+- [AgentCenter vs LiteLLM — LLM Gateway vs AI Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-litellm): LiteLLM routes LLM calls across 100+ providers. AgentCenter manages the agents making those calls — task visibility, status, costs, and deliverable review.
+- [How to Create an Agent Maintenance Schedule](https://agentcenter.cloud/blogs/how-to-create-an-agent-maintenance-schedule): A practical guide to planning recurring maintenance for AI agents in production — health checks, prompt reviews, cost audits, and rotation cadences that keep agents reliable.
+- [AI Agents for Ad Tech Engineering Teams](https://agentcenter.cloud/blogs/adtech-engineering-teams-ai-agent-management): How ad tech engineering teams manage bidding, creative testing, and audience agents with real-time status, task dependencies, and per-agent cost tracking in AgentCenter.
+- [Why Nobody on Your Team Agrees on What Your AI Agent Does](https://agentcenter.cloud/blogs/why-nobody-agrees-on-what-the-agent-is-supposed-to-do): When teams run AI agents without a clear scope definition, debugging becomes a debate, changes break invisible assumptions, and success metrics measure the wrong things.
+- [AgentCenter vs Humanloop — Evals vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-humanloop): Humanloop tracks prompt quality and model performance. AgentCenter manages the agents running those prompts in production — task boards, status tracking, deliverable review, and cost visibility.
+- [How to Rerun Failed AI Agent Tasks in Bulk](https://agentcenter.cloud/blogs/how-to-rerun-failed-ai-agent-tasks-in-bulk): When AI agent tasks fail at scale, the bottleneck is the rerun process — filter by failure type, fix the root cause, and release retries in controlled batches to avoid a second wave of failures.
+- [AI Agents for Sales Enablement Teams](https://agentcenter.cloud/blogs/sales-enablement-teams-ai-agent-management): How sales enablement teams manage proposal, competitive intel, and coaching agents in production — task handoffs, cost tracking, and deliverable review across 6-10 agents.
+- [AgentCenter vs PagerDuty — Incident Alerts vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-pagerduty): PagerDuty alerts when AI agents fail; AgentCenter manages tasks, deliverables, costs, and coordination before incidents fire.
+- [How to Run a Daily Standup for Your AI Agent Fleet](https://agentcenter.cloud/blogs/how-to-run-a-daily-standup-for-ai-agents): A practical standup format for teams managing AI agents — what to check each day, who should attend, and how to catch problems before they escalate.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
