@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 415 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 417 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -498,6 +498,8 @@ AgentCenter provides:
 - [How to Run a Daily Standup for Your AI Agent Fleet](https://agentcenter.cloud/blogs/how-to-run-a-daily-standup-for-ai-agents): A practical standup format for teams managing AI agents — what to check each day, who should attend, and how to catch problems before they escalate.
 - [AI Agents for Identity Engineering Teams](https://agentcenter.cloud/blogs/identity-engineering-teams-ai-agent-management): How identity engineering teams track access review agents, catch SCIM provisioning failures, and manage compliance workflows without drowning in logs.
 - [Why Your Agent Ops Problem Usually Isn't About the Agents](https://agentcenter.cloud/blogs/why-your-agent-ops-problem-isnt-about-the-agents): Why most production AI agent failures trace back to unclear task definitions, missing review processes, and broken feedback loops — not the agent itself.
+- [AgentCenter vs OpenAI Agents SDK — Framework vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-openai-agents-sdk): OpenAI Agents SDK builds multi-agent systems in Python. AgentCenter manages them in production with task boards, real-time status, cost visibility, and deliverable review.
+- [How to Write AI Agent Prompts That Fail Gracefully](https://agentcenter.cloud/blogs/how-to-write-agent-prompts-that-fail-gracefully): How to write AI agent prompts with built-in failure handling — prerequisite checks, failure schemas, and confidence thresholds that stop agents from silently producing wrong output.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
