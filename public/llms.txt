@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 420 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 421 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -503,6 +503,7 @@ AgentCenter provides:
 - [AI Agents for Revenue Cycle Management Teams](https://agentcenter.cloud/blogs/revenue-cycle-management-ai-agent-management): How RCM teams use AgentCenter to track claims agents, catch denial bottlenecks, and monitor coding validation across multiple payers.
 - [AgentCenter vs Apache Kafka — Built for Events, Not Agents](https://agentcenter.cloud/blogs/agentcenter-vs-kafka): Apache Kafka moves events between services. AgentCenter manages tasks, deliverables, and human coordination for AI agents in production.
 - [How to Share an AI Agent Across Multiple Teams in AgentCenter](https://agentcenter.cloud/blogs/how-to-share-ai-agent-across-teams): How to set up a shared AI agent in AgentCenter with team-based task labels, filtered Kanban views, priority rules, and a single agent owner.
+- [AI Agents for Construction Technology Teams](https://agentcenter.cloud/blogs/construction-tech-ai-agent-management): How construction tech teams manage permit tracking, inspection scheduling, cost estimation, and document review agents with AgentCenter.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
