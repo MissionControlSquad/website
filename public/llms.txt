@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 424 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 425 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -508,6 +508,7 @@ AgentCenter provides:
 - [AgentCenter vs Windmill — Scripts Run, Agents Don't](https://agentcenter.cloud/blogs/agentcenter-vs-windmill): Windmill runs scripts and workflows well. AgentCenter manages tasks, deliverables, and agent coordination in production. Here's where they differ.
 - [How to Coordinate Multiple AI Agents on a Shared Deliverable](https://agentcenter.cloud/blogs/how-to-coordinate-ai-agents-on-shared-deliverables): When two or more agents touch the same output, coordination breaks silently — a structured approach covering deliverable specs, sequential dependencies, handoff notes, and review gates.
 - [AI Agents for Pharmaceutical Operations Teams](https://agentcenter.cloud/blogs/ai-agents-for-pharmaceutical-operations-teams): How pharma ops teams manage batch record agents, quality compliance checks, and adverse event pipelines with a dedicated agent control plane.
+- [How Experiments Become Production Dependencies](https://agentcenter.cloud/blogs/how-agents-go-from-experiments-to-dependencies): How AI agent experiments quietly become production dependencies without a sign-off — the warning signs to watch for and the minimum ops setup you need before the first failure.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
