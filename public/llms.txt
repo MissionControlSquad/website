@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 422 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 423 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -505,6 +505,7 @@ AgentCenter provides:
 - [How to Share an AI Agent Across Multiple Teams in AgentCenter](https://agentcenter.cloud/blogs/how-to-share-ai-agent-across-teams): How to set up a shared AI agent in AgentCenter with team-based task labels, filtered Kanban views, priority rules, and a single agent owner.
 - [AI Agents for Construction Technology Teams](https://agentcenter.cloud/blogs/construction-tech-ai-agent-management): How construction tech teams manage permit tracking, inspection scheduling, cost estimation, and document review agents with AgentCenter.
 - [AgentCenter vs Windmill — Scripts Run, Agents Don't](https://agentcenter.cloud/blogs/agentcenter-vs-windmill): Windmill runs scripts and workflows well. AgentCenter manages tasks, deliverables, and agent coordination in production. Here's where they differ.
+- [How to Coordinate Multiple AI Agents on a Shared Deliverable](https://agentcenter.cloud/blogs/how-to-coordinate-ai-agents-on-shared-deliverables): When two or more agents touch the same output, coordination breaks silently — a structured approach covering deliverable specs, sequential dependencies, handoff notes, and review gates.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
