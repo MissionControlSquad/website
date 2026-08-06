@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 427 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 428 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -511,6 +511,7 @@ AgentCenter provides:
 - [How Experiments Become Production Dependencies](https://agentcenter.cloud/blogs/how-agents-go-from-experiments-to-dependencies): How AI agent experiments quietly become production dependencies without a sign-off — the warning signs to watch for and the minimum ops setup you need before the first failure.
 - [AgentCenter vs ZenML — Pipelines vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-zenml): ZenML orchestrates ML pipelines. AgentCenter manages AI agent tasks, deliverables, and team coordination. Here's what each actually handles.
 - [How to Document Known Failure Modes for Each AI Agent](https://agentcenter.cloud/blogs/how-to-document-ai-agent-failure-modes): A step-by-step guide to building per-agent failure mode cards so teams stop debugging the same crash twice.
+- [AI Agents for Influencer Marketing Teams](https://agentcenter.cloud/blogs/influencer-marketing-teams-ai-agent-management): How influencer marketing teams manage discovery, outreach, compliance, and reporting agents across campaigns with a dedicated control plane.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
