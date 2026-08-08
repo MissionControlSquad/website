@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 432 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 433 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -516,6 +516,7 @@ AgentCenter provides:
 - [AgentCenter vs Mission Control HQ — Agent Dashboards Compared](https://agentcenter.cloud/blogs/agentcenter-vs-mission-control-hq): How AgentCenter and Mission Control HQ differ for teams running AI agents in production — task orchestration, deliverable review, and cost tracking compared.
 - [AI Agents for AgriTech Operations Teams](https://agentcenter.cloud/blogs/agritech-operations-ai-agent-management): How agritech operations teams manage AI agents for crop monitoring, yield analysis, and compliance automation using AgentCenter.
 - [AgentCenter vs Wrike — Managing AI Agents vs Human Work](https://agentcenter.cloud/blogs/agentcenter-vs-wrike): How AgentCenter and Wrike differ for teams running AI agents — why project management tools fall short of a dedicated agent control plane.
+- [How to Track Which AI Agent Tasks Are Blocked and Why](https://agentcenter.cloud/blogs/how-to-track-blocked-ai-agent-tasks): How to surface blocked agent tasks before they stall your pipeline — timeouts, dependency tracing, Kanban triage, and daily review habits.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
