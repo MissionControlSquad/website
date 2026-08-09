@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 436 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 437 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -520,6 +520,7 @@ AgentCenter provides:
 - [AgentCenter vs Mastra — Building Agents vs Managing Them](https://agentcenter.cloud/blogs/agentcenter-vs-mastra): How AgentCenter and Mastra differ for teams running AI agents — Mastra builds agents in TypeScript, AgentCenter manages them in production with task tracking, cost visibility, and deliverable review.
 - [How to Communicate AI Agent Changes to Your Team](https://agentcenter.cloud/blogs/how-to-communicate-ai-agent-changes-to-your-team): A practical process for announcing prompt, tool, and behavior updates to your team using AgentCenter tasks, @mentions, and change tracking.
 - [AI Agents for Credit Operations Teams](https://agentcenter.cloud/blogs/credit-operations-teams-ai-agent-management): How credit operations teams manage underwriting, covenant monitoring, and collections agents with real-time visibility, enforced task dependencies, and per-task cost tracking in AgentCenter.
+- [The Builder-Operator Split in AI Agent Teams](https://agentcenter.cloud/blogs/the-builder-operator-split-in-ai-agent-teams): Why the engineer who builds an AI agent and the engineer who monitors it in production are rarely the same person, and how that knowledge gap creates silent failures.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
