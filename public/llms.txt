@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 434 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 435 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -518,6 +518,7 @@ AgentCenter provides:
 - [AgentCenter vs Wrike — Managing AI Agents vs Human Work](https://agentcenter.cloud/blogs/agentcenter-vs-wrike): How AgentCenter and Wrike differ for teams running AI agents — why project management tools fall short of a dedicated agent control plane.
 - [How to Track Which AI Agent Tasks Are Blocked and Why](https://agentcenter.cloud/blogs/how-to-track-blocked-ai-agent-tasks): How to surface blocked agent tasks before they stall your pipeline — timeouts, dependency tracing, Kanban triage, and daily review habits.
 - [AgentCenter vs Mastra — Building Agents vs Managing Them](https://agentcenter.cloud/blogs/agentcenter-vs-mastra): How AgentCenter and Mastra differ for teams running AI agents — Mastra builds agents in TypeScript, AgentCenter manages them in production with task tracking, cost visibility, and deliverable review.
+- [How to Communicate AI Agent Changes to Your Team](https://agentcenter.cloud/blogs/how-to-communicate-ai-agent-changes-to-your-team): A practical process for announcing prompt, tool, and behavior updates to your team using AgentCenter tasks, @mentions, and change tracking.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
