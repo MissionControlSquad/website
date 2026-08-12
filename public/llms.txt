@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 439 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 445 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -523,6 +523,12 @@ AgentCenter provides:
 - [The Builder-Operator Split in AI Agent Teams](https://agentcenter.cloud/blogs/the-builder-operator-split-in-ai-agent-teams): Why the engineer who builds an AI agent and the engineer who monitors it in production are rarely the same person, and how that knowledge gap creates silent failures.
 - [AgentCenter vs GitLab — DevOps Platform vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-gitlab): GitLab manages code, pipelines, and deployments. AgentCenter manages AI agent tasks, status, costs, and deliverable review in production.
 - [How to Manage AI Agent Configs Across Dev, Staging, and Prod](https://agentcenter.cloud/blogs/how-to-manage-ai-agent-configs-across-environments): A practical guide to managing AI agent configurations across development, staging, and production environments so agents behave consistently everywhere.
+- [AI Agents for Product-Led Growth Teams](https://agentcenter.cloud/blogs/ai-agents-for-product-led-growth-teams): How PLG teams manage trial monitoring, activation scoring, churn prediction, and sales handoff agents in AgentCenter without losing visibility as their fleet grows.
+- [What Your Most Useful Production Agents Have in Common](https://agentcenter.cloud/blogs/what-your-most-useful-agents-have-in-common): Five operational traits shared by production AI agents that deliver real value — and how to audit your own fleet against them.
+- [AgentCenter vs Backstage — Catalog vs Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-backstage): Backstage is a developer portal, not an agent control plane — covers real-time status, cost tracking, and deliverable review that static metadata can't provide.
+- [AI Agents for Open Source Engineering Teams](https://agentcenter.cloud/blogs/open-source-engineering-teams-ai-agent-management): How open source engineering teams manage issue triage, PR review, docs, and security agents with full pipeline visibility and per-agent cost tracking in AgentCenter.
+- [Why Your AI Agents Need a Definition of Done](https://agentcenter.cloud/blogs/why-agents-need-a-definition-of-done): Why "completed" and "actually done" are different for production AI agents — and how to write acceptance criteria that give your agents a real quality bar.
+- [AgentCenter vs Rivet — Build vs Run](https://agentcenter.cloud/blogs/agentcenter-vs-rivet): Rivet builds and debugs AI agent pipelines visually. AgentCenter manages them in production with real-time monitoring, task coordination, and deliverable review.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
