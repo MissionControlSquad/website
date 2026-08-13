@@ -62,7 +62,13 @@ export async function POST(request: NextRequest) {
   );
 
   const isSecure = new URL(request.url).protocol === "https:";
-  const cookieFlags = `HttpOnly; Path=/; SameSite=Lax${isSecure ? "; Secure" : ""}; Max-Age=604800`;
+  // Cross-subdomain SSO: the landing site lives at agentcenter.cloud and each tenant dashboard at
+  // <client>.app.agentcenter.cloud. Setting AUTH_COOKIE_DOMAIN=".agentcenter.cloud" scopes the session
+  // cookie to their common parent, so it is shared with every tenant subdomain (any depth) and the user is
+  // signed straight in — no second login. Unset in local/dev (and self-host): the cookie stays host-only.
+  const cookieDomain = process.env.AUTH_COOKIE_DOMAIN || "";
+  const domainFlag = cookieDomain ? `; Domain=${cookieDomain}` : "";
+  const cookieFlags = `HttpOnly; Path=/; SameSite=Lax${isSecure ? "; Secure" : ""}${domainFlag}; Max-Age=604800`;
 
   const headers = new Headers({ "Content-Type": "application/json" });
   headers.set("Set-Cookie", `${SESSION_COOKIE_NAME}=${sessionId}; ${cookieFlags}`);
