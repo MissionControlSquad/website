@@ -140,9 +140,53 @@ export async function GET(request: NextRequest) {
     // network error — fall through to create
   }
 
-  // 2. Not found → provision — but ONLY the workspace owner with an active subscription may create a
-  // tenant. Members/viewers (and owners without a live subscription) get a non-provisioned status and no
-  // tenant is created on their behalf.
+  // 2a. MIGRATION self-heal (owner-only). A legacy tenant created before workspace-keying is keyed by
+  // the owner's email with an empty workspaceId, so the workspaceId lookup above missed it. Bind it to
+  // the current workspace in-place (backfill workspaceId + inject TENANT_WORKSPACE_ID + add the
+  // <workspaceId>.app… Host alias) via the infra set-workspace route — instead of creating a DUPLICATE.
+  // Guarded on ownership so an invited member's view never rebinds someone's legacy tenant. Single-
+  // workspace users bind correctly; a multi-workspace owner binds their one legacy tenant to whichever
+  // workspace they open first (acceptable — other workspaces provision fresh tenants below).
+  if (access.isOwner && email) {
+    try {
+      const legacyUrl = new URL(`${infraBase}/api/clients/lookup`);
+      legacyUrl.searchParams.set("email", email);
+      if (planName) legacyUrl.searchParams.set("planName", planName);
+      const legacyRes = await fetch(legacyUrl.toString(), { headers });
+      if (legacyRes.ok) {
+        const legacy = (await legacyRes.json()) as InfraLookupResult;
+        if (
+          legacy.found &&
+          legacy.slug &&
+          (legacy.type ?? CLIENT_TYPE.HOSTED) === CLIENT_TYPE.HOSTED
+        ) {
+          await fetch(`${infraBase}/api/clients/${legacy.slug}/set-workspace`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify({ workspaceId }),
+          }).catch(() => {});
+          const ps = legacy.provisioningStatus;
+          const ready = ps === PROVISIONING_STATUS.ACTIVE || ps === undefined;
+          return Response.json({
+            ready,
+            url: `https://${tenantHost(workspaceId)}`,
+            slug: legacy.slug,
+            type: CLIENT_TYPE.HOSTED,
+            status: legacy.status,
+            name: legacy.name,
+            createdAt: legacy.createdAt,
+            ...(ready ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
+          });
+        }
+      }
+    } catch {
+      // network error — fall through to create
+    }
+  }
+
+  // 2b. Genuinely new workspace → provision — but ONLY the workspace owner with an active subscription
+  // may create a tenant. Members/viewers (and owners without a live subscription) get a non-provisioned
+  // status and no tenant is created on their behalf.
   if (!access.isOwner) {
     return Response.json({ ready: false, reason: "not_owner" });
   }
