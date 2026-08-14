@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 451 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 452 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -537,6 +537,7 @@ AgentCenter provides:
 - [Why Nobody Reads the Agent Logs Until Something Breaks](https://agentcenter.cloud/blogs/why-nobody-reads-agent-logs-until-something-breaks): Why teams with fully instrumented agents still miss quality drift — and the two habits that actually fix the gap between having monitoring and using it.
 - [How to Archive and Clean Up AI Agent Tasks](https://agentcenter.cloud/blogs/how-to-archive-and-clean-up-ai-agent-tasks): How to set up task archiving policies for AI agent teams — what to archive, when, and how to keep your board actionable without losing operational history.
 - [AgentCenter vs Evidently AI: Agent Management vs ML Monitoring](https://agentcenter.cloud/blogs/agentcenter-vs-evidently-ai): How AgentCenter's agent task management and control plane differs from Evidently AI's ML monitoring approach, and when teams need both.
+- [AI Agents for Fitness and Wellness Tech Teams](https://agentcenter.cloud/blogs/ai-agents-for-fitness-wellness-tech-teams): How fitness and wellness tech teams manage coaching, content, and user engagement agents with real-time status, deliverable review, and cost tracking in AgentCenter.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
