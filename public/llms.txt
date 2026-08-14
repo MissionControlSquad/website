@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 447 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 451 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -532,6 +532,11 @@ AgentCenter provides:
 - [AgentCenter vs Rivet — Build vs Run](https://agentcenter.cloud/blogs/agentcenter-vs-rivet): Rivet builds and debugs AI agent pipelines visually. AgentCenter manages them in production with real-time monitoring, task coordination, and deliverable review.
 - [AI Agents for Data Labeling Teams](https://agentcenter.cloud/blogs/ai-agents-for-data-labeling-teams): How data labeling and annotation teams manage pre-labeling, QA, and routing agents with real-time status, cost tracking per batch, and automated human-agent handoffs in AgentCenter.
 - [AgentCenter vs PostHog — Analytics Tool vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-posthog): PostHog tracks user events; AgentCenter manages AI agents — task queues, real-time status, deliverable review, and per-task cost tracking that product analytics can't provide.
+- [How to Track AI Agent Output Trends Over Time](https://agentcenter.cloud/blogs/how-to-track-ai-agent-output-trends): A practical guide to tracking AI agent output quality week-over-week to catch drift before it becomes a production problem.
+- [AI Agents for Computer Vision Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-computer-vision-engineering-teams): How computer vision teams manage preprocessing, inference, and post-processing agents with real-time pipeline visibility, enforced task dependencies, and per-batch cost tracking in AgentCenter.
+- [Why Nobody Reads the Agent Logs Until Something Breaks](https://agentcenter.cloud/blogs/why-nobody-reads-agent-logs-until-something-breaks): Why teams with fully instrumented agents still miss quality drift — and the two habits that actually fix the gap between having monitoring and using it.
+- [How to Archive and Clean Up AI Agent Tasks](https://agentcenter.cloud/blogs/how-to-archive-and-clean-up-ai-agent-tasks): How to set up task archiving policies for AI agent teams — what to archive, when, and how to keep your board actionable without losing operational history.
+- [AgentCenter vs Evidently AI: Agent Management vs ML Monitoring](https://agentcenter.cloud/blogs/agentcenter-vs-evidently-ai): How AgentCenter's agent task management and control plane differs from Evidently AI's ML monitoring approach, and when teams need both.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
