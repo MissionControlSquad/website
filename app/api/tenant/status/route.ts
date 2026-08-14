@@ -160,23 +160,28 @@ export async function GET(request: NextRequest) {
           legacy.slug &&
           (legacy.type ?? CLIENT_TYPE.HOSTED) === CLIENT_TYPE.HOSTED
         ) {
-          await fetch(`${infraBase}/api/clients/${legacy.slug}/set-workspace`, {
+          const bindRes = await fetch(`${infraBase}/api/clients/${legacy.slug}/set-workspace`, {
             method: "POST",
             headers,
             body: JSON.stringify({ workspaceId }),
-          }).catch(() => {});
-          const ps = legacy.provisioningStatus;
-          const ready = ps === PROVISIONING_STATUS.ACTIVE || ps === undefined;
-          return Response.json({
-            ready,
-            url: `https://${tenantHost(workspaceId)}`,
-            slug: legacy.slug,
-            type: CLIENT_TYPE.HOSTED,
-            status: legacy.status,
-            name: legacy.name,
-            createdAt: legacy.createdAt,
-            ...(ready ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
-          });
+          }).catch(() => null);
+          // Only ADOPT the legacy tenant for THIS workspace when the bind succeeded (it was unbound, or
+          // already this same workspace). A 409 means it's already bound to a DIFFERENT workspace — so
+          // this workspace has no tenant; fall through to provision a fresh one below.
+          if (bindRes && bindRes.ok) {
+            const ps = legacy.provisioningStatus;
+            const ready = ps === PROVISIONING_STATUS.ACTIVE || ps === undefined;
+            return Response.json({
+              ready,
+              url: `https://${tenantHost(workspaceId)}`,
+              slug: legacy.slug,
+              type: CLIENT_TYPE.HOSTED,
+              status: legacy.status,
+              name: legacy.name,
+              createdAt: legacy.createdAt,
+              ...(ready ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
+            });
+          }
         }
       }
     } catch {
