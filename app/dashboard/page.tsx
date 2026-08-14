@@ -159,7 +159,7 @@ function SelfHostedCard({ tenant }: { tenant: TenantStatus }) {
 
 // ─── TenantCard ───────────────────────────────────────────────────────────────
 
-function TenantCard({ planName }: { planName?: string | null }) {
+function TenantCard({ planName, workspaceId }: { planName?: string | null; workspaceId?: string }) {
   const [tenant, setTenant] = useState<TenantStatus | null>(null);
   const [checking, setChecking] = useState(true);
 
@@ -173,6 +173,8 @@ function TenantCard({ planName }: { planName?: string | null }) {
       }
       const statusUrl = new URL("/api/tenant/status", window.location.href);
       if (planName) statusUrl.searchParams.set("planName", planName);
+      // The launcher queries the SELECTED workspace explicitly (robust against JWT re-mint timing).
+      if (workspaceId) statusUrl.searchParams.set("workspaceId", workspaceId);
       const res = await fetch(statusUrl.toString(), {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -187,9 +189,9 @@ function TenantCard({ planName }: { planName?: string | null }) {
 
   useEffect(() => {
     void check();
-    // planName is stable after subscription loads — only need to run once
+    // Re-check whenever the selected workspace changes (the switcher drives this).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [workspaceId]);
 
   if (checking) {
     return <TenantSkeleton />;
@@ -283,7 +285,9 @@ function TenantCard({ planName }: { planName?: string | null }) {
           setChecking(false);
           return;
         }
-        await fetch("/api/tenant/retry", {
+        const retryUrl = new URL("/api/tenant/retry", window.location.href);
+        if (workspaceId) retryUrl.searchParams.set("workspaceId", workspaceId);
+        await fetch(retryUrl.toString(), {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -366,6 +370,27 @@ function TenantCard({ planName }: { planName?: string | null }) {
     );
   }
 
+  if (tenant?.reason === "not_owner") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-neutral-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-300">Awaiting the workspace owner</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          You&apos;re a member of this workspace, but its dashboard hasn&apos;t been created yet.
+          Only the workspace owner can provision it.
+        </p>
+        <button
+          onClick={() => void check()}
+          className="text-sm text-primary-400 hover:text-primary-300 transition-colors mt-1"
+        >
+          Check again
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-error-500/20 bg-error-500/5 h-full">
       <div className="flex items-center gap-2">
@@ -398,6 +423,7 @@ interface AuthUser {
 
 function DashboardContent({ user }: { user: AuthUser | null }) {
   const { openWorkspaceSettings } = useSaaSAuth();
+  const { currentWorkspace } = useSaaSWorkspaces();
 
   const sub = useWorkspaceSubscription();
   const {
@@ -501,8 +527,8 @@ function DashboardContent({ user }: { user: AuthUser | null }) {
             </button>
           </div>
 
-          {/* Workspace card */}
-          <TenantCard planName={planName} />
+          {/* Workspace card — driven by the SELECTED workspace (switcher in the header) */}
+          <TenantCard planName={planName} workspaceId={currentWorkspace?._id} />
         </div>
       )}
     </div>
