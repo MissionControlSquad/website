@@ -391,6 +391,34 @@ function TenantCard({ planName, workspaceId }: { planName?: string | null; works
     );
   }
 
+  if (tenant?.reason === "not_a_member") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-neutral-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-300">No access to this workspace</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          You&apos;re not a member of the selected workspace. Switch to one you belong to.
+        </p>
+      </div>
+    );
+  }
+
+  if (tenant?.reason === "no_subscription") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-warning-500/20 bg-warning-500/5 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-warning-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-200">Subscription required</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          This workspace needs an active subscription before its dashboard can be provisioned.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-error-500/20 bg-error-500/5 h-full">
       <div className="flex items-center gap-2">
