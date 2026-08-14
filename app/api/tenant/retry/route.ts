@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
   const payload = (await verifyJWT(token, SYSTEM_SECRET)) as TokenPayload | null;
   if (!payload) return Response.json({ error: "Invalid token" }, { status: 401 });
 
-  const { email } = payload;
+  const { email, workspaceId } = payload;
   if (!email) return Response.json({ error: "No email in token" }, { status: 400 });
 
   const infraBase = (INFRA_API_URL || "").replace(/\/$/, "");
@@ -58,6 +58,10 @@ export async function POST(request: NextRequest) {
     const reprRes = await fetch(`${infraBase}/api/clients/${data.slug}/reprovision`, {
       method: "POST",
       headers,
+      // Re-bind the buildbase workspace on reprovision so infra can (re)inject
+      // TENANT_WORKSPACE_ID. Best-effort: absent workspaceId is treated as
+      // single-tenant by infra and never blocks the reprovision.
+      ...(workspaceId ? { body: JSON.stringify({ workspaceId }) } : {}),
     });
 
     if (reprRes.status === 429) {
