@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { verifyJWT } from "@/lib/jwt";
+import { resolveWorkspaceAccess, readSessionId } from "@/lib/buildbase-server";
 import {
   SELF_HOST_PLAN_NAME,
   HOSTED_APP_DOMAIN,
@@ -86,9 +87,17 @@ export async function GET(request: NextRequest) {
     "Content-Type": "application/json",
   };
 
-  // PHASE 3 (added in the provisioning-gate commit): before proceeding, verify the session user is a
-  // MEMBER of `workspaceId` (authz for the arbitrary query param) and — before CREATE — that they are an
-  // OWNER with an ACTIVE subscription. Read-only status is allowed for members; creation is gated.
+  // AUTHZ (Phase 3): the workspaceId may come from the query param (launcher), so verify server-side
+  // that the session user is actually a MEMBER of it before touching infra. Read-only status is allowed
+  // for any member; CREATE is gated on owner + active subscription below. Fail-closed.
+  const access = await resolveWorkspaceAccess(
+    readSessionId(request.headers.get("Cookie")),
+    workspaceId,
+    payload.userId ?? ""
+  );
+  if (!access.isMember) {
+    return Response.json({ ready: false, reason: "not_a_member" }, { status: 403 });
+  }
 
   // 1. Resolve the tenant by workspaceId.
   try {
@@ -131,7 +140,16 @@ export async function GET(request: NextRequest) {
     // network error — fall through to create
   }
 
-  // 2. Not found → provision. (PHASE 3 will gate this on owner + active subscription.)
+  // 2. Not found → provision — but ONLY the workspace owner with an active subscription may create a
+  // tenant. Members/viewers (and owners without a live subscription) get a non-provisioned status and no
+  // tenant is created on their behalf.
+  if (!access.isOwner) {
+    return Response.json({ ready: false, reason: "not_owner" });
+  }
+  if (!access.subscriptionActive) {
+    return Response.json({ ready: false, reason: "no_subscription" });
+  }
+
   const slug = tenantSlug(workspaceId);
   try {
     const createRes = await fetch(`${infraBase}/api/clients`, {

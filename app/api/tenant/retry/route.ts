@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { verifyJWT } from "@/lib/jwt";
+import { resolveWorkspaceAccess, readSessionId } from "@/lib/buildbase-server";
 import { PROVISIONING_STATUS } from "@/lib/constants";
 
 interface TokenPayload {
@@ -32,6 +33,16 @@ export async function POST(request: NextRequest) {
   const url = new URL(request.url);
   const workspaceId = (url.searchParams.get("workspaceId") || payload.workspaceId || "").trim();
   if (!workspaceId) return Response.json({ error: "No workspace in token" }, { status: 400 });
+
+  // AUTHZ (Phase 3): only the workspace OWNER may reprovision its tenant. Fail-closed.
+  const access = await resolveWorkspaceAccess(
+    readSessionId(request.headers.get("Cookie")),
+    workspaceId,
+    payload.userId ?? ""
+  );
+  if (!access.isOwner) {
+    return Response.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   const infraBase = (INFRA_API_URL || "").replace(/\/$/, "");
   const headers: Record<string, string> = {
