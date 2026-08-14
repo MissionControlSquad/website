@@ -225,6 +225,10 @@ export async function GET(request: NextRequest) {
         ...(isSelfHostedPlan ? {} : { type: CLIENT_TYPE.HOSTED }),
         ...(planName ? { planName } : {}),
         ...(email ? { email } : {}),
+        // Bind this tenant to the user's buildbase workspace so infra can inject
+        // TENANT_WORKSPACE_ID when provisioning the dashboard. Best-effort: if
+        // absent, infra treats it as single-tenant and provisioning proceeds.
+        ...(workspaceId ? { workspaceId } : {}),
       }),
     });
 
