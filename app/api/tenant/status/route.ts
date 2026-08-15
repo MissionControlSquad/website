@@ -210,7 +210,8 @@ export async function GET(request: NextRequest) {
         version: "latest",
         ...(isSelfHostedPlan ? {} : { type: CLIENT_TYPE.HOSTED }),
         ...(planName ? { planName } : {}),
-        ...(email ? { email } : {}),
+        // Go-forward: NEW tenants are keyed solely by workspaceId — we no longer stamp an email on them.
+        // (email still drives the migration self-heal above, which binds pre-existing email-keyed tenants.)
         workspaceId, // infra dedups on this + injects TENANT_WORKSPACE_ID
       }),
     });
