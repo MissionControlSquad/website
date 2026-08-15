@@ -99,6 +99,36 @@ export async function resolveWorkspaceAccess(
   return { isMember: true, isOwner, role, subscriptionActive };
 }
 
+export interface SessionUser {
+  id: string;
+  email: string;
+  name: string;
+}
+
+/**
+ * Resolve the buildbase user behind a session id, server-side (identity from buildbase, never from the
+ * client). Used to bootstrap the app JWT for a RETURNING user who carries a live bb-session-id but has
+ * no app token yet (the token is otherwise only minted during the OAuth code exchange). Fail-closed:
+ * returns null on any error / no session.
+ */
+export async function getSessionUser(sessionId: string): Promise<SessionUser | null> {
+  const bb = factory();
+  if (!bb || !sessionId) return null;
+  try {
+    const u = (await bb.withSession(sessionId).users.getProfile()) as {
+      _id?: string;
+      id?: string;
+      email?: string;
+      name?: string;
+    };
+    const id = u?._id || u?.id || "";
+    if (!id) return null;
+    return { id, email: u?.email ?? "", name: u?.name ?? "" };
+  } catch {
+    return null;
+  }
+}
+
 /** Read the buildbase session id from a request Cookie header. */
 export function readSessionId(cookieHeader: string | null): string {
   if (!cookieHeader) return "";
