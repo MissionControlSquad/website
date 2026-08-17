@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 455 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 458 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -541,6 +541,9 @@ AgentCenter provides:
 - [How to Write an AI Agent Specification](https://agentcenter.cloud/blogs/how-to-write-an-ai-agent-specification): A practical template for writing AI agent specifications: what inputs it takes, outputs it produces, and how you'll know it's working.
 - [AgentCenter vs Letta — Memory Framework vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-letta): Letta gives your AI agents persistent memory. AgentCenter gives your team control over all of them — task tracking, deliverable review, and real-time status across your full agent fleet.
 - [AI Agent Management for GRC and Compliance Teams](https://agentcenter.cloud/blogs/grc-compliance-teams-ai-agent-management): How GRC teams track compliance monitoring agents, collect audit evidence, and manage risk assessment workflows without losing visibility or accountability.
+- [Why Your Agents Don't Know When to Stop Trying](https://agentcenter.cloud/blogs/why-your-agents-dont-know-when-to-stop): Why most agents ship without stop conditions, what retry loops and decision loops look like in production, and the two questions to answer before deploying any agent.
+- [AgentCenter vs Camunda — Workflows vs Agent Management](https://agentcenter.cloud/blogs/agentcenter-vs-camunda): Camunda runs BPMN workflows well but wasn't built for AI agent management — task visibility, LLM cost tracking, and deliverable review require a dedicated control plane.
+- [How to Assign AI Agent Tasks via the AgentCenter API](https://agentcenter.cloud/blogs/how-to-assign-ai-agent-tasks-via-api): Stop creating agent tasks by hand — use the REST API to push tasks from your code, poll status, and pull results automatically.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
