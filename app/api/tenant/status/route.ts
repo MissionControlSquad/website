@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { verifyJWT } from "@/lib/jwt";
+import { resolveWorkspaceAccess, readSessionId } from "@/lib/buildbase-server";
 import {
   SELF_HOST_PLAN_NAME,
   HOSTED_APP_DOMAIN,
@@ -35,14 +36,18 @@ interface InfraCreateResult {
   slug?: string;
 }
 
-interface InfraClient {
-  slug: string;
-  url: string;
-  status: string | null;
-  name: string;
-  type?: string;
-  createdAt: string;
-  provisioningStatus?: ProvisioningStatus;
+/** Public tenant host — workspace-id-based URL (not email-based). */
+function tenantHost(workspaceId: string): string {
+  return `${workspaceId}.${HOSTED_APP_DOMAIN}`;
+}
+
+/**
+ * Internal, opaque tenant slug derived from a workspaceId. Infra requires a slug matching
+ * `^[a-z][a-z0-9-]*$`; a raw workspaceId (24-hex Mongo id) can start with a digit, so we prefix `w`.
+ * The PUBLIC url stays `<workspaceId>.app…` (a Traefik Host alias added by the infra set-workspace route).
+ */
+function tenantSlug(workspaceId: string): string {
+  return `w${workspaceId}`.toLowerCase().replace(/[^a-z0-9-]/g, "");
 }
 
 export async function GET(request: NextRequest) {
@@ -52,11 +57,9 @@ export async function GET(request: NextRequest) {
 
   const authHeader = request.headers.get("Authorization") ?? "";
   const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
-
   if (!token) {
     return Response.json({ ready: false, error: "Unauthorized" }, { status: 401 });
   }
-
   if (!SYSTEM_SECRET) {
     return Response.json({ ready: false, error: "Server misconfigured" }, { status: 500 });
   }
@@ -65,11 +68,18 @@ export async function GET(request: NextRequest) {
     return Response.json({ ready: false, error: "Invalid token" }, { status: 401 });
   }
 
-  const { email, workspaceId } = payload;
+  const email = payload.email;
   const url = new URL(request.url);
+  // workspaceId is the tenant key. The launcher may ask for ANY of the user's workspaces via the query
+  // param; otherwise fall back to the JWT's current workspace.
+  const workspaceId = (url.searchParams.get("workspaceId") || payload.workspaceId || "").trim();
   const rawPlanName = url.searchParams.get("planName");
   const planName = rawPlanName === SELF_HOST_PLAN_NAME ? SELF_HOST_PLAN_NAME : undefined;
   const isSelfHostedPlan = planName === SELF_HOST_PLAN_NAME;
+
+  if (!workspaceId) {
+    return Response.json({ ready: false, reason: "no_workspace" });
+  }
 
   const infraBase = (INFRA_API_URL || "").replace(/\/$/, "");
   const headers: Record<string, string> = {
@@ -77,143 +87,119 @@ export async function GET(request: NextRequest) {
     "Content-Type": "application/json",
   };
 
-  if (email) {
-    try {
-      const lookupUrl = new URL(`${infraBase}/api/clients/lookup`);
-      lookupUrl.searchParams.set("email", email);
-      if (planName) lookupUrl.searchParams.set("planName", planName);
+  // AUTHZ (Phase 3): the workspaceId may come from the query param (launcher), so verify server-side
+  // that the session user is actually a MEMBER of it before touching infra. Read-only status is allowed
+  // for any member; CREATE is gated on owner + active subscription below. Fail-closed.
+  const access = await resolveWorkspaceAccess(
+    readSessionId(request.headers.get("Cookie")),
+    workspaceId,
+    payload.userId ?? ""
+  );
+  if (!access.isMember) {
+    return Response.json({ ready: false, reason: "not_a_member" }, { status: 403 });
+  }
 
-      const lookupRes = await fetch(lookupUrl.toString(), { headers });
-      if (lookupRes.ok) {
-        const data = (await lookupRes.json()) as InfraLookupResult;
-        if (data.found) {
-          const isActive =
-            data.type === CLIENT_TYPE.SELF_HOSTED ||
-            data.provisioningStatus === PROVISIONING_STATUS.ACTIVE ||
-            data.provisioningStatus === undefined;
-
-          if (isActive) {
-            return Response.json({
-              ready: true,
-              url: data.url ?? null,
-              slug: data.slug,
-              ...(data.licenseKey ? { licenseKey: data.licenseKey } : {}),
-              status: data.status,
-              type: data.type ?? CLIENT_TYPE.HOSTED,
-              name: data.name,
-              createdAt: data.createdAt,
-            });
-          }
-
-          if (data.provisioningStatus === PROVISIONING_STATUS.FAILED) {
-            return Response.json({
-              ready: false,
-              reason: "provisioning_failed",
-              attempts: data.provisioningAttempts ?? 1,
-              slug: data.slug,
-            });
-          }
-
+  // 1. Resolve the tenant by workspaceId.
+  try {
+    const lookupUrl = new URL(`${infraBase}/api/clients/lookup`);
+    lookupUrl.searchParams.set("workspaceId", workspaceId);
+    if (planName) lookupUrl.searchParams.set("planName", planName);
+    const lookupRes = await fetch(lookupUrl.toString(), { headers });
+    if (lookupRes.ok) {
+      const data = (await lookupRes.json()) as InfraLookupResult;
+      if (data.found) {
+        const isHosted = (data.type ?? CLIENT_TYPE.HOSTED) === CLIENT_TYPE.HOSTED;
+        const ps = data.provisioningStatus;
+        if (ps === PROVISIONING_STATUS.FAILED) {
           return Response.json({
             ready: false,
-            reason: PROVISIONING_STATUS.PROVISIONING,
-            url: data.url ?? null,
+            reason: "provisioning_failed",
+            attempts: data.provisioningAttempts ?? 1,
             slug: data.slug,
           });
         }
+        const isActive =
+          data.type === CLIENT_TYPE.SELF_HOSTED ||
+          ps === PROVISIONING_STATUS.ACTIVE ||
+          ps === undefined;
+        return Response.json({
+          ready: isActive,
+          // Hosted tenants are served at the workspace-id host; self-hosted use their own domain (data.url).
+          url: isHosted ? `https://${tenantHost(workspaceId)}` : (data.url ?? null),
+          slug: data.slug,
+          ...(data.licenseKey ? { licenseKey: data.licenseKey } : {}),
+          status: data.status,
+          type: data.type ?? CLIENT_TYPE.HOSTED,
+          name: data.name,
+          createdAt: data.createdAt,
+          ...(isActive ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
+        });
       }
-    } catch {
-      // network error — fall through to workspaceId path
-    }
-  }
-
-  if (!workspaceId) {
-    return Response.json({ ready: false, reason: "no_workspace" });
-  }
-
-  // Derive base slug and deterministic slug once — reused for fallback lookup and creation.
-  let base = "tenant";
-  if (email) {
-    const local = email
-      .split("@")[0]
-      .replace(/[^a-z0-9]/gi, "")
-      .toLowerCase()
-      .slice(0, 18);
-    base = /^[a-z]/.test(local) ? local : `t${local}` || "tenant";
-  }
-  const deterministicSlug = `${base}-${workspaceId.slice(-4)}`;
-
-  // Fallback: check by deterministic slug then base slug directly.
-  // Catches existing clients whose registry entry pre-dates email tracking
-  // so the email lookup above returned found:false even though the client exists.
-  for (const candidate of [deterministicSlug, base]) {
-    try {
-      const res = await fetch(`${infraBase}/api/clients/${candidate}`, { headers });
-      if (!res.ok) continue;
-      const client = (await res.json()) as InfraClient;
-      const ps = client.provisioningStatus;
-      if (ps === PROVISIONING_STATUS.FAILED) {
-        return Response.json({ ready: false, reason: "provisioning_failed", slug: candidate });
-      }
-      const isActive =
-        client.type === CLIENT_TYPE.SELF_HOSTED ||
-        ps === PROVISIONING_STATUS.ACTIVE ||
-        ps === undefined;
-
-      // Backfill email on the registry entry so future calls use the faster
-      // email lookup instead of falling through to this slug-based check.
-      if (email) {
-        fetch(`${infraBase}/api/clients/${candidate}`, {
-          method: "PATCH",
-          headers,
-          body: JSON.stringify({ email }),
-        }).catch(() => {});
-      }
-
-      return Response.json({
-        ready: isActive,
-        url: client.url,
-        slug: client.slug,
-        status: client.status,
-        type: client.type ?? CLIENT_TYPE.HOSTED,
-        name: client.name,
-        createdAt: client.createdAt,
-        ...(isActive ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
-      });
-    } catch {
-      // network error — continue to next candidate
-    }
-  }
-
-  const legacySlug = `w${workspaceId}`;
-  try {
-    const legacyRes = await fetch(`${infraBase}/api/clients/${legacySlug}`, { headers });
-    if (legacyRes.ok) {
-      const client = (await legacyRes.json()) as InfraClient;
-      return Response.json({
-        ready: true,
-        url: client.url,
-        slug: client.slug,
-        status: client.status,
-        type: CLIENT_TYPE.HOSTED,
-        name: client.name,
-        createdAt: client.createdAt,
-      });
     }
   } catch {
-    // network error — fall through to provision
+    // network error — fall through to create
   }
 
-  let slug = legacySlug;
-  if (email) {
+  // 2a. MIGRATION self-heal (owner-only). A legacy tenant created before workspace-keying is keyed by
+  // the owner's email with an empty workspaceId, so the workspaceId lookup above missed it. Bind it to
+  // the current workspace in-place (backfill workspaceId + inject TENANT_WORKSPACE_ID + add the
+  // <workspaceId>.app… Host alias) via the infra set-workspace route — instead of creating a DUPLICATE.
+  // Guarded on ownership so an invited member's view never rebinds someone's legacy tenant. Single-
+  // workspace users bind correctly; a multi-workspace owner binds their one legacy tenant to whichever
+  // workspace they open first (acceptable — other workspaces provision fresh tenants below).
+  if (access.isOwner && email) {
     try {
-      const checkRes = await fetch(`${infraBase}/api/clients/${base}`, { headers });
-      slug = checkRes.ok ? deterministicSlug : base;
+      const legacyUrl = new URL(`${infraBase}/api/clients/lookup`);
+      legacyUrl.searchParams.set("email", email);
+      if (planName) legacyUrl.searchParams.set("planName", planName);
+      const legacyRes = await fetch(legacyUrl.toString(), { headers });
+      if (legacyRes.ok) {
+        const legacy = (await legacyRes.json()) as InfraLookupResult;
+        if (
+          legacy.found &&
+          legacy.slug &&
+          (legacy.type ?? CLIENT_TYPE.HOSTED) === CLIENT_TYPE.HOSTED
+        ) {
+          const bindRes = await fetch(`${infraBase}/api/clients/${legacy.slug}/set-workspace`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify({ workspaceId }),
+          }).catch(() => null);
+          // Only ADOPT the legacy tenant for THIS workspace when the bind succeeded (it was unbound, or
+          // already this same workspace). A 409 means it's already bound to a DIFFERENT workspace — so
+          // this workspace has no tenant; fall through to provision a fresh one below.
+          if (bindRes && bindRes.ok) {
+            const ps = legacy.provisioningStatus;
+            const ready = ps === PROVISIONING_STATUS.ACTIVE || ps === undefined;
+            return Response.json({
+              ready,
+              url: `https://${tenantHost(workspaceId)}`,
+              slug: legacy.slug,
+              type: CLIENT_TYPE.HOSTED,
+              status: legacy.status,
+              name: legacy.name,
+              createdAt: legacy.createdAt,
+              ...(ready ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
+            });
+          }
+        }
+      }
     } catch {
-      slug = base;
+      // network error — fall through to create
     }
   }
 
+  // 2b. Genuinely new workspace → provision — but ONLY the workspace owner with an active subscription
+  // may create a tenant. Members/viewers (and owners without a live subscription) get a non-provisioned
+  // status and no tenant is created on their behalf.
+  if (!access.isOwner) {
+    return Response.json({ ready: false, reason: "not_owner" });
+  }
+  if (!access.subscriptionActive) {
+    return Response.json({ ready: false, reason: "no_subscription" });
+  }
+
+  const slug = tenantSlug(workspaceId);
   try {
     const createRes = await fetch(`${infraBase}/api/clients`, {
       method: "POST",
@@ -224,17 +210,14 @@ export async function GET(request: NextRequest) {
         version: "latest",
         ...(isSelfHostedPlan ? {} : { type: CLIENT_TYPE.HOSTED }),
         ...(planName ? { planName } : {}),
-        ...(email ? { email } : {}),
-        // Bind this tenant to the user's buildbase workspace so infra can inject
-        // TENANT_WORKSPACE_ID when provisioning the dashboard. Best-effort: if
-        // absent, infra treats it as single-tenant and provisioning proceeds.
-        ...(workspaceId ? { workspaceId } : {}),
+        // Go-forward: NEW tenants are keyed solely by workspaceId — we no longer stamp an email on them.
+        // (email still drives the migration self-heal above, which binds pre-existing email-keyed tenants.)
+        workspaceId, // infra dedups on this + injects TENANT_WORKSPACE_ID
       }),
     });
 
     if (createRes.ok) {
       const body = (await createRes.json()) as InfraCreateResult;
-
       if (body.type === CLIENT_TYPE.SELF_HOSTED && body.licenseKey) {
         return Response.json({
           ready: true,
@@ -245,11 +228,17 @@ export async function GET(request: NextRequest) {
           status: null,
         });
       }
-
+      // Hosted: attach the <workspaceId>.app… Host alias (idempotent) so the tenant is reachable at the
+      // workspace-id URL, same as migrated tenants. Best-effort — provisioning proceeds regardless.
+      await fetch(`${infraBase}/api/clients/${slug}/set-workspace`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ workspaceId }),
+      }).catch(() => {});
       return Response.json({
         ready: false,
         reason: PROVISIONING_STATUS.PROVISIONING,
-        url: `https://${slug}.${HOSTED_APP_DOMAIN}`,
+        url: `https://${tenantHost(workspaceId)}`,
         slug,
       });
     }
@@ -261,31 +250,17 @@ export async function GET(request: NextRequest) {
       };
       const existingSlug = body.slug ?? slug;
       const ps = body.provisioningStatus;
-
       if (ps === PROVISIONING_STATUS.FAILED) {
-        return Response.json({
-          ready: false,
-          reason: "provisioning_failed",
-          slug: existingSlug,
-        });
+        return Response.json({ ready: false, reason: "provisioning_failed", slug: existingSlug });
       }
-
-      // "active" or legacy entries with no provisioningStatus are ready
-      if (ps === PROVISIONING_STATUS.ACTIVE || ps === undefined) {
-        return Response.json({
-          ready: true,
-          url: `https://${existingSlug}.${HOSTED_APP_DOMAIN}`,
-          slug: existingSlug,
-          type: CLIENT_TYPE.HOSTED,
-          status: null,
-        });
-      }
-
+      const ready = ps === PROVISIONING_STATUS.ACTIVE || ps === undefined;
       return Response.json({
-        ready: false,
-        reason: PROVISIONING_STATUS.PROVISIONING,
-        url: `https://${existingSlug}.${HOSTED_APP_DOMAIN}`,
+        ready,
+        url: `https://${tenantHost(workspaceId)}`,
         slug: existingSlug,
+        type: CLIENT_TYPE.HOSTED,
+        status: null,
+        ...(ready ? {} : { reason: PROVISIONING_STATUS.PROVISIONING }),
       });
     }
 

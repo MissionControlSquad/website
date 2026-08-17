@@ -584,3 +584,19 @@ input[type="range"].earnings-slider::-moz-range-thumb:hover {
 .animate-feed-slide-in {
   animation: feed-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* buildbase SDK modal/dropdown centering. The SDK's WorkspaceSwitcher dropdown + settings/billing
+   dialogs portal into #saas-os-portal. The dialog CONTENT centers itself with position:fixed + top/
+   left:50% + transform:translate(-50%,-50%). If any NON-fixed wrapper in the portal carries a transform,
+   it becomes the containing block and traps that fixed positioning (modal renders top-left/clipped).
+   So we neutralize transforms on wrappers only — crucially EXCLUDING the fixed dialog content itself,
+   because stripping ITS translate(-50%,-50%) drops its top-left corner onto the 50%/50% point and the
+   modal lands in the bottom-right quadrant. height:0/overflow:visible collapses the 100%-sized portal
+   host so it never affects page layout while its fixed children still render. */
+#saas-os-portal {
+  height: 0 !important;
+  overflow: visible !important;
+}
+#saas-os-portal [id^="radix-"]:not(.fixed):not([role="dialog"]) {
+  transform: none !important;
+}

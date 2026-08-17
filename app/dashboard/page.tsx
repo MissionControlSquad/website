@@ -159,7 +159,7 @@ function SelfHostedCard({ tenant }: { tenant: TenantStatus }) {
 
 // ─── TenantCard ───────────────────────────────────────────────────────────────
 
-function TenantCard({ planName }: { planName?: string | null }) {
+function TenantCard({ planName, workspaceId }: { planName?: string | null; workspaceId?: string }) {
   const [tenant, setTenant] = useState<TenantStatus | null>(null);
   const [checking, setChecking] = useState(true);
 
@@ -173,6 +173,8 @@ function TenantCard({ planName }: { planName?: string | null }) {
       }
       const statusUrl = new URL("/api/tenant/status", window.location.href);
       if (planName) statusUrl.searchParams.set("planName", planName);
+      // The launcher queries the SELECTED workspace explicitly (robust against JWT re-mint timing).
+      if (workspaceId) statusUrl.searchParams.set("workspaceId", workspaceId);
       const res = await fetch(statusUrl.toString(), {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -187,9 +189,9 @@ function TenantCard({ planName }: { planName?: string | null }) {
 
   useEffect(() => {
     void check();
-    // planName is stable after subscription loads — only need to run once
+    // Re-check whenever the selected workspace changes (the switcher drives this).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [workspaceId]);
 
   if (checking) {
     return <TenantSkeleton />;
@@ -283,7 +285,9 @@ function TenantCard({ planName }: { planName?: string | null }) {
           setChecking(false);
           return;
         }
-        await fetch("/api/tenant/retry", {
+        const retryUrl = new URL("/api/tenant/retry", window.location.href);
+        if (workspaceId) retryUrl.searchParams.set("workspaceId", workspaceId);
+        await fetch(retryUrl.toString(), {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -366,6 +370,55 @@ function TenantCard({ planName }: { planName?: string | null }) {
     );
   }
 
+  if (tenant?.reason === "not_owner") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-neutral-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-300">Awaiting the workspace owner</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          You&apos;re a member of this workspace, but its dashboard hasn&apos;t been created yet.
+          Only the workspace owner can provision it.
+        </p>
+        <button
+          onClick={() => void check()}
+          className="text-sm text-primary-400 hover:text-primary-300 transition-colors mt-1"
+        >
+          Check again
+        </button>
+      </div>
+    );
+  }
+
+  if (tenant?.reason === "not_a_member") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-neutral-700/50 bg-neutral-900/60 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-neutral-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-300">No access to this workspace</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          You&apos;re not a member of the selected workspace. Switch to one you belong to.
+        </p>
+      </div>
+    );
+  }
+
+  if (tenant?.reason === "no_subscription") {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-warning-500/20 bg-warning-500/5 h-full">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-warning-500 flex-shrink-0" />
+          <span className="font-medium text-neutral-200">Subscription required</span>
+        </div>
+        <p className="text-sm text-neutral-500 text-center leading-relaxed max-w-xs">
+          This workspace needs an active subscription before its dashboard can be provisioned.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border border-error-500/20 bg-error-500/5 h-full">
       <div className="flex items-center gap-2">
@@ -387,17 +440,143 @@ function TenantCard({ planName }: { planName?: string | null }) {
   );
 }
 
+// ─── WorkspaceSwitcherCard ────────────────────────────────────────────────────
+// The prominent, first-class workspace switcher. Wraps the SDK's <WorkspaceSwitcher>
+// (which owns the dropdown/switch model) with a trigger styled as a full-width card:
+// avatar + name + your role + a chevron affordance, plus a "switch · N members" line.
+// Present in ALL subscription states so a user can always jump to another workspace —
+// e.g. from one with no subscription to one that has an active plan.
+
+/** buildbase stores the owner as createdBy (string id or populated IUser). */
+type WsLike = {
+  _id: string;
+  name: string;
+  image?: string;
+  users?: { _id: string }[];
+  roles?: string[];
+  createdBy?: string | { _id: string };
+} | null;
+
+function ownerId(ws: WsLike): string {
+  const c = ws?.createdBy;
+  return typeof c === "string" ? c : (c?._id ?? "");
+}
+
+/** Owner (createdBy match) → "owner"; otherwise the per-user role parallel to users[]/roles[]. */
+function workspaceRole(ws: WsLike, userId?: string): string {
+  if (!ws || !userId) return "";
+  if (ownerId(ws) === userId) return "owner";
+  const idx = ws.users?.findIndex((u) => u._id === userId) ?? -1;
+  return idx >= 0 ? (ws.roles?.[idx] ?? "member") : "member";
+}
+
+function ChevronDown({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+function RoleBadge({ role }: { role: string }) {
+  const isOwner = role === "owner";
+  return (
+    <span
+      className={`px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider flex-shrink-0 ${
+        isOwner
+          ? "bg-primary-500/15 text-primary-300 border border-primary-500/25"
+          : "bg-neutral-700/40 text-neutral-300 border border-neutral-600/40"
+      }`}
+    >
+      {role}
+    </span>
+  );
+}
+
+function WorkspaceCardSkeleton() {
+  return (
+    <div className="w-full flex items-center gap-4 p-5 rounded-2xl border border-neutral-800 bg-neutral-900/60">
+      <Skeleton className="w-11 h-11 rounded-xl flex-shrink-0" />
+      <div className="flex flex-col gap-2 flex-1">
+        <Skeleton className="w-20 h-2.5" />
+        <Skeleton className="w-40 h-4" />
+        <Skeleton className="w-32 h-2.5" />
+      </div>
+    </div>
+  );
+}
+
+function WorkspaceSwitcherCard({ userId }: { userId?: string }) {
+  const { workspaces } = useSaaSWorkspaces();
+  return (
+    <WorkspaceSwitcher
+      trigger={(loading, currentWorkspace) => {
+        if (loading) return <WorkspaceCardSkeleton />;
+        const cw = currentWorkspace as WsLike;
+        const role = workspaceRole(cw, userId);
+        const members = cw?.users?.length ?? 0;
+        const total = workspaces?.length ?? 0;
+        const memberLabel = `${members} member${members === 1 ? "" : "s"}`;
+        return (
+          <div className="group w-full flex items-center gap-4 p-5 rounded-2xl border border-neutral-800 bg-neutral-900/60 hover:border-neutral-700 hover:bg-neutral-900 transition-all cursor-pointer text-left">
+            {cw?.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={cw.image}
+                alt={cw.name}
+                className="w-11 h-11 rounded-xl flex-shrink-0 object-cover"
+              />
+            ) : (
+              <div className="w-11 h-11 rounded-xl flex-shrink-0 flex items-center justify-center bg-primary-500/15 border border-primary-500/20">
+                <span className="text-base font-bold text-primary-300">
+                  {(cw?.name ?? "?").charAt(0).toUpperCase()}
+                </span>
+              </div>
+            )}
+            <div className="flex flex-col min-w-0 flex-1">
+              <span className="text-[10px] font-semibold text-neutral-500 uppercase tracking-wider">
+                Workspace
+              </span>
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-semibold text-neutral-100 text-base truncate">
+                  {cw?.name ?? "Select a workspace"}
+                </span>
+                {role && <RoleBadge role={role} />}
+              </div>
+              <span className="text-xs text-neutral-500 mt-0.5">
+                {total > 1 ? `Switch workspace · ${memberLabel}` : memberLabel}
+              </span>
+            </div>
+            <ChevronDown className="w-5 h-5 text-neutral-500 group-hover:text-neutral-300 transition-colors flex-shrink-0" />
+          </div>
+        );
+      }}
+    />
+  );
+}
+
 // ─── DashboardContent ─────────────────────────────────────────────────────────
 // Handles subscription + workspace layout in one place. Uses a 2-col grid when
 // subscription is active; collapses to a single card otherwise.
 
 interface AuthUser {
+  id?: string;
   name?: string;
   email?: string;
 }
 
 function DashboardContent({ user }: { user: AuthUser | null }) {
   const { openWorkspaceSettings } = useSaaSAuth();
+  const { currentWorkspace } = useSaaSWorkspaces();
 
   const sub = useWorkspaceSubscription();
   const {
@@ -422,6 +601,10 @@ function DashboardContent({ user }: { user: AuthUser | null }) {
           {firstName ? `Welcome back, ${firstName}` : "Welcome back"}
         </h1>
       </div>
+
+      {/* Prominent workspace switcher — always visible so the user can switch workspaces
+          regardless of the selected workspace's subscription state. */}
+      <WorkspaceSwitcherCard userId={user?.id} />
 
       {/* Cards */}
       {loading || !hasWorkspace || (hasSubscription && !statusResolved) ? (
@@ -501,8 +684,8 @@ function DashboardContent({ user }: { user: AuthUser | null }) {
             </button>
           </div>
 
-          {/* Workspace card */}
-          <TenantCard planName={planName} />
+          {/* Workspace card — driven by the SELECTED workspace (switcher in the header) */}
+          <TenantCard planName={planName} workspaceId={currentWorkspace?._id} />
         </div>
       )}
     </div>
@@ -529,42 +712,10 @@ function DashboardPage() {
 
   const headerRight = (
     <>
-      {isLoading && <HeaderSkeleton />}
+      {isLoading && <Skeleton className="w-16 h-4" />}
 
-      {!isLoading && isAuthenticated && (
-        <WorkspaceSwitcher
-          trigger={(wsLoading, currentWorkspace) => {
-            if (wsLoading) return <HeaderSkeleton />;
-            return (
-              <div className="flex items-center gap-2.5 cursor-pointer hover:opacity-80 transition-opacity">
-                {currentWorkspace?.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={currentWorkspace.image}
-                    alt={currentWorkspace.name}
-                    className="w-7 h-7 rounded-full flex-shrink-0 object-cover"
-                  />
-                ) : (
-                  <div className="w-7 h-7 rounded-full bg-primary-500/20 flex-shrink-0 flex items-center justify-center">
-                    <span className="text-xs font-bold text-primary-400">
-                      {(user?.name ?? currentWorkspace?.name ?? "?").charAt(0).toUpperCase()}
-                    </span>
-                  </div>
-                )}
-                {/* Hide text on small screens to keep header compact */}
-                <div className="hidden sm:flex flex-col items-start leading-tight">
-                  <span className="text-xs font-medium text-neutral-200 max-w-[160px] truncate">
-                    {user?.name ?? currentWorkspace?.name ?? ""}
-                  </span>
-                  <span className="text-[11px] text-neutral-500 max-w-[160px] truncate">
-                    {user?.email ?? ""}
-                  </span>
-                </div>
-              </div>
-            );
-          }}
-        />
-      )}
+      {/* No workspace switcher in the header — the prominent switcher card in the body owns that.
+          The header only carries sign in / sign out. */}
 
       {!isLoading && !isAuthenticated && (
         <button

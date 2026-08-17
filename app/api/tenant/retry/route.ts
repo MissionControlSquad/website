@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { verifyJWT } from "@/lib/jwt";
+import { resolveWorkspaceAccess, readSessionId } from "@/lib/buildbase-server";
 import { PROVISIONING_STATUS } from "@/lib/constants";
 
 interface TokenPayload {
@@ -29,8 +30,19 @@ export async function POST(request: NextRequest) {
   const payload = (await verifyJWT(token, SYSTEM_SECRET)) as TokenPayload | null;
   if (!payload) return Response.json({ error: "Invalid token" }, { status: 401 });
 
-  const { email, workspaceId } = payload;
-  if (!email) return Response.json({ error: "No email in token" }, { status: 400 });
+  const url = new URL(request.url);
+  const workspaceId = (url.searchParams.get("workspaceId") || payload.workspaceId || "").trim();
+  if (!workspaceId) return Response.json({ error: "No workspace in token" }, { status: 400 });
+
+  // AUTHZ (Phase 3): only the workspace OWNER may reprovision its tenant. Fail-closed.
+  const access = await resolveWorkspaceAccess(
+    readSessionId(request.headers.get("Cookie")),
+    workspaceId,
+    payload.userId ?? ""
+  );
+  if (!access.isOwner) {
+    return Response.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   const infraBase = (INFRA_API_URL || "").replace(/\/$/, "");
   const headers: Record<string, string> = {
@@ -40,7 +52,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const lookupRes = await fetch(
-      `${infraBase}/api/clients/lookup?email=${encodeURIComponent(email)}`,
+      `${infraBase}/api/clients/lookup?workspaceId=${encodeURIComponent(workspaceId)}`,
       { headers }
     );
     if (!lookupRes.ok) {
