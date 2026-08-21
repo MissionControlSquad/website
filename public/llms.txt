@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 460 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 463 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -547,6 +547,9 @@ AgentCenter provides:
 - [How to Assign AI Agent Tasks via the AgentCenter API](https://agentcenter.cloud/blogs/how-to-assign-ai-agent-tasks-via-api): Stop creating agent tasks by hand — use the REST API to push tasks from your code, poll status, and pull results automatically.
 - [AgentCenter vs Supabase — Why a Database Isn't a Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-supabase): Teams reach for Supabase to store agent state — here's why that's not the same as a control plane, and where the gap shows up in production.
 - [AI Agents for Automotive Software Teams](https://agentcenter.cloud/blogs/automotive-software-teams-ai-agent-management): How automotive software teams manage OTA release agents, FMEA documentation agents, and telemetry pipeline agents using AgentCenter as a control plane.
+- [Why Your Smartest Engineer Misses the Most Agent Errors](https://agentcenter.cloud/blogs/why-your-smartest-engineer-misses-agent-errors): Domain expertise creates blind spots in agent output review — the people you trust most to catch errors are often the ones most likely to miss them.
+- [AgentCenter vs Rasa — Chatbots vs Agent Operations](https://agentcenter.cloud/blogs/agentcenter-vs-rasa): Rasa builds conversational AI agents; AgentCenter manages the operations layer around your whole agent fleet — task tracking, cost visibility, and deliverable review.
+- [How to Upgrade AI Agents to a New LLM Model Version](https://agentcenter.cloud/blogs/how-to-upgrade-ai-agents-to-new-llm-model-versions): Step-by-step process for safely upgrading production AI agents when your LLM provider releases a new model, without breaking existing workflows.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
