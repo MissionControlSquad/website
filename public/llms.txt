@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 465 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 466 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -552,6 +552,7 @@ AgentCenter provides:
 - [How to Upgrade AI Agents to a New LLM Model Version](https://agentcenter.cloud/blogs/how-to-upgrade-ai-agents-to-new-llm-model-versions): Step-by-step process for safely upgrading production AI agents when your LLM provider releases a new model, without breaking existing workflows.
 - [AI Agents for Backend Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-backend-engineering-teams): How backend engineering teams manage API documentation agents, code review agents, and test generation agents using AgentCenter as a control plane.
 - [Why Running Agents Is More Like Managing People Than Code](https://agentcenter.cloud/blogs/why-running-agents-is-like-managing-people): Why the mental model of treating AI agents like deployed code breaks above 5 agents in production, and the management habits that actually keep quality consistent.
+- [AgentCenter vs Segment — Event Tracking vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-segment): Segment captures what your AI agents did — AgentCenter manages what they're doing right now, from task tracking and deliverable review to cost monitoring across your full agent fleet.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
