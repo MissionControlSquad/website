@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 468 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 469 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -555,6 +555,7 @@ AgentCenter provides:
 - [AgentCenter vs Segment — Event Tracking vs Agent Control Plane](https://agentcenter.cloud/blogs/agentcenter-vs-segment): Segment captures what your AI agents did — AgentCenter manages what they're doing right now, from task tracking and deliverable review to cost monitoring across your full agent fleet.
 - [How to Prioritize Which AI Agents to Invest In Next](https://agentcenter.cloud/blogs/how-to-prioritize-ai-agent-investments): A practical method for deciding which agents deserve more budget and improvement effort — scoring by business impact and current health, with a step-by-step prioritization process.
 - [AI Agents for Robotics Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-robotics-engineering-teams): How robotics engineering teams manage AI agents for simulation testing, firmware validation, and failure analysis using AgentCenter as a shared control plane.
+- [AgentCenter vs OpenTelemetry — Tracing Agents vs Managing Them](https://agentcenter.cloud/blogs/agentcenter-vs-opentelemetry): OpenTelemetry traces what your AI agents do — AgentCenter manages what they do next, from task assignment and deliverable review to real-time agent status across your full fleet.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
