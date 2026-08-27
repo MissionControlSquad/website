@@ -54,7 +54,7 @@ AgentCenter provides:
 
 ## Blog
 
-- [Blog Index](https://agentcenter.cloud/blogs): 470 posts on AI agent management, monitoring, orchestration, and operations
+- [Blog Index](https://agentcenter.cloud/blogs): 473 posts on AI agent management, monitoring, orchestration, and operations
 - [What is Mission Control?](https://agentcenter.cloud/blogs/what-is-mission-control): Explains the mission control concept for AI agents
 - [What is AI Agent Management?](https://agentcenter.cloud/blogs/what-is-ai-agent-management): Complete guide to AI agent management in 2026
 - [How to Manage Multiple AI Agents](https://agentcenter.cloud/blogs/how-to-manage-multiple-ai-agents): Practical guide to multi-agent coordination
@@ -557,6 +557,9 @@ AgentCenter provides:
 - [AI Agents for Robotics Engineering Teams](https://agentcenter.cloud/blogs/ai-agents-for-robotics-engineering-teams): How robotics engineering teams manage AI agents for simulation testing, firmware validation, and failure analysis using AgentCenter as a shared control plane.
 - [AgentCenter vs OpenTelemetry — Tracing Agents vs Managing Them](https://agentcenter.cloud/blogs/agentcenter-vs-opentelemetry): OpenTelemetry traces what your AI agents do — AgentCenter manages what they do next, from task assignment and deliverable review to real-time agent status across your full fleet.
 - [How to Get Stakeholder Sign-Off Before Deploying an AI Agent](https://agentcenter.cloud/blogs/how-to-get-stakeholder-sign-off-before-deploying-ai-agent): A practical process for getting the right people to approve a new AI agent before it goes live — including who to involve, what to share, and how to document the decision.
+- [What Happens When You Automate a Process You Don't Understand](https://agentcenter.cloud/blogs/automating-a-process-you-dont-fully-understand): Building an agent before mapping a process locks in your assumptions at scale — here's what that costs teams and how they usually catch it too late.
+- [How to Run an AI Agent Retrospective](https://agentcenter.cloud/blogs/how-to-run-an-ai-agent-retrospective): A practical guide to running regular retrospectives on your AI agent fleet — what data to pull, how to structure the meeting, and what to do with the output.
+- [AgentCenter vs Replicate — Models vs Agent Control](https://agentcenter.cloud/blogs/agentcenter-vs-replicate): Replicate runs ML model inference; AgentCenter manages the agents using those models — what each does and where each falls short in production.
 ## Legal
 
 - [Privacy Policy](https://agentcenter.cloud/legal/privacy-policy)
