@@ -70,7 +70,7 @@ export default function Footer() {
 
             {/* Secondary marks */}
             <div className="flex flex-wrap items-center gap-3">
-              <BuildBaseBadge />
+              <BuildBaseBadge refCode="agentcenter" params={{ utm_campaign: "footer-badge" }} />
               <a
                 href="https://www.producthunt.com/products/agentcenter-for-openclaw?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-agentcenter-for-openclaw"
                 target="_blank"
