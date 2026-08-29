@@ -4,6 +4,7 @@ import { Twitter, MessageCircle, Github } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS, CAL_LINK } from "@/lib/constants";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
+import { BuildBaseBadge } from "@buildbase/sdk/react";
 
 const iconMap: Record<string, React.ReactNode> = {
   Twitter: <Twitter size={20} />,
@@ -67,8 +68,9 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Product Hunt badge */}
-            <div className="flex flex-wrap gap-3">
+            {/* Secondary marks */}
+            <div className="flex flex-wrap items-center gap-3">
+              <BuildBaseBadge />
               <a
                 href="https://www.producthunt.com/products/agentcenter-for-openclaw?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-agentcenter-for-openclaw"
                 target="_blank"
