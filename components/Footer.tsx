@@ -6,6 +6,10 @@ import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS, CAL_LINK } from "@/lib/constan
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 import { BuildBaseBadge } from "@buildbase/sdk/react";
 
+const BUILDBASE_BADGE_HREF =
+  "https://www.buildbase.app/?ref=agentcenter_badge" +
+  "&utm_source=badge&utm_medium=built-with&utm_campaign=agentcenter.cloud";
+
 const iconMap: Record<string, React.ReactNode> = {
   Twitter: <Twitter size={20} />,
   MessageCircle: <MessageCircle size={20} />,
@@ -70,7 +74,14 @@ export default function Footer() {
 
             {/* Secondary marks */}
             <div className="flex flex-wrap items-center gap-3">
-              <BuildBaseBadge />
+              {/* Own anchor so BuildBase can attribute this install. The SDK's
+                  built-in link hardcodes rel="noreferrer" (strips the referrer)
+                  and carries no site identifier, so we supply both:
+                  utm_campaign works in analytics today, ref is the hook for the
+                  BuildBase API to read once it supports it. */}
+              <a href={BUILDBASE_BADGE_HREF} target="_blank" rel="noopener">
+                <BuildBaseBadge link={false} />
+              </a>
               <a
                 href="https://www.producthunt.com/products/agentcenter-for-openclaw?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-agentcenter-for-openclaw"
                 target="_blank"
