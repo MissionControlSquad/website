@@ -3,12 +3,14 @@
 [![CI](https://github.com/MissionControlSquad/website/actions/workflows/ci.yml/badge.svg)](https://github.com/MissionControlSquad/website/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The marketing website and blog for [AgentCenter.cloud](https://agentcenter.cloud) — Mission Control for your OpenClaw AI agents.
+The marketing website and blog for AgentCenter (agentcenter.cloud), Mission Control for OpenClaw AI agents.
 
 > [!NOTE]
 > The hosted AgentCenter app service has been shut down. This repository is open source under the
 > MIT license. The dashboard, auth and tenant-provisioning routes described below depend on that
-> service (`INFRA_API_URL`) and won't provision anything without your own infra deployment.
+> service (`INFRA_API_URL`) and won't provision anything without your own infra deployment. The
+> AgentCenter app itself is self-hosted and needs no license key; see
+> [MissionControlSquad/monorepo](https://github.com/MissionControlSquad/monorepo).
 
 ## Tech Stack
 
