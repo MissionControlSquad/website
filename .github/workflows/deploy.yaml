@@ -1,5 +1,8 @@
 name: Deploy to Vercel
 
+# Production deploys on every push to main. Pull requests from branches in this
+# repository get a preview deploy; pull requests from forks are skipped because
+# they must never receive VERCEL_TOKEN.
 on:
   push:
     branches:
@@ -7,20 +10,34 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pull-requests: write
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Never cancel a production deploy half-way; previews can be superseded.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   deploy:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pull-requests: write # preview URL comment
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      # Pinned so a new CLI release cannot change deploys without a reviewed PR.
+      VERCEL_CLI_VERSION: "67.0.0"
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "22"
           cache: "npm"
@@ -29,39 +46,43 @@ jobs:
         run: npm ci
 
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: npm install --global "vercel@${VERCEL_CLI_VERSION}"
 
       - name: Set deployment flags
         id: flags
+        env:
+          REF: ${{ github.ref }}
         run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "environment=production" >> $GITHUB_OUTPUT
-            echo "prod_flag=--prod" >> $GITHUB_OUTPUT
+          if [ "$REF" = "refs/heads/main" ]; then
+            echo "environment=production" >> "$GITHUB_OUTPUT"
+            echo "prod_flag=--prod" >> "$GITHUB_OUTPUT"
           else
-            echo "environment=preview" >> $GITHUB_OUTPUT
-            echo "prod_flag=" >> $GITHUB_OUTPUT
+            echo "environment=preview" >> "$GITHUB_OUTPUT"
+            echo "prod_flag=" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Pull Vercel environment
-        run: vercel pull --yes --environment=${{ steps.flags.outputs.environment }} --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment="${{ steps.flags.outputs.environment }}" --token="$VERCEL_TOKEN"
 
       - name: Build project
-        run: vercel build ${{ steps.flags.outputs.prod_flag }} --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build ${{ steps.flags.outputs.prod_flag }} --token="$VERCEL_TOKEN"
 
       - name: Deploy to Vercel
         id: deploy
         run: |
-          URL=$(vercel deploy --prebuilt --archive=tgz ${{ steps.flags.outputs.prod_flag }} --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$URL" >> $GITHUB_OUTPUT
+          URL=$(vercel deploy --prebuilt --archive=tgz ${{ steps.flags.outputs.prod_flag }} --token="$VERCEL_TOKEN")
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
 
       - name: Comment preview URL on PR
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
         with:
           script: |
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🚀 Preview deployed: ${{ steps.deploy.outputs.url }}`
+              body: `🚀 Preview deployed: ${process.env.PREVIEW_URL}`
             });
