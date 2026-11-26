@@ -2,6 +2,14 @@
 
 Guidelines for contributing to the AgentCenter website repository.
 
+Everyone taking part is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md). Report
+security problems privately as described in [SECURITY.md](SECURITY.md), never in an issue or PR.
+By contributing you agree that your contribution is licensed under the [MIT License](LICENSE).
+
+**External contributors:** fork the repository and open a pull request against `main`. For
+anything bigger than a small fix, start a [discussion](https://github.com/MissionControlSquad/website/discussions)
+first so we can agree on the approach. The branch naming below applies to maintainers' branches.
+
 ## Branch Naming
 
 Use this format:
@@ -97,11 +105,16 @@ tags: ["relevant", "keyword", "tags"]
 Before opening a PR, always run:
 
 ```bash
+npm run lint
+npx tsc --noEmit
 npm run build
 ```
 
-This runs the Next.js production build and generates the sitemap. If the build fails, your PR will not be merged.
+`npm run build` validates blog links, runs the Next.js production build and generates the sitemap.
+CI runs the same steps on every pull request, and `main` only accepts pull requests whose checks
+pass and that a code owner has approved.
 
 ## Questions?
 
-Post a message on the relevant task in AgentCenter, or tag the project lead.
+Ask in [Discussions](https://github.com/MissionControlSquad/website/discussions). See
+[SUPPORT.md](.github/SUPPORT.md) for where each kind of request goes.
